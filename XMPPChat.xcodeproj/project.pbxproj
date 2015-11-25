@@ -9,10 +9,16 @@
 /* Begin PBXBuildFile section */
 		84291A0E1C05867A0015F5F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A0D1C05867A0015F5F1 /* main.m */; };
 		84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A101C05867A0015F5F1 /* AppDelegate.m */; };
-		84291A141C05867A0015F5F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A131C05867A0015F5F1 /* ViewController.m */; };
 		84291A171C05867A0015F5F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84291A151C05867A0015F5F1 /* Main.storyboard */; };
 		84291A191C05867A0015F5F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84291A181C05867A0015F5F1 /* Assets.xcassets */; };
 		84291A1C1C05867A0015F5F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84291A1A1C05867A0015F5F1 /* LaunchScreen.storyboard */; };
+		84DD6E6F1C05A009005C1AE2 /* FLOTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E6E1C05A009005C1AE2 /* FLOTabBarController.m */; };
+		84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E761C05A106005C1AE2 /* FLOLoginViewController.m */; };
+		84DD6E7A1C05A16A005C1AE2 /* FLOMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E791C05A16A005C1AE2 /* FLOMessageTableViewController.m */; };
+		84DD6E7D1C05A18F005C1AE2 /* FLOFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E7C1C05A18F005C1AE2 /* FLOFriendsTableViewController.m */; };
+		84DD6E801C05A83B005C1AE2 /* FLOSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E7F1C05A83B005C1AE2 /* FLOSideMenu.m */; };
+		84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E831C05AB06005C1AE2 /* FLOLeftMenuVC.m */; };
+		84DD6E871C05BC6C005C1AE2 /* FLONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E861C05BC6C005C1AE2 /* FLONavigationController.m */; };
 		BFCBFE742134AD90D5FC3750 /* libPods-XMPPChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 327E2092BD8C89D3189F9A3A /* libPods-XMPPChat.a */; };
 /* End PBXBuildFile section */
 
@@ -23,12 +29,24 @@
 		84291A0D1C05867A0015F5F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84291A0F1C05867A0015F5F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84291A101C05867A0015F5F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84291A121C05867A0015F5F1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		84291A131C05867A0015F5F1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		84291A161C05867A0015F5F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84291A181C05867A0015F5F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84291A1B1C05867A0015F5F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84291A1D1C05867A0015F5F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84DD6E6D1C05A009005C1AE2 /* FLOTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOTabBarController.h; path = Global/TabBarController/FLOTabBarController.h; sourceTree = "<group>"; };
+		84DD6E6E1C05A009005C1AE2 /* FLOTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOTabBarController.m; path = Global/TabBarController/FLOTabBarController.m; sourceTree = "<group>"; };
+		84DD6E751C05A106005C1AE2 /* FLOLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOLoginViewController.h; path = "登录/FLOLoginViewController.h"; sourceTree = "<group>"; };
+		84DD6E761C05A106005C1AE2 /* FLOLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOLoginViewController.m; path = "登录/FLOLoginViewController.m"; sourceTree = "<group>"; };
+		84DD6E781C05A16A005C1AE2 /* FLOMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOMessageTableViewController.h; path = "消息/FLOMessageTableViewController.h"; sourceTree = "<group>"; };
+		84DD6E791C05A16A005C1AE2 /* FLOMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOMessageTableViewController.m; path = "消息/FLOMessageTableViewController.m"; sourceTree = "<group>"; };
+		84DD6E7B1C05A18F005C1AE2 /* FLOFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFriendsTableViewController.h; path = "联系人/FLOFriendsTableViewController.h"; sourceTree = "<group>"; };
+		84DD6E7C1C05A18F005C1AE2 /* FLOFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFriendsTableViewController.m; path = "联系人/FLOFriendsTableViewController.m"; sourceTree = "<group>"; };
+		84DD6E7E1C05A83B005C1AE2 /* FLOSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOSideMenu.h; path = Global/SlideMenu/FLOSideMenu.h; sourceTree = "<group>"; };
+		84DD6E7F1C05A83B005C1AE2 /* FLOSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOSideMenu.m; path = Global/SlideMenu/FLOSideMenu.m; sourceTree = "<group>"; };
+		84DD6E821C05AB06005C1AE2 /* FLOLeftMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOLeftMenuVC.h; path = Global/SlideMenu/FLOLeftMenuVC.h; sourceTree = "<group>"; };
+		84DD6E831C05AB06005C1AE2 /* FLOLeftMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOLeftMenuVC.m; path = Global/SlideMenu/FLOLeftMenuVC.m; sourceTree = "<group>"; };
+		84DD6E851C05BC6C005C1AE2 /* FLONavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLONavigationController.h; path = Global/NavigationController/FLONavigationController.h; sourceTree = "<group>"; };
+		84DD6E861C05BC6C005C1AE2 /* FLONavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLONavigationController.m; path = Global/NavigationController/FLONavigationController.m; sourceTree = "<group>"; };
 		D58965F0A18C6EE0430FC5C9 /* Pods-XMPPChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPPChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XMPPChat/Pods-XMPPChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,10 +91,12 @@
 		84291A0B1C05867A0015F5F1 /* XMPPChat */ = {
 			isa = PBXGroup;
 			children = (
+				84DD6E721C05A038005C1AE2 /* 登录 */,
+				84DD6E731C05A042005C1AE2 /* 消息 */,
+				84DD6E741C05A05E005C1AE2 /* 联系人 */,
+				84DD6E701C05A00F005C1AE2 /* Global */,
 				84291A0F1C05867A0015F5F1 /* AppDelegate.h */,
 				84291A101C05867A0015F5F1 /* AppDelegate.m */,
-				84291A121C05867A0015F5F1 /* ViewController.h */,
-				84291A131C05867A0015F5F1 /* ViewController.m */,
 				84291A151C05867A0015F5F1 /* Main.storyboard */,
 				84291A181C05867A0015F5F1 /* Assets.xcassets */,
 				84291A1A1C05867A0015F5F1 /* LaunchScreen.storyboard */,
@@ -92,6 +112,72 @@
 				84291A0D1C05867A0015F5F1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84DD6E701C05A00F005C1AE2 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				84DD6E711C05A01B005C1AE2 /* TabBarController */,
+				84DD6E811C05A842005C1AE2 /* SlideMenu */,
+				84DD6E881C05BC70005C1AE2 /* NavigationController */,
+			);
+			name = Global;
+			sourceTree = "<group>";
+		};
+		84DD6E711C05A01B005C1AE2 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				84DD6E6D1C05A009005C1AE2 /* FLOTabBarController.h */,
+				84DD6E6E1C05A009005C1AE2 /* FLOTabBarController.m */,
+			);
+			name = TabBarController;
+			sourceTree = "<group>";
+		};
+		84DD6E721C05A038005C1AE2 /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				84DD6E751C05A106005C1AE2 /* FLOLoginViewController.h */,
+				84DD6E761C05A106005C1AE2 /* FLOLoginViewController.m */,
+			);
+			name = "登录";
+			sourceTree = "<group>";
+		};
+		84DD6E731C05A042005C1AE2 /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+				84DD6E781C05A16A005C1AE2 /* FLOMessageTableViewController.h */,
+				84DD6E791C05A16A005C1AE2 /* FLOMessageTableViewController.m */,
+			);
+			name = "消息";
+			sourceTree = "<group>";
+		};
+		84DD6E741C05A05E005C1AE2 /* 联系人 */ = {
+			isa = PBXGroup;
+			children = (
+				84DD6E7B1C05A18F005C1AE2 /* FLOFriendsTableViewController.h */,
+				84DD6E7C1C05A18F005C1AE2 /* FLOFriendsTableViewController.m */,
+			);
+			name = "联系人";
+			sourceTree = "<group>";
+		};
+		84DD6E811C05A842005C1AE2 /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				84DD6E7E1C05A83B005C1AE2 /* FLOSideMenu.h */,
+				84DD6E7F1C05A83B005C1AE2 /* FLOSideMenu.m */,
+				84DD6E821C05AB06005C1AE2 /* FLOLeftMenuVC.h */,
+				84DD6E831C05AB06005C1AE2 /* FLOLeftMenuVC.m */,
+			);
+			name = SlideMenu;
+			sourceTree = "<group>";
+		};
+		84DD6E881C05BC70005C1AE2 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				84DD6E851C05BC6C005C1AE2 /* FLONavigationController.h */,
+				84DD6E861C05BC6C005C1AE2 /* FLONavigationController.m */,
+			);
+			name = NavigationController;
 			sourceTree = "<group>";
 		};
 		A4FF2F2247042C6B21EB0DC9 /* Pods */ = {
@@ -208,9 +294,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84291A141C05867A0015F5F1 /* ViewController.m in Sources */,
+				84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */,
+				84DD6E7A1C05A16A005C1AE2 /* FLOMessageTableViewController.m in Sources */,
+				84DD6E6F1C05A009005C1AE2 /* FLOTabBarController.m in Sources */,
+				84DD6E7D1C05A18F005C1AE2 /* FLOFriendsTableViewController.m in Sources */,
+				84DD6E871C05BC6C005C1AE2 /* FLONavigationController.m in Sources */,
+				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,
 				84291A0E1C05867A0015F5F1 /* main.m in Sources */,
+				84DD6E801C05A83B005C1AE2 /* FLOSideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
