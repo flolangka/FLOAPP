@@ -10,4 +10,7 @@
 
 @interface FLOSideMenu : RESideMenu
 
+//应用根视图控制器
++ (instancetype)sideMenu;
+
 @end

@@ -12,6 +12,7 @@
 		84291A171C05867A0015F5F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84291A151C05867A0015F5F1 /* Main.storyboard */; };
 		84291A191C05867A0015F5F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84291A181C05867A0015F5F1 /* Assets.xcassets */; };
 		84291A1C1C05867A0015F5F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84291A1A1C05867A0015F5F1 /* LaunchScreen.storyboard */; };
+		842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842FE8BE1C06E247005B27D5 /* FLOAccountManager.m */; };
 		84DD6E6F1C05A009005C1AE2 /* FLOTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E6E1C05A009005C1AE2 /* FLOTabBarController.m */; };
 		84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E761C05A106005C1AE2 /* FLOLoginViewController.m */; };
 		84DD6E7A1C05A16A005C1AE2 /* FLOMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E791C05A16A005C1AE2 /* FLOMessageTableViewController.m */; };
@@ -33,6 +34,8 @@
 		84291A181C05867A0015F5F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84291A1B1C05867A0015F5F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84291A1D1C05867A0015F5F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		842FE8BD1C06E247005B27D5 /* FLOAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOAccountManager.h; path = "登录/账户管理/FLOAccountManager.h"; sourceTree = "<group>"; };
+		842FE8BE1C06E247005B27D5 /* FLOAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOAccountManager.m; path = "登录/账户管理/FLOAccountManager.m"; sourceTree = "<group>"; };
 		84DD6E6D1C05A009005C1AE2 /* FLOTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOTabBarController.h; path = Global/TabBarController/FLOTabBarController.h; sourceTree = "<group>"; };
 		84DD6E6E1C05A009005C1AE2 /* FLOTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOTabBarController.m; path = Global/TabBarController/FLOTabBarController.m; sourceTree = "<group>"; };
 		84DD6E751C05A106005C1AE2 /* FLOLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOLoginViewController.h; path = "登录/FLOLoginViewController.h"; sourceTree = "<group>"; };
@@ -114,6 +117,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		842FE8B91C06E1D6005B27D5 /* 账户管理 */ = {
+			isa = PBXGroup;
+			children = (
+				842FE8BD1C06E247005B27D5 /* FLOAccountManager.h */,
+				842FE8BE1C06E247005B27D5 /* FLOAccountManager.m */,
+			);
+			name = "账户管理";
+			sourceTree = "<group>";
+		};
 		84DD6E701C05A00F005C1AE2 /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +148,7 @@
 		84DD6E721C05A038005C1AE2 /* 登录 */ = {
 			isa = PBXGroup;
 			children = (
+				842FE8B91C06E1D6005B27D5 /* 账户管理 */,
 				84DD6E751C05A106005C1AE2 /* FLOLoginViewController.h */,
 				84DD6E761C05A106005C1AE2 /* FLOLoginViewController.m */,
 			);
@@ -222,6 +235,7 @@
 				TargetAttributes = {
 					84291A081C05867A0015F5F1 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = X928ZDD77C;
 					};
 				};
 			};
@@ -299,6 +313,7 @@
 				84DD6E6F1C05A009005C1AE2 /* FLOTabBarController.m in Sources */,
 				84DD6E7D1C05A18F005C1AE2 /* FLOFriendsTableViewController.m in Sources */,
 				84DD6E871C05BC6C005C1AE2 /* FLONavigationController.m in Sources */,
+				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,
 				84291A0E1C05867A0015F5F1 /* main.m in Sources */,
@@ -413,9 +428,10 @@
 			baseConfigurationReference = D58965F0A18C6EE0430FC5C9 /* Pods-XMPPChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = XMPPChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flo.XMPPChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.XMPPChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -425,9 +441,10 @@
 			baseConfigurationReference = 6EAB8E06A782426E86BFF338 /* Pods-XMPPChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = XMPPChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Flo.XMPPChat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.XMPPChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -12,6 +12,8 @@
 
 @end
 
+static FLOSideMenu * _sideMenu;
+
 @implementation FLOSideMenu
 
 - (void)awakeFromNib
@@ -27,6 +29,13 @@
     self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
 //    self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenuViewController"];
     self.backgroundImage = [UIImage imageNamed:@"Stars"];
+    
+    _sideMenu = self;
+}
+
++ (instancetype)sideMenu
+{
+    return _sideMenu;
 }
 
 - (void)viewDidLoad {

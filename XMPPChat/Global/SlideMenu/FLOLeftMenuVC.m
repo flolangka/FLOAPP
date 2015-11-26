@@ -8,6 +8,7 @@
 
 #import "FLOLeftMenuVC.h"
 #import <RESideMenu.h>
+#import "FLOAccountManager.h"
 
 @interface FLOLeftMenuVC ()<UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate>
 
@@ -52,7 +53,10 @@
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 2:
-            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"]
+            //注销
+            [[FLOAccountManager shareManager] logOut];
+            
+            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"FLOTabBarVCID"]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;

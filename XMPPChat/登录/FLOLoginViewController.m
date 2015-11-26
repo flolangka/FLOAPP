@@ -7,8 +7,13 @@
 //
 
 #import "FLOLoginViewController.h"
+#import "FLOAccountManager.h"
+#import <MBProgressHUD.h>
 
 @interface FLOLoginViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 
 @end
 
@@ -17,6 +22,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (IBAction)loginAction:(UIButton *)sender {
+    if (_userNameTF.text.length < 1) {
+        [self showPromptTitle:@"请输入用户名..."];
+    } else if (_passwordTF.text.length < 1) {
+        [self showPromptTitle:@"请输入密码..."];
+    } else {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            BOOL loginSuccess = [[FLOAccountManager shareManager] logInWithName:_userNameTF.text password:_passwordTF.text];
+            sleep(2);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (loginSuccess) {
+                    [MBProgressHUD hideHUDForView:self.view animated:NO];
+                    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                } else {
+                    [MBProgressHUD hideHUDForView:self.view animated:NO];
+                    [self showPromptTitle:@"登录失败..."];
+                }
+            });
+        });
+    }
+}
+
+
+- (void)showPromptTitle:(NSString *)title
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = title;
+    [hud hide:YES afterDelay:1.0];
 }
 
 - (void)didReceiveMemoryWarning {
