@@ -10,4 +10,6 @@
 
 @interface FLOLeftMenuVC : UIViewController
 
+- (void)refreshView;
+
 @end

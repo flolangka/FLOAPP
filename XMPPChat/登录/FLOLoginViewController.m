@@ -9,6 +9,7 @@
 #import "FLOLoginViewController.h"
 #import "FLOAccountManager.h"
 #import <MBProgressHUD.h>
+#import "FLOLeftMenuVC.h"
 
 @interface FLOLoginViewController ()
 
@@ -39,7 +40,10 @@
                 if (loginSuccess) {
                     [MBProgressHUD hideHUDForView:self.view animated:NO];
                     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        FLOLeftMenuVC *leftMenuVC = [[UIApplication sharedApplication].windows[0].rootViewController valueForKey:@"leftMenuViewController"];
+                        [leftMenuVC refreshView];
+                    }];
                 } else {
                     [MBProgressHUD hideHUDForView:self.view animated:NO];
                     [self showPromptTitle:@"登录失败..."];

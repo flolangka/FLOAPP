@@ -20,6 +20,9 @@
 		84DD6E801C05A83B005C1AE2 /* FLOSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E7F1C05A83B005C1AE2 /* FLOSideMenu.m */; };
 		84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E831C05AB06005C1AE2 /* FLOLeftMenuVC.m */; };
 		84DD6E871C05BC6C005C1AE2 /* FLONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DD6E861C05BC6C005C1AE2 /* FLONavigationController.m */; };
+		84F2A6A01C07F6080084156F /* FLOMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2A69F1C07F6080084156F /* FLOMessageTableViewCell.m */; };
+		84F2A6A51C0800630084156F /* FLOFriendApplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2A6A41C0800630084156F /* FLOFriendApplyModel.m */; };
+		84F2A6A91C0803030084156F /* FLOUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2A6A81C0803030084156F /* FLOUserModel.m */; };
 		BFCBFE742134AD90D5FC3750 /* libPods-XMPPChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 327E2092BD8C89D3189F9A3A /* libPods-XMPPChat.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +53,12 @@
 		84DD6E831C05AB06005C1AE2 /* FLOLeftMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOLeftMenuVC.m; path = Global/SlideMenu/FLOLeftMenuVC.m; sourceTree = "<group>"; };
 		84DD6E851C05BC6C005C1AE2 /* FLONavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLONavigationController.h; path = Global/NavigationController/FLONavigationController.h; sourceTree = "<group>"; };
 		84DD6E861C05BC6C005C1AE2 /* FLONavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLONavigationController.m; path = Global/NavigationController/FLONavigationController.m; sourceTree = "<group>"; };
+		84F2A69E1C07F6080084156F /* FLOMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOMessageTableViewCell.h; path = "消息/View/FLOMessageTableViewCell.h"; sourceTree = "<group>"; };
+		84F2A69F1C07F6080084156F /* FLOMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOMessageTableViewCell.m; path = "消息/View/FLOMessageTableViewCell.m"; sourceTree = "<group>"; };
+		84F2A6A31C0800630084156F /* FLOFriendApplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFriendApplyModel.h; path = "消息/Model/FLOFriendApplyModel.h"; sourceTree = "<group>"; };
+		84F2A6A41C0800630084156F /* FLOFriendApplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFriendApplyModel.m; path = "消息/Model/FLOFriendApplyModel.m"; sourceTree = "<group>"; };
+		84F2A6A71C0803030084156F /* FLOUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOUserModel.h; path = "Global/用户/FLOUserModel.h"; sourceTree = "<group>"; };
+		84F2A6A81C0803030084156F /* FLOUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOUserModel.m; path = "Global/用户/FLOUserModel.m"; sourceTree = "<group>"; };
 		D58965F0A18C6EE0430FC5C9 /* Pods-XMPPChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPPChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XMPPChat/Pods-XMPPChat.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +138,7 @@
 		84DD6E701C05A00F005C1AE2 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				84F2A6A61C0802E10084156F /* 用户 */,
 				84DD6E711C05A01B005C1AE2 /* TabBarController */,
 				84DD6E811C05A842005C1AE2 /* SlideMenu */,
 				84DD6E881C05BC70005C1AE2 /* NavigationController */,
@@ -160,6 +170,8 @@
 			children = (
 				84DD6E781C05A16A005C1AE2 /* FLOMessageTableViewController.h */,
 				84DD6E791C05A16A005C1AE2 /* FLOMessageTableViewController.m */,
+				84F2A6A11C07F61A0084156F /* View */,
+				84F2A6A21C0800140084156F /* Model */,
 			);
 			name = "消息";
 			sourceTree = "<group>";
@@ -191,6 +203,33 @@
 				84DD6E861C05BC6C005C1AE2 /* FLONavigationController.m */,
 			);
 			name = NavigationController;
+			sourceTree = "<group>";
+		};
+		84F2A6A11C07F61A0084156F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84F2A69E1C07F6080084156F /* FLOMessageTableViewCell.h */,
+				84F2A69F1C07F6080084156F /* FLOMessageTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		84F2A6A21C0800140084156F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84F2A6A31C0800630084156F /* FLOFriendApplyModel.h */,
+				84F2A6A41C0800630084156F /* FLOFriendApplyModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		84F2A6A61C0802E10084156F /* 用户 */ = {
+			isa = PBXGroup;
+			children = (
+				84F2A6A71C0803030084156F /* FLOUserModel.h */,
+				84F2A6A81C0803030084156F /* FLOUserModel.m */,
+			);
+			name = "用户";
 			sourceTree = "<group>";
 		};
 		A4FF2F2247042C6B21EB0DC9 /* Pods */ = {
@@ -308,6 +347,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F2A6A91C0803030084156F /* FLOUserModel.m in Sources */,
+				84F2A6A51C0800630084156F /* FLOFriendApplyModel.m in Sources */,
 				84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */,
 				84DD6E7A1C05A16A005C1AE2 /* FLOMessageTableViewController.m in Sources */,
 				84DD6E6F1C05A009005C1AE2 /* FLOTabBarController.m in Sources */,
@@ -317,6 +358,7 @@
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,
 				84291A0E1C05867A0015F5F1 /* main.m in Sources */,
+				84F2A6A01C07F6080084156F /* FLOMessageTableViewCell.m in Sources */,
 				84DD6E801C05A83B005C1AE2 /* FLOSideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

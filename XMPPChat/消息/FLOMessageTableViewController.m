@@ -12,12 +12,19 @@
 
 @interface FLOMessageTableViewController ()
 
+@property (nonatomic, strong) NSMutableArray *dataArr;          //总数据
+@property (nonatomic, strong) NSMutableArray *friendApplyArr;   //添加好友申请数据
+
 @end
 
 @implementation FLOMessageTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.dataArr = [NSMutableArray array];
+    self.friendApplyArr = [NSMutableArray array];
+    [self.dataArr addObject:_friendApplyArr];
     
     //检查用户是否登录
     [self checkIsLogin];
@@ -46,12 +53,17 @@
         });
         
         //先加载本地数据,顶部显示正在连接
-        
+        [self loadLocalData];
         
         
     } else {
         [[FLOSideMenu sideMenu] presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"] animated:NO completion:nil];
     }
+}
+
+- (void)loadLocalData
+{
+    
 }
 
 

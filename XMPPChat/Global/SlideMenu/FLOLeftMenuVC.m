@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 6) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -36,11 +36,21 @@
     [self.view addSubview:self.tableView];
 }
 
+- (void)refreshView
+{
+    [self.tableView reloadData];
+}
+
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        return;
+    }
+    
     switch (indexPath.row) {
         case 0:
             [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"FLOTabBarVCID"]
@@ -75,12 +85,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 3;
+    return sectionIndex == 0 ? 1 : 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,16 +102,27 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        cell.textLabel.textColor = [UIColor whiteColor];
+        
         cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *titles = @[@"Home", @"Settings", @"Log Out"];
-    NSArray *images = @[@"IconHome", @"IconSettings", @"IconEmpty"];
-    cell.textLabel.text = titles[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
+    if (indexPath.section == 0) {
+        //用户
+        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:28];
+        cell.textLabel.textColor = [UIColor purpleColor];
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"Hi, %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
+    } else {
+        //菜单
+        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        
+        NSArray *titles = @[@"Home", @"Settings", @"Log Out"];
+        NSArray *images = @[@"IconHome", @"IconSettings", @"IconEmpty"];
+        cell.textLabel.text = titles[indexPath.row];
+        cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
+    }
     
     return cell;
 }
