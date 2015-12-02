@@ -2,6 +2,66 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>touchkey_chat</key>
+				<string>chatValue</string>
+			</dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.flolangka.XMPPChat.chat</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>开始聊天</string>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeMessage</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>touchkey_touch</key>
+				<string>touchValue</string>
+			</dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.flolangka.XMPPChat.touch</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>开始操作</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>touchIcon_2</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>touchkey_write</key>
+				<string>writeValue</string>
+			</dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.flolangka.XMPPChat.write</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>开始书写</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>touchIcon_3</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>touchkey_list</key>
+				<string>listValue</string>
+			</dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.flolangka.XMPPChat.list</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>查看报表</string>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeBookmark</string>
+		</dict>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
