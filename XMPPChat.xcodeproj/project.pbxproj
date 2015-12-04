@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
 		84291A0E1C05867A0015F5F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A0D1C05867A0015F5F1 /* main.m */; };
 		84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A101C05867A0015F5F1 /* AppDelegate.m */; };
 		84291A171C05867A0015F5F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84291A151C05867A0015F5F1 /* Main.storyboard */; };
@@ -33,6 +34,8 @@
 /* Begin PBXFileReference section */
 		327E2092BD8C89D3189F9A3A /* libPods-XMPPChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XMPPChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EAB8E06A782426E86BFF338 /* Pods-XMPPChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPPChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-XMPPChat/Pods-XMPPChat.release.xcconfig"; sourceTree = "<group>"; };
+		840EE8171C11E51400DFE53E /* FLOFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontTableViewController.h; path = "模块/UIFont/FLOFontTableViewController.h"; sourceTree = "<group>"; };
+		840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFontTableViewController.m; path = "模块/UIFont/FLOFontTableViewController.m"; sourceTree = "<group>"; };
 		84291A091C05867A0015F5F1 /* FloAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84291A0D1C05867A0015F5F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84291A0F1C05867A0015F5F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +97,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		840EE8151C11E4CB00DFE53E /* 模块 */ = {
+			isa = PBXGroup;
+			children = (
+				840EE8161C11E4DF00DFE53E /* UIFont */,
+			);
+			name = "模块";
+			sourceTree = "<group>";
+		};
+		840EE8161C11E4DF00DFE53E /* UIFont */ = {
+			isa = PBXGroup;
+			children = (
+				840EE8171C11E51400DFE53E /* FLOFontTableViewController.h */,
+				840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */,
+			);
+			name = UIFont;
+			sourceTree = "<group>";
+		};
 		84291A001C05867A0015F5F1 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +135,7 @@
 		84291A0B1C05867A0015F5F1 /* XMPPChat */ = {
 			isa = PBXGroup;
 			children = (
+				840EE8151C11E4CB00DFE53E /* 模块 */,
 				84812DC41C11601D003928E6 /* 首页 */,
 				84812DC31C116013003928E6 /* 聊天 */,
 				84DD6E721C05A038005C1AE2 /* 登录 */,
@@ -159,9 +180,9 @@
 		84812DC41C11601D003928E6 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
-				84812DCC1C117233003928E6 /* Controller */,
 				84812DC51C116061003928E6 /* FloCollectionViewController.h */,
 				84812DC61C116061003928E6 /* FloCollectionViewController.m */,
+				84812DCC1C117233003928E6 /* Controller */,
 				84812DCB1C1165F6003928E6 /* Model */,
 				84812DD01C11772F003928E6 /* View */,
 			);
@@ -417,6 +438,7 @@
 				84DD6E7D1C05A18F005C1AE2 /* FLOFriendsTableViewController.m in Sources */,
 				84812DDB1C117A63003928E6 /* FLOCollectionViewCell.m in Sources */,
 				84DD6E871C05BC6C005C1AE2 /* FLONavigationController.m in Sources */,
+				840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */,
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,

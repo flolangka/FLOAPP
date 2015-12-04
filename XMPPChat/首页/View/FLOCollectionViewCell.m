@@ -12,8 +12,11 @@
 
 - (void)awakeFromNib
 {
-    self.layer.borderWidth = 1.0;
-    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    self.layer.borderWidth = 1.0;
+//    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    self.imageV.layer.cornerRadius = 10.0;
+    self.imageV.clipsToBounds = YES;
 }
 
 @end

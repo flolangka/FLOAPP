@@ -16,6 +16,8 @@
 
 @interface FloCollectionViewController()
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @property (nonatomic, strong) NSMutableArray *dataArr;
 
 @end
@@ -26,15 +28,27 @@
 {
     self.dataArr = [NSMutableArray array];
     [self.dataArr addObject:[[FLOCollectionItem alloc] initWithDictionary:@{@"ItemName": @"XMPPChat",
-                                                                           @"ItemIconURL": @"http://icons.iconarchive.com/icons/graphicloads/100-flat-2/256/chat-2-icon.png",
+                                                                           @"ItemIconURL": @"http://a1791.phobos.apple.com/us/r30/Purple/1a/91/fc/mzl.ajlfscng.png",
                                                                            @"ItemAddress": @"SBIDFLOTabBarVCID"}]];
     [self.dataArr addObject:[[FLOCollectionItem alloc] initWithDictionary:@{@"ItemName": @"UIFont",
-                                                                            @"ItemIconURL": @"http://www.iconpng.com/png/lozengue-filetype/fon.png",
+                                                                            @"ItemIconURL": @"https://cdn.rawgit.com/dtgm/chocolatey-packages/09cd515153eed9aaa929eaf022889bcb8419d601/icons/nexusfont.png",
                                                                             @"ItemAddress": @"SBIDFontTableViewController"}]];
+    
+    UIImage *image = [UIImage imageNamed:@"homeback"];
+    self.view.layer.contents = (id)image.CGImage;
 }
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
     //检查用户是否登录
     [self checkIsLogin];
 }
@@ -107,8 +121,8 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat width = [UIScreen mainScreen].bounds.size.width;
-    return CGSizeMake(width/3.0, 120);
+    CGFloat width = [UIScreen mainScreen].bounds.size.width-32;
+    return CGSizeMake(width/4.0, width/4.0+17);
 }
 
 
