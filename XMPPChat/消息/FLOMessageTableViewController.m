@@ -8,7 +8,6 @@
 
 #import "FLOMessageTableViewController.h"
 #import "FLOAccountManager.h"
-#import "FLOSideMenu.h"
 
 @interface FLOMessageTableViewController ()
 
@@ -26,39 +25,30 @@
     self.friendApplyArr = [NSMutableArray array];
     [self.dataArr addObject:_friendApplyArr];
     
-    //检查用户是否登录
-    [self checkIsLogin];
+    [self loadData];
 }
 
-- (void)checkIsLogin
+- (void)loadData
 {
-    BOOL isLogin = [[FLOAccountManager shareManager] checkLoginState];
-    if (isLogin) {
+    //记住密码状态下自动连接XMPP服务器
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        BOOL connectXMPPSuccess = [[FLOAccountManager shareManager] connectXMPPService];
         
-        //记住密码状态下自动连接XMPP服务器
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            BOOL connectXMPPSuccess = [[FLOAccountManager shareManager] connectXMPPService];
+        if (connectXMPPSuccess) {
+            //获取新数据
             
-            if (connectXMPPSuccess) {
-                //获取新数据
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //刷新页面
-                });
-            } else {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //顶部显示连接失败
-                });
-            }
-        });
-        
-        //先加载本地数据,顶部显示正在连接
-        [self loadLocalData];
-        
-        
-    } else {
-        [[FLOSideMenu sideMenu] presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"] animated:NO completion:nil];
-    }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //刷新页面
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //顶部显示连接失败
+            });
+        }
+    });
+    
+    //先加载本地数据,顶部显示正在连接
+    [self loadLocalData];
 }
 
 - (void)loadLocalData

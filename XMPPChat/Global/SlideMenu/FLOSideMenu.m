@@ -25,8 +25,8 @@ static FLOSideMenu * _sideMenu;
     self.contentViewShadowRadius = 12;
     self.contentViewShadowEnabled = YES;
     
-    self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FLOTabBarVCID"];
-    self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
+    self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFloCollectionNavigationController"];
+    self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDleftMenuViewController"];
 //    self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenuViewController"];
     self.backgroundImage = [UIImage imageNamed:@"Stars"];
     

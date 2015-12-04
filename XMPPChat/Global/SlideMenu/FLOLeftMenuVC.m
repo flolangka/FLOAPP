@@ -53,20 +53,25 @@
     
     switch (indexPath.row) {
         case 0:
-            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"FLOTabBarVCID"]
+            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFloCollectionNavigationController"]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 1:
-            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"settigViewController"]
+            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFLOTabBarVCID"]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 2:
+            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"settigViewController"]
+                                                         animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            break;
+        case 3:
             //注销
             [[FLOAccountManager shareManager] logOut];
             
-            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"FLOTabBarVCID"]
+            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFloCollectionNavigationController"]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
@@ -118,8 +123,8 @@
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         cell.textLabel.textColor = [UIColor whiteColor];
         
-        NSArray *titles = @[@"Home", @"Settings", @"Log Out"];
-        NSArray *images = @[@"IconHome", @"IconSettings", @"IconEmpty"];
+        NSArray *titles = @[@"首页", @"聊天", @"设置", @"Log Out"];
+        NSArray *images = @[@"IconHome", @"shortcut_multichat", @"IconSettings", @"IconEmpty"];
         cell.textLabel.text = titles[indexPath.row];
         cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
     }
