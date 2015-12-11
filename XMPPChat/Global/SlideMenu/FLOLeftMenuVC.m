@@ -12,6 +12,11 @@
 
 @interface FLOLeftMenuVC ()<UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate>
 
+{
+    NSArray *_titles;
+    NSArray *_images;
+}
+
 @property (strong, readwrite, nonatomic) UITableView *tableView;
 
 @end
@@ -20,8 +25,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _titles = @[@"首页", @"聊天", @"设置"];
+    _images = @[@"IconHome", @"IconChat", @"IconSettings"];
+    
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 6) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 100 + 54 * _titles.count) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -34,8 +43,27 @@
         tableView;
     });
     [self.view addSubview:self.tableView];
+    
+    UIButton *logoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [logoutButton setTitle:@"注销" forState:UIControlStateNormal];
+    logoutButton.frame = CGRectMake(10, [UIScreen mainScreen].bounds.size.height-44, 50, 44);
+    logoutButton.tintColor = [UIColor whiteColor];
+    [logoutButton addTarget:self action:@selector(logoutButtonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:logoutButton];
 }
 
+//注销
+- (void)logoutButtonAction
+{
+    [[FLOAccountManager shareManager] logOut];
+    
+    //返回首页，首页会判断是否登录，跳转到登陆页
+    [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFloCollectionNavigationController"]
+                                                 animated:YES];
+    [self.sideMenuViewController hideMenuViewController];
+}
+
+//刷新用户名
 - (void)refreshView
 {
     [self.tableView reloadData];
@@ -67,14 +95,6 @@
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 3:
-            //注销
-            [[FLOAccountManager shareManager] logOut];
-            
-            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFloCollectionNavigationController"]
-                                                         animated:YES];
-            [self.sideMenuViewController hideMenuViewController];
-            break;
         default:
             break;
     }
@@ -85,7 +105,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 54;
+    return indexPath.row == 0 ? 80 : 54;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -95,7 +115,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return sectionIndex == 0 ? 1 : 4;
+    return sectionIndex == 0 ? 1 : _titles.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -113,20 +133,40 @@
     }
     
     if (indexPath.section == 0) {
-        //用户
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:28];
-        cell.textLabel.textColor = [UIColor purpleColor];
+        for (UIView *subView in cell.contentView.subviews) {
+            [subView removeFromSuperview];
+        }
         
-        cell.textLabel.text = [NSString stringWithFormat:@"Hi, %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"username"]];
+        //用户
+        UILabel *nameLabel = [[UILabel alloc] init];
+        nameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+        nameLabel.font = [UIFont fontWithName:@"Chalkduster" size:28];
+        nameLabel.textColor = [UIColor whiteColor];
+        nameLabel.textAlignment = NSTextAlignmentCenter;
+        CGRect nameLabelRect = [nameLabel textRectForBounds:CGRectMake(0, 0, 200, 60) limitedToNumberOfLines:1];
+        CGFloat lastWidth = nameLabelRect.size.width + 30;
+        CGFloat nameLabelWidth = lastWidth > 60 ? lastWidth : 60.0;
+        nameLabel.frame = CGRectMake(30, 10, nameLabelWidth, 60);
+        nameLabel.layer.cornerRadius = 30.0;
+        nameLabel.clipsToBounds = YES;
+        
+        //透明背景
+        CALayer *backgroundLayer = [[CALayer alloc] init];
+        backgroundLayer.frame = CGRectMake(0, 0, nameLabelWidth, 60);
+        backgroundLayer.backgroundColor = [UIColor groupTableViewBackgroundColor].CGColor;
+        backgroundLayer.opacity = 0.4;
+        backgroundLayer.cornerRadius = 30.0;
+        [nameLabel.layer addSublayer:backgroundLayer];
+        
+        [cell.contentView addSubview:nameLabel];
+        
     } else {
         //菜单
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         cell.textLabel.textColor = [UIColor whiteColor];
         
-        NSArray *titles = @[@"首页", @"聊天", @"设置", @"Log Out"];
-        NSArray *images = @[@"IconHome", @"shortcut_multichat", @"IconSettings", @"IconEmpty"];
-        cell.textLabel.text = titles[indexPath.row];
-        cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
+        cell.textLabel.text = _titles[indexPath.row];
+        cell.imageView.image = [UIImage imageNamed:_images[indexPath.row]];
     }
     
     return cell;

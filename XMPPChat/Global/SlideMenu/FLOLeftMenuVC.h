@@ -10,6 +10,7 @@
 
 @interface FLOLeftMenuVC : UIViewController
 
+//登录成功刷新用户名
 - (void)refreshView;
 
 @end
