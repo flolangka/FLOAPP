@@ -35,9 +35,9 @@ YYSYNTH_DUMMY_CLASS(NSNumber_YYAdd)
                 @"null" :   [NSNull null],
                 @"<null>" : [NSNull null]};
     });
-    NSNumber *num = dic[str];
+    id num = dic[str];
     if (num) {
-        if (num == (id)[NSNull null]) return nil;
+        if (num == [NSNull null]) return nil;
         return num;
     }
     

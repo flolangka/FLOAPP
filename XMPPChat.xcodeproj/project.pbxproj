@@ -8,12 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
+		841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */; };
+		841FD2211C1EA2DC003D4F81 /* FLOBookMarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD2201C1EA2DC003D4F81 /* FLOBookMarkModel.m */; };
 		84291A0E1C05867A0015F5F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A0D1C05867A0015F5F1 /* main.m */; };
 		84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A101C05867A0015F5F1 /* AppDelegate.m */; };
 		84291A171C05867A0015F5F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84291A151C05867A0015F5F1 /* Main.storyboard */; };
 		84291A191C05867A0015F5F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84291A181C05867A0015F5F1 /* Assets.xcassets */; };
 		84291A1C1C05867A0015F5F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84291A1A1C05867A0015F5F1 /* LaunchScreen.storyboard */; };
 		842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842FE8BE1C06E247005B27D5 /* FLOAccountManager.m */; };
+		845D32BD1C1EC03800831C70 /* FLOBookMarkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845D32BC1C1EC03800831C70 /* FLOBookMarkTableViewController.m */; };
+		845D32BF1C1EC45400831C70 /* floapp.db in Resources */ = {isa = PBXBuildFile; fileRef = 845D32BE1C1EC45400831C70 /* floapp.db */; };
+		845D32C21C1ED14B00831C70 /* FLOAddBookMarkMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845D32C11C1ED14B00831C70 /* FLOAddBookMarkMaskView.xib */; };
+		845D32C51C1ED16F00831C70 /* FLOAddBookMarkMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845D32C41C1ED16F00831C70 /* FLOAddBookMarkMaskView.m */; };
+		845D32C91C1F0BF200831C70 /* FLOSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845D32C81C1F0BF200831C70 /* FLOSettingTableViewController.m */; };
 		84812DC71C116061003928E6 /* FloCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DC61C116061003928E6 /* FloCollectionViewController.m */; };
 		84812DCA1C1165EE003928E6 /* FLOCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DC91C1165EE003928E6 /* FLOCollectionItem.m */; };
 		84812DCF1C11727A003928E6 /* FLOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DCE1C11727A003928E6 /* FLOWebViewController.m */; };
@@ -36,6 +43,10 @@
 		6EAB8E06A782426E86BFF338 /* Pods-XMPPChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPPChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-XMPPChat/Pods-XMPPChat.release.xcconfig"; sourceTree = "<group>"; };
 		840EE8171C11E51400DFE53E /* FLOFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontTableViewController.h; path = "模块/UIFont/FLOFontTableViewController.h"; sourceTree = "<group>"; };
 		840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFontTableViewController.m; path = "模块/UIFont/FLOFontTableViewController.m"; sourceTree = "<group>"; };
+		841FD21B1C1E9E40003D4F81 /* FLODataBaseEngin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLODataBaseEngin.h; path = "Global/数据库/FLODataBaseEngin.h"; sourceTree = "<group>"; };
+		841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLODataBaseEngin.m; path = "Global/数据库/FLODataBaseEngin.m"; sourceTree = "<group>"; };
+		841FD21F1C1EA2DC003D4F81 /* FLOBookMarkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOBookMarkModel.h; path = "模块/书签/FLOBookMarkModel.h"; sourceTree = "<group>"; };
+		841FD2201C1EA2DC003D4F81 /* FLOBookMarkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOBookMarkModel.m; path = "模块/书签/FLOBookMarkModel.m"; sourceTree = "<group>"; };
 		84291A091C05867A0015F5F1 /* FloAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84291A0D1C05867A0015F5F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84291A0F1C05867A0015F5F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -46,6 +57,14 @@
 		84291A1D1C05867A0015F5F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		842FE8BD1C06E247005B27D5 /* FLOAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOAccountManager.h; path = "登录/账户管理/FLOAccountManager.h"; sourceTree = "<group>"; };
 		842FE8BE1C06E247005B27D5 /* FLOAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOAccountManager.m; path = "登录/账户管理/FLOAccountManager.m"; sourceTree = "<group>"; };
+		845D32BB1C1EC03800831C70 /* FLOBookMarkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOBookMarkTableViewController.h; path = "模块/书签/FLOBookMarkTableViewController.h"; sourceTree = "<group>"; };
+		845D32BC1C1EC03800831C70 /* FLOBookMarkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOBookMarkTableViewController.m; path = "模块/书签/FLOBookMarkTableViewController.m"; sourceTree = "<group>"; };
+		845D32BE1C1EC45400831C70 /* floapp.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = floapp.db; sourceTree = "<group>"; };
+		845D32C11C1ED14B00831C70 /* FLOAddBookMarkMaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FLOAddBookMarkMaskView.xib; path = "模块/书签/FLOAddBookMarkMaskView.xib"; sourceTree = "<group>"; };
+		845D32C31C1ED16F00831C70 /* FLOAddBookMarkMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOAddBookMarkMaskView.h; path = "模块/书签/FLOAddBookMarkMaskView.h"; sourceTree = "<group>"; };
+		845D32C41C1ED16F00831C70 /* FLOAddBookMarkMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOAddBookMarkMaskView.m; path = "模块/书签/FLOAddBookMarkMaskView.m"; sourceTree = "<group>"; };
+		845D32C71C1F0BF200831C70 /* FLOSettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOSettingTableViewController.h; path = "设置/FLOSettingTableViewController.h"; sourceTree = "<group>"; };
+		845D32C81C1F0BF200831C70 /* FLOSettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOSettingTableViewController.m; path = "设置/FLOSettingTableViewController.m"; sourceTree = "<group>"; };
 		84812DC51C116061003928E6 /* FloCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloCollectionViewController.h; path = "首页/FloCollectionViewController.h"; sourceTree = "<group>"; };
 		84812DC61C116061003928E6 /* FloCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloCollectionViewController.m; path = "首页/FloCollectionViewController.m"; sourceTree = "<group>"; };
 		84812DC81C1165EE003928E6 /* FLOCollectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOCollectionItem.h; path = "首页/Model/FLOCollectionItem.h"; sourceTree = "<group>"; };
@@ -101,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				840EE8161C11E4DF00DFE53E /* UIFont */,
+				84812DCC1C117233003928E6 /* WebController */,
+				841FD21E1C1EA260003D4F81 /* 书签 */,
 			);
 			name = "模块";
 			sourceTree = "<group>";
@@ -112,6 +133,27 @@
 				840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */,
 			);
 			name = UIFont;
+			sourceTree = "<group>";
+		};
+		841FD2171C1E9DAA003D4F81 /* 数据库 */ = {
+			isa = PBXGroup;
+			children = (
+				845D32BE1C1EC45400831C70 /* floapp.db */,
+				841FD21B1C1E9E40003D4F81 /* FLODataBaseEngin.h */,
+				841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */,
+			);
+			name = "数据库";
+			sourceTree = "<group>";
+		};
+		841FD21E1C1EA260003D4F81 /* 书签 */ = {
+			isa = PBXGroup;
+			children = (
+				845D32BB1C1EC03800831C70 /* FLOBookMarkTableViewController.h */,
+				845D32BC1C1EC03800831C70 /* FLOBookMarkTableViewController.m */,
+				845D32BA1C1EC00A00831C70 /* Model */,
+				845D32C01C1ED0EF00831C70 /* View */,
+			);
+			name = "书签";
 			sourceTree = "<group>";
 		};
 		84291A001C05867A0015F5F1 = {
@@ -139,6 +181,7 @@
 				84812DC41C11601D003928E6 /* 首页 */,
 				84812DC31C116013003928E6 /* 聊天 */,
 				84DD6E721C05A038005C1AE2 /* 登录 */,
+				845D32C61C1F0B5700831C70 /* 设置 */,
 				84DD6E701C05A00F005C1AE2 /* Global */,
 				84291A0F1C05867A0015F5F1 /* AppDelegate.h */,
 				84291A101C05867A0015F5F1 /* AppDelegate.m */,
@@ -168,6 +211,34 @@
 			name = "账户管理";
 			sourceTree = "<group>";
 		};
+		845D32BA1C1EC00A00831C70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				841FD21F1C1EA2DC003D4F81 /* FLOBookMarkModel.h */,
+				841FD2201C1EA2DC003D4F81 /* FLOBookMarkModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		845D32C01C1ED0EF00831C70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				845D32C31C1ED16F00831C70 /* FLOAddBookMarkMaskView.h */,
+				845D32C41C1ED16F00831C70 /* FLOAddBookMarkMaskView.m */,
+				845D32C11C1ED14B00831C70 /* FLOAddBookMarkMaskView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		845D32C61C1F0B5700831C70 /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				845D32C71C1F0BF200831C70 /* FLOSettingTableViewController.h */,
+				845D32C81C1F0BF200831C70 /* FLOSettingTableViewController.m */,
+			);
+			name = "设置";
+			sourceTree = "<group>";
+		};
 		84812DC31C116013003928E6 /* 聊天 */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +253,6 @@
 			children = (
 				84812DC51C116061003928E6 /* FloCollectionViewController.h */,
 				84812DC61C116061003928E6 /* FloCollectionViewController.m */,
-				84812DCC1C117233003928E6 /* Controller */,
 				84812DCB1C1165F6003928E6 /* Model */,
 				84812DD01C11772F003928E6 /* View */,
 			);
@@ -198,13 +268,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		84812DCC1C117233003928E6 /* Controller */ = {
+		84812DCC1C117233003928E6 /* WebController */ = {
 			isa = PBXGroup;
 			children = (
 				84812DCD1C11727A003928E6 /* FLOWebViewController.h */,
 				84812DCE1C11727A003928E6 /* FLOWebViewController.m */,
 			);
-			name = Controller;
+			name = WebController;
 			sourceTree = "<group>";
 		};
 		84812DD01C11772F003928E6 /* View */ = {
@@ -219,6 +289,7 @@
 		84DD6E701C05A00F005C1AE2 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				841FD2171C1E9DAA003D4F81 /* 数据库 */,
 				84F2A6A61C0802E10084156F /* 用户 */,
 				84DD6E711C05A01B005C1AE2 /* TabBarController */,
 				84DD6E811C05A842005C1AE2 /* SlideMenu */,
@@ -382,9 +453,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845D32C21C1ED14B00831C70 /* FLOAddBookMarkMaskView.xib in Resources */,
 				84291A1C1C05867A0015F5F1 /* LaunchScreen.storyboard in Resources */,
 				84291A191C05867A0015F5F1 /* Assets.xcassets in Resources */,
 				84291A171C05867A0015F5F1 /* Main.storyboard in Resources */,
+				845D32BF1C1EC45400831C70 /* floapp.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,10 +503,13 @@
 			files = (
 				84812DCA1C1165EE003928E6 /* FLOCollectionItem.m in Sources */,
 				84812DC71C116061003928E6 /* FloCollectionViewController.m in Sources */,
+				845D32BD1C1EC03800831C70 /* FLOBookMarkTableViewController.m in Sources */,
 				84F2A6A91C0803030084156F /* FLOUserModel.m in Sources */,
 				84F2A6A51C0800630084156F /* FLOFriendApplyModel.m in Sources */,
 				84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */,
+				841FD2211C1EA2DC003D4F81 /* FLOBookMarkModel.m in Sources */,
 				84DD6E7A1C05A16A005C1AE2 /* FLOMessageTableViewController.m in Sources */,
+				845D32C51C1ED16F00831C70 /* FLOAddBookMarkMaskView.m in Sources */,
 				84DD6E6F1C05A009005C1AE2 /* FLOTabBarController.m in Sources */,
 				84DD6E7D1C05A18F005C1AE2 /* FLOFriendsTableViewController.m in Sources */,
 				84812DDB1C117A63003928E6 /* FLOCollectionViewCell.m in Sources */,
@@ -441,10 +517,12 @@
 				840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */,
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
+				841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,
 				84291A0E1C05867A0015F5F1 /* main.m in Sources */,
 				84F2A6A01C07F6080084156F /* FLOMessageTableViewCell.m in Sources */,
 				84DD6E801C05A83B005C1AE2 /* FLOSideMenu.m in Sources */,
+				845D32C91C1F0BF200831C70 /* FLOSettingTableViewController.m in Sources */,
 				84812DCF1C11727A003928E6 /* FLOWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,6 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = XMPPChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
 				PRODUCT_NAME = FloAPP;
@@ -571,6 +650,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = XMPPChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
 				PRODUCT_NAME = FloAPP;

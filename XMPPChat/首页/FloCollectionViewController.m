@@ -13,6 +13,7 @@
 #import "FLOWebViewController.h"
 #import "FLOCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FLODataBaseEngin.h"
 
 @interface FloCollectionViewController()
 
@@ -26,14 +27,12 @@
 
 - (void)awakeFromNib
 {
-    self.dataArr = [NSMutableArray array];
-    [self.dataArr addObject:[[FLOCollectionItem alloc] initWithDictionary:@{@"ItemName": @"XMPPChat",
-                                                                           @"ItemIconURL": @"http://a1791.phobos.apple.com/us/r30/Purple/1a/91/fc/mzl.ajlfscng.png",
-                                                                           @"ItemAddress": @"SBIDFLOTabBarVCID"}]];
-    [self.dataArr addObject:[[FLOCollectionItem alloc] initWithDictionary:@{@"ItemName": @"UIFont",
-                                                                            @"ItemIconURL": @"https://cdn.rawgit.com/dtgm/chocolatey-packages/09cd515153eed9aaa929eaf022889bcb8419d601/icons/nexusfont.png",
-                                                                            @"ItemAddress": @"SBIDFontTableViewController"}]];
+    [super awakeFromNib];
     
+    NSArray *recordItems = [[FLODataBaseEngin shareInstance] selectAllCollectionItem];
+    self.dataArr = [NSMutableArray arrayWithArray:recordItems];
+    
+    //背景图片
     UIImage *image = [UIImage imageNamed:@"homeback"];
     self.view.layer.contents = (id)image.CGImage;
 }
@@ -41,8 +40,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated

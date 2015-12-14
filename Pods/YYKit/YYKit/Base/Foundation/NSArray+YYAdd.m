@@ -27,7 +27,7 @@ YYSYNTH_DUMMY_CLASS(NSArray_YYAdd)
 
 + (NSArray *)arrayWithPlistString:(NSString *)plist {
     if (!plist) return nil;
-    NSData* data = [plist dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [plist dataUsingEncoding:NSUTF8StringEncoding];
     return [self arrayWithPlistData:data];
 }
 
@@ -54,20 +54,20 @@ YYSYNTH_DUMMY_CLASS(NSArray_YYAdd)
 
 - (NSString *)jsonStringEncoded {
     if ([NSJSONSerialization isValidJSONObject:self]) {
-        NSError *error;
+        NSError *error = nil;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:0 error:&error];
         NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        return json;
+        if (!error) return json;
     }
     return nil;
 }
 
 - (NSString *)jsonPrettyStringEncoded {
     if ([NSJSONSerialization isValidJSONObject:self]) {
-        NSError *error;
+        NSError *error = nil;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:NSJSONWritingPrettyPrinted error:&error];
         NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        return json;
+        if (!error) return json;
     }
     return nil;
 }
@@ -87,7 +87,7 @@ YYSYNTH_DUMMY_CLASS(NSArray_YYAdd)
 
 + (NSMutableArray *)arrayWithPlistString:(NSString *)plist {
     if (!plist) return nil;
-    NSData* data = [plist dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *data = [plist dataUsingEncoding:NSUTF8StringEncoding];
     return [self arrayWithPlistData:data];
 }
 

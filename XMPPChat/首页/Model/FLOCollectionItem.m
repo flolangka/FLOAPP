@@ -29,6 +29,4 @@
 }
 
 
-//- (instancetype)initWithName:(NSString *)itemName iconURL:(NSURL *)itemIconURL address:(NSString *)itemAddress
-
 @end

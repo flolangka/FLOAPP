@@ -1971,6 +1971,7 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
     self.debugOption = [YYTextDebugOption sharedDebugOption];
     [YYTextDebugOption addDebugTarget:self];
     
+    [self _updateInnerContainerSize];
     [self _update];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_pasteboardChanged) name:UIPasteboardChangedNotification object:nil];
@@ -3292,6 +3293,7 @@ typedef NS_ENUM(NSUInteger, YYTextMoveDirection) {
         [_innerText replaceCharactersInRange:NSMakeRange(_selectedTextRange.end.offset, 0) withString:markedText];
         _selectedTextRange = [YYTextRange rangeWithRange:NSMakeRange(_selectedTextRange.start.offset + selectedRange.location, selectedRange.length)];
     } else {
+        _markedTextRange = [self _correctedTextRange:_markedTextRange];
         [_innerText replaceCharactersInRange:_markedTextRange.asRange withString:markedText];
         _markedTextRange = [YYTextRange rangeWithRange:NSMakeRange(_markedTextRange.start.offset, markedText.length)];
         _selectedTextRange = [YYTextRange rangeWithRange:NSMakeRange(_markedTextRange.start.offset + selectedRange.location, selectedRange.length)];

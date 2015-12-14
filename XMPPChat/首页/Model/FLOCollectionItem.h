@@ -23,6 +23,5 @@
 - (instancetype)initWithDictionary:(NSDictionary *)infoDic;
 - (NSDictionary *)infoDictionary;
 
-//- (instancetype)initWithName:(NSString *)itemName iconURL:(NSURL *)itemIconURL address:(NSString *)itemAddress;
 
 @end

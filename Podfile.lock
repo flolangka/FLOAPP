@@ -1,23 +1,30 @@
 PODS:
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
   - MBProgressHUD (0.9.1)
   - RESideMenu (4.0.7)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
-  - YYKit (0.9.4):
-    - YYKit/no-arc (= 0.9.4)
-  - YYKit/no-arc (0.9.4)
+  - YYKit (0.9.6):
+    - YYKit/no-arc (= 0.9.6)
+  - YYKit/no-arc (0.9.6)
 
 DEPENDENCIES:
+  - FMDB
   - MBProgressHUD (~> 0.9.1)
   - RESideMenu (~> 4.0.7)
   - SDWebImage (~> 3.7.3)
   - YYKit
 
 SPEC CHECKSUMS:
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  YYKit: 6d41531048acfe3921ec08337bb71e1a7d9343d9
+  YYKit: 7e27f6b55883bfe3ec2b98e7ad9c38fcbb92a1c5
 
 COCOAPODS: 0.37.2

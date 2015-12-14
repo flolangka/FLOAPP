@@ -6,5 +6,6 @@ target 'XMPPChat' do
     pod 'SDWebImage', '~> 3.7.3'
     pod 'MBProgressHUD', '~> 0.9.1'
     pod 'YYKit'
+    pod 'FMDB'
 end
 

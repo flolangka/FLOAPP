@@ -25,7 +25,7 @@
  Creates and returns a dictionary from a specified property list data.
  
  @param plist   A property list data whose root object is a dictionary.
- @return A new dictionary created from the plist data, or nil if an error occurs.
+ @return A new dictionary created from the binary plist data, or nil if an error occurs.
  */
 + (NSDictionary *)dictionaryWithPlistData:(NSData *)plist;
 
@@ -42,7 +42,7 @@
 /**
  Serialize the dictionary to a binary property list data.
  
- @return A bplist data, or nil if an error occurs.
+ @return A binary plist data, or nil if an error occurs.
  
  @discussion Apple has implemented this method, but did not make it public.
  */
@@ -157,7 +157,7 @@
  Creates and returns a dictionary from a specified property list data.
  
  @param plist   A property list data whose root object is a dictionary.
- @return A new dictionary created from the plist data, or nil if an error occurs.
+ @return A new dictionary created from the binary plist data, or nil if an error occurs.
  
  @discussion Apple has implemented this method, but did not make it public.
  */
@@ -182,7 +182,7 @@
 
 /**
  Returns a new dictionary containing the entries for keys, and remove these
- entries from reciever. If the keys is empty or nil, it just returns an
+ entries from receiver. If the keys is empty or nil, it just returns an
  empty dictionary.
  
  @param keys The keys.
