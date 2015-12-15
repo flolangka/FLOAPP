@@ -50,8 +50,9 @@
     [_bookMarkNameTF resignFirstResponder];
     [_bookMarkURLTF resignFirstResponder];
     
+    CGSize size = [UIScreen mainScreen].bounds.size;
     [UIView animateWithDuration:0.25 animations:^{
-        self.frame = CGRectMake(self.center.x, self.center.y, 1, 1);
+        self.frame = CGRectMake(size.width, 20, size.width, size.height-20);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];

@@ -11,11 +11,18 @@
 
 @interface FLOWebViewController()<UIWebViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *stopOrRefreshItem;
+{
+    UIBarButtonItem *stopItem;
+    UIBarButtonItem *refreshItem;
+    
+    UIBarButtonItem *goBackItem;
+    UIBarButtonItem *goFowardItem;
+    UIBarButtonItem *bookMarkItem;
+    UIBarButtonItem *spaceItem;
+}
 
-@property (nonatomic, strong) UIBarButtonItem *stopItem;
-@property (nonatomic, strong) UIBarButtonItem *refreshItem;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @end
 
@@ -23,19 +30,26 @@
 
 - (void)awakeFromNib
 {
-    self.stopItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(stopWebViewAction)];
-    self.refreshItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(refreshWebViewAction)];
-    self.stopOrRefreshItem = _stopItem;
+    stopItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(stopWebViewAction)];
+    refreshItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshWebViewAction)];
+    goBackItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"goback"] style:UIBarButtonItemStyleDone target:self action:@selector(goBackAction:)];
+    goFowardItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"gofoward"] style:UIBarButtonItemStyleDone target:self action:@selector(goFowardAction:)];
+    bookMarkItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(bookMarkAction:)];
+    spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     
+    [self configStopToolBar];
     [self configRightBarButtonItem];
 }
 
-- (void)viewDidLoad
+#pragma mark - 配置toolBar
+- (void)configStopToolBar
 {
-    [super viewDidLoad];
-    
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_webViewAddress]]];
-    self.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    [self.toolBar setItems:@[spaceItem, goBackItem, spaceItem, goFowardItem, spaceItem, stopItem, spaceItem, bookMarkItem, spaceItem]];
+}
+
+- (void)configRefreshToolBar
+{
+    [self.toolBar setItems:@[spaceItem, goBackItem, spaceItem, goFowardItem, spaceItem, refreshItem, spaceItem, bookMarkItem, spaceItem]];
 }
 
 #pragma mark - rightBarButtomItem
@@ -44,7 +58,21 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"screenCapture"] style:UIBarButtonItemStyleDone target:self action:@selector(curtWebView)];
 }
 
-//对webView截图
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.webView.scrollView.bounces = NO;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_webViewAddress]]];
+    self.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+}
+
+#pragma mark - 对webView截图
 - (void)curtWebView
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -130,13 +158,13 @@
 }
 
 #pragma mark - ToolBar 操作
-- (IBAction)goBackAction:(UIBarButtonItem *)sender {
+- (void)goBackAction:(UIBarButtonItem *)sender {
     if([_webView canGoBack]){
         [_webView goBack];
     }
 }
 
-- (IBAction)goFowardAction:(UIBarButtonItem *)sender {
+- (void)goFowardAction:(UIBarButtonItem *)sender {
     if ([_webView canGoForward]) {
         [_webView goForward];
     }
@@ -145,6 +173,7 @@
 - (void)stopWebViewAction
 {
     [_webView stopLoading];
+    [self configRefreshToolBar];
 }
 
 - (void)refreshWebViewAction
@@ -152,9 +181,9 @@
     [_webView reload];
 }
 
-- (IBAction)bookMarkAction:(UIBarButtonItem *)sender {
+- (void)bookMarkAction:(UIBarButtonItem *)sender {
     FLOBookMarkTableViewController *bookMarkTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDBookMarkTableViewController"];
-    bookMarkTVC.currentRequestURlStr = _webView.request.URL.absoluteString;
+    bookMarkTVC.currentRequestURlStr = [_webView stringByEvaluatingJavaScriptFromString:@"document.location.href"];
     bookMarkTVC.currentDocumentTitle = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     
     [self.navigationController pushViewController:bookMarkTVC animated:YES];
@@ -163,12 +192,12 @@
 #pragma mark - webView Delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    self.stopOrRefreshItem = _stopItem;
+    [self configStopToolBar];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    self.stopOrRefreshItem = _refreshItem;
+    [self configRefreshToolBar];
     self.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 }
 

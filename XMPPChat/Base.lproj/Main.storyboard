@@ -657,29 +657,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="vWW-LB-P0K"/>
                                 </constraints>
-                                <items>
-                                    <barButtonItem systemItem="flexibleSpace" id="5w9-XP-Trv"/>
-                                    <barButtonItem image="goback" id="krK-cW-ByR">
-                                        <connections>
-                                            <action selector="goBackAction:" destination="a8U-kT-ojc" id="MYc-mk-atD"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="flexibleSpace" id="Nkt-El-tyg"/>
-                                    <barButtonItem image="gofoward" id="z0d-bf-ISc">
-                                        <connections>
-                                            <action selector="goFowardAction:" destination="a8U-kT-ojc" id="egB-7g-LmG"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="flexibleSpace" id="wFS-Es-YDD"/>
-                                    <barButtonItem systemItem="stop" id="nf6-az-tq6"/>
-                                    <barButtonItem systemItem="flexibleSpace" id="itg-fX-CMf"/>
-                                    <barButtonItem systemItem="bookmarks" id="jdW-L5-JS6">
-                                        <connections>
-                                            <action selector="bookMarkAction:" destination="a8U-kT-ojc" id="JXo-WQ-Wrp"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JRu-ub-mhK"/>
-                                </items>
+                                <items/>
                             </toolbar>
                         </subviews>
                         <animations/>
@@ -696,7 +674,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="stopOrRefreshItem" destination="nf6-az-tq6" id="RBQ-aD-UN4"/>
+                        <outlet property="toolBar" destination="58j-Fq-kl2" id="ljX-6U-YPM"/>
                         <outlet property="webView" destination="NOe-IE-peV" id="A0h-Oa-dDh"/>
                     </connections>
                 </viewController>
@@ -705,8 +683,4 @@
             <point key="canvasLocation" x="961" y="-1016"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="goback" width="13" height="22"/>
-        <image name="gofoward" width="13" height="22"/>
-    </resources>
 </document>

@@ -44,11 +44,13 @@
     self.dataArr = [NSMutableArray arrayWithArray:recordBookMarks];
     [self.tableView reloadData];
     
-    if (self.currentRequestURlStr) {
-        //右上角 加入书签
-        self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    } else {
-        self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    for (FLOBookMarkModel *bookModel in recordBookMarks) {
+        if (!_currentRequestURlStr || !_currentDocumentTitle || [bookModel.bookMarkURLStr isEqualToString:_currentRequestURlStr]) {
+            //右上角 加入书签
+            self.navigationItem.rightBarButtonItem = nil;
+            break;
+        }
     }
 }
 
@@ -56,11 +58,22 @@
 - (void)addBookMark
 {
     FLOAddBookMarkMaskView *maskView = [[[NSBundle mainBundle] loadNibNamed:@"FLOAddBookMarkMaskView" owner:nil options:nil] objectAtIndex:0];
+    maskView.bookMarkNameTF.text = _currentDocumentTitle;
+    maskView.bookMarkURLTF.text = _currentRequestURlStr;
     maskView.submit = ^void(NSString *name, NSString *urlStr){
         [[FLODataBaseEngin shareInstance] insertBookMark:[[FLOBookMarkModel alloc] initWithBookMarkName:name urlString:urlStr]];
+        
+        //刷新页面
+        [self viewWillAppear:YES];
     };
     
-    [self.view addSubview:maskView];
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    maskView.frame = CGRectMake(size.width, 20, size.width, size.height-20);
+    [[UIApplication sharedApplication].keyWindow addSubview:maskView];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        maskView.frame = CGRectMake(0, 20, size.width, size.height-20);
+    }];
 }
 
 #pragma mark - Table view data source
@@ -85,15 +98,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
     FLOBookMarkModel *bookMark = _dataArr[indexPath.row];
-    FLOWebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDWebViewController"];
-    webViewController.webViewAddress = bookMark.bookMarkURLStr;
     
-    if (self.currentRequestURlStr) {
-        //该值存在时是从webView PUSH过来的
+    NSArray *viewControllers = self.navigationController.viewControllers;
+    UIViewController *backVC = [viewControllers objectAtIndex:viewControllers.count-2];
+    if ([backVC isKindOfClass:[FLOWebViewController class]]) {
+        [(FLOWebViewController *)backVC setWebViewAddress:bookMark.bookMarkURLStr];
         [self.navigationController popViewControllerAnimated:YES];
     } else {
+        FLOWebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDWebViewController"];
+        webViewController.webViewAddress = bookMark.bookMarkURLStr;
         [self.navigationController pushViewController:webViewController animated:YES];
     }
 }

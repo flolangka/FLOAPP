@@ -151,7 +151,7 @@
 				845D32BB1C1EC03800831C70 /* FLOBookMarkTableViewController.h */,
 				845D32BC1C1EC03800831C70 /* FLOBookMarkTableViewController.m */,
 				845D32BA1C1EC00A00831C70 /* Model */,
-				845D32C01C1ED0EF00831C70 /* View */,
+				845D32C01C1ED0EF00831C70 /* 添加书签View */,
 			);
 			name = "书签";
 			sourceTree = "<group>";
@@ -220,14 +220,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		845D32C01C1ED0EF00831C70 /* View */ = {
+		845D32C01C1ED0EF00831C70 /* 添加书签View */ = {
 			isa = PBXGroup;
 			children = (
 				845D32C31C1ED16F00831C70 /* FLOAddBookMarkMaskView.h */,
 				845D32C41C1ED16F00831C70 /* FLOAddBookMarkMaskView.m */,
 				845D32C11C1ED14B00831C70 /* FLOAddBookMarkMaskView.xib */,
 			);
-			name = View;
+			name = "添加书签View";
 			sourceTree = "<group>";
 		};
 		845D32C61C1F0B5700831C70 /* 设置 */ = {
