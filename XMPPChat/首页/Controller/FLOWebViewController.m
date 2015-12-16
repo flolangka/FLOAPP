@@ -121,11 +121,8 @@
     CGSize size = [UIScreen mainScreen].bounds.size;
     
     //背景透明
-    CALayer *backgroundLayer = [[CALayer alloc] init];
-    backgroundLayer.frame = CGRectMake(0, 0, size.width, size.height);
-    backgroundLayer.backgroundColor = [UIColor groupTableViewBackgroundColor].CGColor;
-    backgroundLayer.opacity = 0.4;
-    backgroundLayer.cornerRadius = 7.0;
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    backgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
     
     //加载截图
     CGSize imageSize = [self sizeWithWidth:image.size.width height:image.size.height];
@@ -133,10 +130,10 @@
     imageLayer.frame = CGRectMake(size.width/2-imageSize.width/2, size.height*0.15, imageSize.width, imageSize.height);
     imageLayer.contents = (id)image.CGImage;
     
-    [backgroundLayer addSublayer:imageLayer];
-    [self.view.layer addSublayer:backgroundLayer];
+    [backgroundView.layer addSublayer:imageLayer];
+    [[UIApplication sharedApplication].keyWindow addSubview:backgroundView];
     
-    [self performSelector:@selector(hideMaskLayer) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(hideMaskView) withObject:nil afterDelay:1.0];
 }
 
 //等比缩放
@@ -151,10 +148,14 @@
     return CGSizeMake(toWidth, toHeight);
 }
 
-- (void)hideMaskLayer
+- (void)hideMaskView
 {
-    CALayer *layer = [self.view.layer.sublayers lastObject];
-    [layer removeFromSuperlayer];
+    UIView *maskView = [[UIApplication sharedApplication].keyWindow.subviews lastObject];
+    [UIView animateWithDuration:0.25 animations:^{
+        maskView.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    } completion:^(BOOL finished) {
+        [maskView removeFromSuperview];
+    }];
 }
 
 #pragma mark - ToolBar 操作
