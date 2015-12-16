@@ -21,11 +21,11 @@
 - (void)logOut;
 
 
-//消息页面调用--检查是否有记住的用户名密码
+//首页调用--检查是否有记住的用户名密码
 - (BOOL)checkLoginState;
 
 
-//消息页面调用--记住密码后启动时自动连接到XMPP
+//消息页面调用--记住密码后自动连接到XMPP
 - (BOOL)connectXMPPService;
 
 

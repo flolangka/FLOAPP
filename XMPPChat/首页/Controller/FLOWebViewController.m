@@ -8,6 +8,7 @@
 
 #import "FLOWebViewController.h"
 #import "FLOBookMarkTableViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface FLOWebViewController()<UIWebViewDelegate>
 
@@ -77,12 +78,18 @@
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *curtImageAction = [UIAlertAction actionWithTitle:@"截取可见区域" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //播放系统photoShutter声音
+        AudioServicesPlaySystemSound(1108);
+        
         UIImage *image = [self imageWithView:_webView];
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
         [self showCurtImage:image];
     }];
     UIAlertAction *curtFullImageAction = [UIAlertAction actionWithTitle:@"截取全部区域" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //播放系统photoShutter声音
+        AudioServicesPlaySystemSound(1108);
+        
         UIImage *image = [self fullImageWithScrollView:_webView.scrollView];
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
         
@@ -108,11 +115,26 @@
 //截取长图
 - (UIImage *)fullImageWithScrollView:(UIScrollView *)scrollView
 {
-    UIGraphicsBeginImageContextWithOptions(scrollView.contentSize, scrollView.opaque, 0.0f);
-    [scrollView drawViewHierarchyInRect:scrollView.bounds afterScreenUpdates:NO];
-    UIImage *snapshotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *image = nil;
+    UIGraphicsBeginImageContext(scrollView.contentSize);
+    {
+        //保存状态
+        CGPoint savedContentOffset = scrollView.contentOffset;
+        CGRect savedFrame = scrollView.frame;
+        
+        //获取图片
+        scrollView.contentOffset = CGPointZero;
+        scrollView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
+        [scrollView.layer renderInContext: UIGraphicsGetCurrentContext()];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        //复原
+        scrollView.contentOffset = savedContentOffset;
+        scrollView.frame = savedFrame;
+    }
     UIGraphicsEndImageContext();
-    return snapshotImage;
+    
+    return image;
 }
 
 //将截取得到的图片显示1秒
