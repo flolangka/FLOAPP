@@ -10,12 +10,21 @@
 
 @interface FLOFriendsTableViewController ()
 
+{
+    NSMutableArray *sectionTitles;
+}
+
 @end
 
 @implementation FLOFriendsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    sectionTitles = [NSMutableArray array];
+    for(char c = 'A';c <= 'Z'; c++) {
+        [sectionTitles addObject:[NSString stringWithFormat:@"%c", c]];
+    }
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -32,24 +41,37 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 26;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return 1;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendCellID" forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.textLabel.text = @"abcd";
     
     return cell;
 }
-*/
+
+//右侧索引
+- (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return sectionTitles;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    return index;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return sectionTitles[section];
+}
 
 /*
 // Override to support conditional editing of the table view.

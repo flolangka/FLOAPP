@@ -9,6 +9,7 @@
 #import "FLOSettingTableViewController.h"
 #import "FLODataBaseEngin.h"
 #import <MBProgressHUD.h>
+#import "FLOWeiboAuthorization.h"
 
 @interface FLOSettingTableViewController ()
 
@@ -48,6 +49,7 @@
     
     if (indexPath.row == 0) {
         [[FLODataBaseEngin shareInstance] resetDatabase];
+        [[FLOWeiboAuthorization sharedAuthorization] logout];
         
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeText;

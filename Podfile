@@ -7,5 +7,7 @@ target 'XMPPChat' do
     pod 'MBProgressHUD', '~> 0.9.1'
     pod 'YYKit'
     pod 'FMDB'
+    pod 'AFNetworking'
+    pod 'MJRefresh'
 end
 

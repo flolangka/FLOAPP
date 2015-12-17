@@ -11,7 +11,7 @@
 @interface FLOCollectionItem : NSObject
 
 @property (nonatomic, copy) NSString *itemName;
-@property (nonatomic, strong) NSURL *itemIconURL;
+@property (nonatomic, copy) NSString *itemIconURLStr;
 
 /**
  *  VC的storyboard ID >>>> SBID...

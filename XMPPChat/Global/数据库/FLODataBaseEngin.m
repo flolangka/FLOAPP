@@ -207,7 +207,7 @@ static NSString *dataBasePath;
         if ([table isEqualToString:@"CollectionItems"]) {
             //collectionItem
             for (FLOCollectionItem *collectionItem in datas) {
-                NSString *sql = [NSString stringWithFormat:@"delete from %@ where ItemName = '%@' and ItemIconURL = '%@' and ItemAddress = '%@'", table, collectionItem.itemName, collectionItem.itemIconURL.absoluteString, collectionItem.itemAddress];
+                NSString *sql = [NSString stringWithFormat:@"delete from %@ where ItemName = '%@' and ItemIconURL = '%@' and ItemAddress = '%@'", table, collectionItem.itemName, collectionItem.itemIconURLStr, collectionItem.itemAddress];
                 
                 BOOL deleteSuccess = [db executeUpdate:sql];
                 if (deleteSuccess) {

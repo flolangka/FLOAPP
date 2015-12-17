@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         _itemName = infoDic[@"ItemName"];
-        _itemIconURL = [NSURL URLWithString:infoDic[@"ItemIconURL"]];
+        _itemIconURLStr = infoDic[@"ItemIconURL"];
         _itemAddress = infoDic[@"ItemAddress"];
     }
     return self;
@@ -24,7 +24,7 @@
 - (NSDictionary *)infoDictionary
 {
     return @{@"ItemName": self.itemName,
-             @"ItemIconURL": self.itemIconURL.absoluteString,
+             @"ItemIconURL": self.itemIconURLStr,
              @"ItemAddress": self.itemAddress};
 }
 

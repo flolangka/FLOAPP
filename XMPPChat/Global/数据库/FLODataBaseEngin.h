@@ -28,5 +28,10 @@
 - (void)insertBookMark:(FLOBookMarkModel *)bookMark;
 - (void)deleteBookMark:(FLOBookMarkModel *)bookMark;
 
+//微博数据
+- (void)clearWeiboData;
+- (void)resetWeiboDataWithStatus:(NSArray *)status;
+- (NSArray *)selectWeiboStatus;
+
 
 @end

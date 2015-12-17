@@ -267,8 +267,9 @@
             "n":"Harry Pottery",
             "p": 256,
             "ext" : {
-                "desc" : "A book written by J.K.Rowing."
-            }
+                "desc" : "A book written by J.K.Rowling."
+            },
+            "ID" : 100010
         }
  
     model:
@@ -276,13 +277,15 @@
         @property NSString *name;
         @property NSInteger page;
         @property NSString *desc;
+        @property NSString *bookID;
         @end
- 
+        
         @implementation YYBook
         + (NSDictionary *)modelCustomPropertyMapper {
-            return @{@"name" : @"n",
-                     @"page" : @"p",
-                     @"desc" : @"ext.desc"};
+            return @{@"name"  : @"n",
+                     @"page"  : @"p",
+                     @"desc"  : @"ext.desc",
+                     @"bookID": @[@"id", @"ID", @"book_id"]};
         }
         @end
  

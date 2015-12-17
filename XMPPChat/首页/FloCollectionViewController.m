@@ -72,7 +72,13 @@
     FLOCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCellID" forIndexPath:indexPath];
     
     FLOCollectionItem *item = _dataArr[indexPath.item];
-    [cell.imageV sd_setImageWithURL:item.itemIconURL placeholderImage:[UIImage imageNamed:@"iOS"]];
+    
+    if ([item.itemIconURLStr hasPrefix:@"http"]) {
+        [cell.imageV sd_setImageWithURL:[NSURL URLWithString:item.itemIconURLStr] placeholderImage:[UIImage imageNamed:@"iOS"]];
+    } else {
+        cell.imageV.image = [UIImage imageNamed:item.itemIconURLStr];
+    }
+    
     cell.titleL.text = item.itemName;
     
     return cell;
