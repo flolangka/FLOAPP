@@ -31,54 +31,54 @@
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeMessage</string>
+			<string>qrcode_touchIcon</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>开始聊天</string>
+			<string>扫一扫</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.flolangka.XMPPChat.chat</string>
-			<key>UIApplicationShortcutItemUserInfo</key>
-			<dict>
-				<key>touchkey_chat</key>
-				<string>chatValue</string>
-			</dict>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>touchIcon_2</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>开始操作</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.flolangka.XMPPChat.touch</string>
+			<string>com.flolangka.XMPPChat.qrcode</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>touchkey_touch</key>
-				<string>touchValue</string>
+				<string>qrcodeValue</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>touchIcon_3</string>
+			<string>UIApplicationShortcutIconTypeBookmark</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>开始书写</string>
+			<string>书签</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.flolangka.XMPPChat.write</string>
+			<string>com.flolangka.XMPPChat.bookmark</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
-				<key>touchkey_write</key>
-				<string>writeValue</string>
+				<key>touchkey_touch</key>
+				<string>bookmarkValue</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>UIApplicationShortcutIconTypeFavorite</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>微博</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.flolangka.XMPPChat.weibo</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict>
+				<key>touchkey_touch</key>
+				<string>weiboValue</string>
 			</dict>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeBookmark</string>
+			<string>UIApplicationShortcutIconTypeMessage</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>查看报表</string>
+			<string>聊天</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.flolangka.XMPPChat.list</string>
+			<string>com.flolangka.XMPPChat.chat</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
-				<key>touchkey_list</key>
-				<string>listValue</string>
+				<key>touchkey_touch</key>
+				<string>chatValue</string>
 			</dict>
 		</dict>
 	</array>
