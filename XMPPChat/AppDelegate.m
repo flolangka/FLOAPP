@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "FLOSideMenu.h"
+#import "FLOCodeViewController.h"
 
 @interface AppDelegate ()
 
@@ -30,6 +32,21 @@
     NSLog(@"标题>>%@", shortcutItem.localizedTitle);
     NSLog(@"Type>>%@", shortcutItem.type);
     NSLog(@"userInfo>>%@", shortcutItem.userInfo);
+    
+    FLOSideMenu *sideMenu = (FLOSideMenu *)application.keyWindow.rootViewController;
+    UINavigationController *NavController = (UINavigationController *)sideMenu.contentViewController;
+    NSString *touchType = (NSString *)shortcutItem.userInfo[@"touchkey_touch"];
+    if ([touchType isEqualToString:@"qrcodeValue"]) {
+        [NavController pushViewController:[[FLOCodeViewController alloc] init] animated:YES];
+    } else if ([touchType isEqualToString:@"bookmarkValue"]) {
+        [NavController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDBookMarkTableViewController"] animated:YES];
+    } else if ([touchType isEqualToString:@"weiboValue"]) {
+        [NavController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDWeiboTableViewController"] animated:YES];
+    } else if ([touchType isEqualToString:@"chatValue"]) {
+        [sideMenu setContentViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDFLOTabBarVCID"]];
+    } else {
+        return;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

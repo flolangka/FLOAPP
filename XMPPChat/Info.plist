@@ -30,7 +30,7 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemIconType</key>
+			<key>UIApplicationShortcutItemIconFile</key>
 			<string>qrcode_touchIcon</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>扫一扫</string>
@@ -43,7 +43,7 @@
 			</dict>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
+			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeBookmark</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>书签</string>
@@ -56,7 +56,7 @@
 			</dict>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
+			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeFavorite</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>微博</string>
