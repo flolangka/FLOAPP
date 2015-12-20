@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "FLOSideMenu.h"
 #import "FLOCodeViewController.h"
+#import <AFNetworkReachabilityManager.h>
 
 @interface AppDelegate ()
 
@@ -19,7 +20,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [self networkMonitor];
+    
     return YES;
+}
+
+#pragma mark 网络状态监听
+- (void)networkMonitor
+{
+    AFNetworkReachabilityManager *networkManager = [AFNetworkReachabilityManager sharedManager];
+    [networkManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusNotReachable) {
+            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"网络异常" message:@"请检查网络连接" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [alertV show];
+        }
+    }];
+    [networkManager startMonitoring];
 }
 
 //接收主屏幕图标3D Touch事件

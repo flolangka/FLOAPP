@@ -17,8 +17,8 @@
 
 - (void)setValueWithStatus:(FLOWeiboStatusModel *)status
 {
-    [self.retweet setTitle:[NSString stringWithFormat:@" %ld",status.reposts_count] forState:UIControlStateNormal];
-    [self.comment setTitle:[NSString stringWithFormat:@" %ld",status.comments_count] forState:UIControlStateNormal];
+    [self.retweet setTitle:[NSString stringWithFormat:@" %lu",(long)status.reposts_count] forState:UIControlStateNormal];
+    [self.comment setTitle:[NSString stringWithFormat:@" %lu",(long)status.comments_count] forState:UIControlStateNormal];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

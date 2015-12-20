@@ -26,6 +26,9 @@
 }
 
 - (IBAction)loginAction:(UIButton *)sender {
+    [_userNameTF resignFirstResponder];
+    [_passwordTF resignFirstResponder];    
+    
     if (_userNameTF.text.length < 1) {
         [self showPromptTitle:@"请输入用户名..."];
     } else if (_passwordTF.text.length < 1) {

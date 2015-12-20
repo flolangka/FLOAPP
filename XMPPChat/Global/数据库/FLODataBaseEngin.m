@@ -10,6 +10,7 @@
 #import <FMDB.h>
 #import "FLOBookMarkModel.h"
 #import "FLOCollectionItem.h"
+#import "FLOWeiboStatusModel.h"
 
 static FLODataBaseEngin *dataBaseEngin;
 static NSString *dataBasePath;
@@ -290,6 +291,71 @@ static NSString *dataBasePath;
 - (void)deleteBookMark:(FLOBookMarkModel *)bookMark
 {
     [self deleteFromTable:@"BookMarks" datas:@[bookMark]];
+}
+
+#pragma mark - 微博
+//CREATE TABLE WeiboStatus(created_at text,id integer primary key ,mid integer ,idstr text,text text,source text,favorited integer,truncated integer,in_reply_to_status_id text,in_reply_to_user_id text,in_reply_to_screen_name text,thumbnail_pic text,bmiddle_pic text,original_pic text,geo blob,user blob,retweeted_status blob,reposts_count integer,comments_count integer,abttitudes_count integer,mlevel integer,visible string,pic_urls blob);
+- (void)clearWeiboData
+{
+    FMDatabase *db = [FMDatabase databaseWithPath:dataBasePath];
+    [db open];
+    
+    NSString *sql = @"delete from WeiboStatus";
+    [db executeUpdate:sql];
+    
+    [db close];
+}
+
+- (void)resetWeiboDataWithStatus:(NSArray *)status
+{
+    [self clearWeiboData];
+    
+    NSMutableArray *muArr = [NSMutableArray array];
+    for (FLOWeiboStatusModel *weibo in status) {
+        NSDictionary *dic = [weibo infoDictionary];
+        [muArr addObject:dic];
+    }
+    
+    [self insert2Table:@"WeiboStatus" values:muArr];
+}
+
+- (NSArray *)selectWeiboStatus
+{
+    NSString *sql = @"select * from WeiboStatus order by id desc limit 20";
+    return [self selectDataWithSQLString:sql parseResult:^NSObject *(FMResultSet *rs) {
+        return [self weiboStatusWithResultSet:rs];
+    }];
+}
+
+- (FLOWeiboStatusModel *)weiboStatusWithResultSet:(FMResultSet *)result
+{
+    // 将查询结果转为字典并转化为微博对象
+    NSDictionary *statusInfo = [result resultDictionary];
+    NSMutableDictionary *muStatusInfo = [NSMutableDictionary dictionaryWithDictionary:statusInfo];
+    
+    // 将data数据转化为对象
+    NSArray *allValues = [muStatusInfo allValues];
+    for (id object in allValues) {
+        if ([object isKindOfClass:[NSData class]]) {
+            NSData *data = (NSData *)object;
+            NSString *key = [[muStatusInfo allKeysForObject:object] firstObject];
+            
+            if ([key isEqualToString:@"pic_urls"]) {
+                NSArray *picURLs = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                // 给键重新赋值
+                [muStatusInfo setObject:picURLs forKey:key];
+            } else if ([key isEqualToString:@"user"]){
+                NSDictionary *userInfo = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                [muStatusInfo setObject:userInfo forKey:key];
+                
+            } else if ([key isEqualToString:@"retweeted_status"]){
+                NSDictionary *retweetStatus = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                [muStatusInfo setObject:retweetStatus forKey:key];
+            }
+        }
+    }
+    
+    return [[FLOWeiboStatusModel alloc] initWithDictionary:muStatusInfo];
 }
 
 @end

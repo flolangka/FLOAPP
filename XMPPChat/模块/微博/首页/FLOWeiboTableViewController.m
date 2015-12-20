@@ -14,6 +14,8 @@
 #import "FLOWeiboStatusTableViewCell.h"
 #import "FLOWeiboStatusFoolerTableViewCell.h"
 #import "FLODataBaseEngin.h"
+#import "FLOWeiboDetailViewController.h"
+#import "FLOWeiboReportComViewController.h"
 
 //登录认证
 static NSString * const appKey = @"1780554149";
@@ -133,7 +135,7 @@ static NSString * const kFooterCellID = @"footerCell";
 - (void)loadLocalData
 {
     //加载数据库中数据
-//    [self.dataArr addObjectsFromArray:[[FLODataBaseEngin shareInstance] selectWeiboStatus]];
+    [self.dataArr addObjectsFromArray:[[FLODataBaseEngin shareInstance] selectWeiboStatus]];
     [self.tableView reloadData];
 }
 
@@ -170,7 +172,7 @@ static NSString * const kFooterCellID = @"footerCell";
             [statusModels addObject:statusModel];
         }
         
-        if ([requestDataType isEqualToString:kLoadNew]){
+        if ([requestDataType isEqualToString:kLoadNew] && status.count > 0){
             //将原有的追加到新的数组中
             [statusModels addObjectsFromArray:self.dataArr];
             self.dataArr = statusModels;
@@ -198,23 +200,45 @@ static NSString * const kFooterCellID = @"footerCell";
 
 #pragma mark - Action
 - (IBAction)reportStatusAction:(UIButton *)sender {
+    FLOWeiboStatusFoolerTableViewCell *footerCell = (FLOWeiboStatusFoolerTableViewCell *)[[sender superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:footerCell];
+    FLOWeiboStatusModel *status = _dataArr[indexPath.section];
     
+    [self weiboAction:@"转发微博" statusID:status.statusID];
 }
 
 - (IBAction)commentStatusAction:(UIButton *)sender {
+    FLOWeiboStatusFoolerTableViewCell *footerCell = (FLOWeiboStatusFoolerTableViewCell *)[[sender superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:footerCell];
+    FLOWeiboStatusModel *status = _dataArr[indexPath.section];
     
+    [self weiboAction:@"评论微博" statusID:status.statusID];
+}
+
+- (void)weiboAction:(NSString *)title statusID:(NSString *)statusID
+{
+    FLOWeiboReportComViewController *reportComVC = [self.storyboard instantiateViewControllerWithIdentifier:@"weiboCommandVC"];
+    reportComVC.statusID = statusID;
+    reportComVC.title = title;
+    
+    [self.navigationController pushViewController:reportComVC animated:YES];
 }
 
 - (IBAction)restatusAction:(UIControl *)sender {
+    FLOWeiboStatusTableViewCell *cell = (FLOWeiboStatusTableViewCell *)[[sender superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    FLOWeiboStatusModel *status = _dataArr[indexPath.section];
+    FLOWeiboStatusModel *repostStatus = status.reStatus;
     
+    [self goStatusDetailVCWithStatus:repostStatus];
 }
 
 - (void)goStatusDetailVCWithStatus:(FLOWeiboStatusModel *)status
 {
-//    FloStatusDetailVC *statusDetailVC = [storyboard instantiateViewControllerWithIdentifier:kStatusDetailVC];
-//    statusDetailVC.status = status;
-//
-//    [self.navigationController pushViewController:statusDetailVC animated:YES];
+    FLOWeiboDetailViewController *statusDetailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"weiboDetailViewController"];
+    statusDetailVC.status = status;
+
+    [self.navigationController pushViewController:statusDetailVC animated:YES];
 }
 
 #pragma mark - Table view data source delegate
@@ -292,7 +316,7 @@ static NSString * const kFooterCellID = @"footerCell";
     textLayer.foregroundColor = [UIColor whiteColor].CGColor;
     textLayer.alignmentMode = @"center";
     textLayer.fontSize = 16;
-    textLayer.string = [NSString stringWithFormat:@"%lu 条新微博", number];
+    textLayer.string = [NSString stringWithFormat:@"%lu 条新微博", (unsigned long)number];
     
     [self.view.layer addSublayer:textLayer];
     [self performSelector:@selector(removeFromSelfLayer:) withObject:textLayer afterDelay:2];
@@ -316,7 +340,7 @@ static NSString * const kFooterCellID = @"footerCell";
     }
 }
 
-#pragma mark - authorization Delegate
+#pragma mark - 微博认证 Delegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSString *urlStr = [[request URL] absoluteString];
@@ -341,13 +365,16 @@ static NSString * const kFooterCellID = @"footerCell";
             // 更新授权信息
             [[FLOWeiboAuthorization sharedAuthorization] loginSuccess:result];
             
+            for (UIView *view in self.view.subviews) {
+                if ([view isKindOfClass:[UIWebView class]]) {
+                    [view removeFromSuperview];
+                }
+            }
+            
             //请求微博数据
             requestDataType = kLoadNew;
             [self requestData];
             [self setTitle];
-            
-            UIWebView *webView = [self.view.subviews lastObject];
-            [webView removeFromSuperview];
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"登录失败>>>>%@",error.localizedDescription);

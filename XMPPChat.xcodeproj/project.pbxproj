@@ -27,6 +27,10 @@
 		84812DCA1C1165EE003928E6 /* FLOCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DC91C1165EE003928E6 /* FLOCollectionItem.m */; };
 		84812DCF1C11727A003928E6 /* FLOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DCE1C11727A003928E6 /* FLOWebViewController.m */; };
 		84812DDB1C117A63003928E6 /* FLOCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DDA1C117A63003928E6 /* FLOCollectionViewCell.m */; };
+		849EEDC31C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EEDC21C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.m */; };
+		849EEDC71C26AD8D00CD9A7C /* FLOWeiboCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EEDC61C26AD8D00CD9A7C /* FLOWeiboCommentModel.m */; };
+		849EEDCA1C26B6C900CD9A7C /* FLOWeiboDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EEDC91C26B6C900CD9A7C /* FLOWeiboDetailViewController.m */; };
+		849EEDCD1C26C38700CD9A7C /* FLOWeiboReportComViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EEDCC1C26C38700CD9A7C /* FLOWeiboReportComViewController.m */; };
 		84DA68B71C226459001B9E79 /* FLOWeiboStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA68B61C226459001B9E79 /* FLOWeiboStatusModel.m */; };
 		84DA68BA1C2264DF001B9E79 /* FLOWeiboUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA68B91C2264DF001B9E79 /* FLOWeiboUserModel.m */; };
 		84DA68BD1C227F6E001B9E79 /* FLOWeiboStatusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DA68BC1C227F6E001B9E79 /* FLOWeiboStatusTableViewCell.m */; };
@@ -85,6 +89,14 @@
 		84812DCE1C11727A003928E6 /* FLOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOWebViewController.m; path = "首页/Controller/FLOWebViewController.m"; sourceTree = "<group>"; };
 		84812DD91C117A63003928E6 /* FLOCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOCollectionViewCell.h; path = "首页/View/FLOCollectionViewCell.h"; sourceTree = "<group>"; };
 		84812DDA1C117A63003928E6 /* FLOCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOCollectionViewCell.m; path = "首页/View/FLOCollectionViewCell.m"; sourceTree = "<group>"; };
+		849EEDC11C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOWeiboCommentTableViewCell.h; path = "模块/微博/详情/FLOWeiboCommentTableViewCell.h"; sourceTree = "<group>"; };
+		849EEDC21C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOWeiboCommentTableViewCell.m; path = "模块/微博/详情/FLOWeiboCommentTableViewCell.m"; sourceTree = "<group>"; };
+		849EEDC51C26AD8D00CD9A7C /* FLOWeiboCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOWeiboCommentModel.h; path = "模块/微博/详情/FLOWeiboCommentModel.h"; sourceTree = "<group>"; };
+		849EEDC61C26AD8D00CD9A7C /* FLOWeiboCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOWeiboCommentModel.m; path = "模块/微博/详情/FLOWeiboCommentModel.m"; sourceTree = "<group>"; };
+		849EEDC81C26B6C900CD9A7C /* FLOWeiboDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOWeiboDetailViewController.h; path = "模块/微博/详情/FLOWeiboDetailViewController.h"; sourceTree = "<group>"; };
+		849EEDC91C26B6C900CD9A7C /* FLOWeiboDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOWeiboDetailViewController.m; path = "模块/微博/详情/FLOWeiboDetailViewController.m"; sourceTree = "<group>"; };
+		849EEDCB1C26C38700CD9A7C /* FLOWeiboReportComViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOWeiboReportComViewController.h; path = "模块/微博/评论转发/FLOWeiboReportComViewController.h"; sourceTree = "<group>"; };
+		849EEDCC1C26C38700CD9A7C /* FLOWeiboReportComViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOWeiboReportComViewController.m; path = "模块/微博/评论转发/FLOWeiboReportComViewController.m"; sourceTree = "<group>"; };
 		84DA68B51C226459001B9E79 /* FLOWeiboStatusModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOWeiboStatusModel.h; path = "模块/微博/首页/FLOWeiboStatusModel.h"; sourceTree = "<group>"; };
 		84DA68B61C226459001B9E79 /* FLOWeiboStatusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOWeiboStatusModel.m; path = "模块/微博/首页/FLOWeiboStatusModel.m"; sourceTree = "<group>"; };
 		84DA68B81C2264DF001B9E79 /* FLOWeiboUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOWeiboUserModel.h; path = "模块/微博/登录认证/FLOWeiboUserModel.h"; sourceTree = "<group>"; };
@@ -298,6 +310,8 @@
 		846D83621C21B7E3007CA12B /* 评论转发 */ = {
 			isa = PBXGroup;
 			children = (
+				849EEDCB1C26C38700CD9A7C /* FLOWeiboReportComViewController.h */,
+				849EEDCC1C26C38700CD9A7C /* FLOWeiboReportComViewController.m */,
 			);
 			name = "评论转发";
 			sourceTree = "<group>";
@@ -305,6 +319,10 @@
 		846D83631C21B7EF007CA12B /* 详情 */ = {
 			isa = PBXGroup;
 			children = (
+				849EEDC81C26B6C900CD9A7C /* FLOWeiboDetailViewController.h */,
+				849EEDC91C26B6C900CD9A7C /* FLOWeiboDetailViewController.m */,
+				849EEDC01C26ACEE00CD9A7C /* View */,
+				849EEDC41C26AD6D00CD9A7C /* Model */,
 			);
 			name = "详情";
 			sourceTree = "<group>";
@@ -385,6 +403,24 @@
 				84812DDA1C117A63003928E6 /* FLOCollectionViewCell.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		849EEDC01C26ACEE00CD9A7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				849EEDC11C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.h */,
+				849EEDC21C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		849EEDC41C26AD6D00CD9A7C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				849EEDC51C26AD8D00CD9A7C /* FLOWeiboCommentModel.h */,
+				849EEDC61C26AD8D00CD9A7C /* FLOWeiboCommentModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		84DD6E701C05A00F005C1AE2 /* Global */ = {
@@ -615,12 +651,14 @@
 			files = (
 				84812DCA1C1165EE003928E6 /* FLOCollectionItem.m in Sources */,
 				84812DC71C116061003928E6 /* FloCollectionViewController.m in Sources */,
+				849EEDC31C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.m in Sources */,
 				845D32BD1C1EC03800831C70 /* FLOBookMarkTableViewController.m in Sources */,
 				846D83691C21C1B1007CA12B /* FLOWeiboTableViewController.m in Sources */,
 				84F2A6A91C0803030084156F /* FLOUserModel.m in Sources */,
 				84EEC5561C2396A30089454E /* FLOCodeResultViewController.m in Sources */,
 				84F2A6A51C0800630084156F /* FLOFriendApplyModel.m in Sources */,
 				84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */,
+				849EEDCA1C26B6C900CD9A7C /* FLOWeiboDetailViewController.m in Sources */,
 				841FD2211C1EA2DC003D4F81 /* FLOBookMarkModel.m in Sources */,
 				84DD6E7A1C05A16A005C1AE2 /* FLOMessageTableViewController.m in Sources */,
 				845D32C51C1ED16F00831C70 /* FLOAddBookMarkMaskView.m in Sources */,
@@ -630,7 +668,9 @@
 				84DD6E7D1C05A18F005C1AE2 /* FLOFriendsTableViewController.m in Sources */,
 				84812DDB1C117A63003928E6 /* FLOCollectionViewCell.m in Sources */,
 				84DD6E871C05BC6C005C1AE2 /* FLONavigationController.m in Sources */,
+				849EEDC71C26AD8D00CD9A7C /* FLOWeiboCommentModel.m in Sources */,
 				840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */,
+				849EEDCD1C26C38700CD9A7C /* FLOWeiboReportComViewController.m in Sources */,
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
 				841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */,

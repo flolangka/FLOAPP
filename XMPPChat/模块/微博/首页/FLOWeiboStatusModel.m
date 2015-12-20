@@ -18,6 +18,8 @@
     self = [super init];
     if (self) {
         //设置属性
+        self.weiboDictionary = statusInfo;
+        
         //设置user属性
         NSDictionary *userInfo = statusInfo[@"user"];
         self.user = [[FLOWeiboUserModel alloc] initWithDictionary:userInfo];
@@ -49,6 +51,22 @@
     
     return self;
 }
+
+//提供字典给数据库存储
+- (NSDictionary *)infoDictionary
+{
+    NSMutableDictionary *muSatatusInfo = [NSMutableDictionary dictionaryWithDictionary:_weiboDictionary];
+    NSArray *allkey = [_weiboDictionary allKeys];
+    for (NSString *key in allkey) {
+        id object = _weiboDictionary[key];
+        if ([object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSArray class]]) {
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object];
+            [muSatatusInfo setObject:data forKey:key];
+        }
+    }
+    return muSatatusInfo;
+}
+
 //重写get方法
 -(NSString *)timeAgo{
     //计算跟当前时间的时间差
@@ -57,11 +75,11 @@
     if (time < 60) {
         return @"刚刚";
     }else if (time < 3600) {
-        return [NSString stringWithFormat:@"%ld 分钟前", (NSInteger)time/60];
+        return [NSString stringWithFormat:@"%lu 分钟前", (NSInteger)time/60];
     }else if (time < 3600 * 24) {
-        return [NSString stringWithFormat:@"%ld 小时前", (NSInteger)time/3600];
+        return [NSString stringWithFormat:@"%lu 小时前", (NSInteger)time/3600];
     }else if (time < 3600 * 24 * 30){
-        return [NSString stringWithFormat:@"%ld 天前", (NSInteger)time/(3600 * 24)];
+        return [NSString stringWithFormat:@"%lu 天前", (NSInteger)time/(3600 * 24)];
     }else{
         return [NSDateFormatter localizedStringFromDate:self.created_at dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
     }

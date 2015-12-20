@@ -22,12 +22,14 @@
 @property (nonatomic        ) NSInteger           attitudes_count;
 @property (nonatomic, strong) FLOWeiboStatusModel *reStatus;
 @property (nonatomic, strong) NSString            *statusID;
+@property (nonatomic, strong) NSDictionary        *weiboDictionary;
 
 //显示的多长时间前创建的微博
 @property(nonatomic, copy) NSString *timeAgo;
 
 //初始化model
--(instancetype)initWithDictionary:(NSDictionary *)statusInfo;
+- (instancetype)initWithDictionary:(NSDictionary *)statusInfo;
+- (NSDictionary *)infoDictionary;
 
 // 收藏微博
 + (void)favoriteStatus:(NSString *)statusID success:(void(^)())success failure:(void(^)())failure;
