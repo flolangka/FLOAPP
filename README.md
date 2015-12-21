@@ -9,7 +9,7 @@
 5. sinaWeibo -- 曾经做的微博练习，将首页部分融入其中 -- 2015.12.16
 6. 扫一扫 -- AVFoundation实现扫码功能 -- 2015.12.17
 7. 桌面3D Touch -- 2015.12.17
-
+8. Touch ID -- 2015.12.21
 
 
 ####BY [Flolangka](http://flolangka.com)
