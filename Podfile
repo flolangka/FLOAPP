@@ -2,12 +2,13 @@
 # platform :ios, '6.0'
 
 target 'XMPPChat' do
-    pod 'RESideMenu', '~> 4.0.7'
-    pod 'SDWebImage', '~> 3.7.3'
-    pod 'MBProgressHUD', '~> 0.9.1'
+    pod 'RESideMenu'
+    pod 'SDWebImage'
+    pod 'MBProgressHUD'
     pod 'YYKit'
     pod 'FMDB'
     pod 'AFNetworking'
     pod 'MJRefresh'
+    pod 'BaiduMapKit'
 end
 

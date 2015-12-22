@@ -10,6 +10,8 @@
 #import "FLOSideMenu.h"
 #import "FLOCodeViewController.h"
 #import <AFNetworkReachabilityManager.h>
+#import <BaiduMapAPI_Base/BMKMapManager.h>
+#import <BaiduMapAPI_Map/BMKMapView.h>
 
 @interface AppDelegate ()
 
@@ -21,6 +23,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self networkMonitor];
+    
+    //注册百度地图
+    BMKMapManager *bdManager = [[BMKMapManager alloc]init];
+    [bdManager start:@"ZbXFn3fQqGNxn3TYmtqRhUUB" generalDelegate:nil];
     
     return YES;
 }
@@ -66,13 +72,11 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [BMKMapView willBackGround];//当应用即将后台时调用，停止一切调用opengl相关的操作
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -80,7 +84,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [BMKMapView didForeGround];//当应用恢复前台状态时调用，回复地图的渲染和opengl相关的操作
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

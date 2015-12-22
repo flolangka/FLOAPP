@@ -8,5 +8,7 @@ target 'XMPPChat' do
     pod 'YYKit'
     pod 'FMDB'
     pod 'AFNetworking'
+    pod 'MJRefresh'
+    pod 'BaiduMapKit'
 end
 

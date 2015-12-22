@@ -110,6 +110,13 @@
         UIViewController *viewController = [[ob alloc] init];
         
         [self.navigationController pushViewController:viewController animated:YES];
+    } else if ([itemAddress hasPrefix:@"Present"]) {
+        NSString *classStr = [itemAddress substringFromIndex:7];
+        Class ob = NSClassFromString(classStr);
+        UIViewController *viewController = [[ob alloc] init];
+        viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        [self presentViewController:viewController animated:YES completion:nil];
     } else {
         return;
     }
