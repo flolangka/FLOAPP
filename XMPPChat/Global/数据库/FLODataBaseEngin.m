@@ -11,6 +11,8 @@
 #import "FLOBookMarkModel.h"
 #import "FLOCollectionItem.h"
 #import "FLOWeiboStatusModel.h"
+#import "FLOChatRecordModel.h"
+#import "FLOChatMessageModel.h"
 
 static FLODataBaseEngin *dataBaseEngin;
 static NSString *dataBasePath;
@@ -234,6 +236,17 @@ static NSString *dataBasePath;
     }];
 }
 
+//执行sql语句
+- (void)executeUpdateSQLStr:(NSString *)sqlStr
+{
+    FMDatabase *db = [FMDatabase databaseWithPath:dataBasePath];
+    [db open];
+    
+    [db executeUpdate:sqlStr];
+    
+    [db close];
+}
+
 
 //清除用户的数据(将应用中的数据库替换document中的数据库)
 - (void)resetDatabase
@@ -297,13 +310,7 @@ static NSString *dataBasePath;
 //CREATE TABLE WeiboStatus(created_at text,id integer primary key ,mid integer ,idstr text,text text,source text,favorited integer,truncated integer,in_reply_to_status_id text,in_reply_to_user_id text,in_reply_to_screen_name text,thumbnail_pic text,bmiddle_pic text,original_pic text,geo blob,user blob,retweeted_status blob,reposts_count integer,comments_count integer,abttitudes_count integer,mlevel integer,visible string,pic_urls blob);
 - (void)clearWeiboData
 {
-    FMDatabase *db = [FMDatabase databaseWithPath:dataBasePath];
-    [db open];
-    
-    NSString *sql = @"delete from WeiboStatus";
-    [db executeUpdate:sql];
-    
-    [db close];
+    [self executeUpdateSQLStr:@"delete from WeiboStatus"];
 }
 
 - (void)resetWeiboDataWithStatus:(NSArray *)status
@@ -356,6 +363,50 @@ static NSString *dataBasePath;
     }
     
     return [[FLOWeiboStatusModel alloc] initWithDictionary:muStatusInfo];
+}
+
+#pragma mark - 聊天用户记录
+//CREATE TABLE ChatRecord(ID integer PRIMARY KEY, chatUser text, lastMessage text, lastTime text);
+- (void)saveChatRecord:(FLOChatRecordModel *)chatRecord
+{
+    NSString *sql = [NSString stringWithFormat:@"select * from ChatRecord where chatUser = '%@'", chatRecord.chatUser];
+    NSArray *oldRecords = [self selectDataWithSQLString:sql parseResult:^NSObject *(FMResultSet *rs) {
+        return [[FLOChatRecordModel alloc] initWithDictionary:[rs resultDictionary]];
+    }];
+    if (oldRecords && oldRecords.count > 0) {
+        [self executeUpdateSQLStr:[NSString stringWithFormat:@"delete from ChatRecord where chatUser = '%@'", chatRecord.chatUser]];
+    }
+    
+    NSArray *insertArr = @[[chatRecord infoDictionary]];
+    [self insert2Table:@"BookMarks" values:insertArr];
+}
+
+- (NSArray *)selectAllChatRecords
+{
+    NSString *sql = @"select * from ChatRecord";
+    return [self selectDataWithSQLString:sql parseResult:^NSObject *(FMResultSet *rs) {
+        return [[FLOChatRecordModel alloc] initWithDictionary:[rs resultDictionary]];
+    }];
+}
+
+#pragma mark - 聊天消息记录
+//CREATE TABLE ChatMessage(ID integer PRIMARY KEY, messageFrom text, messageTo text, messageContent text, messageDate text);
+- (void)insertChatMessages:(NSArray *)chatMessages
+{
+    NSMutableArray *muArr = [NSMutableArray array];
+    for (FLOChatMessageModel *chatMsg in chatMessages) {
+        [muArr addObject:[chatMsg infoDictionary]];
+    }
+    
+    [self insert2Table:@"BookMarks" values:muArr];
+}
+
+- (NSArray *)selectAllChatMessagesWithChatUser:(NSString *)chatUser
+{
+    NSString *sql = @"select * from ChatMessage";
+    return [self selectDataWithSQLString:sql parseResult:^NSObject *(FMResultSet *rs) {
+        return [[FLOChatMessageModel alloc] initWithDictionary:[rs resultDictionary]];
+    }];
 }
 
 @end
