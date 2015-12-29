@@ -8,8 +8,10 @@
 
 #import "FLOBDMapViewController.h"
 #import <BaiduMapAPI_Map/BMKMapView.h>
+#import <BaiduMapAPI_Location/BMKLocationService.h>
+#import <MBProgressHUD.h>
 
-@interface FLOBDMapViewController ()<BMKMapViewDelegate, UITextFieldDelegate>
+@interface FLOBDMapViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, UITextFieldDelegate>
 
 {
     CGSize size;
@@ -17,6 +19,8 @@
     NSArray *rightBtns; //右侧功能按钮
     UIImage *normalBGImage;
     UIImage *selectedBGImage; //按钮选中背景图片，imageWithColor
+    
+    BMKLocationService *locationService;
 }
 
 @property (nonatomic, strong) BMKMapView *mapView;
@@ -32,14 +36,50 @@
     self.mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     self.view = _mapView;
     
+    _mapView.zoomLevel = 13;
     _mapView.showMapScaleBar = YES; //比例尺
     
-    //仰俯角及指南针定位有问题
-    _mapView.overlookEnabled = YES;
-    _mapView.compassPosition = CGPointMake(10, 65);
-    
+    [self configLocationService];
     [self configNavigationBar];
     [self configRightBtns];
+    
+    [_mapView addObserver:self forKeyPath:@"userTrackingMode" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if (![keyPath isEqualToString:@"userTrackingMode"]) {
+        return;
+    }
+    UIButton *followHeadingBtn = rightBtns[3];
+    if (followHeadingBtn.selected && [change[@"new"] intValue] != BMKUserTrackingModeFollowWithHeading) {
+        followHeadingBtn.selected = NO;
+    }
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    //横屏后重置frame
+}
+
+#pragma mark - locationService
+- (void)configLocationService
+{
+    _mapView.showsUserLocation = NO;
+    _mapView.userTrackingMode = BMKUserTrackingModeFollow;
+    _mapView.showsUserLocation = YES;
+    
+    BMKLocationViewDisplayParam *locationVDisplayParam = [[BMKLocationViewDisplayParam alloc] init];
+    locationVDisplayParam.isRotateAngleValid = YES;
+    locationVDisplayParam.isAccuracyCircleShow = YES;
+    locationVDisplayParam.locationViewImgName = @"icon_cellphone.png";
+    [_mapView updateLocationViewWithParam:locationVDisplayParam];
+    //定位服务
+    locationService = [[BMKLocationService alloc] init];
+    locationService.headingFilter = 5.;
+    locationService.delegate = self;
+    [locationService startUserLocationService];
 }
 
 #pragma mark - 导航栏
@@ -75,13 +115,22 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
+    
+    //设置指南针位置
+    _mapView.overlooking = -30;
+    _mapView.compassPosition = CGPointMake(10, 65);
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
+    [locationService stopUserLocationService];
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
+    
+    [_mapView removeObserver:self forKeyPath:@"userTrackingMode" context:nil];
 }
 
 - (void)goBackAction
@@ -120,12 +169,14 @@
     [heatMapBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:@"热力图" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:9], NSForegroundColorAttributeName: [UIColor grayColor]}] forState:UIControlStateNormal];
     [heatMapBtn addTarget:self action:@selector(heatMapBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    //3D建筑
-    UIButton *buildingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [buildingBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:@"3D图" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:9], NSForegroundColorAttributeName: [UIColor grayColor]}] forState:UIControlStateNormal];
-    [buildingBtn addTarget:self action:@selector(buildingBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    //罗盘
+    UIButton *followHeadingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [followHeadingBtn setAttributedTitle:[[NSAttributedString alloc] initWithString:@"罗盘" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:9], NSForegroundColorAttributeName: [UIColor grayColor]}] forState:UIControlStateNormal];
+    [followHeadingBtn addTarget:self action:@selector(followHeadingBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    rightBtns = @[satelliteMapBtn, trafficBtn, heatMapBtn, buildingBtn];
+    //
+    
+    rightBtns = @[satelliteMapBtn, trafficBtn, heatMapBtn, followHeadingBtn];
     [self layoutRightBtns];
 }
 
@@ -190,19 +241,51 @@
     }
 }
 
-//3D建筑图
-- (void)buildingBtnAction:(UIButton *)sender
+//罗盘
+- (void)followHeadingBtnAction:(UIButton *)sender
 {
+    _mapView.showsUserLocation = NO;
     sender.selected = !sender.selected;
     if (sender.selected) {
-        [_mapView setBuildingsEnabled:YES];
+        //进入罗盘状态
+        _mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
     } else {
-        [_mapView setBuildingsEnabled:NO];
+        _mapView.userTrackingMode = BMKUserTrackingModeFollow;
     }
+    _mapView.showsUserLocation = YES;
 }
 
 #pragma mark - 右下角放大/缩小按钮
 //- (void)config
 
+
+#pragma mark - 定位服务
+//位置更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    [_mapView updateLocationData:userLocation];
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _mapView.zoomLevel = 18;
+        _mapView.overlooking = 0;
+        [_mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    });
+}
+
+//方向更新
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    [_mapView updateLocationData:userLocation];
+}
+
+//定位失败
+- (void)didFailToLocateUserWithError:(NSError *)error
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = @"定位失败";
+    [hud hide:YES afterDelay:1.0];
+}
 
 @end

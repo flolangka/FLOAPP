@@ -29,6 +29,8 @@ static NSString * const kShowCommentsURL = @"https://api.weibo.com/2/comments/sh
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
     self.dataArr = [NSMutableArray array];
     [self configTabBarV];
 }

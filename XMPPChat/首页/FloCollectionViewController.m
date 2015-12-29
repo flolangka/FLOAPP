@@ -94,10 +94,10 @@
 {
     FLOCollectionItem *item = _dataArr[indexPath.item];
     NSString *itemAddress = item.itemAddress;
-    if ([itemAddress isEqualToString:@"SBIDFLOTabBarVCID"]) {
-        //切换到聊天
-        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFLOTabBarVCID"]
-                                                     animated:YES];
+    if ([itemAddress hasPrefix:@"URLScheme_"]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", [itemAddress substringFromIndex:10]]]];
+        
+//        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFLOTabBarVCID"] animated:YES];
     } else if ([itemAddress hasPrefix:@"SBID"]) {
         [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:itemAddress] animated:YES];
     } else if ([itemAddress hasPrefix:@"http"]) {

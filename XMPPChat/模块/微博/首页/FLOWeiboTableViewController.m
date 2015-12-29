@@ -311,14 +311,14 @@ static NSString * const kFooterCellID = @"footerCell";
     AudioServicesPlaySystemSound(1302);
     
     CATextLayer *textLayer = [[CATextLayer alloc] init];
-    textLayer.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 24);
+    textLayer.frame = CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 24);
     textLayer.backgroundColor = [UIColor orangeColor].CGColor;
     textLayer.foregroundColor = [UIColor whiteColor].CGColor;
     textLayer.alignmentMode = @"center";
     textLayer.fontSize = 16;
     textLayer.string = [NSString stringWithFormat:@"%lu 条新微博", (unsigned long)number];
     
-    [self.view.layer addSublayer:textLayer];
+    [[UIApplication sharedApplication].keyWindow.layer addSublayer:textLayer];
     [self performSelector:@selector(removeFromSelfLayer:) withObject:textLayer afterDelay:2];
 }
 

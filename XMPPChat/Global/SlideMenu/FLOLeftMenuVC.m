@@ -26,8 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _titles = @[@"首页", @"聊天", @"设置"];
-    _images = @[@"IconHome", @"IconChat", @"IconSettings"];
+    _titles = @[@"首页", @"设置"];
+    _images = @[@"IconHome", @"IconSettings"];
     
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 100 + 54 * _titles.count) style:UITableViewStylePlain];
@@ -85,12 +85,12 @@
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
+//        case 1:
+//            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFLOTabBarVCID"]
+//                                                         animated:YES];
+//            [self.sideMenuViewController hideMenuViewController];
+//            break;
         case 1:
-            [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFLOTabBarVCID"]
-                                                         animated:YES];
-            [self.sideMenuViewController hideMenuViewController];
-            break;
-        case 2:
             [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"settigViewController"]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
