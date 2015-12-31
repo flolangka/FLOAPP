@@ -46,6 +46,7 @@
     [_mapView addObserver:self forKeyPath:@"userTrackingMode" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+//监测罗盘是否开启
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
     if (![keyPath isEqualToString:@"userTrackingMode"]) {
@@ -77,9 +78,22 @@
     [_mapView updateLocationViewWithParam:locationVDisplayParam];
     //定位服务
     locationService = [[BMKLocationService alloc] init];
-    locationService.headingFilter = 5.;
+    locationService.headingFilter = 1.;
     locationService.delegate = self;
     [locationService startUserLocationService];
+    
+    //定位按钮
+    UIButton *locationBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    locationBtn.frame = CGRectMake(10, size.height-100, 30, 30);
+    [locationBtn setImage:[UIImage imageNamed:@"default_main_gpsnormalbutton_image_normal"] forState:UIControlStateNormal];
+    [locationBtn addTarget:self action:@selector(locationBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_mapView addSubview:locationBtn];
+}
+
+- (void)locationBtnAction
+{
+    [self updateMapViewCenterWithCoordinate:locationService.userLocation.location.coordinate];
 }
 
 #pragma mark - 导航栏
@@ -273,10 +287,15 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _mapView.zoomLevel = 18;
-        _mapView.overlooking = 0;
-        [_mapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+        [self updateMapViewCenterWithCoordinate:userLocation.location.coordinate];
     });
+}
+
+- (void)updateMapViewCenterWithCoordinate:(CLLocationCoordinate2D)coordinate
+{
+    _mapView.zoomLevel = 18;
+    _mapView.overlooking = 0;
+    [_mapView setCenterCoordinate:coordinate animated:YES];
 }
 
 //方向更新
