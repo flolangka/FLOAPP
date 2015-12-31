@@ -148,12 +148,24 @@
 {
     //将时间字符串转化为时间
     //"Sun Apr 26 09:06:27 +0800 2015"
+    
+    /*真机上有问题
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     //构造时间格式字符串
     NSString *formatterString = @"EEE MMM dd HH:mm:ss zzz yyyy";
     [formatter setDateFormat:formatterString];
     NSDate *date = [formatter dateFromString:string];
     return date;
+    */
+    
+    struct tm tm;
+    time_t t;
+    string = [string substringFromIndex:4];
+    strptime([string cStringUsingEncoding:NSUTF8StringEncoding], "%b %d %H:%M:%S %z %Y", &tm);
+    tm.tm_isdst = -1;
+    t = mktime(&tm);
+    
+    return [NSDate dateWithTimeIntervalSince1970:t];
 }
 
 @end
