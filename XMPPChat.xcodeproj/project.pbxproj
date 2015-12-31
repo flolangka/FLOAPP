@@ -26,6 +26,7 @@
 		846D83661C21B9A6007CA12B /* FLOWeiboAuthorization.m in Sources */ = {isa = PBXBuildFile; fileRef = 846D83651C21B9A6007CA12B /* FLOWeiboAuthorization.m */; };
 		846D83691C21C1B1007CA12B /* FLOWeiboTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846D83681C21C1B1007CA12B /* FLOWeiboTableViewController.m */; };
 		846E9C481C298BDB00843A24 /* FLOBDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846E9C471C298BDB00843A24 /* FLOBDMapViewController.m */; };
+		84754F361C34F58B00C62243 /* FLOSystemSoundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84754F351C34F58B00C62243 /* FLOSystemSoundTableViewController.m */; };
 		84812DC71C116061003928E6 /* FloCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DC61C116061003928E6 /* FloCollectionViewController.m */; };
 		84812DCA1C1165EE003928E6 /* FLOCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DC91C1165EE003928E6 /* FLOCollectionItem.m */; };
 		84812DCF1C11727A003928E6 /* FLOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DCE1C11727A003928E6 /* FLOWebViewController.m */; };
@@ -90,6 +91,8 @@
 		846D83681C21C1B1007CA12B /* FLOWeiboTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOWeiboTableViewController.m; path = "模块/微博/首页/FLOWeiboTableViewController.m"; sourceTree = "<group>"; };
 		846E9C461C298BDB00843A24 /* FLOBDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOBDMapViewController.h; path = "模块/百度地图/FLOBDMapViewController.h"; sourceTree = "<group>"; };
 		846E9C471C298BDB00843A24 /* FLOBDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOBDMapViewController.m; path = "模块/百度地图/FLOBDMapViewController.m"; sourceTree = "<group>"; };
+		84754F341C34F58B00C62243 /* FLOSystemSoundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOSystemSoundTableViewController.h; path = "模块/系统声音/FLOSystemSoundTableViewController.h"; sourceTree = "<group>"; };
+		84754F351C34F58B00C62243 /* FLOSystemSoundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOSystemSoundTableViewController.m; path = "模块/系统声音/FLOSystemSoundTableViewController.m"; sourceTree = "<group>"; };
 		84812DC51C116061003928E6 /* FloCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloCollectionViewController.h; path = "首页/FloCollectionViewController.h"; sourceTree = "<group>"; };
 		84812DC61C116061003928E6 /* FloCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloCollectionViewController.m; path = "首页/FloCollectionViewController.m"; sourceTree = "<group>"; };
 		84812DC81C1165EE003928E6 /* FLOCollectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOCollectionItem.h; path = "首页/Model/FLOCollectionItem.h"; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 				849265F31C27A82A00261F36 /* Touch ID */,
 				84EEC5501C2394C90089454E /* 扫一扫 */,
 				840EE8161C11E4DF00DFE53E /* UIFont */,
+				84754F331C34F52C00C62243 /* 系统声音 */,
 				84812DCC1C117233003928E6 /* 浏览器 */,
 				841FD21E1C1EA260003D4F81 /* 书签 */,
 				846D835F1C21B7A2007CA12B /* 微博 */,
@@ -376,6 +380,15 @@
 				846E9C471C298BDB00843A24 /* FLOBDMapViewController.m */,
 			);
 			name = "百度地图";
+			sourceTree = "<group>";
+		};
+		84754F331C34F52C00C62243 /* 系统声音 */ = {
+			isa = PBXGroup;
+			children = (
+				84754F341C34F58B00C62243 /* FLOSystemSoundTableViewController.h */,
+				84754F351C34F58B00C62243 /* FLOSystemSoundTableViewController.m */,
+			);
+			name = "系统声音";
 			sourceTree = "<group>";
 		};
 		84812DC31C116013003928E6 /* 聊天 */ = {
@@ -709,6 +722,7 @@
 				84DD6E871C05BC6C005C1AE2 /* FLONavigationController.m in Sources */,
 				849EEDC71C26AD8D00CD9A7C /* FLOWeiboCommentModel.m in Sources */,
 				840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */,
+				84754F361C34F58B00C62243 /* FLOSystemSoundTableViewController.m in Sources */,
 				846E9C481C298BDB00843A24 /* FLOBDMapViewController.m in Sources */,
 				849EEDCD1C26C38700CD9A7C /* FLOWeiboReportComViewController.m in Sources */,
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,

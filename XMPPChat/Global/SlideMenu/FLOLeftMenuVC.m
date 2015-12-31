@@ -9,6 +9,7 @@
 #import "FLOLeftMenuVC.h"
 #import <RESideMenu.h>
 #import "FLOAccountManager.h"
+#import "FLOWeiboAuthorization.h"
 
 @interface FLOLeftMenuVC ()<UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate>
 
@@ -56,6 +57,7 @@
 - (void)logoutButtonAction
 {
     [[FLOAccountManager shareManager] logOut];
+    [[FLOWeiboAuthorization sharedAuthorization] logout];
     
     //返回首页，首页会判断是否登录，跳转到登陆页
     [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFloCollectionNavigationController"]

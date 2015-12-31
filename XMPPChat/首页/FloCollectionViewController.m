@@ -95,7 +95,16 @@
     FLOCollectionItem *item = _dataArr[indexPath.item];
     NSString *itemAddress = item.itemAddress;
     if ([itemAddress hasPrefix:@"URLScheme_"]) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://", [itemAddress substringFromIndex:10]]]];
+        NSURL *appURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://", [itemAddress substringFromIndex:10]]];
+        if ([[UIApplication sharedApplication] canOpenURL:appURL]) {
+            [[UIApplication sharedApplication] openURL:appURL];
+        } else {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"打开失败" message:@"请检查是否已安装并信任应用" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:okAction];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        }
         
 //        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFLOTabBarVCID"] animated:YES];
     } else if ([itemAddress hasPrefix:@"SBID"]) {

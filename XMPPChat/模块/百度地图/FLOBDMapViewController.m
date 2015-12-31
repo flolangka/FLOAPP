@@ -87,15 +87,21 @@
 {
     UIView *navigationV = [[UIView alloc] initWithFrame:CGRectMake(0, 20, size.width, 44)];
     
-    //返回按钮
+    //按钮
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = CGRectMake(12, 7, 30, 30);
     backButton.layer.cornerRadius = 15.;
     backButton.clipsToBounds = YES;
     backButton.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
     backButton.layer.borderWidth = 1.;
-    backButton.backgroundColor = [[UIColor groupTableViewBackgroundColor] colorWithAlphaComponent:0.9];
-    [backButton setImage:[[UIImage imageNamed:@"goback"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+    backButton.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.8];
+    
+    //返回箭头
+    CALayer *layer = [[CALayer alloc] init];
+    layer.frame = CGRectMake(10, 8, 8, 14);
+    layer.contents = (id)[UIImage imageNamed:@"goback"].CGImage;
+    [backButton.layer addSublayer:layer];
+    
     [backButton addTarget:self action:@selector(goBackAction) forControlEvents:UIControlEventTouchUpInside];
     
     //搜索栏
