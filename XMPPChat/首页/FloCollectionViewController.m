@@ -14,6 +14,7 @@
 #import "FLOCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FLODataBaseEngin.h"
+#import <FLEX.h>
 
 @interface FloCollectionViewController()
 
@@ -59,6 +60,11 @@
     } else {
         [[FLOSideMenu sideMenu] presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDloginViewController"] animated:NO completion:nil];
     }
+}
+
+//进入FLEX调试状态
+- (IBAction)flexAction:(UIBarButtonItem *)sender {
+    [[FLEXManager sharedManager] showExplorer];
 }
 
 #pragma mark - CollectionViewDataSource

@@ -531,7 +531,14 @@
                             <constraint firstItem="xX3-Bw-bZr" firstAttribute="top" secondItem="kB5-pB-uSs" secondAttribute="bottom" id="vc3-Ec-YXC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="首页" id="AKs-ke-pOV"/>
+                    <navigationItem key="navigationItem" title="首页" id="AKs-ke-pOV">
+                        <barButtonItem key="rightBarButtonItem" title="FLEX" id="oLv-g1-IDc">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="flexAction:" destination="UEV-dm-m0Q" id="hWf-Fu-Ltx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="kB5-pB-uSs" id="rzk-x8-MW8"/>
                     </connections>
