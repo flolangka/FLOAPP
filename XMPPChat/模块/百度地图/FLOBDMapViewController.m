@@ -7,11 +7,13 @@
 //
 
 #import "FLOBDMapViewController.h"
-#import <BaiduMapAPI_Map/BMKMapView.h>
-#import <BaiduMapAPI_Location/BMKLocationService.h>
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>
+#import <BaiduMapAPI_Base/BMKTypes.h>
 #import <MBProgressHUD.h>
 
-@interface FLOBDMapViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, UITextFieldDelegate>
+@interface FLOBDMapViewController ()<BMKMapViewDelegate, BMKLocationServiceDelegate, UITextFieldDelegate, BMKPoiSearchDelegate, BMKRouteSearchDelegate>
 
 {
     CGSize size;
@@ -21,6 +23,7 @@
     UIImage *selectedBGImage; //按钮选中背景图片，imageWithColor
     
     BMKLocationService *locationService;
+    BMKPoiSearch *poiSearch;
 }
 
 @property (nonatomic, strong) BMKMapView *mapView;
@@ -38,12 +41,22 @@
     
     _mapView.zoomLevel = 13;
     _mapView.showMapScaleBar = YES; //比例尺
+    _mapView.isSelectedAnnotationViewFront = YES;
+    
+    poiSearch = [[BMKPoiSearch alloc]init];
     
     [self configLocationService];
     [self configNavigationBar];
     [self configRightBtns];
     
     [_mapView addObserver:self forKeyPath:@"userTrackingMode" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)dealloc
+{
+    _mapView = nil;
+    poiSearch = nil;
+    locationService = nil;
 }
 
 //监测罗盘是否开启
@@ -138,6 +151,7 @@
     [super viewWillAppear:animated];
     [_mapView viewWillAppear];
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
+    poiSearch.delegate = self;
     
     //设置指南针位置
     _mapView.overlooking = -30;
@@ -149,6 +163,7 @@
     [locationService stopUserLocationService];
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
+    poiSearch.delegate = nil;
     
     [_mapView removeObserver:self forKeyPath:@"userTrackingMode" context:nil];
 }
@@ -163,10 +178,85 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-#warning 搜索
+    if (textField.text.length < 1) {
+        return NO;
+    }
+    
+    BMKBoundSearchOption *searchOption = [[BMKBoundSearchOption alloc] init];
+    searchOption.leftBottom = [_mapView convertPoint:CGPointMake(0, size.height) toCoordinateFromView:self.view];
+    searchOption.rightTop = [_mapView convertPoint:CGPointMake(size.width, 0) toCoordinateFromView:self.view];
+    
+    searchOption.keyword = textField.text;
+    [poiSearch poiSearchInbounds:searchOption];
     
     return YES;
 }
+
+#pragma mark implement - BMKMapViewDelegate
+/**
+ *根据anntation生成对应的View
+ *@param mapView 地图View
+ *@param annotation 指定的标注
+ *@return 生成的标注View
+ */
+- (BMKAnnotationView *)mapView:(BMKMapView *)view viewForAnnotation:(id <BMKAnnotation>)annotation
+{
+    // 生成重用标示identifier
+    NSString *AnnotationViewID = @"xidanMark";
+    
+    // 检查是否有重用的缓存
+    BMKAnnotationView* annotationView = [view dequeueReusableAnnotationViewWithIdentifier:AnnotationViewID];
+    
+    // 缓存没有命中，自己构造一个，一般首次添加annotation代码会运行到此处
+    if (annotationView == nil) {
+        annotationView = [[BMKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:AnnotationViewID];
+        ((BMKPinAnnotationView*)annotationView).pinColor = BMKPinAnnotationColorRed;
+        // 设置重天上掉下的效果(annotation)
+        ((BMKPinAnnotationView*)annotationView).animatesDrop = YES;
+    }
+    
+    // 设置位置
+    annotationView.centerOffset = CGPointMake(0, -(annotationView.frame.size.height * 0.5));
+    annotationView.annotation = annotation;
+    // 单击弹出泡泡，弹出泡泡前提annotation必须实现title属性
+    annotationView.canShowCallout = YES;
+    // 设置是否可以拖拽
+    annotationView.draggable = NO;
+    
+    return annotationView;
+}
+
+- (void)mapView:(BMKMapView *)mapView didSelectAnnotationView:(BMKAnnotationView *)view
+{
+    [mapView bringSubviewToFront:view];
+    [mapView setNeedsDisplay];
+}
+
+#pragma mark implement - BMKSearchDelegate
+- (void)onGetPoiResult:(BMKPoiSearch *)searcher result:(BMKPoiResult*)result errorCode:(BMKSearchErrorCode)error
+{
+    // 清楚屏幕中所有的annotation
+    NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
+    [_mapView removeAnnotations:array];
+    
+    if (error == BMK_SEARCH_NO_ERROR) {
+        NSMutableArray *annotations = [NSMutableArray array];
+        for (int i = 0; i < result.poiInfoList.count; i++) {
+            BMKPoiInfo* poi = [result.poiInfoList objectAtIndex:i];
+            BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
+            item.coordinate = poi.pt;
+            item.title = poi.name;
+            [annotations addObject:item];
+        }
+        [_mapView addAnnotations:annotations];
+        [_mapView showAnnotations:annotations animated:YES];
+    } else if (error == BMK_SEARCH_AMBIGUOUS_ROURE_ADDR){
+        NSLog(@"起始点有歧义");
+    } else {
+        // 各种情况的判断。。。
+    }
+}
+
 
 #pragma mark - 右侧按钮
 - (void)configRightBtns
