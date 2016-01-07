@@ -182,12 +182,13 @@
         return NO;
     }
     
-    BMKBoundSearchOption *searchOption = [[BMKBoundSearchOption alloc] init];
-    searchOption.leftBottom = [_mapView convertPoint:CGPointMake(0, size.height) toCoordinateFromView:self.view];
-    searchOption.rightTop = [_mapView convertPoint:CGPointMake(size.width, 0) toCoordinateFromView:self.view];
+    BMKNearbySearchOption *searchOption = [[BMKNearbySearchOption alloc] init];
+    searchOption.location = locationService.userLocation.location.coordinate;
+    searchOption.radius = 3000;
+    searchOption.pageCapacity = 20;
     
     searchOption.keyword = textField.text;
-    [poiSearch poiSearchInbounds:searchOption];
+    [poiSearch poiSearchNearBy:searchOption];
     
     return YES;
 }
