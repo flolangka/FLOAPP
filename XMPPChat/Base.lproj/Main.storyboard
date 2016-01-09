@@ -821,7 +821,7 @@
                                                 </view>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="Nly-cg-MGO" firstAttribute="top" secondItem="ynF-bf-X0u" secondAttribute="bottom" constant="1" id="7vL-eo-fwN"/>
                                                 <constraint firstAttribute="trailing" secondItem="Nly-cg-MGO" secondAttribute="trailing" constant="8" id="AGv-Rs-Opq"/>
@@ -1088,7 +1088,7 @@
                                                         </view>
                                                     </subviews>
                                                     <animations/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="Z4l-HE-3dY" firstAttribute="top" secondItem="N8n-2d-G0Z" secondAttribute="bottom" constant="1" id="AtC-C6-UFZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="N8n-2d-G0Z" secondAttribute="trailing" constant="8" id="JCs-MU-k7x"/>

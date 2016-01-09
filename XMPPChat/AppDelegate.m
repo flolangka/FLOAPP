@@ -64,8 +64,12 @@
         [NavController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDBookMarkTableViewController"] animated:YES];
     } else if ([touchType isEqualToString:@"weiboValue"]) {
         [NavController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDWeiboTableViewController"] animated:YES];
-    } else if ([touchType isEqualToString:@"chatValue"]) {
-        [sideMenu setContentViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDFLOTabBarVCID"]];
+    } else if ([touchType isEqualToString:@"mapValue"]) {
+        Class ob = NSClassFromString(@"FLOBDMapViewController");
+        UIViewController *viewController = [[ob alloc] init];
+        viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        [NavController.topViewController presentViewController:viewController animated:NO completion:nil];
     } else {
         return;
     }

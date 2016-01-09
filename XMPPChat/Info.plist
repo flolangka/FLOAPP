@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.21</string>
+	<string>1.0.22</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>floxmpp</string>
@@ -78,15 +78,15 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeMessage</string>
+			<string>UIApplicationShortcutIconTypeLocation</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>聊天</string>
+			<string>地图</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.flolangka.XMPPChat.chat</string>
+			<string>com.flolangka.XMPPChat.map</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>touchkey_touch</key>
-				<string>chatValue</string>
+				<string>mapValue</string>
 			</dict>
 		</dict>
 	</array>
