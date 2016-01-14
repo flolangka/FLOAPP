@@ -54,6 +54,9 @@
 
 - (void)dealloc
 {
+    searchTF.delegate = nil;
+    locationService.delegate = nil;
+    
     _mapView = nil;
     poiSearch = nil;
     locationService = nil;
@@ -365,10 +368,6 @@
     }
     _mapView.showsUserLocation = YES;
 }
-
-#pragma mark - 右下角放大/缩小按钮
-//- (void)config
-
 
 #pragma mark - 定位服务
 //位置更新

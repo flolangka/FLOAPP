@@ -33,7 +33,7 @@ static NSString * const kHomeStatusesURL = @"https://api.weibo.com/2/statuses/ho
 static NSString * const kStatusCellID = @"statusCell";
 static NSString * const kFooterCellID = @"footerCell";
 
-@interface FLOWeiboTableViewController ()<UIWebViewDelegate>
+@interface FLOWeiboTableViewController ()<UIWebViewDelegate, UIViewControllerPreviewingDelegate>
 
 {
     AFHTTPSessionManager *sessionManager;
@@ -383,5 +383,14 @@ static NSString * const kFooterCellID = @"footerCell";
     return YES;
 }
 
+#pragma mark - Force_Touch
+- (NSArray<id<UIPreviewActionItem>> *)previewActionItems
+{
+    UIPreviewAction *action_cancel = [UIPreviewAction actionWithTitle:@"Cancel" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+        NSLog(@"取消");
+    }];
+    
+    return @[action_cancel];
+}
 
 @end

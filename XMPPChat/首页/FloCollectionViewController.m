@@ -15,8 +15,13 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FLODataBaseEngin.h"
 #import <FLEX.h>
+#import <MBProgressHUD.h>
 
-@interface FloCollectionViewController()
+@interface FloCollectionViewController()<UIViewControllerPreviewingDelegate>
+
+{
+    id<UIViewControllerPreviewing> previewing;
+}
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
@@ -79,13 +84,25 @@
     
     FLOCollectionItem *item = _dataArr[indexPath.item];
     
+    //图标
     if ([item.itemIconURLStr hasPrefix:@"http"]) {
         [cell.imageV sd_setImageWithURL:[NSURL URLWithString:item.itemIconURLStr] placeholderImage:[UIImage imageNamed:@"iOS"]];
     } else {
         cell.imageV.image = [UIImage imageNamed:item.itemIconURLStr];
     }
     
+    //名称
     cell.titleL.text = item.itemName;
+    
+    //对复用的cell注销Force_Touch
+    if (previewing && ![item.itemAddress isEqualToString:@"Force_Touch"]) {
+        [self unregisterForPreviewingWithContext:previewing];
+    }
+    
+    //注册Force_Touch
+    if ([item.itemAddress isEqualToString:@"Force_Touch"]) {
+        previewing = [self registerForPreviewingWithDelegate:self sourceView:cell];
+    }
     
     return cell;
 }
@@ -111,8 +128,6 @@
             
             [self presentViewController:alert animated:YES completion:nil];
         }
-        
-//        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFLOTabBarVCID"] animated:YES];
     } else if ([itemAddress hasPrefix:@"SBID"]) {
         [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:itemAddress] animated:YES];
     } else if ([itemAddress hasPrefix:@"http"]) {
@@ -132,6 +147,11 @@
         viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         
         [self presentViewController:viewController animated:YES completion:nil];
+    } else if ([itemAddress isEqualToString:@"Force_Touch"]) {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"用力按我吧";
+        [hud hide:YES afterDelay:1.0];
     } else {
         return;
     }
@@ -148,6 +168,21 @@
 {
     CGFloat width = [UIScreen mainScreen].bounds.size.width-32;
     return CGSizeMake(width/4.0, width/4.0+17);
+}
+
+#pragma mark - Force Touch 
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)context viewControllerForLocation:(CGPoint) point
+{
+    UIViewController *childVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDWeiboTableViewController"];
+    
+    //设置预览视图大小
+//    childVC.preferredContentSize = CGSizeMake(0.0f,300.f);
+    
+    return childVC;
+}
+- (void)previewContext:(id<UIViewControllerPreviewing>)context commitViewController:(UIViewController*)vc
+{
+    [self showViewController:vc sender:self];
 }
 
 
