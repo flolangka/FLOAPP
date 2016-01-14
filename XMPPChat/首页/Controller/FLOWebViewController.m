@@ -9,8 +9,9 @@
 #import "FLOWebViewController.h"
 #import "FLOBookMarkTableViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import <WebKit/WebKit.h>
 
-@interface FLOWebViewController()<UIWebViewDelegate>
+@interface FLOWebViewController()<WKNavigationDelegate>
 
 {
     UIBarButtonItem *stopItem;
@@ -20,9 +21,12 @@
     UIBarButtonItem *goFowardItem;
     UIBarButtonItem *bookMarkItem;
     UIBarButtonItem *spaceItem;
+    
+    WKWebView *wkWebView;
+    UIProgressView *progressV;
 }
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @end
@@ -37,9 +41,44 @@
     goFowardItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"gofoward"] style:UIBarButtonItemStyleDone target:self action:@selector(goFowardAction:)];
     bookMarkItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(bookMarkAction:)];
     spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+}
+
+- (void)dealloc
+{
+    wkWebView.navigationDelegate = nil;
+    [wkWebView removeObserver:self forKeyPath:@"estimatedProgress"];
+    
+    NSURLCache * cache = [NSURLCache sharedURLCache];
+    [cache removeAllCachedResponses];
+    [cache setDiskCapacity:0];
+    [cache setMemoryCapacity:0];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    wkWebView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height-108)];
+    [_contentView addSubview:wkWebView];
+    wkWebView.navigationDelegate = self;
+    wkWebView.scrollView.bounces = NO;
     
     [self configStopToolBar];
     [self configRightBarButtonItem];
+    
+    //进度条
+    [wkWebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+    progressV = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 42, size.width, 2)];
+    progressV.progressTintColor = [UIColor orangeColor];
+    progressV.trackTintColor = [UIColor whiteColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_webViewAddress]]];
 }
 
 #pragma mark - 配置toolBar
@@ -53,24 +92,10 @@
     [self.toolBar setItems:@[spaceItem, goBackItem, spaceItem, goFowardItem, spaceItem, refreshItem, spaceItem, bookMarkItem, spaceItem]];
 }
 
-#pragma mark - rightBarButtomItem
+#pragma mark - 截屏按钮
 - (void)configRightBarButtonItem
 {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"screenCapture"] style:UIBarButtonItemStyleDone target:self action:@selector(curtWebView)];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.webView.scrollView.bounces = NO;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_webViewAddress]]];
-    self.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
 }
 
 #pragma mark - 对webView截图
@@ -81,7 +106,7 @@
         //播放系统photoShutter声音
         AudioServicesPlaySystemSound(1108);
         
-        UIImage *image = [self imageWithView:_webView];
+        UIImage *image = [self imageWithView:wkWebView];
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
         [self showCurtImage:image];
@@ -90,7 +115,7 @@
         //播放系统photoShutter声音
         AudioServicesPlaySystemSound(1108);
         
-        UIImage *image = [self fullImageWithScrollView:_webView.scrollView];
+        UIImage *image = [self fullImageWithScrollView:wkWebView.scrollView];
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
         
         [self showCurtImage:image];
@@ -148,14 +173,13 @@
     
     //加载截图
     CGSize imageSize = [self sizeWithWidth:image.size.width height:image.size.height];
-    CALayer *imageLayer = [[CALayer alloc] init];
-    imageLayer.frame = CGRectMake(size.width/2-imageSize.width/2, size.height*0.15, imageSize.width, imageSize.height);
-    imageLayer.contents = (id)image.CGImage;
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(size.width/2-imageSize.width/2, size.height*0.15, imageSize.width, imageSize.height)];
+    imageV.image = image;
     
-    [backgroundView.layer addSublayer:imageLayer];
+    [backgroundView addSubview:imageV];
     [[UIApplication sharedApplication].keyWindow addSubview:backgroundView];
     
-    [self performSelector:@selector(hideMaskView) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(hideMaskView:) withObject:imageV afterDelay:1.0];
 }
 
 //等比缩放
@@ -170,11 +194,11 @@
     return CGSizeMake(toWidth, toHeight);
 }
 
-- (void)hideMaskView
+- (void)hideMaskView:(UIView *)view
 {
     UIView *maskView = [[UIApplication sharedApplication].keyWindow.subviews lastObject];
     [UIView animateWithDuration:0.25 animations:^{
-        maskView.transform = CGAffineTransformMakeScale(0.01, 0.01);
+        view.transform = CGAffineTransformMakeScale(0.01, 0.01);
     } completion:^(BOOL finished) {
         [maskView removeFromSuperview];
     }];
@@ -182,46 +206,72 @@
 
 #pragma mark - ToolBar 操作
 - (void)goBackAction:(UIBarButtonItem *)sender {
-    if([_webView canGoBack]){
-        [_webView goBack];
+    if([wkWebView canGoBack]){
+        [wkWebView goBack];
     }
 }
 
 - (void)goFowardAction:(UIBarButtonItem *)sender {
-    if ([_webView canGoForward]) {
-        [_webView goForward];
+    if ([wkWebView canGoForward]) {
+        [wkWebView goForward];
     }
 }
 
 - (void)stopWebViewAction
 {
-    [_webView stopLoading];
+    [progressV removeFromSuperview];
+    
+    [wkWebView stopLoading];
     [self configRefreshToolBar];
 }
 
 - (void)refreshWebViewAction
 {
-    [_webView reload];
+    [wkWebView reload];
 }
 
 - (void)bookMarkAction:(UIBarButtonItem *)sender {
     FLOBookMarkTableViewController *bookMarkTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDBookMarkTableViewController"];
-    bookMarkTVC.currentRequestURlStr = [_webView stringByEvaluatingJavaScriptFromString:@"document.location.href"];
-    bookMarkTVC.currentDocumentTitle = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    bookMarkTVC.currentRequestURlStr = wkWebView.URL.absoluteString;
+    bookMarkTVC.currentDocumentTitle = wkWebView.title;
     
     [self.navigationController pushViewController:bookMarkTVC animated:YES];
 }
 
 #pragma mark - webView Delegate
-- (void)webViewDidStartLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
 {
+    progressV.progress = 0.f;
+    if (![self.navigationController.navigationBar.subviews containsObject:progressV]) {
+        [self.navigationController.navigationBar addSubview:progressV];
+    }
+    
     [self configStopToolBar];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
+    [progressV removeFromSuperview];
+    
     [self configRefreshToolBar];
-    self.title = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.title = webView.title;
 }
+
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation
+{
+    [progressV removeFromSuperview];
+    
+    [self configRefreshToolBar];
+}
+
+#pragma mark - KVO
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"estimatedProgress"]) {
+        CGFloat progress = [change[@"new"] floatValue];
+        [progressV setProgress:progress animated:YES];
+    }
+}
+
 
 @end
