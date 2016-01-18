@@ -10,6 +10,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FLOWeiboUserModel.h"
 #import "FLOWeiboStatusModel.h"
+#import <YYKit.h>
 
 @implementation FLOWeiboStatusTableViewCell
 
@@ -55,9 +56,8 @@
         self.sourceLabel.text = nil;
     }
     
-    // 将 @...: #...# 内容蓝色
-    self.statusText.text   = status.text;
-    //    [self analysisStringToEmotion:status.text];
+    //微博内容
+    self.statusText.attributedText = [self attributedStringWithAttStatusText:[[NSMutableAttributedString alloc] initWithString:status.text]];
     
     CGFloat labelWidth = [UIScreen mainScreen].bounds.size.width-16;
     if (status.reStatus) {
@@ -65,7 +65,7 @@
         NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"@%@ ",status.reStatus.user.name] attributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.1 green:0.3 blue:1 alpha:0.8]}];
         NSAttributedString *text = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@":%@",status.reStatus.text] attributes:@{NSForegroundColorAttributeName:[UIColor darkTextColor]}];
         [str appendAttributedString:text];
-        self.retweetedLabel.attributedText = str;
+        self.retweetedLabel.attributedText = [self attributedStringWithAttStatusText:str];
         
         //绑定转发微博图片
         //绑定图片
@@ -112,16 +112,54 @@
     }
 }
 
+- (NSAttributedString *)attributedStringWithAttStatusText:(NSMutableAttributedString *)text
+{
+    NSString *str = text.string;
+    
+    NSArray *topics = [[self regexTopic] matchesInString:str options:0 range:NSMakeRange(0, text.length)];
+    for (NSTextCheckingResult *rs in topics) {
+        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:[str substringWithRange:rs.range] attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.1 green:0.3 blue:1 alpha:0.8]}]];
+    }
+    
+    NSArray *ats = [[self regexAt] matchesInString:str options:0 range:NSMakeRange(0, text.length)];
+    for (NSTextCheckingResult *rs in ats) {
+        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:[str substringWithRange:rs.range] attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.1 green:0.3 blue:1 alpha:0.8]}]];
+    }
+    
+    NSArray *httpURLs = [[self regexHTTP] matchesInString:text.string options:0 range:NSMakeRange(0, text.length)];
+    for (int i = 0; i < httpURLs.count; i++) {
+        httpURLs = [[self regexHTTP] matchesInString:text.string options:0 range:NSMakeRange(0, text.length)];
+        NSTextCheckingResult *rs = httpURLs[0];
+        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:@"©网页链接" attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.1 green:0.3 blue:1 alpha:0.8]}]];
+    }
+    
+    return text;
+}
+
+- (NSString *)replaceURLString:(NSString *)str
+{
+    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithString:str];
+    
+    NSArray *httpURLs = [[self regexHTTP] matchesInString:text.string options:0 range:NSMakeRange(0, text.length)];
+    for (int i = 0; i < httpURLs.count; i++) {
+        httpURLs = [[self regexHTTP] matchesInString:text.string options:0 range:NSMakeRange(0, text.length)];
+        NSTextCheckingResult *rs = httpURLs[0];
+        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:@"©网页链接" attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.1 green:0.3 blue:1 alpha:0.8]}]];
+    }
+    
+    return text.string;
+}
+
 -(CGFloat)cellHeight4StatusModel:(FLOWeiboStatusModel *)status{
     //计算出除去图片的所有高度
     CGFloat cellHeight = 70;
     
     //绑定model
     //绑定内容
-    self.statusText.text   = status.text;
+    self.statusText.text   = [self replaceURLString:status.text];
     if (status.reStatus) {
         self.retweetBackControl.hidden = NO;
-        self.retweetedLabel.text = [NSString stringWithFormat:@"@%@ :%@", status.reStatus.user.name, status.reStatus.text];
+        self.retweetedLabel.text = [self replaceURLString:[NSString stringWithFormat:@"@%@ :%@", status.reStatus.user.name, status.reStatus.text]];
     } else {
         self.retweetBackControl.hidden = YES;
         self.retweetedLabel.text = nil;
@@ -200,6 +238,39 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+#pragma mark - 正则表达式
+//匹配@。。
+- (NSRegularExpression *)regexAt {
+    static NSRegularExpression *regex;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // 微博的 At 只允许 英文数字下划线连字符，和 unicode 4E00~9FA5 范围内的中文字符，这里保持和微博一致。。
+        // 目前中文字符范围比这个大
+        regex = [NSRegularExpression regularExpressionWithPattern:@"@[-_a-zA-Z0-9\u4E00-\u9FA5]+" options:kNilOptions error:NULL];
+    });
+    return regex;
+}
+
+//匹配#。。#
+- (NSRegularExpression *)regexTopic {
+    static NSRegularExpression *regex;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        regex = [NSRegularExpression regularExpressionWithPattern:@"#[^@#]+?#" options:kNilOptions error:NULL];
+    });
+    return regex;
+}
+
+//匹配http...
+- (NSRegularExpression *)regexHTTP {
+    static NSRegularExpression *regex;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        regex = [NSRegularExpression regularExpressionWithPattern:@"([hH]ttp[s]{0,1})://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\-~!@#$%^&*+?:_/=<>]*)?" options:kNilOptions error:NULL];
+    });
+    return regex;
 }
 
 @end

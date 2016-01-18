@@ -16,6 +16,7 @@
 #import "FLODataBaseEngin.h"
 #import "FLOWeiboDetailViewController.h"
 #import "FLOWeiboReportComViewController.h"
+#import <MJRefresh.h>
 
 //登录认证
 static NSString * const appKey = @"1780554149";
@@ -24,8 +25,11 @@ static NSString * const appSecret = @"d367d14ab1f48620350e005ff2f5290b";
 static NSString * const kAccessTokenURL = @"https://api.weibo.com/oauth2/access_token";
 
 //请求数据
-static NSString * const kLoadNew      = @"loadNew";
-static NSString * const kLoadMore     = @"loadMore";
+typedef enum : NSUInteger {
+    kRequestDataTypeNew,
+    kRequestDataTypeMore
+} WBRequestDataType;
+
 static NSString * const kUsersShowURL = @"https://api.weibo.com/2/users/show.json";
 static NSString * const kHomeStatusesURL = @"https://api.weibo.com/2/statuses/home_timeline.json";
 
@@ -38,10 +42,10 @@ static NSString * const kFooterCellID = @"footerCell";
 {
     AFHTTPSessionManager *sessionManager;
     FLOWeiboAuthorization *authorization;
-    NSString *requestDataType;
 }
 
 @property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic) WBRequestDataType requestDataType;
 
 // 声明一个存计算cell高度的实例变量
 @property (nonatomic, strong) FLOWeiboStatusTableViewCell *prototypeCell;
@@ -66,6 +70,12 @@ static NSString * const kFooterCellID = @"footerCell";
     self.prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:kStatusCellID];
     self.requestLock = NO;
     
+    __weak typeof(self) weakSelf = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.requestDataType = kRequestDataTypeNew;
+        [weakSelf requestData];
+    }];
+    
     [self setTitle];
     [self loadLocalData];
 }
@@ -75,7 +85,7 @@ static NSString * const kFooterCellID = @"footerCell";
     [super viewWillAppear:animated];
     
     if ([authorization isLogin]) {
-        requestDataType = kLoadNew;
+        _requestDataType = kRequestDataTypeNew;
         [self requestData];
     } else {
         [self showAuthorizationView];
@@ -145,6 +155,7 @@ static NSString * const kFooterCellID = @"footerCell";
     if (!self.requestLock) {
         self.requestLock= YES;
     }else{
+        [self.tableView.mj_header endRefreshing];
         return;
     }
     
@@ -152,9 +163,9 @@ static NSString * const kFooterCellID = @"footerCell";
     [parameters setObject:authorization.token forKey:kAccessToken];
     
     // 根据不同请求类型构造参数
-    if ([requestDataType isEqualToString:kLoadNew] && self.dataArr.count != 0) {
+    if (_requestDataType == kRequestDataTypeNew && self.dataArr.count != 0) {
         [parameters setObject:[self.dataArr.firstObject statusID] forKey:@"since_id"];
-    } else if ([requestDataType isEqualToString:kLoadMore] && self.dataArr.count != 0){
+    } else if (_requestDataType == kRequestDataTypeMore && self.dataArr.count != 0){
         NSInteger statusID = [[self.dataArr.lastObject statusID] integerValue];
         statusID -= 1;
         NSNumber *statusIDObj = [NSNumber numberWithInteger:statusID];
@@ -162,6 +173,8 @@ static NSString * const kFooterCellID = @"footerCell";
     }
     
     [sessionManager GET:kHomeStatusesURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self.tableView.mj_header endRefreshing];
+        
         NSDictionary *result = (NSDictionary *)responseObject;
         NSArray *status = result[@"statuses"];
         
@@ -172,14 +185,14 @@ static NSString * const kFooterCellID = @"footerCell";
             [statusModels addObject:statusModel];
         }
         
-        if ([requestDataType isEqualToString:kLoadNew] && status.count > 0){
+        if (_requestDataType == kRequestDataTypeNew && status.count > 0){
             //将原有的追加到新的数组中
             [statusModels addObjectsFromArray:self.dataArr];
             self.dataArr = statusModels;
             
             // 显示更新提示框
             [self playSoundAndShowPromptViewWithStateNumber:status.count];
-        } else if ([requestDataType isEqualToString:kLoadMore]){
+        } else if (_requestDataType == kRequestDataTypeMore){
             //追加到原有数组中
             NSMutableArray *array = [NSMutableArray arrayWithArray:self.dataArr];
             [array addObjectsFromArray:statusModels];
@@ -192,6 +205,8 @@ static NSString * const kFooterCellID = @"footerCell";
         //解锁
         self.requestLock= NO;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self.tableView.mj_header endRefreshing];
+        
         NSLog(@"首页请求微博错误>>>>%@",error.localizedDescription);
         self.requestLock = NO;
     }];
@@ -267,7 +282,7 @@ static NSString * const kFooterCellID = @"footerCell";
     NSInteger count =  self.dataArr.count - (indexPath.section + 1);
     if (count == 2) {
         //满足加载更多的条件
-        requestDataType = kLoadMore;
+        _requestDataType = kRequestDataTypeMore;
         [self requestData];
     }
 }
@@ -336,7 +351,6 @@ static NSString * const kFooterCellID = @"footerCell";
         } else {
             [[FLODataBaseEngin shareInstance] resetWeiboDataWithStatus:[_dataArr subarrayWithRange:NSMakeRange(0, 20)]];
         }
-        
     }
 }
 
@@ -372,7 +386,7 @@ static NSString * const kFooterCellID = @"footerCell";
             }
             
             //请求微博数据
-            requestDataType = kLoadNew;
+            _requestDataType = kRequestDataTypeNew;
             [self requestData];
             [self setTitle];
             
