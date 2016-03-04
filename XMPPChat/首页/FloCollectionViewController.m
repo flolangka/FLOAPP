@@ -14,8 +14,11 @@
 #import "FLOCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FLODataBaseEngin.h"
-#import <FLEX.h>
 #import <MBProgressHUD.h>
+
+#ifdef DEBUG
+#import <FLEX.h>
+#endif
 
 @interface FloCollectionViewController()<UIViewControllerPreviewingDelegate>
 
@@ -69,7 +72,9 @@
 
 //进入FLEX调试状态
 - (IBAction)flexAction:(UIBarButtonItem *)sender {
+#ifdef DEBUG
     [[FLEXManager sharedManager] showExplorer];
+#endif
 }
 
 #pragma mark - CollectionViewDataSource
