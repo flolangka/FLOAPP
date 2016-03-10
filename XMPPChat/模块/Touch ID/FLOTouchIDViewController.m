@@ -51,7 +51,9 @@
     [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:NSLocalizedString(@"摸一下又不会怀孕", nil) reply:
      ^(BOOL success, NSError *authenticationError) {
          if (success) {
-             [self.navigationController popViewControllerAnimated:YES];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.navigationController popViewControllerAnimated:YES];
+             });
          } else {
              AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
          }
