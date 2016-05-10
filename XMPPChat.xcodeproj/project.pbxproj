@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12DE3E991CE0D5BA006D3989 /* FLOFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */; };
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
 		841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */; };
 		841FD2211C1EA2DC003D4F81 /* FLOBookMarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD2201C1EA2DC003D4F81 /* FLOBookMarkModel.m */; };
@@ -55,6 +56,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12DE3E971CE0D5BA006D3989 /* FLOFontSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontSizeViewController.h; path = "模块/FontSize/FLOFontSizeViewController.h"; sourceTree = "<group>"; };
+		12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFontSizeViewController.m; path = "模块/FontSize/FLOFontSizeViewController.m"; sourceTree = "<group>"; };
 		327E2092BD8C89D3189F9A3A /* libPods-XMPPChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XMPPChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EAB8E06A782426E86BFF338 /* Pods-XMPPChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPPChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-XMPPChat/Pods-XMPPChat.release.xcconfig"; sourceTree = "<group>"; };
 		840EE8171C11E51400DFE53E /* FLOFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontTableViewController.h; path = "模块/UIFont/FLOFontTableViewController.h"; sourceTree = "<group>"; };
@@ -156,6 +159,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12DE3E961CE0D498006D3989 /* FontSize */ = {
+			isa = PBXGroup;
+			children = (
+				12DE3E971CE0D5BA006D3989 /* FLOFontSizeViewController.h */,
+				12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */,
+			);
+			name = FontSize;
+			sourceTree = "<group>";
+		};
 		19478BFF27383691477045C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +179,7 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				12DE3E961CE0D498006D3989 /* FontSize */,
 				846E9C391C29813800843A24 /* 百度地图 */,
 				849265F31C27A82A00261F36 /* Touch ID */,
 				84EEC5501C2394C90089454E /* 扫一扫 */,
@@ -709,6 +722,7 @@
 				846D83691C21C1B1007CA12B /* FLOWeiboTableViewController.m in Sources */,
 				84F2A6A91C0803030084156F /* FLOUserModel.m in Sources */,
 				84EEC5561C2396A30089454E /* FLOCodeResultViewController.m in Sources */,
+				12DE3E991CE0D5BA006D3989 /* FLOFontSizeViewController.m in Sources */,
 				84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */,
 				849EEDCA1C26B6C900CD9A7C /* FLOWeiboDetailViewController.m in Sources */,
 				841FD2211C1EA2DC003D4F81 /* FLOBookMarkModel.m in Sources */,
