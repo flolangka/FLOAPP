@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1285C71E1D6350120027717D /* FLOColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285C71D1D6350120027717D /* FLOColorViewController.m */; };
+		1290B35E1CFB3F8400D967EE /* CollectionPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1290B35D1CFB3F8400D967EE /* CollectionPList.plist */; };
 		12DE3E991CE0D5BA006D3989 /* FLOFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */; };
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
 		841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */; };
@@ -56,6 +58,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1285C71C1D6350120027717D /* FLOColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOColorViewController.h; path = "模块/UIColor/FLOColorViewController.h"; sourceTree = "<group>"; };
+		1285C71D1D6350120027717D /* FLOColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOColorViewController.m; path = "模块/UIColor/FLOColorViewController.m"; sourceTree = "<group>"; };
+		1290B35D1CFB3F8400D967EE /* CollectionPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CollectionPList.plist; sourceTree = "<group>"; };
 		12DE3E971CE0D5BA006D3989 /* FLOFontSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontSizeViewController.h; path = "模块/FontSize/FLOFontSizeViewController.h"; sourceTree = "<group>"; };
 		12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFontSizeViewController.m; path = "模块/FontSize/FLOFontSizeViewController.m"; sourceTree = "<group>"; };
 		327E2092BD8C89D3189F9A3A /* libPods-XMPPChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XMPPChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +164,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1290B35C1CFB3EFB00D967EE /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				1285C71C1D6350120027717D /* FLOColorViewController.h */,
+				1285C71D1D6350120027717D /* FLOColorViewController.m */,
+			);
+			name = UIColor;
+			sourceTree = "<group>";
+		};
 		12DE3E961CE0D498006D3989 /* FontSize */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +193,7 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				1290B35C1CFB3EFB00D967EE /* UIColor */,
 				12DE3E961CE0D498006D3989 /* FontSize */,
 				846E9C391C29813800843A24 /* 百度地图 */,
 				849265F31C27A82A00261F36 /* Touch ID */,
@@ -255,6 +270,7 @@
 				84291A181C05867A0015F5F1 /* Assets.xcassets */,
 				84291A1A1C05867A0015F5F1 /* LaunchScreen.storyboard */,
 				84291A1D1C05867A0015F5F1 /* Info.plist */,
+				1290B35D1CFB3F8400D967EE /* CollectionPList.plist */,
 				84291A0C1C05867A0015F5F1 /* Supporting Files */,
 			);
 			path = XMPPChat;
@@ -671,6 +687,7 @@
 				84291A191C05867A0015F5F1 /* Assets.xcassets in Resources */,
 				84291A171C05867A0015F5F1 /* Main.storyboard in Resources */,
 				845D32BF1C1EC45400831C70 /* floapp.db in Resources */,
+				1290B35E1CFB3F8400D967EE /* CollectionPList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,6 +736,7 @@
 				84812DC71C116061003928E6 /* FloCollectionViewController.m in Sources */,
 				849EEDC31C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.m in Sources */,
 				845D32BD1C1EC03800831C70 /* FLOBookMarkTableViewController.m in Sources */,
+				1285C71E1D6350120027717D /* FLOColorViewController.m in Sources */,
 				846D83691C21C1B1007CA12B /* FLOWeiboTableViewController.m in Sources */,
 				84F2A6A91C0803030084156F /* FLOUserModel.m in Sources */,
 				84EEC5561C2396A30089454E /* FLOCodeResultViewController.m in Sources */,
@@ -867,7 +885,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = XMPPChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
 				PRODUCT_NAME = FloAPP;
@@ -882,7 +900,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = XMPPChat/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
 				PRODUCT_NAME = FloAPP;

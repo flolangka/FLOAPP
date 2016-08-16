@@ -37,9 +37,14 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    self.dataArr = [NSMutableArray arrayWithCapacity:20];
     
-    NSArray *recordItems = [[FLODataBaseEngin shareInstance] selectAllCollectionItem];
-    self.dataArr = [NSMutableArray arrayWithArray:recordItems];
+//    NSArray *recordItems = [[FLODataBaseEngin shareInstance] selectAllCollectionItem];
+    NSArray *recordItems = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"CollectionPList" ofType:@"plist"]];
+    for (NSDictionary *dic in recordItems) {
+        FLOCollectionItem *item = [[FLOCollectionItem alloc] initWithDictionary:dic];
+        [_dataArr addObject:item];
+    }
     
     //背景图片
     UIImage *image = [UIImage imageNamed:@"homeback"];
@@ -98,11 +103,6 @@
     
     //名称
     cell.titleL.text = item.itemName;
-    
-    //对复用的cell注销Force_Touch
-    if (previewing && ![item.itemAddress isEqualToString:@"Force_Touch"]) {
-        [self unregisterForPreviewingWithContext:previewing];
-    }
     
     //注册Force_Touch
     if ([item.itemAddress isEqualToString:@"Force_Touch"]) {
@@ -176,18 +176,13 @@
 }
 
 #pragma mark - Force Touch 
-- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)context viewControllerForLocation:(CGPoint) point
-{
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
     UIViewController *childVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDWeiboTableViewController"];
-    
-    //设置预览视图大小
-//    childVC.preferredContentSize = CGSizeMake(0.0f,300.f);
     
     return childVC;
 }
-- (void)previewContext:(id<UIViewControllerPreviewing>)context commitViewController:(UIViewController*)vc
-{
-    [self showViewController:vc sender:self];
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
+    [self showViewController:viewControllerToCommit sender:self];
 }
 
 

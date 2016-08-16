@@ -11,11 +11,16 @@
 #import "FLOBookMarkModel.h"
 #import "FLOWebViewController.h"
 #import "FLOAddBookMarkMaskView.h"
+#import <MBProgressHUD.h>
 
 @interface FLOBookMarkTableViewController ()
 
 {
     UIBarButtonItem *rightBarButtonItem;
+    
+    UIButton *googleBtn;
+    UIView *googleMaskView;
+    UITextView *textView;
 }
 
 @property (nonatomic, strong) NSMutableArray *dataArr;
@@ -34,6 +39,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //google
+    googleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    googleBtn.frame = CGRectMake(CGRectGetWidth(self.view.frame)-90, CGRectGetHeight(self.view.frame)-90, 60, 60);
+    [googleBtn setImage:[UIImage imageNamed:@"Google_G_Logo"] forState:UIControlStateNormal];
+    [googleBtn addTarget:self action:@selector(googleBtnAction:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -53,6 +64,73 @@
         }
     }
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:googleBtn];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [googleBtn removeFromSuperview];
+}
+
+#pragma mark - 输入网址
+- (void)googleBtnAction:(UIButton *)sender {
+    if (!googleMaskView) {
+        googleMaskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
+        googleMaskView.backgroundColor = [[UIColor alloc] initWithWhite:0.5 alpha:0.4];
+        
+        //textView
+        textView = [[UITextView alloc] initWithFrame:CGRectMake(16, 16, CGRectGetWidth(googleMaskView.bounds)-32, 80)];
+        textView.keyboardType = UIKeyboardTypeURL;
+        textView.font = [UIFont systemFontOfSize:17];
+        
+        //取消
+        UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        cancelBtn.frame = CGRectMake(16, 112, (CGRectGetWidth(googleMaskView.bounds)-32-8)/2., 44);
+        cancelBtn.backgroundColor = [UIColor colorWithRed:15/255.0 green:191/255.0 blue:235/255.0 alpha:1.0];
+        [cancelBtn setTitle:@"Cancel" forState:UIControlStateNormal];
+        [cancelBtn addTarget:self action:@selector(cancelBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        //确定
+        UIButton *submitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        submitBtn.frame = CGRectMake(16+8+(CGRectGetWidth(googleMaskView.bounds)-32-8)/2., 112, (CGRectGetWidth(googleMaskView.bounds)-32-8)/2., 44);
+        submitBtn.backgroundColor = [UIColor colorWithRed:15/255.0 green:191/255.0 blue:235/255.0 alpha:1.0];
+        [submitBtn setTitle:@"GO" forState:UIControlStateNormal];
+        [submitBtn addTarget:self action:@selector(goBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [googleMaskView addSubview:textView];
+        [googleMaskView addSubview:cancelBtn];
+        [googleMaskView addSubview:submitBtn];
+    }
+    
+    [self.view addSubview:googleMaskView];
+    
+    textView.text = @"http://";
+    [textView becomeFirstResponder];
+}
+
+- (void)cancelBtnAction:(id)sender {
+    [textView resignFirstResponder];
+    [googleMaskView removeFromSuperview];
+}
+
+- (void)goBtnAction:(id)sender {
+    if ([textView.text hasPrefix:@"http://"]) {
+        FLOWebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDWebViewController"];
+        webViewController.webViewAddress = [textView.text isEqualToString:@"http://"] ? @"http://flolangka.com" : textView.text;
+        [self.navigationController pushViewController:webViewController animated:YES];
+        
+        [self cancelBtnAction:nil];
+    } else {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"地址无效：http://xxxx";
+        [hud hide:YES afterDelay:1.0];
+    }  
+}
+
 
 #pragma mark - 添加书签
 - (void)addBookMark

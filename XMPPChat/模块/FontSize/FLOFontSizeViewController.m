@@ -41,6 +41,7 @@
     [super viewDidLoad];
     dataArr = [NSMutableArray arrayWithArray:[UIFont familyNames]];
     [dataArr insertObject:@"SystemFont" atIndex:0];
+    [dataArr insertObject:@"BoldSystemFont" atIndex:1];
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     textField = [[UITextField alloc] initWithFrame:CGRectMake(8, 8, CGRectGetWidth(self.view.frame)-16, 30)];
@@ -93,6 +94,8 @@
     [self.view addSubview:resultLabel];
     [self.view addSubview:indicatorLabel];
     [self.view addSubview:pickerV];
+    
+    [pickerV selectRow:17 inComponent:1 animated:NO];
 }
 
 - (void)showBtnAction:(UIButton *)sender {
@@ -100,12 +103,14 @@
     [sizeTF resignFirstResponder];
     
     if (sizeTF.text.length < 1) {
-        sizeTF.text = @"21";
+        sizeTF.text = @"17";
     }
     
     if ([fontLabel.text isEqualToString:@"SystemFont"]) {
         resultLabel.font = [UIFont systemFontOfSize:[sizeTF.text floatValue]];
-    } else {
+    } else if ([fontLabel.text isEqualToString:@"BoldSystemFont"]) {
+        resultLabel.font = [UIFont boldSystemFontOfSize:[sizeTF.text floatValue]];
+    }else {
         resultLabel.font = [UIFont fontWithName:fontLabel.text size:[sizeTF.text floatValue]];
     }
     
@@ -117,11 +122,11 @@
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return dataArr.count;
+    return component ? 30 : dataArr.count;
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
@@ -129,11 +134,16 @@
 }
 
 - (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return dataArr[row];
+    return component ? [NSString stringWithFormat:@"%ld", row] : dataArr[row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    fontLabel.text = dataArr[row];
+    if (component) {
+        sizeTF.text = [NSString stringWithFormat:@"%ld", row];
+    } else {
+        fontLabel.text = dataArr[row];
+    }
+    
     [self showBtnAction:nil];
 }
 

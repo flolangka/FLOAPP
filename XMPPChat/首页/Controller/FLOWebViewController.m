@@ -69,7 +69,7 @@
     
     //进度条
     [wkWebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
-    progressV = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 42, size.width, 2)];
+    progressV = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 0, size.width, 2)];
     progressV.progressTintColor = [UIColor orangeColor];
     progressV.trackTintColor = [UIColor whiteColor];
 }
@@ -242,8 +242,8 @@
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation
 {
     progressV.progress = 0.f;
-    if (![self.navigationController.navigationBar.subviews containsObject:progressV]) {
-        [self.navigationController.navigationBar addSubview:progressV];
+    if (![self.view.subviews containsObject:progressV]) {
+        [self.view addSubview:progressV];
     }
     
     [self configStopToolBar];
