@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FLOColorViewController : UIViewController
+@interface FLOColorViewController : UITableViewController
 
 @end

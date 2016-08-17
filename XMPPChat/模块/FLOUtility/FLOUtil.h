@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 @class UIViewController;
 
-extern BOOL DEVICE_IPAD;
-extern BOOL DEVICE_IPHONE;
-extern BOOL DEVICE_IPODTOUCH;
-extern float DEVICE_IOS_VERSION;
+#define DEVICE_IPAD [[[UIDevice currentDevice] model] isEqualToString:@"iPad"]
+#define DEVICE_IPHONE [[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]
+#define DEVICE_IPODTOUCH [[[UIDevice currentDevice] model] isEqualToString:@"iPod touch"]
+#define DEVICE_IOS_VERSION [[UIDevice currentDevice].systemVersion floatValue]
 
-extern float DEVICE_SCREEN_WIDTH;
-extern float DEVICE_SCREEN_HEIGHT;
-extern float DEVICE_SCREEN_SCALE;   //2倍屏、3倍屏；乘以宽高即为分辨率
+#define DEVICE_SCREEN_WIDTH CGRectGetWidth([UIScreen mainScreen].bounds)
+#define DEVICE_SCREEN_HEIGHT CGRectGetHeight([UIScreen mainScreen].bounds)
+//2倍屏、3倍屏；乘以宽高即为分辨率
+#define DEVICE_SCREEN_SCALE [UIScreen mainScreen].scale
+
 
 //UIColor
 #define COLOR_RGB(A,B,C) [UIColor colorWithRed:(A)/255.0 green:(B)/255.0 blue:(C)/255.0 alpha:1.0]
@@ -29,9 +31,6 @@ extern float DEVICE_SCREEN_SCALE;   //2倍屏、3倍屏；乘以宽高即为分�
 #define COLOR_HEXAlpha(hexColor,falpha) [UIColor colorWithRed:(((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0) green:(((CGFloat)((hexColor & 0xFF00) >> 8)) / 255.0) blue:(((CGFloat)(hexColor & 0xFF)) / 255.0) alpha:(falpha)]
 
 @interface FLOUtil : NSObject
-
-//配置全局变量，在程序启动时调用一次
-+ (void)setup;
 
 /**
  *  弹框，适配iOS8以前及iOS8以后，按钮为“知道了”
