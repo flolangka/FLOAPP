@@ -12,6 +12,7 @@
 #import <AFNetworkReachabilityManager.h>
 #import <BaiduMapAPI_Base/BMKMapManager.h>
 #import <BaiduMapAPI_Map/BMKMapView.h>
+#import "FLOUtil.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [FLOUtil setup];
     
     [self networkMonitor];
     

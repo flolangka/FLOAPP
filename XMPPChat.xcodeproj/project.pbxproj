@@ -10,6 +10,11 @@
 		1285C71E1D6350120027717D /* FLOColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285C71D1D6350120027717D /* FLOColorViewController.m */; };
 		1290B35E1CFB3F8400D967EE /* CollectionPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1290B35D1CFB3F8400D967EE /* CollectionPList.plist */; };
 		12DE3E991CE0D5BA006D3989 /* FLOFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */; };
+		7376EBCA1D640CB3001D1BD3 /* FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC11D640CB3001D1BD3 /* FLOUtil.m */; };
+		7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC31D640CB3001D1BD3 /* NSString+FLOUtil.m */; };
+		7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC51D640CB3001D1BD3 /* UIImage+FLOUtil.m */; };
+		7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */; };
+		7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */; };
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
 		841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */; };
 		841FD2211C1EA2DC003D4F81 /* FLOBookMarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD2201C1EA2DC003D4F81 /* FLOBookMarkModel.m */; };
@@ -65,6 +70,16 @@
 		12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFontSizeViewController.m; path = "模块/FontSize/FLOFontSizeViewController.m"; sourceTree = "<group>"; };
 		327E2092BD8C89D3189F9A3A /* libPods-XMPPChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XMPPChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EAB8E06A782426E86BFF338 /* Pods-XMPPChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPPChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-XMPPChat/Pods-XMPPChat.release.xcconfig"; sourceTree = "<group>"; };
+		7376EBC01D640CB3001D1BD3 /* FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOUtil.h; sourceTree = "<group>"; };
+		7376EBC11D640CB3001D1BD3 /* FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOUtil.m; sourceTree = "<group>"; };
+		7376EBC21D640CB3001D1BD3 /* NSString+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLOUtil.h"; sourceTree = "<group>"; };
+		7376EBC31D640CB3001D1BD3 /* NSString+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FLOUtil.m"; sourceTree = "<group>"; };
+		7376EBC41D640CB3001D1BD3 /* UIImage+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FLOUtil.h"; sourceTree = "<group>"; };
+		7376EBC51D640CB3001D1BD3 /* UIImage+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FLOUtil.m"; sourceTree = "<group>"; };
+		7376EBC61D640CB3001D1BD3 /* UILabel+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+FLOUtil.h"; sourceTree = "<group>"; };
+		7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FLOUtil.m"; sourceTree = "<group>"; };
+		7376EBC81D640CB3001D1BD3 /* UIView+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLOUtil.h"; sourceTree = "<group>"; };
+		7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLOUtil.m"; sourceTree = "<group>"; };
 		840EE8171C11E51400DFE53E /* FLOFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontTableViewController.h; path = "模块/UIFont/FLOFontTableViewController.h"; sourceTree = "<group>"; };
 		840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFontTableViewController.m; path = "模块/UIFont/FLOFontTableViewController.m"; sourceTree = "<group>"; };
 		841FD21B1C1E9E40003D4F81 /* FLODataBaseEngin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLODataBaseEngin.h; path = "Global/数据库/FLODataBaseEngin.h"; sourceTree = "<group>"; };
@@ -190,9 +205,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7376EBBF1D640CB3001D1BD3 /* FLOUtility */ = {
+			isa = PBXGroup;
+			children = (
+				7376EBC01D640CB3001D1BD3 /* FLOUtil.h */,
+				7376EBC11D640CB3001D1BD3 /* FLOUtil.m */,
+				7376EBC21D640CB3001D1BD3 /* NSString+FLOUtil.h */,
+				7376EBC31D640CB3001D1BD3 /* NSString+FLOUtil.m */,
+				7376EBC41D640CB3001D1BD3 /* UIImage+FLOUtil.h */,
+				7376EBC51D640CB3001D1BD3 /* UIImage+FLOUtil.m */,
+				7376EBC61D640CB3001D1BD3 /* UILabel+FLOUtil.h */,
+				7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */,
+				7376EBC81D640CB3001D1BD3 /* UIView+FLOUtil.h */,
+				7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */,
+			);
+			name = FLOUtility;
+			path = "模块/FLOUtility";
+			sourceTree = "<group>";
+		};
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				7376EBBF1D640CB3001D1BD3 /* FLOUtility */,
 				1290B35C1CFB3EFB00D967EE /* UIColor */,
 				12DE3E961CE0D498006D3989 /* FontSize */,
 				846E9C391C29813800843A24 /* 百度地图 */,
@@ -747,7 +781,9 @@
 				84DD6E7A1C05A16A005C1AE2 /* FLOMessageTableViewController.m in Sources */,
 				845D32C51C1ED16F00831C70 /* FLOAddBookMarkMaskView.m in Sources */,
 				84DA68BD1C227F6E001B9E79 /* FLOWeiboStatusTableViewCell.m in Sources */,
+				7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */,
 				84EEC5531C2396690089454E /* FLOCodeViewController.m in Sources */,
+				7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */,
 				84DD6E6F1C05A009005C1AE2 /* FLOTabBarController.m in Sources */,
 				84DD6E7D1C05A18F005C1AE2 /* FLOFriendsTableViewController.m in Sources */,
 				84812DDB1C117A63003928E6 /* FLOCollectionViewCell.m in Sources */,
@@ -758,6 +794,7 @@
 				846E9C481C298BDB00843A24 /* FLOBDMapViewController.m in Sources */,
 				849EEDCD1C26C38700CD9A7C /* FLOWeiboReportComViewController.m in Sources */,
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
+				7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */,
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
 				841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */,
 				849265F61C27A95F00261F36 /* FLOTouchIDViewController.m in Sources */,
@@ -766,8 +803,10 @@
 				84291A0E1C05867A0015F5F1 /* main.m in Sources */,
 				84DA68BA1C2264DF001B9E79 /* FLOWeiboUserModel.m in Sources */,
 				84DA68C01C227F93001B9E79 /* FLOWeiboStatusFoolerTableViewCell.m in Sources */,
+				7376EBCA1D640CB3001D1BD3 /* FLOUtil.m in Sources */,
 				84F2A6A01C07F6080084156F /* FLOMessageTableViewCell.m in Sources */,
 				84DD6E801C05A83B005C1AE2 /* FLOSideMenu.m in Sources */,
+				7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */,
 				8457DE5B1C27FFB900002533 /* FLOChatRecordModel.m in Sources */,
 				845D32C91C1F0BF200831C70 /* FLOSettingTableViewController.m in Sources */,
 				84812DCF1C11727A003928E6 /* FLOWebViewController.m in Sources */,
