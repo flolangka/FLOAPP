@@ -16,6 +16,7 @@
 12. Force_Touch -- 2016.1.14
 13. WKWebView -- 2016.1.14
 14. FontSize -- 2016.5.10
+15. UIColor  --  2016.8.16
 
 
 ####BY [Flolangka](http://flolangka.com)
