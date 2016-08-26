@@ -98,5 +98,13 @@
 		<key>ItemAddress</key>
 		<string>FLOAdjustFontSizeViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>Gif</string>
+		<key>ItemIconURL</key>
+		<string>http://a3.mzstatic.com/us/r30/Purple1/v4/88/2b/08/882b0807-82ce-cff9-d9c5-4e23a45b8009/icon128-2x.png</string>
+		<key>ItemAddress</key>
+		<string>FLOGifImageViewController</string>
+	</dict>
 </array>
 </plist>
