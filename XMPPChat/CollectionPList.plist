@@ -90,5 +90,13 @@
 		<key>ItemAddress</key>
 		<string>FLOColorViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>字体大小</string>
+		<key>ItemIconURL</key>
+		<string>http://www.ecommercejuice.com/wp-content/uploads/2012/08/ecommerce-font.png</string>
+		<key>ItemAddress</key>
+		<string>FLOAdjustFontSizeViewController</string>
+	</dict>
 </array>
 </plist>

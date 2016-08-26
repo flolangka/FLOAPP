@@ -10,6 +10,7 @@ target 'XMPPChat' do
     pod 'AFNetworking'
     pod 'MJRefresh'
     pod 'BaiduMapKit'
-    pod 'FLEX', '~> 2.0', :configurations => ['Debug']
+    pod 'FLEX'
+    pod 'Masonry'
 end
 

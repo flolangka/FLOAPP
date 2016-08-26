@@ -18,4 +18,14 @@
 - (void)flo_fixLeftAdaptWidthSetText:(NSString *)text;
 - (void)flo_fixRightAdaptWidthSetText:(NSString *)text;
 
+/**
+ *  设置文字、字体大小，调整宽高
+ *
+ *  @param text      文本
+ *  @param font      字体大小
+ *  @param maxWidth  最大宽
+ *  @param maxHeight 最大高
+ */
+- (void)flo_adjustBoundsWithText:(NSString *)text font:(UIFont *)font maxWidth:(CGFloat)maxWidth maxHeight:(CGFloat)maxHeight;
+
 @end

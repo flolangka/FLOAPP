@@ -17,6 +17,9 @@
 13. WKWebView -- 2016.1.14
 14. FontSize -- 2016.5.10
 15. UIColor  --  2016.8.16
+16. 字体大小调整  --  2016.8.25
+
+
 
 
 ####BY [Flolangka](http://flolangka.com)
