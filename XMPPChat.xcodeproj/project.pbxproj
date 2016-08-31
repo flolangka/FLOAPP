@@ -19,6 +19,7 @@
 		7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */; };
 		7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */; };
 		73FEAD7F1D7012160053AD6D /* FLOGifImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */; };
+		73FEAD831D70425D0053AD6D /* FLONetWorkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEAD821D70425D0053AD6D /* FLONetWorkViewController.m */; };
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
 		841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */; };
 		841FD2211C1EA2DC003D4F81 /* FLOBookMarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD2201C1EA2DC003D4F81 /* FLOBookMarkModel.m */; };
@@ -92,6 +93,8 @@
 		7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLOUtil.m"; sourceTree = "<group>"; };
 		73FEAD7D1D7012160053AD6D /* FLOGifImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOGifImageViewController.h; path = "模块/GIF/FLOGifImageViewController.h"; sourceTree = "<group>"; };
 		73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOGifImageViewController.m; path = "模块/GIF/FLOGifImageViewController.m"; sourceTree = "<group>"; };
+		73FEAD811D70425D0053AD6D /* FLONetWorkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLONetWorkViewController.h; path = "模块/NetWork/FLONetWorkViewController.h"; sourceTree = "<group>"; };
+		73FEAD821D70425D0053AD6D /* FLONetWorkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLONetWorkViewController.m; path = "模块/NetWork/FLONetWorkViewController.m"; sourceTree = "<group>"; };
 		840EE8171C11E51400DFE53E /* FLOFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontTableViewController.h; path = "模块/UIFont/FLOFontTableViewController.h"; sourceTree = "<group>"; };
 		840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFontTableViewController.m; path = "模块/UIFont/FLOFontTableViewController.m"; sourceTree = "<group>"; };
 		841FD21B1C1E9E40003D4F81 /* FLODataBaseEngin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLODataBaseEngin.h; path = "Global/数据库/FLODataBaseEngin.h"; sourceTree = "<group>"; };
@@ -258,6 +261,15 @@
 			name = Gif;
 			sourceTree = "<group>";
 		};
+		73FEAD801D7042400053AD6D /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				73FEAD811D70425D0053AD6D /* FLONetWorkViewController.h */,
+				73FEAD821D70425D0053AD6D /* FLONetWorkViewController.m */,
+			);
+			name = NetWork;
+			sourceTree = "<group>";
+		};
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +286,7 @@
 				846D835F1C21B7A2007CA12B /* 微博 */,
 				7301A1FD1D6E887400A4EC2E /* 字体大小 */,
 				73FEAD7C1D7011BE0053AD6D /* Gif */,
+				73FEAD801D7042400053AD6D /* NetWork */,
 			);
 			name = "模块";
 			sourceTree = "<group>";
@@ -853,6 +866,7 @@
 				841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */,
 				849265F61C27A95F00261F36 /* FLOTouchIDViewController.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,
+				73FEAD831D70425D0053AD6D /* FLONetWorkViewController.m in Sources */,
 				846D83661C21B9A6007CA12B /* FLOWeiboAuthorization.m in Sources */,
 				7301A2061D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m in Sources */,
 				84291A0E1C05867A0015F5F1 /* main.m in Sources */,

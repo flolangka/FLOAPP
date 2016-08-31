@@ -10,12 +10,15 @@
 #import "FLOUtil.h"
 #import <Photos/Photos.h>
 #import <SDWebImage/UIImage+GIF.h>
+#import <WebKit/WebKit.h>
 
-@interface FLOGifImageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface FLOGifImageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 
 {
     NSMutableArray *dataArr_gifImageData;
     UICollectionView *collectionV;
+    
+    UIControl *bgControl;
 }
 
 @end
@@ -88,6 +91,24 @@
     }
 }
 
+#pragma mark - 手势
+- (void)tapAction:(id)sender {
+    UIImageView *imageV = [bgControl viewWithTag:1000];
+    imageV.image = nil;
+    
+    [bgControl removeFromSuperview];
+}
+
+- (void)pinchAction:(UIPinchGestureRecognizer *)recognizer {
+    if (recognizer.state==UIGestureRecognizerStateBegan || recognizer.state==UIGestureRecognizerStateChanged) {
+        
+        UIImageView *imageV = [bgControl viewWithTag:1000];
+        imageV.transform=CGAffineTransformScale(imageV.transform, recognizer.scale, recognizer.scale);
+        
+        recognizer.scale=1;
+    }
+}
+
 #pragma mark - CollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -118,7 +139,40 @@
 #pragma mark --UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (!bgControl) {
+        bgControl = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT)];
+        bgControl.backgroundColor = [UIColor blackColor];
+        
+        UITapGestureRecognizer *tapGes1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        UIPinchGestureRecognizer *pinchGes1 = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchAction:)];
+        pinchGes1.delegate = self;        
+        [bgControl addGestureRecognizer:tapGes1];
+        [bgControl addGestureRecognizer:pinchGes1];
+        
+        UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT)];
+        imageV.tag = 1000;
+        imageV.userInteractionEnabled = YES;
+        [bgControl addSubview:imageV];
+        
+        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+        UIPinchGestureRecognizer *pinchGes = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchAction:)];
+        pinchGes.delegate = self;
+        [imageV addGestureRecognizer:tapGes];
+        [imageV addGestureRecognizer:pinchGes];
+    }
     
+    UIImageView *imageV = [bgControl viewWithTag:1000];
+    UIImage *gifImage = [UIImage sd_animatedGIFWithData:dataArr_gifImageData[indexPath.item]];
+    
+    CGRect imageVFrame = imageV.frame;
+    imageVFrame.size.width = gifImage.size.width;
+    imageVFrame.size.height = gifImage.size.height;
+    imageV.frame = imageVFrame;
+    imageV.center = bgControl.center;
+    
+    imageV.image = gifImage;
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:bgControl];
 }
 
 #pragma mark - UICollectionViewLayout

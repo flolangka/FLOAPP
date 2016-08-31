@@ -106,5 +106,13 @@
 		<key>ItemAddress</key>
 		<string>FLOGifImageViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>NetWork</string>
+		<key>ItemIconURL</key>
+		<string>http://icons.iconseeker.com/png/fullsize/black-glossy/network-64.png</string>
+		<key>ItemAddress</key>
+		<string>FLONetWorkViewController</string>
+	</dict>
 </array>
 </plist>
