@@ -40,15 +40,16 @@
             sleep(2);
             
             dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [MBProgressHUD hideHUDForView:self.view animated:NO];
+                
                 if (loginSuccess) {
-                    [MBProgressHUD hideHUDForView:self.view animated:NO];
                     self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                     [self dismissViewControllerAnimated:YES completion:^{
                         FLOLeftMenuVC *leftMenuVC = [[UIApplication sharedApplication].windows[0].rootViewController valueForKey:@"leftMenuViewController"];
                         [leftMenuVC refreshView];
                     }];
                 } else {
-                    [MBProgressHUD hideHUDForView:self.view animated:NO];
                     [self showPromptTitle:@"登录失败..."];
                 }
             });

@@ -112,7 +112,7 @@
 		<key>ItemIconURL</key>
 		<string>http://icons.iconseeker.com/png/fullsize/black-glossy/network-64.png</string>
 		<key>ItemAddress</key>
-		<string>FLONetWorkViewController</string>
+		<string>SBIDNetWorkTableViewController</string>
 	</dict>
 </array>
 </plist>
