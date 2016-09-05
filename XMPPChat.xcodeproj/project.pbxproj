@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1239A92A1D7862E00064C15C /* FLONetWorkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1239A9291D7862E00064C15C /* FLONetWorkTableViewController.m */; };
 		1239A92E1D7C074C0064C15C /* FLOTextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1239A92D1D7C074C0064C15C /* FLOTextViewViewController.m */; };
+		1239A9351D7DA5120064C15C /* FLOCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1239A9331D7DA5120064C15C /* FLOCoreData.xcdatamodeld */; };
+		1239A93A1D7DA79B0064C15C /* NetWork+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1239A9371D7DA79B0064C15C /* NetWork+CoreDataProperties.m */; };
+		1239A93B1D7DA79B0064C15C /* NetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 1239A9391D7DA79B0064C15C /* NetWork.m */; };
+		1239A93E1D7DC2510064C15C /* FLONetWorkHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1239A93D1D7DC2510064C15C /* FLONetWorkHistoryTableViewController.m */; };
 		1285C71E1D6350120027717D /* FLOColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285C71D1D6350120027717D /* FLOColorViewController.m */; };
 		1290B35E1CFB3F8400D967EE /* CollectionPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1290B35D1CFB3F8400D967EE /* CollectionPList.plist */; };
 		12DE3E991CE0D5BA006D3989 /* FLOFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */; };
@@ -73,6 +77,13 @@
 		1239A9291D7862E00064C15C /* FLONetWorkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLONetWorkTableViewController.m; path = "模块/NetWork/FLONetWorkTableViewController.m"; sourceTree = "<group>"; };
 		1239A92C1D7C074C0064C15C /* FLOTextViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOTextViewViewController.h; path = "模块/FLOTextViewViewController.h"; sourceTree = "<group>"; };
 		1239A92D1D7C074C0064C15C /* FLOTextViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOTextViewViewController.m; path = "模块/FLOTextViewViewController.m"; sourceTree = "<group>"; };
+		1239A9341D7DA5120064C15C /* FLOCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FLOCoreData.xcdatamodel; sourceTree = "<group>"; };
+		1239A9361D7DA79B0064C15C /* NetWork+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetWork+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1239A9371D7DA79B0064C15C /* NetWork+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NetWork+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1239A9381D7DA79B0064C15C /* NetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWork.h; sourceTree = "<group>"; };
+		1239A9391D7DA79B0064C15C /* NetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWork.m; sourceTree = "<group>"; };
+		1239A93C1D7DC2510064C15C /* FLONetWorkHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLONetWorkHistoryTableViewController.h; path = "模块/NetWork/FLONetWorkHistoryTableViewController.h"; sourceTree = "<group>"; };
+		1239A93D1D7DC2510064C15C /* FLONetWorkHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLONetWorkHistoryTableViewController.m; path = "模块/NetWork/FLONetWorkHistoryTableViewController.m"; sourceTree = "<group>"; };
 		1285C71C1D6350120027717D /* FLOColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOColorViewController.h; path = "模块/UIColor/FLOColorViewController.h"; sourceTree = "<group>"; };
 		1285C71D1D6350120027717D /* FLOColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOColorViewController.m; path = "模块/UIColor/FLOColorViewController.m"; sourceTree = "<group>"; };
 		1290B35D1CFB3F8400D967EE /* CollectionPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CollectionPList.plist; sourceTree = "<group>"; };
@@ -206,6 +217,19 @@
 			name = Global;
 			sourceTree = "<group>";
 		};
+		1239A9321D7DA5120064C15C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1239A9331D7DA5120064C15C /* FLOCoreData.xcdatamodeld */,
+				1239A9361D7DA79B0064C15C /* NetWork+CoreDataProperties.h */,
+				1239A9371D7DA79B0064C15C /* NetWork+CoreDataProperties.m */,
+				1239A9381D7DA79B0064C15C /* NetWork.h */,
+				1239A9391D7DA79B0064C15C /* NetWork.m */,
+			);
+			name = CoreData;
+			path = "模块/CoreData";
+			sourceTree = "<group>";
+		};
 		1290B35C1CFB3EFB00D967EE /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +302,8 @@
 			children = (
 				1239A9281D7862E00064C15C /* FLONetWorkTableViewController.h */,
 				1239A9291D7862E00064C15C /* FLONetWorkTableViewController.m */,
+				1239A93C1D7DC2510064C15C /* FLONetWorkHistoryTableViewController.h */,
+				1239A93D1D7DC2510064C15C /* FLONetWorkHistoryTableViewController.m */,
 			);
 			name = NetWork;
 			sourceTree = "<group>";
@@ -285,6 +311,7 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				1239A9321D7DA5120064C15C /* CoreData */,
 				1239A92B1D7C072E0064C15C /* Global */,
 				7376EBBF1D640CB3001D1BD3 /* FLOUtility */,
 				1290B35C1CFB3EFB00D967EE /* UIColor */,
@@ -876,14 +903,17 @@
 				849EEDCD1C26C38700CD9A7C /* FLOWeiboReportComViewController.m in Sources */,
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
 				7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */,
+				1239A93A1D7DA79B0064C15C /* NetWork+CoreDataProperties.m in Sources */,
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
 				841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */,
 				849265F61C27A95F00261F36 /* FLOTouchIDViewController.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,
+				1239A93E1D7DC2510064C15C /* FLONetWorkHistoryTableViewController.m in Sources */,
 				846D83661C21B9A6007CA12B /* FLOWeiboAuthorization.m in Sources */,
 				7301A2061D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m in Sources */,
 				84291A0E1C05867A0015F5F1 /* main.m in Sources */,
 				84DA68BA1C2264DF001B9E79 /* FLOWeiboUserModel.m in Sources */,
+				1239A93B1D7DA79B0064C15C /* NetWork.m in Sources */,
 				84DA68C01C227F93001B9E79 /* FLOWeiboStatusFoolerTableViewCell.m in Sources */,
 				7376EBCA1D640CB3001D1BD3 /* FLOUtil.m in Sources */,
 				1239A92E1D7C074C0064C15C /* FLOTextViewViewController.m in Sources */,
@@ -893,6 +923,7 @@
 				7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */,
 				7301A2031D6E97A500A4EC2E /* FLOAdjustFontSizeView.m in Sources */,
 				8457DE5B1C27FFB900002533 /* FLOChatRecordModel.m in Sources */,
+				1239A9351D7DA5120064C15C /* FLOCoreData.xcdatamodeld in Sources */,
 				845D32C91C1F0BF200831C70 /* FLOSettingTableViewController.m in Sources */,
 				84812DCF1C11727A003928E6 /* FLOWebViewController.m in Sources */,
 				84DA68B71C226459001B9E79 /* FLOWeiboStatusModel.m in Sources */,
@@ -1057,6 +1088,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1239A9331D7DA5120064C15C /* FLOCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1239A9341D7DA5120064C15C /* FLOCoreData.xcdatamodel */,
+			);
+			currentVersion = 1239A9341D7DA5120064C15C /* FLOCoreData.xcdatamodel */;
+			path = FLOCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 84291A011C05867A0015F5F1 /* Project object */;
 }

@@ -13,6 +13,10 @@
 #import <YYTextView.h>
 #import "FLOTextViewViewController.h"
 #import <MBProgressHUD.h>
+#import "FLONetWorkHistoryTableViewController.h"
+
+#import "AppDelegate.h"
+#import "NetWork.h"
 
 @interface FLONetWorkTableViewController ()<YYTextViewDelegate>
 
@@ -21,6 +25,9 @@
     YYTextView *textView_para;
     
     NSMutableDictionary *dataDic;
+    
+    AppDelegate *app;
+    NSMutableArray *arrURLPath;
 }
 
 @end
@@ -30,10 +37,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    arrURLPath = [NSMutableArray arrayWithCapacity:42];
+    
+    //查询数据库
+    app = [UIApplication sharedApplication].delegate;
+    
+    //建立请求
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"NetWork"];
+    //读取数据
+    NSArray *array = [app.managedObjectContext executeFetchRequest:request error:nil];
+    for (NetWork *data in array) {
+        //data.urlPath 无法取出数据
+        [arrURLPath addObject:[data urlPath]];
+    }
+    
+    //导航栏
+    UIBarButtonItem *history = [[UIBarButtonItem alloc] initWithTitle:@"History" style:UIBarButtonItemStyleDone target:self action:@selector(historyAction:)];
+    self.navigationItem.rightBarButtonItem = history;
+    
+    //tableView数据源
     dataDic = [NSMutableDictionary dictionaryWithCapacity:8];
     
     [self configTableHeaderView];
     self.tableView.tableFooterView = [[UIView alloc] init];
+}
+
+- (void)historyAction:(id)sender {
+    FLONetWorkHistoryTableViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"NetWorkHistoryTableViewController"];
+    if (VC) {
+        VC.didSelectData = ^(NSString *urlPath, NSString *parameter){
+            textView_url.text = urlPath;
+            textView_para.text = parameter;
+            [textView_para becomeFirstResponder];
+        };
+        [self.navigationController pushViewController:VC animated:YES];
+    }
 }
 
 - (void)configTableHeaderView {
@@ -75,7 +113,7 @@
     
     textView_url.text = @"http://";
     textView_url.placeholderText = @"http://";
-    textView_para.placeholderText = @"Parameters (End Editing Start Request)";
+    textView_para.placeholderText = @"Parameters (Scroll TableView Start Request)";
     textView_para.placeholderTextColor = COLOR_HEX(0xc7c7cd);
     textView_url.placeholderTextColor = COLOR_HEX(0xc7c7cd);
     
@@ -87,7 +125,18 @@
 
 #pragma mark - textView Delegate
 - (void)textViewDidEndEditing:(YYTextView *)textView {
-    if ([textView_url.text hasPrefix:@"http"]) {
+    if (textView == textView_para && [textView_url.text hasPrefix:@"http"]) {
+        
+        //保存数据库
+        if (![arrURLPath containsObject:textView_url.text] && ![textView_url.text isEqualToString:@"http://"]) {
+            NetWork *data = [NSEntityDescription insertNewObjectForEntityForName:@"NetWork" inManagedObjectContext:app.managedObjectContext];
+            data.urlPath = textView_url.text;
+            data.parameterStr = textView_para.text;
+            
+            [app.managedObjectContext save:nil];
+            
+            [arrURLPath addObject:textView_url.text];
+        }
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
