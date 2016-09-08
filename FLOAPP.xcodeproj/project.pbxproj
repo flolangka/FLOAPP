@@ -64,7 +64,7 @@
 		84EEC5531C2396690089454E /* FLOCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC5521C2396690089454E /* FLOCodeViewController.m */; };
 		84EEC5561C2396A30089454E /* FLOCodeResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EEC5551C2396A30089454E /* FLOCodeResultViewController.m */; };
 		84F2A6A91C0803030084156F /* FLOUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2A6A81C0803030084156F /* FLOUserModel.m */; };
-		BFCBFE742134AD90D5FC3750 /* libPods-XMPPChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 327E2092BD8C89D3189F9A3A /* libPods-XMPPChat.a */; };
+		B244C5ECC0737C6083001B0C /* libPods-FLOAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F694C4E2DFDEE2FA692FDF4E /* libPods-FLOAPP.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,8 +84,7 @@
 		1290B35D1CFB3F8400D967EE /* CollectionPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CollectionPList.plist; sourceTree = "<group>"; };
 		12DE3E971CE0D5BA006D3989 /* FLOFontSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontSizeViewController.h; path = "模块/FontSize/FLOFontSizeViewController.h"; sourceTree = "<group>"; };
 		12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFontSizeViewController.m; path = "模块/FontSize/FLOFontSizeViewController.m"; sourceTree = "<group>"; };
-		327E2092BD8C89D3189F9A3A /* libPods-XMPPChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XMPPChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EAB8E06A782426E86BFF338 /* Pods-XMPPChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPPChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-XMPPChat/Pods-XMPPChat.release.xcconfig"; sourceTree = "<group>"; };
+		4F3082D274C70DF38A7A3505 /* Pods-FLOAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLOAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP.release.xcconfig"; sourceTree = "<group>"; };
 		7301A1FE1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOAdjustFontSizeViewController.h; sourceTree = "<group>"; };
 		7301A1FF1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeViewController.m; sourceTree = "<group>"; };
 		7301A2011D6E97A500A4EC2E /* FLOAdjustFontSizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOAdjustFontSizeView.h; sourceTree = "<group>"; };
@@ -111,7 +110,7 @@
 		841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLODataBaseEngin.m; path = "Global/数据库/FLODataBaseEngin.m"; sourceTree = "<group>"; };
 		841FD21F1C1EA2DC003D4F81 /* FLOBookMarkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOBookMarkModel.h; path = "模块/书签/FLOBookMarkModel.h"; sourceTree = "<group>"; };
 		841FD2201C1EA2DC003D4F81 /* FLOBookMarkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOBookMarkModel.m; path = "模块/书签/FLOBookMarkModel.m"; sourceTree = "<group>"; };
-		84291A091C05867A0015F5F1 /* FloAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FloAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84291A091C05867A0015F5F1 /* FLOAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLOAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84291A0D1C05867A0015F5F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84291A0F1C05867A0015F5F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84291A101C05867A0015F5F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -179,7 +178,8 @@
 		84EEC5551C2396A30089454E /* FLOCodeResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOCodeResultViewController.m; path = "模块/二维码/FLOCodeResultViewController.m"; sourceTree = "<group>"; };
 		84F2A6A71C0803030084156F /* FLOUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOUserModel.h; path = "Global/用户/FLOUserModel.h"; sourceTree = "<group>"; };
 		84F2A6A81C0803030084156F /* FLOUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOUserModel.m; path = "Global/用户/FLOUserModel.m"; sourceTree = "<group>"; };
-		D58965F0A18C6EE0430FC5C9 /* Pods-XMPPChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPPChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XMPPChat/Pods-XMPPChat.debug.xcconfig"; sourceTree = "<group>"; };
+		BB4495329B11930D78F4441D /* Pods-FLOAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLOAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP.debug.xcconfig"; sourceTree = "<group>"; };
+		F694C4E2DFDEE2FA692FDF4E /* libPods-FLOAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FLOAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFCBFE742134AD90D5FC3750 /* libPods-XMPPChat.a in Frameworks */,
+				B244C5ECC0737C6083001B0C /* libPods-FLOAPP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,12 +234,13 @@
 			name = FontSize;
 			sourceTree = "<group>";
 		};
-		19478BFF27383691477045C5 /* Frameworks */ = {
+		3180D5F5966FFFBE11E63FAD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				327E2092BD8C89D3189F9A3A /* libPods-XMPPChat.a */,
+				BB4495329B11930D78F4441D /* Pods-FLOAPP.debug.xcconfig */,
+				4F3082D274C70DF38A7A3505 /* Pods-FLOAPP.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		7301A1FD1D6E887400A4EC2E /* 字体大小 */ = {
@@ -350,22 +351,22 @@
 		84291A001C05867A0015F5F1 = {
 			isa = PBXGroup;
 			children = (
-				84291A0B1C05867A0015F5F1 /* FLOApp */,
+				84291A0B1C05867A0015F5F1 /* FLOAPP */,
 				84291A0A1C05867A0015F5F1 /* Products */,
-				A4FF2F2247042C6B21EB0DC9 /* Pods */,
-				19478BFF27383691477045C5 /* Frameworks */,
+				3180D5F5966FFFBE11E63FAD /* Pods */,
+				BA1A1955340CBA90421877C7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		84291A0A1C05867A0015F5F1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84291A091C05867A0015F5F1 /* FloAPP.app */,
+				84291A091C05867A0015F5F1 /* FLOAPP.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		84291A0B1C05867A0015F5F1 /* FLOApp */ = {
+		84291A0B1C05867A0015F5F1 /* FLOAPP */ = {
 			isa = PBXGroup;
 			children = (
 				840EE8151C11E4CB00DFE53E /* 模块 */,
@@ -383,8 +384,7 @@
 				73E537E91D8150DF005FB419 /* PrefixHeader.pch */,
 				84291A0C1C05867A0015F5F1 /* Supporting Files */,
 			);
-			name = FLOApp;
-			path = XMPPChat;
+			path = FLOAPP;
 			sourceTree = "<group>";
 		};
 		84291A0C1C05867A0015F5F1 /* Supporting Files */ = {
@@ -667,36 +667,35 @@
 			name = "用户";
 			sourceTree = "<group>";
 		};
-		A4FF2F2247042C6B21EB0DC9 /* Pods */ = {
+		BA1A1955340CBA90421877C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D58965F0A18C6EE0430FC5C9 /* Pods-XMPPChat.debug.xcconfig */,
-				6EAB8E06A782426E86BFF338 /* Pods-XMPPChat.release.xcconfig */,
+				F694C4E2DFDEE2FA692FDF4E /* libPods-FLOAPP.a */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84291A081C05867A0015F5F1 /* XMPPChat */ = {
+		84291A081C05867A0015F5F1 /* FLOAPP */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84291A201C05867A0015F5F1 /* Build configuration list for PBXNativeTarget "XMPPChat" */;
+			buildConfigurationList = 84291A201C05867A0015F5F1 /* Build configuration list for PBXNativeTarget "FLOAPP" */;
 			buildPhases = (
-				ED9214807A73DF759DEB46BE /* Check Pods Manifest.lock */,
+				1E2808BE8AA03BD0DC3A546F /* [CP] Check Pods Manifest.lock */,
 				84291A051C05867A0015F5F1 /* Sources */,
 				84291A061C05867A0015F5F1 /* Frameworks */,
 				84291A071C05867A0015F5F1 /* Resources */,
-				E6C201C5256BEEBF2F7CA156 /* Copy Pods Resources */,
-				AB7001BA1228DB6B12746B12 /* Embed Pods Frameworks */,
+				F835D83C944336EE1C5B84BE /* [CP] Embed Pods Frameworks */,
+				4FC95C759CAF6AB0AB86D771 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = XMPPChat;
+			name = FLOAPP;
 			productName = XMPPChat;
-			productReference = 84291A091C05867A0015F5F1 /* FloAPP.app */;
+			productReference = 84291A091C05867A0015F5F1 /* FLOAPP.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -714,7 +713,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 84291A041C05867A0015F5F1 /* Build configuration list for PBXProject "XMPPChat" */;
+			buildConfigurationList = 84291A041C05867A0015F5F1 /* Build configuration list for PBXProject "FLOAPP" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -727,7 +726,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84291A081C05867A0015F5F1 /* XMPPChat */,
+				84291A081C05867A0015F5F1 /* FLOAPP */,
 			);
 		};
 /* End PBXProject section */
@@ -749,49 +748,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AB7001BA1228DB6B12746B12 /* Embed Pods Frameworks */ = {
+		1E2808BE8AA03BD0DC3A546F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XMPPChat/Pods-XMPPChat-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E6C201C5256BEEBF2F7CA156 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XMPPChat/Pods-XMPPChat-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ED9214807A73DF759DEB46BE /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4FC95C759CAF6AB0AB86D771 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F835D83C944336EE1C5B84BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -959,38 +958,38 @@
 		};
 		84291A211C05867A0015F5F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D58965F0A18C6EE0430FC5C9 /* Pods-XMPPChat.debug.xcconfig */;
+			baseConfigurationReference = BB4495329B11930D78F4441D /* Pods-FLOAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = XMPPChat/PrefixHeader.pch;
-				INFOPLIST_FILE = XMPPChat/Info.plist;
+				GCC_PREFIX_HEADER = FLOAPP/PrefixHeader.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/FLOAPP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
-				PRODUCT_NAME = FloAPP;
+				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		84291A221C05867A0015F5F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EAB8E06A782426E86BFF338 /* Pods-XMPPChat.release.xcconfig */;
+			baseConfigurationReference = 4F3082D274C70DF38A7A3505 /* Pods-FLOAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = XMPPChat/PrefixHeader.pch;
-				INFOPLIST_FILE = XMPPChat/Info.plist;
+				GCC_PREFIX_HEADER = FLOAPP/PrefixHeader.pch;
+				INFOPLIST_FILE = "$(SRCROOT)/FLOAPP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
-				PRODUCT_NAME = FloAPP;
+				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -998,7 +997,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84291A041C05867A0015F5F1 /* Build configuration list for PBXProject "XMPPChat" */ = {
+		84291A041C05867A0015F5F1 /* Build configuration list for PBXProject "FLOAPP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84291A1E1C05867A0015F5F1 /* Debug */,
@@ -1007,7 +1006,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84291A201C05867A0015F5F1 /* Build configuration list for PBXNativeTarget "XMPPChat" */ = {
+		84291A201C05867A0015F5F1 /* Build configuration list for PBXNativeTarget "FLOAPP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84291A211C05867A0015F5F1 /* Debug */,
