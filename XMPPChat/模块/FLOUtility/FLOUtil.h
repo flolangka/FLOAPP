@@ -45,25 +45,25 @@
 @end
 
 #pragma mark - NSArray
-@interface NSArray (FLOUtil)
+@interface NSArray (FLOJSON)
 - (NSData *)flo_JSONData;
 - (NSString *)flo_JSONString;
 @end
 
 #pragma mark - NSDictionary
-@interface NSDictionary (FLOUtil)
+@interface NSDictionary (FLOJSON)
 - (NSData *)flo_JSONData;
 - (NSString *)flo_JSONString;
 @end
 
 #pragma mark - NSData
-@interface NSData (FLOUtil)
+@interface NSData (FLOJSON)
 - (id)flo_objectFromJSONData;
 - (NSString *)flo_JSONString;
 @end
 
 #pragma mark - NSString
-@interface NSString (FLOUtil)
+@interface NSString (FLOJSON)
 - (id)flo_objectFromJSONString;
 - (NSData *)flo_JSONData;
 @end

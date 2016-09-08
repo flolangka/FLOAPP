@@ -7,6 +7,7 @@
 //
 
 #import "FLOAddBookMarkMaskView.h"
+#import <MBProgressHUD.h>
 
 @implementation FLOAddBookMarkMaskView
 
@@ -42,7 +43,12 @@
 
 - (void)showAlert:(NSString *)alertStr
 {
-    [[[UIAlertView alloc] initWithTitle:@"提示" message:alertStr delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    progress.mode = MBProgressHUDModeText;
+    progress.labelText = alertStr;
+    [progress show:YES];
+    
+    [progress hide:YES afterDelay:2];
 }
 
 - (void)hide

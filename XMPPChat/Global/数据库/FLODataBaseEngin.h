@@ -34,13 +34,4 @@
 - (void)resetWeiboDataWithStatus:(NSArray *)status;
 - (NSArray *)selectWeiboStatus;
 
-//聊天人记录
-- (void)saveChatRecord:(FLOChatRecordModel *)chatRecord;
-- (NSArray *)selectAllChatRecords;
-
-//聊天消息记录
-- (void)insertChatMessages:(NSArray *)chatMessages;
-- (NSArray *)selectAllChatMessagesWithChatUser:(NSString *)chatUser;
-
-
 @end

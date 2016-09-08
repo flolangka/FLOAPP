@@ -12,8 +12,8 @@
 #import <AFNetworkReachabilityManager.h>
 #import <BaiduMapAPI_Base/BMKMapManager.h>
 #import <BaiduMapAPI_Map/BMKMapView.h>
-#import "FLOUtil.h"
 #import <CoreData/CoreData.h>
+#import <MBProgressHUD.h>
 
 @interface AppDelegate ()
 
@@ -39,8 +39,11 @@
     AFNetworkReachabilityManager *networkManager = [AFNetworkReachabilityManager sharedManager];
     [networkManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusNotReachable) {
-            UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:@"网络异常" message:@"请检查网络连接" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alertV show];
+            MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:_window animated:YES];
+            progress.mode = MBProgressHUDModeText;
+            progress.labelText = @"网络异常，请检查网络连接";
+            [progress show:YES];
+            [progress hide:YES afterDelay:2];
         }
     }];
     [networkManager startMonitoring];

@@ -7,7 +7,6 @@
 //
 
 #import "FLOColorViewController.h"
-#import "FLOUtil.h"
 
 @interface FLOColorViewController () <UITextFieldDelegate>
 

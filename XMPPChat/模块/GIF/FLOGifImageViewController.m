@@ -7,10 +7,8 @@
 //
 
 #import "FLOGifImageViewController.h"
-#import "FLOUtil.h"
 #import <Photos/Photos.h>
 #import <SDWebImage/UIImage+GIF.h>
-#import <WebKit/WebKit.h>
 
 @interface FLOGifImageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 

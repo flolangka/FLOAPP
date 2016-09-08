@@ -7,7 +7,6 @@
 //
 
 #import "FLONetWorkTableViewController.h"
-#import "FLOUtil.h"
 #import "UIView+FLOUtil.h"
 #import <Masonry.h>
 #import <YYTextView.h>

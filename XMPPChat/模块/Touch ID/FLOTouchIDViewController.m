@@ -10,7 +10,7 @@
 #import <LocalAuthentication/LAContext.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@interface FLOTouchIDViewController ()<UIAlertViewDelegate>
+@interface FLOTouchIDViewController ()
 
 @end
 
@@ -23,13 +23,12 @@
     if ([self canEvaluatePolicy]) {
         [self evaluatePolicy];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"Touch ID 不可用" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Touch ID 不可用" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }]];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (BOOL)canEvaluatePolicy

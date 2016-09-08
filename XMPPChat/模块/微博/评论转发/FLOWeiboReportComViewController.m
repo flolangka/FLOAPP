@@ -53,10 +53,10 @@ static NSString * const kCommentStatusURl = @"https://api.weibo.com/2/comments/c
     // 构造请求参数
     NSString *message = self.textView.text;
     if (message.length > 140) {
-        [[[UIAlertView alloc] initWithTitle:nil message:@"输入内容请不要超过140个字符" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+        [FLOUtil flo_alertWithMessage:@"输入内容请不要超过140个字符" fromVC:self];
         return;
     } else if ([self.title isEqualToString:@"评论微博"] && _textView.text.length < 1) {
-        [[[UIAlertView alloc] initWithTitle:nil message:@"评论内容不能为空" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+        [FLOUtil flo_alertWithMessage:@"评论内容不能为空" fromVC:self];
         return;
     }
     

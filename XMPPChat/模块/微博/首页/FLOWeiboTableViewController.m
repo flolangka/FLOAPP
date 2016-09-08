@@ -37,7 +37,7 @@ static NSString * const kHomeStatusesURL = @"https://api.weibo.com/2/statuses/ho
 static NSString * const kStatusCellID = @"statusCell";
 static NSString * const kFooterCellID = @"footerCell";
 
-@interface FLOWeiboTableViewController ()<UIWebViewDelegate, UIViewControllerPreviewingDelegate>
+@interface FLOWeiboTableViewController ()<UIWebViewDelegate>
 
 {
     AFHTTPSessionManager *sessionManager;

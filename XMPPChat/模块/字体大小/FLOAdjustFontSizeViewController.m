@@ -10,8 +10,6 @@
 #import "FLOAdjustFontSizeLabel.h"
 #import "FLOAdjustFontSizeView.h"
 #import "UILabel+FLOUtil.h"
-#import "FLOUtil.h"
-#import <Masonry.h>
 #import "UIView+FLOUtil.h"
 
 @interface FLOAdjustFontSizeViewController () <UITableViewDelegate, UITableViewDataSource>

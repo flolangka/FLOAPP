@@ -16,9 +16,6 @@
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
         [VC presentViewController:alertController animated:YES completion:nil];
-    } else {
-        UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:nil message:msg delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-        [alertV show];
     }
 }
 
@@ -27,16 +24,13 @@
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
         [VC presentViewController:alertController animated:YES completion:nil];
-    } else {
-        UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-        [alertV show];
     }
 }
 
 @end
 
 #pragma mark - NSArray
-@implementation NSArray (FLOUtil)
+@implementation NSArray (FLOJSON)
 - (NSData *)flo_JSONData {
     if (self == nil) {return nil;}
     if ([NSJSONSerialization isValidJSONObject:self])
@@ -60,7 +54,7 @@
 @end
 
 #pragma mark - NSDictionary
-@implementation NSDictionary (FLOUtil)
+@implementation NSDictionary (FLOJSON)
 - (NSData *)flo_JSONData {
     if (self == nil) {return nil;}
     if ([NSJSONSerialization isValidJSONObject:self])
@@ -84,7 +78,7 @@
 @end
 
 #pragma mark - NSData
-@implementation NSData (FLOUtil)
+@implementation NSData (FLOJSON)
 - (id)flo_objectFromJSONData {
     if (self == nil) {return nil;}
     id result = [NSJSONSerialization JSONObjectWithData:self options:NSJSONReadingAllowFragments error:nil];
@@ -99,7 +93,7 @@
 @end
 
 #pragma mark - NSString
-@implementation NSString (FLOUtil)
+@implementation NSString (FLOJSON)
 - (id)flo_objectFromJSONString {
     if (self == nil) {return nil;}
     NSMutableString *string_self = [[NSMutableString alloc] initWithCapacity:1];
