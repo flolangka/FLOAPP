@@ -19,8 +19,9 @@
 }
 */
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
     [_bookMarkNameTF becomeFirstResponder];
 }
 

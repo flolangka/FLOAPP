@@ -12,6 +12,7 @@
 @implementation FLOWeiboStatusFoolerTableViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

@@ -14,6 +14,7 @@
 @implementation FLOWeiboCommentTableViewCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     // Initialization code
 }
 

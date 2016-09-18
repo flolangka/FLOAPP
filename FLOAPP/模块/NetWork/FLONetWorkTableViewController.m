@@ -39,7 +39,7 @@
     arrURLPath = [NSMutableArray arrayWithCapacity:42];
     
     //查询数据库
-    app = [UIApplication sharedApplication].delegate;
+    app = (AppDelegate *)[UIApplication sharedApplication].delegate;
     
     //建立请求
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"NetWork"];

@@ -10,8 +10,8 @@
 
 @implementation FLOCollectionViewCell
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+    [super awakeFromNib];
 //    self.layer.borderWidth = 1.0;
 //    self.layer.borderColor = [UIColor lightGrayColor].CGColor;
     

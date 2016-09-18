@@ -55,8 +55,9 @@ static NSString * const kFooterCellID = @"footerCell";
 
 @implementation FLOWeiboTableViewController
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
     self.dataArr = [NSMutableArray array];
 }
 
