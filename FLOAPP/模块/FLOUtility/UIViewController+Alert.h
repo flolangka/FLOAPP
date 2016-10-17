@@ -22,20 +22,20 @@
 
 @end
 
+//⚠️：切记不可再实现类别中已实现的代理方法
 @interface UIViewController (Alert) <UIAlertViewDelegate, UIActionSheetDelegate>
-
 
 - (void)alertWithTitle:(NSString *)title
                message:(NSString *)message
     cancelButtonStruct:(StructAlertTitleAndAction *)cancelButtonStruct
-    otherButtonStructs:(StructAlertTitleAndAction *)otherButtonStructs, ...;
+    otherButtonStructs:(StructAlertTitleAndAction *)otherButtonStructs, ... NS_REQUIRES_NIL_TERMINATION;
 
 
 - (void)actionSheetWithTitle:(NSString *)title
                      message:(NSString *)message
           cancelButtonStruct:(StructAlertTitleAndAction *)cancelButtonStruct
      destructiveButtonStruct:(StructAlertTitleAndAction *)destructiveButtonStruct
-          otherButtonStructs:(StructAlertTitleAndAction *)otherButtonStructs, ...;
+          otherButtonStructs:(StructAlertTitleAndAction *)otherButtonStructs, ... NS_REQUIRES_NIL_TERMINATION;
 
 @end
 
