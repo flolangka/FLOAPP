@@ -20,6 +20,14 @@ static NSString * const cellID = @"cellIdentifier";
 
 @implementation FLOSystemSoundTableViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.title = @"SystemSound";
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

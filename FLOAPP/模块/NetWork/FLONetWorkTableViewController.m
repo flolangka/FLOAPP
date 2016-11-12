@@ -112,7 +112,7 @@
     
     textView_url.text = @"http://";
     textView_url.placeholderText = @"http://";
-    textView_para.placeholderText = @"Parameters (Scroll TableView Start Request)";
+    textView_para.placeholderText = @"Post Parameters (Scroll View Start Request)";
     textView_para.placeholderTextColor = COLOR_HEX(0xc7c7cd);
     textView_url.placeholderTextColor = COLOR_HEX(0xc7c7cd);
     

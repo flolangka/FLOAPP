@@ -64,6 +64,8 @@ static NSString * const kFooterCellID = @"footerCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:UIBarButtonItemStyleDone target:self action:@selector(loginOutAction)];
+    
     sessionManager = [AFHTTPSessionManager manager];
     authorization = [FLOWeiboAuthorization sharedAuthorization];
     
