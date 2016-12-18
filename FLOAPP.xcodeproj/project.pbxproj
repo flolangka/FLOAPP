@@ -17,6 +17,11 @@
 		1285C71E1D6350120027717D /* FLOColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285C71D1D6350120027717D /* FLOColorViewController.m */; };
 		1290B35E1CFB3F8400D967EE /* CollectionPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1290B35D1CFB3F8400D967EE /* CollectionPList.plist */; };
 		12DE3E991CE0D5BA006D3989 /* FLOFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */; };
+		12F956281E06C32E008699B2 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F956271E06C32E008699B2 /* ActionViewController.m */; };
+		12F9562B1E06C32E008699B2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12F956291E06C32E008699B2 /* MainInterface.storyboard */; };
+		12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 12F956241E06C32E008699B2 /* FLOAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		12F956341E06C626008699B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84291A181C05867A0015F5F1 /* Assets.xcassets */; };
+		12F956361E06C69A008699B2 /* FLO@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F956351E06C69A008699B2 /* FLO@2x.png */; };
 		7301A2001D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A1FF1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m */; };
 		7301A2031D6E97A500A4EC2E /* FLOAdjustFontSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2021D6E97A500A4EC2E /* FLOAdjustFontSizeView.m */; };
 		7301A2061D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */; };
@@ -68,6 +73,30 @@
 		B244C5ECC0737C6083001B0C /* libPods-FLOAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F694C4E2DFDEE2FA692FDF4E /* libPods-FLOAPP.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		12F9562D1E06C32E008699B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84291A011C05867A0015F5F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 12F956231E06C32E008699B2;
+			remoteInfo = FLOAction;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		12F956331E06C32E008699B2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1239A9281D7862E00064C15C /* FLONetWorkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLONetWorkTableViewController.h; path = "模块/NetWork/FLONetWorkTableViewController.h"; sourceTree = "<group>"; };
 		1239A9291D7862E00064C15C /* FLONetWorkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLONetWorkTableViewController.m; path = "模块/NetWork/FLONetWorkTableViewController.m"; sourceTree = "<group>"; };
@@ -87,6 +116,12 @@
 		1290B35D1CFB3F8400D967EE /* CollectionPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CollectionPList.plist; sourceTree = "<group>"; };
 		12DE3E971CE0D5BA006D3989 /* FLOFontSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontSizeViewController.h; path = "模块/FontSize/FLOFontSizeViewController.h"; sourceTree = "<group>"; };
 		12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOFontSizeViewController.m; path = "模块/FontSize/FLOFontSizeViewController.m"; sourceTree = "<group>"; };
+		12F956241E06C32E008699B2 /* FLOAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FLOAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		12F956261E06C32E008699B2 /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
+		12F956271E06C32E008699B2 /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
+		12F9562A1E06C32E008699B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		12F9562C1E06C32E008699B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12F956351E06C69A008699B2 /* FLO@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FLO@2x.png"; sourceTree = "<group>"; };
 		4F3082D274C70DF38A7A3505 /* Pods-FLOAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLOAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP.release.xcconfig"; sourceTree = "<group>"; };
 		7301A1FE1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOAdjustFontSizeViewController.h; sourceTree = "<group>"; };
 		7301A1FF1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeViewController.m; sourceTree = "<group>"; };
@@ -186,6 +221,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		12F956211E06C32E008699B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84291A061C05867A0015F5F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,6 +277,18 @@
 				12DE3E981CE0D5BA006D3989 /* FLOFontSizeViewController.m */,
 			);
 			name = FontSize;
+			sourceTree = "<group>";
+		};
+		12F956251E06C32E008699B2 /* FLOAction */ = {
+			isa = PBXGroup;
+			children = (
+				12F956261E06C32E008699B2 /* ActionViewController.h */,
+				12F956271E06C32E008699B2 /* ActionViewController.m */,
+				12F956291E06C32E008699B2 /* MainInterface.storyboard */,
+				12F9562C1E06C32E008699B2 /* Info.plist */,
+				12F956351E06C69A008699B2 /* FLO@2x.png */,
+			);
+			path = FLOAction;
 			sourceTree = "<group>";
 		};
 		3180D5F5966FFFBE11E63FAD /* Pods */ = {
@@ -357,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				84291A0B1C05867A0015F5F1 /* FLOAPP */,
+				12F956251E06C32E008699B2 /* FLOAction */,
 				84291A0A1C05867A0015F5F1 /* Products */,
 				3180D5F5966FFFBE11E63FAD /* Pods */,
 				BA1A1955340CBA90421877C7 /* Frameworks */,
@@ -367,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				84291A091C05867A0015F5F1 /* FLOAPP.app */,
+				12F956241E06C32E008699B2 /* FLOAction.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -683,6 +739,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		12F956231E06C32E008699B2 /* FLOAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12F956321E06C32E008699B2 /* Build configuration list for PBXNativeTarget "FLOAction" */;
+			buildPhases = (
+				12F956201E06C32E008699B2 /* Sources */,
+				12F956211E06C32E008699B2 /* Frameworks */,
+				12F956221E06C32E008699B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FLOAction;
+			productName = FLOAction;
+			productReference = 12F956241E06C32E008699B2 /* FLOAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		84291A081C05867A0015F5F1 /* FLOAPP */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84291A201C05867A0015F5F1 /* Build configuration list for PBXNativeTarget "FLOAPP" */;
@@ -693,10 +766,12 @@
 				84291A071C05867A0015F5F1 /* Resources */,
 				F835D83C944336EE1C5B84BE /* [CP] Embed Pods Frameworks */,
 				4FC95C759CAF6AB0AB86D771 /* [CP] Copy Pods Resources */,
+				12F956331E06C32E008699B2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				12F9562E1E06C32E008699B2 /* PBXTargetDependency */,
 			);
 			name = FLOAPP;
 			productName = XMPPChat;
@@ -712,6 +787,11 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Flolangka;
 				TargetAttributes = {
+					12F956231E06C32E008699B2 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = X928ZDD77C;
+						ProvisioningStyle = Automatic;
+					};
 					84291A081C05867A0015F5F1 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = X928ZDD77C;
@@ -732,11 +812,22 @@
 			projectRoot = "";
 			targets = (
 				84291A081C05867A0015F5F1 /* FLOAPP */,
+				12F956231E06C32E008699B2 /* FLOAction */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		12F956221E06C32E008699B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F956341E06C626008699B2 /* Assets.xcassets in Resources */,
+				12F956361E06C69A008699B2 /* FLO@2x.png in Resources */,
+				12F9562B1E06C32E008699B2 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84291A071C05867A0015F5F1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -801,6 +892,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		12F956201E06C32E008699B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12F956281E06C32E008699B2 /* ActionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84291A051C05867A0015F5F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -862,7 +961,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		12F9562E1E06C32E008699B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 12F956231E06C32E008699B2 /* FLOAction */;
+			targetProxy = 12F9562D1E06C32E008699B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		12F956291E06C32E008699B2 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				12F9562A1E06C32E008699B2 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		84291A151C05867A0015F5F1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -882,6 +997,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		12F956301E06C32E008699B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X928ZDD77C;
+				INFOPLIST_FILE = FLOAction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLOAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		12F956311E06C32E008699B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X928ZDD77C;
+				INFOPLIST_FILE = FLOAction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLOAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		84291A1E1C05867A0015F5F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1007,6 +1160,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		12F956321E06C32E008699B2 /* Build configuration list for PBXNativeTarget "FLOAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				12F956301E06C32E008699B2 /* Debug */,
+				12F956311E06C32E008699B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		84291A041C05867A0015F5F1 /* Build configuration list for PBXProject "FLOAPP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
