@@ -51,9 +51,32 @@
 {
     [super viewWillAppear:animated];
     
+    BOOL firstLoad = self.dataArr == nil;
+    
     NSArray *recordBookMarks = [[FLODataBaseEngin shareInstance] selectAllBookMark];
     self.dataArr = [NSMutableArray arrayWithArray:recordBookMarks];
     [self.tableView reloadData];
+    
+    // 剪切板网址检测
+    if (firstLoad) {
+        NSString *pasteboardString = [UIPasteboard generalPasteboard].string;
+        if (pasteboardString && ([pasteboardString hasPrefix:@"http://"] || [pasteboardString hasPrefix:@"https://"])) {
+            __block BOOL selected = NO;
+            
+            [_dataArr enumerateObjectsUsingBlock:^(FLOBookMarkModel *bookMark, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([bookMark.bookMarkURLStr isEqualToString:pasteboardString]) {
+                    selected = YES;
+                    *stop = YES;
+                }
+            }];
+            
+            if (!selected) {
+                [self addBookMarkName:@"" url:pasteboardString];
+                
+                Def_MBProgressString(@"检测到剪切板网址");
+            }
+        }
+    }
     
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     for (FLOBookMarkModel *bookModel in recordBookMarks) {
@@ -133,11 +156,14 @@
 
 
 #pragma mark - 添加书签
-- (void)addBookMark
-{
+- (void)addBookMark {
+    [self addBookMarkName:_currentDocumentTitle url:_currentRequestURlStr];
+}
+
+- (void)addBookMarkName:(NSString *)name url:(NSString *)url {
     FLOAddBookMarkMaskView *maskView = [[[NSBundle mainBundle] loadNibNamed:@"FLOAddBookMarkMaskView" owner:nil options:nil] objectAtIndex:0];
-    maskView.bookMarkNameTF.text = _currentDocumentTitle;
-    maskView.bookMarkURLTF.text = _currentRequestURlStr;
+    maskView.bookMarkNameTF.text = name;
+    maskView.bookMarkURLTF.text = url;
     maskView.submit = ^void(NSString *name, NSString *urlStr){
         [[FLODataBaseEngin shareInstance] insertBookMark:[[FLOBookMarkModel alloc] initWithBookMarkName:name urlString:urlStr]];
         

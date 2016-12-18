@@ -13,5 +13,8 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "FLOUtil.h"
+#import <MBProgressHUD.h>
+
+#define Def_MBProgressString(str) MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES]; progress.mode = MBProgressHUDModeText; progress.labelText = str; [progress show:YES]; [progress hide:YES afterDelay:2];
 
 #endif /* PrefixHeader_pch */
