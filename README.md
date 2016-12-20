@@ -1,39 +1,41 @@
 #FLOAPP
 
 #####一个用于自我技术积累的项目，持续更新...
-![首页](ScreenShots/IMG_1022.PNG)
 
 1. slideMenu -- 侧滑菜单 -- 2015.11.20
 2. 聊天 -- [FloXMPP](https://github.com/flolangka/FLOXMPP)通过XMPP实现的即时通讯应用 -- 2015.11.30
 3. UIFont -- 系统字体库 -- 2015.12.4
 4. bookMark -- 书签(浏览器)-- 2015.12.14
-![书签](ScreenShots/IMG_1023.PNG)	
-![浏览器](ScreenShots/IMG_1025.PNG)
 5. sinaWeibo -- 曾经做的微博练习，将首页部分融入其中 -- 2015.12.16
-![新浪微博](ScreenShots/IMG_1037.PNG)
 6. 扫一扫 -- AVFoundation实现扫码功能 -- 2015.12.17
-![扫一扫](ScreenShots/IMG_1027.PNG)
 7. 桌面3D Touch -- 2015.12.17
 8. Touch ID -- 2015.12.21
 9. 百度地图 -- 2015.12.25
-![百度地图](ScreenShots/IMG_1030.PNG)
 10. SystemSound -- 2015.12.31
 11. FLEX -- 2016.1.4
 12. Force-Touch -- 2016.1.14
 13. WKWebView -- 2016.1.14
 14. FontSize -- 2016.5.10
-![字体大小](ScreenShots/IMG_1033.PNG)
 15. UIColor  --  2016.8.16
-![UIColor](ScreenShots/IMG_1034.PNG)
 16. 字体大小调整  --  2016.8.25
-![字体调整](ScreenShots/IMG_1035.PNG)
 17. 相册Gif文件浏览  --  2016.8.26
-![Gif](ScreenShots/IMG_1036.PNG)
 18. 网络请求（测试接口） --  2016.9.4
-![网络请求](ScreenShots/IMG_1038.PNG)	
-![网络请求结果](ScreenShots/IMG_1039.PNG)
 19. CoreData (存储网络请求历史)  --  2016.9.6
 20. Action Extension  --  2016.12.1
+
+#####截图：
+![首页](ScreenShots/IMG_1022.PNG)
+![书签](ScreenShots/IMG_1023.PNG)	
+![浏览器](ScreenShots/IMG_1025.PNG)
+![新浪微博](ScreenShots/IMG_1037.PNG)
+![扫一扫](ScreenShots/IMG_1027.PNG)
+![百度地图](ScreenShots/IMG_1030.PNG)
+![字体大小](ScreenShots/IMG_1033.PNG)
+![UIColor](ScreenShots/IMG_1034.PNG)
+![字体调整](ScreenShots/IMG_1035.PNG)
+![Gif](ScreenShots/IMG_1036.PNG)
+![网络请求](ScreenShots/IMG_1038.PNG)	
+![网络请求结果](ScreenShots/IMG_1039.PNG)
 
 
 
