@@ -115,7 +115,9 @@
     }
     
     resultLabel.text = textField.text.length ? textField.text : @"输入内容啊！！！";
-    CGSize size = [resultLabel sizeThatFits:CGSizeMake(CGRectGetWidth(self.view.frame)-16, 21)];
+    
+    CGSize size = [resultLabel.text boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  attributes:@{NSFontAttributeName: resultLabel.font} context:nil].size;[resultLabel sizeThatFits:CGSizeMake(CGRectGetWidth(self.view.frame)-16, 21)];
+    
     resultLabel.frame = CGRectMake(8, 84, size.width, size.height);
     resultLabel.center = CGPointMake(CGRectGetMidX(self.view.frame), 112);
     indicatorLabel.text = [NSString stringWithFormat:@"宽:%.1f, 高:%.1f", size.width, size.height];

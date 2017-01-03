@@ -114,5 +114,13 @@
 		<key>ItemAddress</key>
 		<string>SBIDNetWorkTableViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>瀑布流</string>
+		<key>ItemIconURL</key>
+		<string>http://www.lingyun.net/Uploads/2016-07-15/5788ae31a8af5.png</string>
+		<key>ItemAddress</key>
+		<string>FLOWaterFallViewController</string>
+	</dict>
 </array>
 </plist>

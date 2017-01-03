@@ -16,4 +16,7 @@
 - (UIImage *)flo_drawRectRadius:(CGFloat)radius;
 - (UIImage *)flo_drawRectRadius:(CGFloat)radius sizeToFit:(CGSize)sizeToFit;
 
+//压缩图片
+- (UIImage *)flo_scaleToSize:(CGSize)newSize;
+
 @end
