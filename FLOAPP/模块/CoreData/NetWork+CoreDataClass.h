@@ -1,9 +1,9 @@
 //
-//  NetWork.h
-//  XMPPChat
+//  NetWork+CoreDataClass.h
+//  FLOAPP
 //
-//  Created by 沈敏 on 16/9/5.
-//  Copyright © 2016年 Flolangka. All rights reserved.
+//  Created by 沈敏 on 2017/1/4.
+//  Copyright © 2017年 Flolangka. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,8 +12,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NetWork : NSManagedObject
-
-// Insert code here to declare functionality of your managed object subclass
 
 @end
 

@@ -38,7 +38,7 @@
 		<key>ItemName</key>
 		<string>扫一扫</string>
 		<key>ItemIconURL</key>
-		<string>http://www.weixinju.com/uploadfile/2012/1128/20121128023408358.jpg</string>
+		<string>http://2.pic.pc6.com/up/2016-2/20162395134.png</string>
 		<key>ItemAddress</key>
 		<string>FLOCodeViewController</string>
 	</dict>
@@ -121,6 +121,14 @@
 		<string>http://www.lingyun.net/Uploads/2016-07-15/5788ae31a8af5.png</string>
 		<key>ItemAddress</key>
 		<string>FLOWaterFallViewController</string>
+	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>流媒体</string>
+		<key>ItemIconURL</key>
+		<string>http://www.wyke47.com/Images/tvset.png</string>
+		<key>ItemAddress</key>
+		<string>FLOMediaAddressTableViewController</string>
 	</dict>
 </array>
 </plist>

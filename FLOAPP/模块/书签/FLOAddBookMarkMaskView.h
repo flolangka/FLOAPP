@@ -10,6 +10,7 @@
 
 @interface FLOAddBookMarkMaskView : UIView
 
+@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UITextField *bookMarkNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *bookMarkURLTF;
 

@@ -13,9 +13,8 @@
 #import "FLOTextViewViewController.h"
 #import <MBProgressHUD.h>
 #import "FLONetWorkHistoryTableViewController.h"
-
-#import "AppDelegate.h"
-#import "NetWork.h"
+#import "APLCoreDataStackManager.h"
+#import "NetWork+CoreDataClass.h"
 
 @interface FLONetWorkTableViewController ()<YYTextViewDelegate>
 
@@ -25,9 +24,9 @@
     
     NSMutableDictionary *dataDic;
     
-    AppDelegate *app;
     NSMutableArray *arrURLPath;
 }
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -39,12 +38,10 @@
     arrURLPath = [NSMutableArray arrayWithCapacity:42];
     
     //查询数据库
-    app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     //建立请求
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"NetWork"];
     //读取数据
-    NSArray *array = [app.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
     for (NetWork *data in array) {
         //data.urlPath 无法取出数据
         [arrURLPath addObject:[data urlPath]];
@@ -128,11 +125,11 @@
         
         //保存数据库
         if (![arrURLPath containsObject:textView_url.text] && ![textView_url.text isEqualToString:@"http://"]) {
-            NetWork *data = [NSEntityDescription insertNewObjectForEntityForName:@"NetWork" inManagedObjectContext:app.managedObjectContext];
+            NetWork *data = [NSEntityDescription insertNewObjectForEntityForName:@"NetWork" inManagedObjectContext:self.managedObjectContext];
             data.urlPath = textView_url.text;
             data.parameterStr = textView_para.text;
             
-            [app.managedObjectContext save:nil];
+            [self.managedObjectContext save:nil];
             
             [arrURLPath addObject:textView_url.text];
         }
@@ -329,6 +326,18 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+ */
+
+#pragma mark - Core Data support
+- (NSManagedObjectContext *)managedObjectContext {
+    if (_managedObjectContext) {
+        return _managedObjectContext;
+    }
+    
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    _managedObjectContext.persistentStoreCoordinator = [[APLCoreDataStackManager sharedManager] persistentStoreCoordinator];
+    
+    return _managedObjectContext;
+}
 
 @end

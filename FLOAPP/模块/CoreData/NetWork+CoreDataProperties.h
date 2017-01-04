@@ -1,22 +1,22 @@
 //
 //  NetWork+CoreDataProperties.h
-//  XMPPChat
+//  FLOAPP
 //
-//  Created by 沈敏 on 16/9/5.
-//  Copyright © 2016年 Flolangka. All rights reserved.
-//
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
+//  Created by 沈敏 on 2017/1/4.
+//  Copyright © 2017年 Flolangka. All rights reserved.
 //
 
-#import "NetWork.h"
+#import "NetWork+CoreDataClass.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NetWork (CoreDataProperties)
 
-@property (nullable, nonatomic, retain) NSString *urlPath;
-@property (nullable, nonatomic, retain) NSString *parameterStr;
++ (NSFetchRequest<NetWork *> *)fetchRequest;
+
+@property (nullable, nonatomic, copy) NSString *parameterStr;
+@property (nullable, nonatomic, copy) NSString *urlPath;
 
 @end
 

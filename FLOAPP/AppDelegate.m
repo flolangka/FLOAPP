@@ -12,10 +12,13 @@
 #import <AFNetworkReachabilityManager.h>
 #import <BaiduMapAPI_Base/BMKMapManager.h>
 #import <BaiduMapAPI_Map/BMKMapView.h>
-#import <CoreData/CoreData.h>
 #import <MBProgressHUD.h>
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -98,38 +101,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-#pragma mark - coreData
-- (NSManagedObjectContext *)managedObjectContext{
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    }
-    return _managedObjectContext;
-}
-
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator{
-    NSString *libsPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-    NSURL *storeURL = [NSURL fileURLWithPath:[libsPath stringByAppendingPathComponent:@"TestApp.sqlite"]];
-    
-    NSError *error = nil;
-    NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    return persistentStoreCoordinator;
-}
-
-- (NSManagedObjectModel *)managedObjectModel{
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"FLOCoreData" withExtension:@"momd"];
-    NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return managedObjectModel;
 }
 
 @end

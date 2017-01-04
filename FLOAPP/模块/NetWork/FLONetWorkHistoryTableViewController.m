@@ -7,16 +7,16 @@
 //
 
 #import "FLONetWorkHistoryTableViewController.h"
-#import "AppDelegate.h"
+#import "APLCoreDataStackManager.h"
 #import <CoreData/CoreData.h>
-#import "NetWork.h"
+#import "NetWork+CoreDataClass.h"
 
 @interface FLONetWorkHistoryTableViewController ()
 
 {
     NSMutableArray *dataArr;
-    AppDelegate *app;
 }
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -28,12 +28,10 @@
     dataArr = [NSMutableArray arrayWithCapacity:42];
     
     //查询数据库
-    app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     //建立请求
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"NetWork"];
     //读取数据
-    NSArray *array = [app.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
     
     if (array) {
         [dataArr addObjectsFromArray:array];
@@ -87,8 +85,8 @@
         
         //更新数据库
         NetWork *data = [dataArr objectAtIndex:indexPath.row];
-        [app.managedObjectContext deleteObject:data];
-        [app.managedObjectContext save:nil];
+        [self.managedObjectContext deleteObject:data];
+        [self.managedObjectContext save:nil];
         
         //更新数据源
         [dataArr removeObjectAtIndex:indexPath.row];
@@ -119,6 +117,18 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+ */
+
+#pragma mark - Core Data support
+- (NSManagedObjectContext *)managedObjectContext {
+    if (_managedObjectContext) {
+        return _managedObjectContext;
+    }
+    
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    _managedObjectContext.persistentStoreCoordinator = [[APLCoreDataStackManager sharedManager] persistentStoreCoordinator];
+    
+    return _managedObjectContext;
+}
 
 @end

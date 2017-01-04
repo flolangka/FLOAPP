@@ -1,19 +1,20 @@
 //
 //  NetWork+CoreDataProperties.m
-//  XMPPChat
+//  FLOAPP
 //
-//  Created by 沈敏 on 16/9/5.
-//  Copyright © 2016年 Flolangka. All rights reserved.
-//
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
+//  Created by 沈敏 on 2017/1/4.
+//  Copyright © 2017年 Flolangka. All rights reserved.
 //
 
 #import "NetWork+CoreDataProperties.h"
 
 @implementation NetWork (CoreDataProperties)
 
-@dynamic urlPath;
++ (NSFetchRequest<NetWork *> *)fetchRequest {
+	return [[NSFetchRequest alloc] initWithEntityName:@"NetWork"];
+}
+
 @dynamic parameterStr;
+@dynamic urlPath;
 
 @end

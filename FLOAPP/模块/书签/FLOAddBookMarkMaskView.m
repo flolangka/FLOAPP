@@ -34,7 +34,10 @@
         [self showAlert:@"地址不能为空"];
         return;
     } else if (_bookMarkNameTF.text.length < 1) {
-        [self showAlert:@"书签名不能为空"];
+        [self showAlert:@"名称不能为空"];
+        return;
+    } else if (![_bookMarkURLTF.text hasPrefix:@"http://"] && ![_bookMarkURLTF.text hasPrefix:@"https://"]) {
+        [self showAlert:@"地址无效"];
         return;
     }
     
