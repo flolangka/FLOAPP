@@ -130,5 +130,13 @@
 		<key>ItemAddress</key>
 		<string>FLOMediaAddressTableViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>排序</string>
+		<key>ItemIconURL</key>
+		<string>http://img2.web07.cn/UpPic/Png/201410/09/270081090119121.png</string>
+		<key>ItemAddress</key>
+		<string>SBIDSortViewController</string>
+	</dict>
 </array>
 </plist>

@@ -37,6 +37,10 @@
 		7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */; };
 		7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */; };
 		73BBD9881E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD9871E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m */; };
+		73BBD9901E1E13D700FAAFB3 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD98C1E1E13D700FAAFB3 /* SortView.swift */; };
+		73BBD9911E1E13D700FAAFB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD98D1E1E13D700FAAFB3 /* ViewController.swift */; };
+		73BBD99B1E1E1A9100FAAFB3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD9991E1E1A9100FAAFB3 /* Sort.swift */; };
+		73BBD99C1E1E1A9100FAAFB3 /* SortClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD99A1E1E1A9100FAAFB3 /* SortClass.swift */; };
 		73FEAD7F1D7012160053AD6D /* FLOGifImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */; };
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
 		841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */; };
@@ -158,6 +162,10 @@
 		7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLOUtil.m"; sourceTree = "<group>"; };
 		73BBD9861E1DEB7100FAAFB3 /* FLOCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOCollectionViewLayout.h; sourceTree = "<group>"; };
 		73BBD9871E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOCollectionViewLayout.m; sourceTree = "<group>"; };
+		73BBD98C1E1E13D700FAAFB3 /* SortView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
+		73BBD98D1E1E13D700FAAFB3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		73BBD9991E1E1A9100FAAFB3 /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
+		73BBD99A1E1E1A9100FAAFB3 /* SortClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortClass.swift; sourceTree = "<group>"; };
 		73E537E91D8150DF005FB419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		73FEAD7D1D7012160053AD6D /* FLOGifImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOGifImageViewController.h; path = "模块/GIF/FLOGifImageViewController.h"; sourceTree = "<group>"; };
 		73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOGifImageViewController.m; path = "模块/GIF/FLOGifImageViewController.m"; sourceTree = "<group>"; };
@@ -380,6 +388,18 @@
 			path = "模块/FLOUtility";
 			sourceTree = "<group>";
 		};
+		73BBD9891E1E13D700FAAFB3 /* 排序 */ = {
+			isa = PBXGroup;
+			children = (
+				73BBD9991E1E1A9100FAAFB3 /* Sort.swift */,
+				73BBD99A1E1E1A9100FAAFB3 /* SortClass.swift */,
+				73BBD98C1E1E13D700FAAFB3 /* SortView.swift */,
+				73BBD98D1E1E13D700FAAFB3 /* ViewController.swift */,
+			);
+			name = "排序";
+			path = "模块/排序";
+			sourceTree = "<group>";
+		};
 		73FEAD7C1D7011BE0053AD6D /* Gif */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +423,7 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				73BBD9891E1E13D700FAAFB3 /* 排序 */,
 				1252F42F1E1D24A200A8C244 /* 流媒体 */,
 				1274C75F1E13EC3D003F1FD5 /* 瀑布流 */,
 				1239A9321D7DA5120064C15C /* CoreData */,
@@ -834,6 +855,7 @@
 					84291A081C05867A0015F5F1 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = X928ZDD77C;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -952,6 +974,7 @@
 				84F2A6A91C0803030084156F /* FLOUserModel.m in Sources */,
 				84EEC5561C2396A30089454E /* FLOCodeResultViewController.m in Sources */,
 				12DE3E991CE0D5BA006D3989 /* FLOFontSizeViewController.m in Sources */,
+				73BBD99B1E1E1A9100FAAFB3 /* Sort.swift in Sources */,
 				84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */,
 				849EEDCA1C26B6C900CD9A7C /* FLOWeiboDetailViewController.m in Sources */,
 				841FD2211C1EA2DC003D4F81 /* FLOBookMarkModel.m in Sources */,
@@ -967,6 +990,7 @@
 				1252F43E1E1D2C1800A8C244 /* MediaAddress+CoreDataProperties.m in Sources */,
 				1252F4431E1D393B00A8C244 /* NetWork+CoreDataClass.m in Sources */,
 				84DD6E871C05BC6C005C1AE2 /* FLONavigationController.m in Sources */,
+				73BBD9901E1E13D700FAAFB3 /* SortView.swift in Sources */,
 				849EEDC71C26AD8D00CD9A7C /* FLOWeiboCommentModel.m in Sources */,
 				840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */,
 				84754F361C34F58B00C62243 /* FLOSystemSoundTableViewController.m in Sources */,
@@ -995,7 +1019,9 @@
 				7301A2001D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m in Sources */,
 				7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */,
 				7301A2031D6E97A500A4EC2E /* FLOAdjustFontSizeView.m in Sources */,
+				73BBD99C1E1E1A9100FAAFB3 /* SortClass.swift in Sources */,
 				1239A9351D7DA5120064C15C /* FLOCoreData.xcdatamodeld in Sources */,
+				73BBD9911E1E13D700FAAFB3 /* ViewController.swift in Sources */,
 				1252F4441E1D393B00A8C244 /* NetWork+CoreDataProperties.m in Sources */,
 				845D32C91C1F0BF200831C70 /* FLOSettingTableViewController.m in Sources */,
 				84812DCF1C11727A003928E6 /* FLOWebViewController.m in Sources */,
@@ -1167,6 +1193,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = X928ZDD77C;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1177,6 +1204,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
 				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1189,6 +1217,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = X928ZDD77C;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1199,6 +1228,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
 				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
