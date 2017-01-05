@@ -24,7 +24,7 @@
 20. Action Extension  --  2016.12.1
 21. 瀑布流  --  2016.12.22
 22. 流媒体  --  2017.1.4
-23. 排序 --  2017.1.5 [源：AllKindsOfSortForiOS](https://github.com/lizelu/DataStruct-Swift/tree/master/AllKindsOfSortForiOS)
+23. 排序  --  2017.1.5 [源：AllKindsOfSortForiOS](https://github.com/lizelu/DataStruct-Swift/tree/master/AllKindsOfSortForiOS)
 
 
 #####截图：
