@@ -36,6 +36,7 @@
 		7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC51D640CB3001D1BD3 /* UIImage+FLOUtil.m */; };
 		7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */; };
 		7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */; };
+		73BBD9881E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD9871E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m */; };
 		73FEAD7F1D7012160053AD6D /* FLOGifImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */; };
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
 		841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */; };
@@ -58,7 +59,6 @@
 		84812DC71C116061003928E6 /* FloCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DC61C116061003928E6 /* FloCollectionViewController.m */; };
 		84812DCA1C1165EE003928E6 /* FLOCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DC91C1165EE003928E6 /* FLOCollectionItem.m */; };
 		84812DCF1C11727A003928E6 /* FLOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DCE1C11727A003928E6 /* FLOWebViewController.m */; };
-		84812DDB1C117A63003928E6 /* FLOCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84812DDA1C117A63003928E6 /* FLOCollectionViewCell.m */; };
 		849265F61C27A95F00261F36 /* FLOTouchIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849265F51C27A95F00261F36 /* FLOTouchIDViewController.m */; };
 		849EEDC31C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EEDC21C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.m */; };
 		849EEDC71C26AD8D00CD9A7C /* FLOWeiboCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 849EEDC61C26AD8D00CD9A7C /* FLOWeiboCommentModel.m */; };
@@ -156,6 +156,8 @@
 		7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FLOUtil.m"; sourceTree = "<group>"; };
 		7376EBC81D640CB3001D1BD3 /* UIView+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLOUtil.h"; sourceTree = "<group>"; };
 		7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLOUtil.m"; sourceTree = "<group>"; };
+		73BBD9861E1DEB7100FAAFB3 /* FLOCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOCollectionViewLayout.h; sourceTree = "<group>"; };
+		73BBD9871E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOCollectionViewLayout.m; sourceTree = "<group>"; };
 		73E537E91D8150DF005FB419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		73FEAD7D1D7012160053AD6D /* FLOGifImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOGifImageViewController.h; path = "模块/GIF/FLOGifImageViewController.h"; sourceTree = "<group>"; };
 		73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOGifImageViewController.m; path = "模块/GIF/FLOGifImageViewController.m"; sourceTree = "<group>"; };
@@ -197,8 +199,6 @@
 		84812DC91C1165EE003928E6 /* FLOCollectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOCollectionItem.m; path = "首页/Model/FLOCollectionItem.m"; sourceTree = "<group>"; };
 		84812DCD1C11727A003928E6 /* FLOWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOWebViewController.h; path = "首页/Controller/FLOWebViewController.h"; sourceTree = "<group>"; };
 		84812DCE1C11727A003928E6 /* FLOWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOWebViewController.m; path = "首页/Controller/FLOWebViewController.m"; sourceTree = "<group>"; };
-		84812DD91C117A63003928E6 /* FLOCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOCollectionViewCell.h; path = "首页/View/FLOCollectionViewCell.h"; sourceTree = "<group>"; };
-		84812DDA1C117A63003928E6 /* FLOCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOCollectionViewCell.m; path = "首页/View/FLOCollectionViewCell.m"; sourceTree = "<group>"; };
 		849265F41C27A95F00261F36 /* FLOTouchIDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOTouchIDViewController.h; path = "模块/Touch ID/FLOTouchIDViewController.h"; sourceTree = "<group>"; };
 		849265F51C27A95F00261F36 /* FLOTouchIDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOTouchIDViewController.m; path = "模块/Touch ID/FLOTouchIDViewController.m"; sourceTree = "<group>"; };
 		849EEDC11C26AD1D00CD9A7C /* FLOWeiboCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOWeiboCommentTableViewCell.h; path = "模块/微博/详情/FLOWeiboCommentTableViewCell.h"; sourceTree = "<group>"; };
@@ -300,6 +300,8 @@
 			children = (
 				1274C7601E13EE35003F1FD5 /* FLOWaterFallViewController.h */,
 				1274C7611E13EE35003F1FD5 /* FLOWaterFallViewController.m */,
+				73BBD9861E1DEB7100FAAFB3 /* FLOCollectionViewLayout.h */,
+				73BBD9871E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m */,
 			);
 			name = "瀑布流";
 			path = "模块/瀑布流";
@@ -644,7 +646,6 @@
 				84812DC51C116061003928E6 /* FloCollectionViewController.h */,
 				84812DC61C116061003928E6 /* FloCollectionViewController.m */,
 				84812DCB1C1165F6003928E6 /* Model */,
-				84812DD01C11772F003928E6 /* View */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -665,15 +666,6 @@
 				84812DCE1C11727A003928E6 /* FLOWebViewController.m */,
 			);
 			name = "浏览器";
-			sourceTree = "<group>";
-		};
-		84812DD01C11772F003928E6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				84812DD91C117A63003928E6 /* FLOCollectionViewCell.h */,
-				84812DDA1C117A63003928E6 /* FLOCollectionViewCell.m */,
-			);
-			name = View;
 			sourceTree = "<group>";
 		};
 		849265F31C27A82A00261F36 /* Touch ID */ = {
@@ -974,7 +966,6 @@
 				84DD6E6F1C05A009005C1AE2 /* FLOTabBarController.m in Sources */,
 				1252F43E1E1D2C1800A8C244 /* MediaAddress+CoreDataProperties.m in Sources */,
 				1252F4431E1D393B00A8C244 /* NetWork+CoreDataClass.m in Sources */,
-				84812DDB1C117A63003928E6 /* FLOCollectionViewCell.m in Sources */,
 				84DD6E871C05BC6C005C1AE2 /* FLONavigationController.m in Sources */,
 				849EEDC71C26AD8D00CD9A7C /* FLOWeiboCommentModel.m in Sources */,
 				840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */,
@@ -987,6 +978,7 @@
 				841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */,
 				849265F61C27A95F00261F36 /* FLOTouchIDViewController.m in Sources */,
 				1274C7621E13EE35003F1FD5 /* FLOWaterFallViewController.m in Sources */,
+				73BBD9881E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,
 				1239A93E1D7DC2510064C15C /* FLONetWorkHistoryTableViewController.m in Sources */,
 				846D83661C21B9A6007CA12B /* FLOWeiboAuthorization.m in Sources */,

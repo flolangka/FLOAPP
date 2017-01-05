@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>ItemName</key>
-		<string>XMPPChat</string>
+		<string>XMPP</string>
 		<key>ItemIconURL</key>
 		<string>http://7xkohz.com1.z0.glb.clouddn.com/chat%403x.png</string>
 		<key>ItemAddress</key>
@@ -12,7 +12,7 @@
 	</dict>
 	<dict>
 		<key>ItemName</key>
-		<string>BookMark</string>
+		<string>书签</string>
 		<key>ItemIconURL</key>
 		<string>http://files.softicons.com/download/social-media-icons/pretty-social-media-icons-by-custom-icon-design/png/256/Favorite.png</string>
 		<key>ItemAddress</key>
@@ -60,7 +60,7 @@
 	</dict>
 	<dict>
 		<key>ItemName</key>
-		<string>SystemSound</string>
+		<string>Sound</string>
 		<key>ItemIconURL</key>
 		<string>http://mgip.biology.gatech.edu/images/icons/blue_velvet/128/sound.png</string>
 		<key>ItemAddress</key>

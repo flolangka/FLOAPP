@@ -11,10 +11,11 @@
 #import "FLOSideMenu.h"
 #import "FLOCollectionItem.h"
 #import "FLOWebViewController.h"
-#import "FLOCollectionViewCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FLODataBaseEngin.h"
 #import <MBProgressHUD.h>
+#import "FLOCollectionViewLayout.h"
+#import "UIView+FLOUtil.h"
 
 #ifdef DEBUG
 #import <FLEX.h>
@@ -24,9 +25,9 @@
 
 {
     id<UIViewControllerPreviewing> previewing;
+    UICollectionView *collectionV;
+    CGFloat width;
 }
-
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (nonatomic, strong) NSMutableArray *dataArr;
 
@@ -34,34 +35,58 @@
 
 @implementation FloCollectionViewController
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [super awakeFromNib];
     self.dataArr = [NSMutableArray arrayWithCapacity:20];
     
-//    NSArray *recordItems = [[FLODataBaseEngin shareInstance] selectAllCollectionItem];
+    // 读取数据
     NSArray *recordItems = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"CollectionPList" ofType:@"plist"]];
     for (NSDictionary *dic in recordItems) {
         FLOCollectionItem *item = [[FLOCollectionItem alloc] initWithDictionary:dic];
         [_dataArr addObject:item];
     }
-    
-    //背景图片
-    UIImage *image = [UIImage imageNamed:@"homeback"];
-    self.view.layer.contents = (id)image.CGImage;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     //检查用户是否登录
     [self checkIsLogin];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self initCollectionView];
+}
+
+- (void)initCollectionView {
+    // CollectionView布局样式
+    CGFloat maxWidth = 70;
+    CGFloat space = 16;
+    int num = 3;
+    do {
+        width = (DEVICE_SCREEN_WIDTH - (num+1)*space)/(float)num;
+        num += 1;
+    } while (width > maxWidth);
+    
+    FLOCollectionViewLayout *layout = [[FLOCollectionViewLayout alloc] init];
+    layout.numberOfColum = num - 1;
+    layout.itemSpace = space;
+    layout.itemHeight = ^CGFloat(NSIndexPath *indexPath){
+        return width+17;
+    };
+    
+    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64) collectionViewLayout:layout];
+    collectionV.backgroundColor = [UIColor clearColor];
+    collectionV.dataSource = self;
+    collectionV.delegate = self;
+    [collectionV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CollectionViewCellID"];
+    [self.view addSubview:collectionV];
+    
+    //背景图片
+    UIImage *image = [UIImage imageNamed:@"homeback"];
+    self.view.layer.contents = (id)image.CGImage;
 }
 
 - (void)checkIsLogin
@@ -90,19 +115,36 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FLOCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCellID" forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCellID" forIndexPath:indexPath];
     
     FLOCollectionItem *item = _dataArr[indexPath.item];
     
+    UIImageView *imageV = [cell.contentView viewWithTag:4444];
+    UILabel *label = [cell.contentView viewWithTag:5555];
+    if (!imageV) {
+        imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width, width)];
+        [imageV flo_setCornerRadius:10];
+        imageV.tag = 4444;
+        
+        label = [[UILabel alloc] initWithFrame:CGRectMake(0, width, width, 17)];
+        label.font = [UIFont systemFontOfSize:12];
+        label.textColor = [UIColor whiteColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.tag = 5555;
+        
+        [cell.contentView addSubview:imageV];
+        [cell.contentView addSubview:label];
+    }
+    
     //图标
     if ([item.itemIconURLStr hasPrefix:@"http"]) {
-        [cell.imageV sd_setImageWithURL:[NSURL URLWithString:item.itemIconURLStr] placeholderImage:[UIImage imageNamed:@"iOS"]];
+        [imageV sd_setImageWithURL:[NSURL URLWithString:item.itemIconURLStr] placeholderImage:[UIImage imageNamed:@"iOS"]];
     } else {
-        cell.imageV.image = [UIImage imageNamed:item.itemIconURLStr];
+        imageV.image = [UIImage imageNamed:item.itemIconURLStr];
     }
     
     //名称
-    cell.titleL.text = item.itemName;
+    label.text = item.itemName;
     
     //注册Force_Touch
     if ([item.itemAddress isEqualToString:@"Force_Touch"]) {
@@ -162,20 +204,7 @@
     }
 }
 
-#pragma mark - UICollectionViewLayout
-//下面2个方法确定item之间的间隔为0；
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 0.0f;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat width = [UIScreen mainScreen].bounds.size.width-32;
-    return CGSizeMake(width/4.0, width/4.0+17);
-}
-
-#pragma mark - Force Touch 
+#pragma mark - Force Touch
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
     UIViewController *childVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDWeiboTableViewController"];
     
