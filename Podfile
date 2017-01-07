@@ -12,5 +12,6 @@ target 'FLOAPP' do
     pod 'BaiduMapKit'
     pod 'FLEX'
     pod 'Masonry'
+    pod 'MQTTClient'
 end
 
