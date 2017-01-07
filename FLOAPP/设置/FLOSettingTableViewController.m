@@ -48,11 +48,7 @@
     
     if (indexPath.row == 0) {
         [[FLODataBaseEngin shareInstance] resetDatabase];
-        
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = @"重置数据库成功";
-        [hud hide:YES afterDelay:1.0];
+        Def_MBProgressStringDelay(@"重置数据库成功", 1);
     }
 }
 

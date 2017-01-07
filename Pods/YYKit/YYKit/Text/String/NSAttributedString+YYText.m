@@ -48,13 +48,14 @@ YYSYNTH_DUMMY_CLASS(NSAttributedString_YYText)
 }
 
 - (NSDictionary *)attributesAtIndex:(NSUInteger)index {
+    if (index > self.length || self.length == 0) return nil;
     if (self.length > 0 && index == self.length) index--;
     return [self attributesAtIndex:index effectiveRange:NULL];
 }
 
 - (id)attribute:(NSString *)attributeName atIndex:(NSUInteger)index {
     if (!attributeName) return nil;
-    if (self.length == 0) return nil;
+    if (index > self.length || self.length == 0) return nil;
     if (self.length > 0 && index == self.length) index--;
     return [self attribute:attributeName atIndex:index effectiveRange:NULL];
 }
@@ -189,7 +190,7 @@ YYSYNTH_DUMMY_CLASS(NSAttributedString_YYText)
 - (UIColor *)underlineColorAtIndex:(NSUInteger)index {
     UIColor *color = nil;
     if (kSystemVersion >= 7) {
-        [self attribute:NSUnderlineColorAttributeName atIndex:index];
+        color = [self attribute:NSUnderlineColorAttributeName atIndex:index];
     }
     if (!color) {
         CGColorRef ref = (__bridge CGColorRef)([self attribute:(NSString *)kCTUnderlineColorAttributeName atIndex:index]);
@@ -779,7 +780,7 @@ return style. _attr_;
 }
 
 - (void)setStrikethroughColor:(UIColor *)strikethroughColor {
-    [self setStrokeColor:strikethroughColor range:NSMakeRange(0, self.length)];
+    [self setStrikethroughColor:strikethroughColor range:NSMakeRange(0, self.length)];
 }
 
 - (void)setUnderlineStyle:(NSUnderlineStyle)underlineStyle {

@@ -41,6 +41,7 @@
 		73BBD9911E1E13D700FAAFB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD98D1E1E13D700FAAFB3 /* ViewController.swift */; };
 		73BBD99B1E1E1A9100FAAFB3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD9991E1E1A9100FAAFB3 /* Sort.swift */; };
 		73BBD99C1E1E1A9100FAAFB3 /* SortClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD99A1E1E1A9100FAAFB3 /* SortClass.swift */; };
+		73E7E0BD1E20BF9100793ABA /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7E0BC1E20BF9100793ABA /* YYFPSLabel.m */; };
 		73FEAD7F1D7012160053AD6D /* FLOGifImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */; };
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
 		841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */; };
@@ -167,6 +168,8 @@
 		73BBD9991E1E1A9100FAAFB3 /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		73BBD99A1E1E1A9100FAAFB3 /* SortClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortClass.swift; sourceTree = "<group>"; };
 		73E537E91D8150DF005FB419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		73E7E0BB1E20BF9100793ABA /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYFPSLabel.h; path = Global/YYFPSLabel.h; sourceTree = "<group>"; };
+		73E7E0BC1E20BF9100793ABA /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYFPSLabel.m; path = Global/YYFPSLabel.m; sourceTree = "<group>"; };
 		73FEAD7D1D7012160053AD6D /* FLOGifImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOGifImageViewController.h; path = "模块/GIF/FLOGifImageViewController.h"; sourceTree = "<group>"; };
 		73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOGifImageViewController.m; path = "模块/GIF/FLOGifImageViewController.m"; sourceTree = "<group>"; };
 		840EE8171C11E51400DFE53E /* FLOFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontTableViewController.h; path = "模块/UIFont/FLOFontTableViewController.h"; sourceTree = "<group>"; };
@@ -724,6 +727,8 @@
 				84DD6E711C05A01B005C1AE2 /* TabBarController */,
 				84DD6E811C05A842005C1AE2 /* SlideMenu */,
 				84DD6E881C05BC70005C1AE2 /* NavigationController */,
+				73E7E0BB1E20BF9100793ABA /* YYFPSLabel.h */,
+				73E7E0BC1E20BF9100793ABA /* YYFPSLabel.m */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -993,6 +998,7 @@
 				73BBD9901E1E13D700FAAFB3 /* SortView.swift in Sources */,
 				849EEDC71C26AD8D00CD9A7C /* FLOWeiboCommentModel.m in Sources */,
 				840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */,
+				73E7E0BD1E20BF9100793ABA /* YYFPSLabel.m in Sources */,
 				84754F361C34F58B00C62243 /* FLOSystemSoundTableViewController.m in Sources */,
 				846E9C481C298BDB00843A24 /* FLOBDMapViewController.m in Sources */,
 				849EEDCD1C26C38700CD9A7C /* FLOWeiboReportComViewController.m in Sources */,

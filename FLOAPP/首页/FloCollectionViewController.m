@@ -16,6 +16,8 @@
 #import <MBProgressHUD.h>
 #import "FLOCollectionViewLayout.h"
 #import "UIView+FLOUtil.h"
+#import "YYFPSLabel.h"
+#import <UIView+YYAdd.h>
 
 #ifdef DEBUG
 #import <FLEX.h>
@@ -58,6 +60,12 @@
     [super viewDidLoad];
     
     [self initCollectionView];
+    
+    // FPS指示器
+    YYFPSLabel *fps = [YYFPSLabel new];
+    fps.centerY = 24;
+    fps.centerX = DEVICE_SCREEN_WIDTH/2.;
+    [[UIApplication sharedApplication].keyWindow addSubview:fps];
 }
 
 - (void)initCollectionView {
@@ -195,10 +203,7 @@
         
         [self presentViewController:viewController animated:YES completion:nil];
     } else if ([itemAddress isEqualToString:@"Force_Touch"]) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = @"用力按我吧";
-        [hud hide:YES afterDelay:1.0];
+        Def_MBProgressStringDelay(@"用力按我吧", 1);
     } else {
         return;
     }

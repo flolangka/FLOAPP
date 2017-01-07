@@ -86,17 +86,12 @@ static NSString * const kCommentStatusURl = @"https://api.weibo.com/2/comments/c
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:requestURLStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = [NSString stringWithFormat:@"%@ 成功", promptStr];
-        [hud hide:YES afterDelay:1.0];
-        
+        NSString *str = [NSString stringWithFormat:@"%@ 成功", promptStr];
+        Def_MBProgressStringDelay(str, 1);
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = [NSString stringWithFormat:@"%@ 失败,%@", promptStr, error.localizedDescription];
-        [hud hide:YES afterDelay:1.0];
+        NSString *str = [NSString stringWithFormat:@"%@ 失败,%@", promptStr, error.localizedDescription];
+        Def_MBProgressStringDelay(str, 1);
     }];
 }
 

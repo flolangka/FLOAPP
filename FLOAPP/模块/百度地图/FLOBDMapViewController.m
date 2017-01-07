@@ -84,7 +84,7 @@
 - (void)configLocationService
 {
     _mapView.showsUserLocation = NO;
-    _mapView.userTrackingMode = BMKUserTrackingModeFollow;
+    _mapView.userTrackingMode = BMKUserTrackingModeHeading;
     _mapView.showsUserLocation = YES;
     
     BMKLocationViewDisplayParam *locationVDisplayParam = [[BMKLocationViewDisplayParam alloc] init];
@@ -364,7 +364,7 @@
         //进入罗盘状态
         _mapView.userTrackingMode = BMKUserTrackingModeFollowWithHeading;
     } else {
-        _mapView.userTrackingMode = BMKUserTrackingModeFollow;
+        _mapView.userTrackingMode = BMKUserTrackingModeHeading;
     }
     _mapView.showsUserLocation = YES;
 }
@@ -397,10 +397,7 @@
 //定位失败
 - (void)didFailToLocateUserWithError:(NSError *)error
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText = @"定位失败";
-    [hud hide:YES afterDelay:1.0];
+    Def_MBProgressStringDelay(@"定位失败", 1);
 }
 
 @end

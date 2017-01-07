@@ -42,11 +42,7 @@
     AFNetworkReachabilityManager *networkManager = [AFNetworkReachabilityManager sharedManager];
     [networkManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (status == AFNetworkReachabilityStatusNotReachable) {
-            MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:_window animated:YES];
-            progress.mode = MBProgressHUDModeText;
-            progress.labelText = @"网络异常，请检查网络连接";
-            [progress show:YES];
-            [progress hide:YES afterDelay:2];
+            Def_MBProgressString(@"网络异常，请检查网络连接");
         }
     }];
     [networkManager startMonitoring];
@@ -84,7 +80,7 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    [BMKMapView willBackGround];//当应用即将后台时调用，停止一切调用opengl相关的操作
+    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -96,7 +92,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [BMKMapView didForeGround];//当应用恢复前台状态时调用，回复地图的渲染和opengl相关的操作
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -113,10 +113,8 @@ static NSString * const kShowCommentsURL = @"https://api.weibo.com/2/comments/sh
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = [NSString stringWithFormat:@"错误:%@", error.localizedDescription];
-        [hud hide:YES afterDelay:1.0];
+        NSString *str = [NSString stringWithFormat:@"错误:%@", error.localizedDescription];
+        Def_MBProgressStringDelay(str, 1);
     }];
 }
 

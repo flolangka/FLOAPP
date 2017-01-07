@@ -15,6 +15,7 @@
 #import "FLOUtil.h"
 #import <MBProgressHUD.h>
 
-#define Def_MBProgressString(str) MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES]; progress.mode = MBProgressHUDModeText; progress.labelText = str; [progress show:YES]; [progress hide:YES afterDelay:2];
+#define Def_MBProgressString(str) Def_MBProgressStringDelay(str,2)
+#define Def_MBProgressStringDelay(str,delay) MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES]; progress.mode = MBProgressHUDModeText; progress.label.text = str; [progress hideAnimated:YES afterDelay:delay];
 
 #endif /* PrefixHeader_pch */

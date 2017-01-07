@@ -147,10 +147,7 @@
         
         [self cancelBtnAction:nil];
     } else {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.mode = MBProgressHUDModeText;
-        hud.labelText = @"地址无效：http://xxxx";
-        [hud hide:YES afterDelay:1.0];
+        Def_MBProgressStringDelay(@"地址无效：http://xxxx", 1);
     }  
 }
 

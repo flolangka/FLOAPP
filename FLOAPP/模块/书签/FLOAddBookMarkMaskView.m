@@ -47,12 +47,7 @@
 
 - (void)showAlert:(NSString *)alertStr
 {
-    MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:self animated:YES];
-    progress.mode = MBProgressHUDModeText;
-    progress.labelText = alertStr;
-    [progress show:YES];
-    
-    [progress hide:YES afterDelay:2];
+    Def_MBProgressString(alertStr);
 }
 
 - (void)hide

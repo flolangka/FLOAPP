@@ -60,10 +60,7 @@
 
 - (void)showPromptTitle:(NSString *)title
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText = title;
-    [hud hide:YES afterDelay:1.0];
+    Def_MBProgressStringDelay(title, 1);
 }
 
 - (void)didReceiveMemoryWarning {
