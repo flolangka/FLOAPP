@@ -19,6 +19,8 @@
 		1252F4441E1D393B00A8C244 /* NetWork+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1252F4421E1D393B00A8C244 /* NetWork+CoreDataProperties.m */; };
 		1252F4471E1D3DBC00A8C244 /* APLCoreDataStackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1252F4461E1D3DBC00A8C244 /* APLCoreDataStackManager.m */; };
 		1252F4491E1D447A00A8C244 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1252F4481E1D447A00A8C244 /* AVKit.framework */; };
+		1252F44D1E212BC200A8C244 /* MQTTService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1252F44C1E212BC200A8C244 /* MQTTService.m */; };
+		1252F4501E22312B00A8C244 /* FLOMQTTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1252F44F1E22312B00A8C244 /* FLOMQTTViewController.m */; };
 		1274C7621E13EE35003F1FD5 /* FLOWaterFallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1274C7611E13EE35003F1FD5 /* FLOWaterFallViewController.m */; };
 		1285C71E1D6350120027717D /* FLOColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285C71D1D6350120027717D /* FLOColorViewController.m */; };
 		1290B35E1CFB3F8400D967EE /* CollectionPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1290B35D1CFB3F8400D967EE /* CollectionPList.plist */; };
@@ -131,6 +133,10 @@
 		1252F4451E1D3DBC00A8C244 /* APLCoreDataStackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLCoreDataStackManager.h; sourceTree = "<group>"; };
 		1252F4461E1D3DBC00A8C244 /* APLCoreDataStackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCoreDataStackManager.m; sourceTree = "<group>"; };
 		1252F4481E1D447A00A8C244 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		1252F44B1E212BC200A8C244 /* MQTTService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTService.h; sourceTree = "<group>"; };
+		1252F44C1E212BC200A8C244 /* MQTTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTService.m; sourceTree = "<group>"; };
+		1252F44E1E22312B00A8C244 /* FLOMQTTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOMQTTViewController.h; sourceTree = "<group>"; };
+		1252F44F1E22312B00A8C244 /* FLOMQTTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOMQTTViewController.m; sourceTree = "<group>"; };
 		1274C7601E13EE35003F1FD5 /* FLOWaterFallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOWaterFallViewController.h; sourceTree = "<group>"; };
 		1274C7611E13EE35003F1FD5 /* FLOWaterFallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOWaterFallViewController.m; sourceTree = "<group>"; };
 		1285C71C1D6350120027717D /* FLOColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOColorViewController.h; path = "模块/UIColor/FLOColorViewController.h"; sourceTree = "<group>"; };
@@ -306,6 +312,18 @@
 			path = "模块/流媒体";
 			sourceTree = "<group>";
 		};
+		1252F44A1E212B9800A8C244 /* MQTT */ = {
+			isa = PBXGroup;
+			children = (
+				1252F44B1E212BC200A8C244 /* MQTTService.h */,
+				1252F44C1E212BC200A8C244 /* MQTTService.m */,
+				1252F44E1E22312B00A8C244 /* FLOMQTTViewController.h */,
+				1252F44F1E22312B00A8C244 /* FLOMQTTViewController.m */,
+			);
+			name = MQTT;
+			path = "模块/MQTT";
+			sourceTree = "<group>";
+		};
 		1274C75F1E13EC3D003F1FD5 /* 瀑布流 */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +444,7 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				1252F44A1E212B9800A8C244 /* MQTT */,
 				73BBD9891E1E13D700FAAFB3 /* 排序 */,
 				1252F42F1E1D24A200A8C244 /* 流媒体 */,
 				1274C75F1E13EC3D003F1FD5 /* 瀑布流 */,
@@ -990,6 +1009,7 @@
 				7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */,
 				84EEC5531C2396690089454E /* FLOCodeViewController.m in Sources */,
 				7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */,
+				1252F44D1E212BC200A8C244 /* MQTTService.m in Sources */,
 				1252F4321E1D252500A8C244 /* FLOMediaAddressTableViewController.m in Sources */,
 				84DD6E6F1C05A009005C1AE2 /* FLOTabBarController.m in Sources */,
 				1252F43E1E1D2C1800A8C244 /* MediaAddress+CoreDataProperties.m in Sources */,
@@ -1021,6 +1041,7 @@
 				7376EBCA1D640CB3001D1BD3 /* FLOUtil.m in Sources */,
 				1239A92E1D7C074C0064C15C /* FLOTextViewViewController.m in Sources */,
 				84DD6E801C05A83B005C1AE2 /* FLOSideMenu.m in Sources */,
+				1252F4501E22312B00A8C244 /* FLOMQTTViewController.m in Sources */,
 				1252F4471E1D3DBC00A8C244 /* APLCoreDataStackManager.m in Sources */,
 				7301A2001D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m in Sources */,
 				7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */,
