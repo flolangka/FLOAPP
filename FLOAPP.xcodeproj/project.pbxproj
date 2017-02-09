@@ -44,6 +44,12 @@
 		73BBD99B1E1E1A9100FAAFB3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD9991E1E1A9100FAAFB3 /* Sort.swift */; };
 		73BBD99C1E1E1A9100FAAFB3 /* SortClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD99A1E1E1A9100FAAFB3 /* SortClass.swift */; };
 		73E7E0BD1E20BF9100793ABA /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7E0BC1E20BF9100793ABA /* YYFPSLabel.m */; };
+		73F3A18B1E4C63F400314D70 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7323C45A1E4ACBAD00543251 /* UserNotifications.framework */; };
+		73F3A18C1E4C63F400314D70 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */; };
+		73F3A1901E4C63F400314D70 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3A18F1E4C63F400314D70 /* NotificationViewController.m */; };
+		73F3A1931E4C63F400314D70 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3A1911E4C63F400314D70 /* MainInterface.storyboard */; };
+		73F3A1971E4C63F400314D70 /* FLONotiExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		73F3A19F1E4C6DB100314D70 /* FLONotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3A19E1E4C6DB100314D70 /* FLONotificationViewController.m */; };
 		73FEAD7F1D7012160053AD6D /* FLOGifImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */; };
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
 		841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */; };
@@ -94,6 +100,13 @@
 			remoteGlobalIDString = 12F956231E06C32E008699B2;
 			remoteInfo = FLOAction;
 		};
+		73F3A1951E4C63F400314D70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84291A011C05867A0015F5F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73F3A1891E4C63F400314D70;
+			remoteInfo = FLONotiExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +116,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				73F3A1971E4C63F400314D70 /* FLONotiExtension.appex in Embed App Extensions */,
 				12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -157,6 +171,8 @@
 		7301A2021D6E97A500A4EC2E /* FLOAdjustFontSizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeView.m; sourceTree = "<group>"; };
 		7301A2041D6E988500A4EC2E /* FLOAdjustFontSizeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOAdjustFontSizeLabel.h; sourceTree = "<group>"; };
 		7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeLabel.m; sourceTree = "<group>"; };
+		7323C45A1E4ACBAD00543251 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		7376EBC01D640CB3001D1BD3 /* FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOUtil.h; sourceTree = "<group>"; };
 		7376EBC11D640CB3001D1BD3 /* FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOUtil.m; sourceTree = "<group>"; };
 		7376EBC21D640CB3001D1BD3 /* NSString+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLOUtil.h"; sourceTree = "<group>"; };
@@ -176,6 +192,13 @@
 		73E537E91D8150DF005FB419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		73E7E0BB1E20BF9100793ABA /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYFPSLabel.h; path = Global/YYFPSLabel.h; sourceTree = "<group>"; };
 		73E7E0BC1E20BF9100793ABA /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYFPSLabel.m; path = Global/YYFPSLabel.m; sourceTree = "<group>"; };
+		73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FLONotiExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		73F3A18E1E4C63F400314D70 /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		73F3A18F1E4C63F400314D70 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		73F3A1921E4C63F400314D70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		73F3A1941E4C63F400314D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73F3A19D1E4C6DB100314D70 /* FLONotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLONotificationViewController.h; sourceTree = "<group>"; };
+		73F3A19E1E4C6DB100314D70 /* FLONotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLONotificationViewController.m; sourceTree = "<group>"; };
 		73FEAD7D1D7012160053AD6D /* FLOGifImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOGifImageViewController.h; path = "模块/GIF/FLOGifImageViewController.h"; sourceTree = "<group>"; };
 		73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOGifImageViewController.m; path = "模块/GIF/FLOGifImageViewController.m"; sourceTree = "<group>"; };
 		840EE8171C11E51400DFE53E /* FLOFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontTableViewController.h; path = "模块/UIFont/FLOFontTableViewController.h"; sourceTree = "<group>"; };
@@ -259,6 +282,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73F3A1871E4C63F400314D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73F3A18C1E4C63F400314D70 /* UserNotificationsUI.framework in Frameworks */,
+				73F3A18B1E4C63F400314D70 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +407,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		7301A1FD1D6E887400A4EC2E /* 字体大小 */ = {
+		7301A1FD1D6E887400A4EC2E /* 调整字号 */ = {
 			isa = PBXGroup;
 			children = (
 				7301A1FE1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.h */,
@@ -385,7 +417,7 @@
 				7301A2041D6E988500A4EC2E /* FLOAdjustFontSizeLabel.h */,
 				7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */,
 			);
-			name = "字体大小";
+			name = "调整字号";
 			path = "模块/字体大小";
 			sourceTree = "<group>";
 		};
@@ -421,6 +453,27 @@
 			path = "模块/排序";
 			sourceTree = "<group>";
 		};
+		73F3A18D1E4C63F400314D70 /* FLONotiExtension */ = {
+			isa = PBXGroup;
+			children = (
+				73F3A18E1E4C63F400314D70 /* NotificationViewController.h */,
+				73F3A18F1E4C63F400314D70 /* NotificationViewController.m */,
+				73F3A1911E4C63F400314D70 /* MainInterface.storyboard */,
+				73F3A1941E4C63F400314D70 /* Info.plist */,
+			);
+			path = FLONotiExtension;
+			sourceTree = "<group>";
+		};
+		73F3A19C1E4C6BF100314D70 /* Notifier */ = {
+			isa = PBXGroup;
+			children = (
+				73F3A19D1E4C6DB100314D70 /* FLONotificationViewController.h */,
+				73F3A19E1E4C6DB100314D70 /* FLONotificationViewController.m */,
+			);
+			name = Notifier;
+			path = "模块/Notifier";
+			sourceTree = "<group>";
+		};
 		73FEAD7C1D7011BE0053AD6D /* Gif */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +497,7 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				73F3A19C1E4C6BF100314D70 /* Notifier */,
 				1252F44A1E212B9800A8C244 /* MQTT */,
 				73BBD9891E1E13D700FAAFB3 /* 排序 */,
 				1252F42F1E1D24A200A8C244 /* 流媒体 */,
@@ -461,7 +515,7 @@
 				84812DCC1C117233003928E6 /* 浏览器 */,
 				841FD21E1C1EA260003D4F81 /* 书签 */,
 				846D835F1C21B7A2007CA12B /* 微博 */,
-				7301A1FD1D6E887400A4EC2E /* 字体大小 */,
+				7301A1FD1D6E887400A4EC2E /* 调整字号 */,
 				73FEAD7C1D7011BE0053AD6D /* Gif */,
 				73FEAD801D7042400053AD6D /* NetWork */,
 			);
@@ -503,6 +557,7 @@
 			children = (
 				84291A0B1C05867A0015F5F1 /* FLOAPP */,
 				12F956251E06C32E008699B2 /* FLOAction */,
+				73F3A18D1E4C63F400314D70 /* FLONotiExtension */,
 				84291A0A1C05867A0015F5F1 /* Products */,
 				3180D5F5966FFFBE11E63FAD /* Pods */,
 				BA1A1955340CBA90421877C7 /* Frameworks */,
@@ -514,6 +569,7 @@
 			children = (
 				84291A091C05867A0015F5F1 /* FLOAPP.app */,
 				12F956241E06C32E008699B2 /* FLOAction.appex */,
+				73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -816,6 +872,8 @@
 			children = (
 				1252F4481E1D447A00A8C244 /* AVKit.framework */,
 				F694C4E2DFDEE2FA692FDF4E /* libPods-FLOAPP.a */,
+				7323C45A1E4ACBAD00543251 /* UserNotifications.framework */,
+				7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -840,6 +898,23 @@
 			productReference = 12F956241E06C32E008699B2 /* FLOAction.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		73F3A1891E4C63F400314D70 /* FLONotiExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73F3A1981E4C63F400314D70 /* Build configuration list for PBXNativeTarget "FLONotiExtension" */;
+			buildPhases = (
+				73F3A1861E4C63F400314D70 /* Sources */,
+				73F3A1871E4C63F400314D70 /* Frameworks */,
+				73F3A1881E4C63F400314D70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FLONotiExtension;
+			productName = FLONotiExtension;
+			productReference = 73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		84291A081C05867A0015F5F1 /* FLOAPP */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84291A201C05867A0015F5F1 /* Build configuration list for PBXNativeTarget "FLOAPP" */;
@@ -856,6 +931,7 @@
 			);
 			dependencies = (
 				12F9562E1E06C32E008699B2 /* PBXTargetDependency */,
+				73F3A1961E4C63F400314D70 /* PBXTargetDependency */,
 			);
 			name = FLOAPP;
 			productName = XMPPChat;
@@ -873,6 +949,11 @@
 				TargetAttributes = {
 					12F956231E06C32E008699B2 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = X928ZDD77C;
+						ProvisioningStyle = Automatic;
+					};
+					73F3A1891E4C63F400314D70 = {
+						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = X928ZDD77C;
 						ProvisioningStyle = Automatic;
 					};
@@ -898,6 +979,7 @@
 			targets = (
 				84291A081C05867A0015F5F1 /* FLOAPP */,
 				12F956231E06C32E008699B2 /* FLOAction */,
+				73F3A1891E4C63F400314D70 /* FLONotiExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -910,6 +992,14 @@
 				12F956341E06C626008699B2 /* Assets.xcassets in Resources */,
 				12F956361E06C69A008699B2 /* FLO@2x.png in Resources */,
 				12F9562B1E06C32E008699B2 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73F3A1881E4C63F400314D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73F3A1931E4C63F400314D70 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,6 +1075,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		73F3A1861E4C63F400314D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73F3A1901E4C63F400314D70 /* NotificationViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84291A051C05867A0015F5F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1018,6 +1116,7 @@
 				73BBD9901E1E13D700FAAFB3 /* SortView.swift in Sources */,
 				849EEDC71C26AD8D00CD9A7C /* FLOWeiboCommentModel.m in Sources */,
 				840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */,
+				73F3A19F1E4C6DB100314D70 /* FLONotificationViewController.m in Sources */,
 				73E7E0BD1E20BF9100793ABA /* YYFPSLabel.m in Sources */,
 				84754F361C34F58B00C62243 /* FLOSystemSoundTableViewController.m in Sources */,
 				846E9C481C298BDB00843A24 /* FLOBDMapViewController.m in Sources */,
@@ -1064,6 +1163,11 @@
 			target = 12F956231E06C32E008699B2 /* FLOAction */;
 			targetProxy = 12F9562D1E06C32E008699B2 /* PBXContainerItemProxy */;
 		};
+		73F3A1961E4C63F400314D70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73F3A1891E4C63F400314D70 /* FLONotiExtension */;
+			targetProxy = 73F3A1951E4C63F400314D70 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1071,6 +1175,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				12F9562A1E06C32E008699B2 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		73F3A1911E4C63F400314D70 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73F3A1921E4C63F400314D70 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1127,6 +1239,44 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLOAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		73F3A1991E4C63F400314D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X928ZDD77C;
+				INFOPLIST_FILE = FLONotiExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLONotiExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		73F3A19A1E4C63F400314D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X928ZDD77C;
+				INFOPLIST_FILE = FLONotiExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLONotiExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1271,6 +1421,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		73F3A1981E4C63F400314D70 /* Build configuration list for PBXNativeTarget "FLONotiExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73F3A1991E4C63F400314D70 /* Debug */,
+				73F3A19A1E4C63F400314D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		84291A041C05867A0015F5F1 /* Build configuration list for PBXProject "FLOAPP" */ = {
 			isa = XCConfigurationList;

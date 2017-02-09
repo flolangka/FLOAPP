@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"字体大小";
+    self.title = @"调整字号";
     
     arr_text = @[@"预览字体大小",
                  @"拖动下面的滑块，可设置字体大小",

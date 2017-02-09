@@ -92,7 +92,7 @@
 	</dict>
 	<dict>
 		<key>ItemName</key>
-		<string>字体大小</string>
+		<string>调整字号</string>
 		<key>ItemIconURL</key>
 		<string>http://www.ecommercejuice.com/wp-content/uploads/2012/08/ecommerce-font.png</string>
 		<key>ItemAddress</key>
@@ -145,6 +145,14 @@
 		<string>http://image_md.miniqiang.com/iotArticle/image01/mqtt_logo.png</string>
 		<key>ItemAddress</key>
 		<string>FLOMQTTViewController</string>
+	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>Notifier</string>
+		<key>ItemIconURL</key>
+		<string>https://upload.wikimedia.org/wikipedia/en/4/4e/APNS_Logo.png</string>
+		<key>ItemAddress</key>
+		<string>SBIDNotificationViewController</string>
 	</dict>
 </array>
 </plist>

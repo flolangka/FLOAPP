@@ -1314,6 +1314,34 @@
             </objects>
             <point key="canvasLocation" x="961" y="-3266"/>
         </scene>
+        <!--推送通知-->
+        <scene sceneID="A17-Mm-AJY">
+            <objects>
+                <viewController storyboardIdentifier="SBIDNotificationViewController" title="推送通知" id="idm-JW-pxP" userLabel="推送通知" customClass="FLONotificationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9nv-a4-23x"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ufx-Q9-twG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6bR-11-vja">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4MR-95-0cW">
+                                <rect key="frame" x="16" y="160" width="181" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SqH-mn-Sb8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1426.5" y="-3267.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="statusdetail_icon_comment" width="14" height="14"/>
