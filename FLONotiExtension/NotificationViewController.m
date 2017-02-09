@@ -24,9 +24,16 @@
 }
 
 - (void)didReceiveNotification:(UNNotification *)notification {
-    WKWebView *webV = [[WKWebView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:webV];
-    [webV loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.360doc.cn/index.html"]]];
+    NSDictionary *userInfo = notification.request.content.userInfo;
+    if (userInfo[@"WebUrl"]) {
+        WKWebView *webV = [[WKWebView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:webV];
+        [webV loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:userInfo[@"WebUrl"]]]];
+    } else if (userInfo[@"PicUrl"]) {
+        
+    } else if (userInfo[@"AudioUrl"]) {
+        
+    }
 }
 
 @end
