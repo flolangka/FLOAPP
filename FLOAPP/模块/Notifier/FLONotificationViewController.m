@@ -15,6 +15,7 @@
 
 {
     NSArray *arrTitle;
+    NSArray *arrUrl;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *TFTitle;
@@ -37,6 +38,7 @@
 #pragma clang diagnostic pop
     
     arrTitle = @[@"None", @"WebUrl", @"PicUrl", @"AudioUrl"];
+    arrUrl = @[@"", @"http://flolangka.com", @"http://z.k1982.com/png/up/200712/20071208032104478.png", @"http://fs.web.kugou.com/57eae966379661e1e723476504323935/589d5c14/G002/M04/06/03/ooYBAFUHvO-ATN7OADvOP775Nwc554.mp3"];
     [self configView];
 }
 
@@ -63,7 +65,7 @@
 
 - (IBAction)segmentedValueChanged:(UISegmentedControl *)sender {
     _labelInfo.text = arrTitle[sender.selectedSegmentIndex];
-    _TFInfo.text = @"";
+    _TFInfo.text = arrUrl[sender.selectedSegmentIndex];
 }
 
 - (IBAction)pushAction:(UIButton *)sender {
