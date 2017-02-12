@@ -29,10 +29,6 @@
         WKWebView *webV = [[WKWebView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:webV];
         [webV loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:userInfo[@"WebUrl"]]]];
-    } else if (userInfo[@"PicUrl"]) {
-        
-    } else if (userInfo[@"AudioUrl"]) {
-        
     }
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120C150A1E5057D1001A2B4E /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 120C15091E5057D1001A2B4E /* NotificationService.m */; };
+		120C150E1E5057D1001A2B4E /* FLONotiServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 120C15061E5057D1001A2B4E /* FLONotiServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1239A92A1D7862E00064C15C /* FLONetWorkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1239A9291D7862E00064C15C /* FLONetWorkTableViewController.m */; };
 		1239A92E1D7C074C0064C15C /* FLOTextViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1239A92D1D7C074C0064C15C /* FLOTextViewViewController.m */; };
 		1239A9351D7DA5120064C15C /* FLOCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1239A9331D7DA5120064C15C /* FLOCoreData.xcdatamodeld */; };
@@ -93,6 +95,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		120C150C1E5057D1001A2B4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84291A011C05867A0015F5F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 120C15051E5057D1001A2B4E;
+			remoteInfo = FLONotiServiceExtension;
+		};
 		12F9562D1E06C32E008699B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84291A011C05867A0015F5F1 /* Project object */;
@@ -117,6 +126,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				73F3A1971E4C63F400314D70 /* FLONotiExtension.appex in Embed App Extensions */,
+				120C150E1E5057D1001A2B4E /* FLONotiServiceExtension.appex in Embed App Extensions */,
 				12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -125,6 +135,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		120C15061E5057D1001A2B4E /* FLONotiServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FLONotiServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		120C15081E5057D1001A2B4E /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		120C15091E5057D1001A2B4E /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		120C150B1E5057D1001A2B4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1239A9281D7862E00064C15C /* FLONetWorkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLONetWorkTableViewController.h; path = "模块/NetWork/FLONetWorkTableViewController.h"; sourceTree = "<group>"; };
 		1239A9291D7862E00064C15C /* FLONetWorkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLONetWorkTableViewController.m; path = "模块/NetWork/FLONetWorkTableViewController.m"; sourceTree = "<group>"; };
 		1239A92C1D7C074C0064C15C /* FLOTextViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOTextViewViewController.h; path = "模块/FLOTextViewViewController.h"; sourceTree = "<group>"; };
@@ -278,6 +292,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		120C15031E5057D1001A2B4E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12F956211E06C32E008699B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,6 +327,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		120C15071E5057D1001A2B4E /* FLONotiServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				120C15081E5057D1001A2B4E /* NotificationService.h */,
+				120C15091E5057D1001A2B4E /* NotificationService.m */,
+				120C150B1E5057D1001A2B4E /* Info.plist */,
+			);
+			path = FLONotiServiceExtension;
+			sourceTree = "<group>";
+		};
 		1239A92B1D7C072E0064C15C /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +589,7 @@
 				84291A0B1C05867A0015F5F1 /* FLOAPP */,
 				12F956251E06C32E008699B2 /* FLOAction */,
 				73F3A18D1E4C63F400314D70 /* FLONotiExtension */,
+				120C15071E5057D1001A2B4E /* FLONotiServiceExtension */,
 				84291A0A1C05867A0015F5F1 /* Products */,
 				3180D5F5966FFFBE11E63FAD /* Pods */,
 				BA1A1955340CBA90421877C7 /* Frameworks */,
@@ -570,6 +602,7 @@
 				84291A091C05867A0015F5F1 /* FLOAPP.app */,
 				12F956241E06C32E008699B2 /* FLOAction.appex */,
 				73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */,
+				120C15061E5057D1001A2B4E /* FLONotiServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -881,6 +914,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		120C15051E5057D1001A2B4E /* FLONotiServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 120C15111E5057D1001A2B4E /* Build configuration list for PBXNativeTarget "FLONotiServiceExtension" */;
+			buildPhases = (
+				120C15021E5057D1001A2B4E /* Sources */,
+				120C15031E5057D1001A2B4E /* Frameworks */,
+				120C15041E5057D1001A2B4E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FLONotiServiceExtension;
+			productName = FLONotiServiceExtension;
+			productReference = 120C15061E5057D1001A2B4E /* FLONotiServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		12F956231E06C32E008699B2 /* FLOAction */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 12F956321E06C32E008699B2 /* Build configuration list for PBXNativeTarget "FLOAction" */;
@@ -932,6 +982,7 @@
 			dependencies = (
 				12F9562E1E06C32E008699B2 /* PBXTargetDependency */,
 				73F3A1961E4C63F400314D70 /* PBXTargetDependency */,
+				120C150D1E5057D1001A2B4E /* PBXTargetDependency */,
 			);
 			name = FLOAPP;
 			productName = XMPPChat;
@@ -947,6 +998,11 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Flolangka;
 				TargetAttributes = {
+					120C15051E5057D1001A2B4E = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = X928ZDD77C;
+						ProvisioningStyle = Automatic;
+					};
 					12F956231E06C32E008699B2 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = X928ZDD77C;
@@ -980,11 +1036,19 @@
 				84291A081C05867A0015F5F1 /* FLOAPP */,
 				12F956231E06C32E008699B2 /* FLOAction */,
 				73F3A1891E4C63F400314D70 /* FLONotiExtension */,
+				120C15051E5057D1001A2B4E /* FLONotiServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		120C15041E5057D1001A2B4E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12F956221E06C32E008699B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1067,6 +1131,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		120C15021E5057D1001A2B4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				120C150A1E5057D1001A2B4E /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		12F956201E06C32E008699B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1158,6 +1230,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		120C150D1E5057D1001A2B4E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 120C15051E5057D1001A2B4E /* FLONotiServiceExtension */;
+			targetProxy = 120C150C1E5057D1001A2B4E /* PBXContainerItemProxy */;
+		};
 		12F9562E1E06C32E008699B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 12F956231E06C32E008699B2 /* FLOAction */;
@@ -1206,6 +1283,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		120C150F1E5057D1001A2B4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X928ZDD77C;
+				INFOPLIST_FILE = FLONotiServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLONotiServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		120C15101E5057D1001A2B4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X928ZDD77C;
+				INFOPLIST_FILE = FLONotiServiceExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLONotiServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		12F956301E06C32E008699B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1413,6 +1528,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		120C15111E5057D1001A2B4E /* Build configuration list for PBXNativeTarget "FLONotiServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				120C150F1E5057D1001A2B4E /* Debug */,
+				120C15101E5057D1001A2B4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		12F956321E06C32E008699B2 /* Build configuration list for PBXNativeTarget "FLOAction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1429,6 +1552,7 @@
 				73F3A19A1E4C63F400314D70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84291A041C05867A0015F5F1 /* Build configuration list for PBXProject "FLOAPP" */ = {
 			isa = XCConfigurationList;

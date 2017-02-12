@@ -59,7 +59,7 @@
     }
     
     // 延时不能为0，会崩溃
-    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"123" content:content trigger:[UNTimeIntervalNotificationTrigger triggerWithTimeInterval:1 repeats:NO]];
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"123" content:content trigger:[UNTimeIntervalNotificationTrigger triggerWithTimeInterval:2 repeats:NO]];
     [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:nil];
 }
 
