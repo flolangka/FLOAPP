@@ -484,7 +484,7 @@
 			path = "模块/排序";
 			sourceTree = "<group>";
 		};
-		73F3A18D1E4C63F400314D70 /* FLONotiExtension */ = {
+		73F3A18D1E4C63F400314D70 /* FLONotiContentExtension */ = {
 			isa = PBXGroup;
 			children = (
 				73F3A18E1E4C63F400314D70 /* NotificationViewController.h */,
@@ -492,6 +492,7 @@
 				73F3A1911E4C63F400314D70 /* MainInterface.storyboard */,
 				73F3A1941E4C63F400314D70 /* Info.plist */,
 			);
+			name = FLONotiContentExtension;
 			path = FLONotiExtension;
 			sourceTree = "<group>";
 		};
@@ -588,7 +589,7 @@
 			children = (
 				84291A0B1C05867A0015F5F1 /* FLOAPP */,
 				12F956251E06C32E008699B2 /* FLOAction */,
-				73F3A18D1E4C63F400314D70 /* FLONotiExtension */,
+				73F3A18D1E4C63F400314D70 /* FLONotiContentExtension */,
 				120C15071E5057D1001A2B4E /* FLONotiServiceExtension */,
 				84291A0A1C05867A0015F5F1 /* Products */,
 				3180D5F5966FFFBE11E63FAD /* Pods */,
@@ -1535,6 +1536,7 @@
 				120C15101E5057D1001A2B4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		12F956321E06C32E008699B2 /* Build configuration list for PBXNativeTarget "FLOAction" */ = {
 			isa = XCConfigurationList;
