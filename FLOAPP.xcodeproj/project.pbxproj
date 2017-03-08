@@ -35,6 +35,7 @@
 		7301A2001D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A1FF1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m */; };
 		7301A2031D6E97A500A4EC2E /* FLOAdjustFontSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2021D6E97A500A4EC2E /* FLOAdjustFontSizeView.m */; };
 		7301A2061D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */; };
+		734186B81E6FE7A90090A16B /* FLODownloadUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 734186B71E6FE7A90090A16B /* FLODownloadUtil.m */; };
 		7376EBCA1D640CB3001D1BD3 /* FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC11D640CB3001D1BD3 /* FLOUtil.m */; };
 		7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC31D640CB3001D1BD3 /* NSString+FLOUtil.m */; };
 		7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC51D640CB3001D1BD3 /* UIImage+FLOUtil.m */; };
@@ -187,6 +188,8 @@
 		7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeLabel.m; sourceTree = "<group>"; };
 		7323C45A1E4ACBAD00543251 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		734186B61E6FE7A90090A16B /* FLODownloadUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLODownloadUtil.h; sourceTree = "<group>"; };
+		734186B71E6FE7A90090A16B /* FLODownloadUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadUtil.m; sourceTree = "<group>"; };
 		7376EBC01D640CB3001D1BD3 /* FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOUtil.h; sourceTree = "<group>"; };
 		7376EBC11D640CB3001D1BD3 /* FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOUtil.m; sourceTree = "<group>"; };
 		7376EBC21D640CB3001D1BD3 /* NSString+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLOUtil.h"; sourceTree = "<group>"; };
@@ -467,6 +470,8 @@
 				7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */,
 				1242EAF81DAD5D1F00F3595A /* UIViewController+Alert.h */,
 				1242EAF91DAD5D1F00F3595A /* UIViewController+Alert.m */,
+				734186B61E6FE7A90090A16B /* FLODownloadUtil.h */,
+				734186B71E6FE7A90090A16B /* FLODownloadUtil.m */,
 			);
 			name = FLOUtility;
 			path = "模块/FLOUtility";
@@ -1189,6 +1194,7 @@
 				73BBD9901E1E13D700FAAFB3 /* SortView.swift in Sources */,
 				849EEDC71C26AD8D00CD9A7C /* FLOWeiboCommentModel.m in Sources */,
 				840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */,
+				734186B81E6FE7A90090A16B /* FLODownloadUtil.m in Sources */,
 				73F3A19F1E4C6DB100314D70 /* FLONotificationViewController.m in Sources */,
 				73E7E0BD1E20BF9100793ABA /* YYFPSLabel.m in Sources */,
 				84754F361C34F58B00C62243 /* FLOSystemSoundTableViewController.m in Sources */,
