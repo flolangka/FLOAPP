@@ -46,6 +46,7 @@
 		73BBD9911E1E13D700FAAFB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD98D1E1E13D700FAAFB3 /* ViewController.swift */; };
 		73BBD99B1E1E1A9100FAAFB3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD9991E1E1A9100FAAFB3 /* Sort.swift */; };
 		73BBD99C1E1E1A9100FAAFB3 /* SortClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD99A1E1E1A9100FAAFB3 /* SortClass.swift */; };
+		73D3F72D1E852120007C739F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D3F72C1E852120007C739F /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		73E7E0BD1E20BF9100793ABA /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7E0BC1E20BF9100793ABA /* YYFPSLabel.m */; };
 		73F3A18B1E4C63F400314D70 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7323C45A1E4ACBAD00543251 /* UserNotifications.framework */; };
 		73F3A18C1E4C63F400314D70 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */; };
@@ -206,6 +207,7 @@
 		73BBD98D1E1E13D700FAAFB3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		73BBD9991E1E1A9100FAAFB3 /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		73BBD99A1E1E1A9100FAAFB3 /* SortClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortClass.swift; sourceTree = "<group>"; };
+		73D3F72C1E852120007C739F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		73E537E91D8150DF005FB419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		73E7E0BB1E20BF9100793ABA /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYFPSLabel.h; path = Global/YYFPSLabel.h; sourceTree = "<group>"; };
 		73E7E0BC1E20BF9100793ABA /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYFPSLabel.m; path = Global/YYFPSLabel.m; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73D3F72D1E852120007C739F /* XCTest.framework in Frameworks */,
 				1252F4491E1D447A00A8C244 /* AVKit.framework in Frameworks */,
 				B244C5ECC0737C6083001B0C /* libPods-FLOAPP.a in Frameworks */,
 			);
@@ -909,6 +912,7 @@
 		BA1A1955340CBA90421877C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73D3F72C1E852120007C739F /* XCTest.framework */,
 				1252F4481E1D447A00A8C244 /* AVKit.framework */,
 				F694C4E2DFDEE2FA692FDF4E /* libPods-FLOAPP.a */,
 				7323C45A1E4ACBAD00543251 /* UserNotifications.framework */,
@@ -1101,7 +1105,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		4FC95C759CAF6AB0AB86D771 /* [CP] Copy Pods Resources */ = {
@@ -1505,6 +1509,78 @@
 				INFOPLIST_FILE = "$(SRCROOT)/FLOAPP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"AFNetworking\"",
+					"-l\"FLEX\"",
+					"-l\"FMDB\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"MQTTClient\"",
+					"-l\"Masonry\"",
+					"-l\"RESideMenu\"",
+					"-l\"React\"",
+					"-l\"SDWebImage\"",
+					"-l\"YYKit\"",
+					"-l\"Yoga\"",
+					"-l\"sqlite3\"",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++\"",
+					"-l\"stdc++.6.0.9\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WebP\"",
+					"-framework",
+					"\"XCTest\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
 				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
@@ -1529,6 +1605,78 @@
 				INFOPLIST_FILE = "$(SRCROOT)/FLOAPP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"AFNetworking\"",
+					"-l\"FLEX\"",
+					"-l\"FMDB\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"MQTTClient\"",
+					"-l\"Masonry\"",
+					"-l\"RESideMenu\"",
+					"-l\"React\"",
+					"-l\"SDWebImage\"",
+					"-l\"YYKit\"",
+					"-l\"Yoga\"",
+					"-l\"sqlite3\"",
+					"-l\"sqlite3.0\"",
+					"-l\"stdc++\"",
+					"-l\"stdc++.6.0.9\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"BaiduMapAPI_Base\"",
+					"-framework",
+					"\"BaiduMapAPI_Cloud\"",
+					"-framework",
+					"\"BaiduMapAPI_Location\"",
+					"-framework",
+					"\"BaiduMapAPI_Map\"",
+					"-framework",
+					"\"BaiduMapAPI_Radar\"",
+					"-framework",
+					"\"BaiduMapAPI_Search\"",
+					"-framework",
+					"\"BaiduMapAPI_Utils\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"JavaScriptCore\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenGLES\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WebP\"",
+					"-framework",
+					"\"XCTest\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
 				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";

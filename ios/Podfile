@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '6.0'
+# platform :ios, '9.0'
 
 target 'FLOAPP' do
     pod 'RESideMenu'
@@ -13,5 +13,33 @@ target 'FLOAPP' do
     pod 'FLEX'
     pod 'Masonry'
     pod 'MQTTClient'
+
+    # ReactNative
+    # 'node_modules'目录一般位于根目录中
+    # 但是如果你的结构不同，那你就要根据实际路径修改下面的`:path`
+    pod 'React', :path => '../node_modules/react-native', :subspecs => [
+        'Core',
+        'RCTText',
+        'RCTNetwork',
+        'RCTWebSocket', # 这个模块是用于调试功能的
+        # 在这里继续添加你所需要的模块
+        'RCTAnimation',
+        'RCTCameraRoll',
+        'RCTGeolocation',
+        'RCTImage',
+        'RCTSettings',
+        'RCTLinkingIOS',
+        'RCTTest'
+    ]
+    # 如果你的RN版本 >= 0.42.0，请加入下面这行
+    pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+
 end
 
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+        end
+    end
+end

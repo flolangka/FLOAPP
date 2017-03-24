@@ -34,7 +34,7 @@
     //注册百度地图
     BMKMapManager *bdManager = [[BMKMapManager alloc]init];
     [bdManager start:@"ZbXFn3fQqGNxn3TYmtqRhUUB" generalDelegate:nil];
-        
+    
     return YES;
 }
 

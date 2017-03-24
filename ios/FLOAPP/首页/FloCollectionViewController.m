@@ -18,6 +18,7 @@
 #import "UIView+FLOUtil.h"
 #import "YYFPSLabel.h"
 #import <UIView+YYAdd.h>
+#import <RCTRootView.h>
 
 #ifdef DEBUG
 #import <FLEX.h>
@@ -204,9 +205,23 @@
         [self presentViewController:viewController animated:YES completion:nil];
     } else if ([itemAddress isEqualToString:@"Force_Touch"]) {
         Def_MBProgressStringDelay(@"用力按我吧", 1);
+    } else if ([itemAddress isEqualToString:@"ReactNative"]) {
+        [self pushReactNative];
     } else {
         return;
     }
+}
+
+#pragma mark - ReactNative
+- (void)pushReactNative {
+    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL : jsCodeLocation
+                                                 moduleName        : @"FLOReactNative"
+                                                 initialProperties : nil
+                                                 launchOptions     : nil];
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view = rootView;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - Force Touch

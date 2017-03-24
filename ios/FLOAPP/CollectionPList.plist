@@ -154,5 +154,13 @@
 		<key>ItemAddress</key>
 		<string>SBIDNotificationViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>ReactNative</string>
+		<key>ItemIconURL</key>
+		<string>http://www.kiodev.com/wp-content/uploads/2016/03/react-logo.png</string>
+		<key>ItemAddress</key>
+		<string>ReactNative</string>
+	</dict>
 </array>
 </plist>
