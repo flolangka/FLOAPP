@@ -10,17 +10,17 @@
 
 static NSMutableArray *Alert_Actions;
 
-@interface StructAlertTitleAndAction ()
+@interface AlertAction ()
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) void(^action)();
 
 @end
 
-@implementation StructAlertTitleAndAction
+@implementation AlertAction
 
-+ (instancetype)structWithTitle:(NSString *)title action:(void (^)())action {
-    StructAlertTitleAndAction *instance = [[self alloc] init];
++ (instancetype)actionWithTitle:(NSString *)title action:(void (^)())action {
+    AlertAction *instance = [[self alloc] init];
     if (instance) {
         instance.title = title;
         instance.action = action?:^{};
@@ -32,14 +32,18 @@ static NSMutableArray *Alert_Actions;
     return instance;
 }
 
++ (instancetype)cancelAction {
+    return [AlertAction actionWithTitle:@"取消" action:nil];
+}
+
 @end
 
 @implementation UIViewController (Alert)
 
 - (void)alertWithTitle:(NSString *)title
                message:(NSString *)message
-    cancelButtonStruct:(StructAlertTitleAndAction *)cancelButtonStruct
-    otherButtonStructs:(StructAlertTitleAndAction *)otherButtonStructs, ... {
+    cancelButtonStruct:(AlertAction *)cancelButtonStruct
+    otherButtonStructs:(AlertAction *)otherButtonStructs, ... {
     
     CGFloat iOSVersion = [[UIDevice currentDevice].systemVersion floatValue];
     if (iOSVersion < 8) {
@@ -53,8 +57,8 @@ static NSMutableArray *Alert_Actions;
             
             va_list args;
             va_start(args, otherButtonStructs);
-            StructAlertTitleAndAction *otherStruct;
-            while ((otherStruct = va_arg(args, StructAlertTitleAndAction *))){
+            AlertAction *otherStruct;
+            while ((otherStruct = va_arg(args, AlertAction *))){
                 [arrOtherStructs addObject:otherStruct];
             }
             va_end(args);
@@ -63,7 +67,7 @@ static NSMutableArray *Alert_Actions;
         if (cancelButtonStruct) {
             [Alert_Actions addObject:cancelButtonStruct.action];
         }
-        for (StructAlertTitleAndAction *alertStruct in arrOtherStructs) {
+        for (AlertAction *alertStruct in arrOtherStructs) {
             [Alert_Actions addObject:alertStruct.action];
             [alertV addButtonWithTitle:alertStruct.title];
         }
@@ -89,13 +93,13 @@ static NSMutableArray *Alert_Actions;
             
             va_list args;
             va_start(args, otherButtonStructs);
-            StructAlertTitleAndAction *otherStruct;
-            while ((otherStruct = va_arg(args, StructAlertTitleAndAction *))){
+            AlertAction *otherStruct;
+            while ((otherStruct = va_arg(args, AlertAction *))){
                 [arrOtherStructs addObject:otherStruct];
             }
             va_end(args);
             
-            for (StructAlertTitleAndAction *alertStruct in arrOtherStructs) {
+            for (AlertAction *alertStruct in arrOtherStructs) {
                 [alertController addAction:[UIAlertAction actionWithTitle:alertStruct.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     alertStruct.action();
                 }]];
@@ -108,9 +112,9 @@ static NSMutableArray *Alert_Actions;
 
 - (void)actionSheetWithTitle:(NSString *)title
                      message:(NSString *)message
-          cancelButtonStruct:(StructAlertTitleAndAction *)cancelButtonStruct
-     destructiveButtonStruct:(StructAlertTitleAndAction *)destructiveButtonStruct
-          otherButtonStructs:(StructAlertTitleAndAction *)otherButtonStructs, ... {
+          cancelButtonStruct:(AlertAction *)cancelButtonStruct
+     destructiveButtonStruct:(AlertAction *)destructiveButtonStruct
+          otherButtonStructs:(AlertAction *)otherButtonStructs, ... {
     
     CGFloat iOSVersion = [[UIDevice currentDevice].systemVersion floatValue];
     if (iOSVersion < 8) {
@@ -124,8 +128,8 @@ static NSMutableArray *Alert_Actions;
             
             va_list args;
             va_start(args, otherButtonStructs);
-            StructAlertTitleAndAction *otherStruct;
-            while ((otherStruct = va_arg(args, StructAlertTitleAndAction *))){
+            AlertAction *otherStruct;
+            while ((otherStruct = va_arg(args, AlertAction *))){
                 [arrOtherStructs addObject:otherStruct];
             }
             va_end(args);
@@ -137,7 +141,7 @@ static NSMutableArray *Alert_Actions;
         if (cancelButtonStruct) {
             [Alert_Actions addObject:cancelButtonStruct.action];
         }
-        for (StructAlertTitleAndAction *alertStruct in arrOtherStructs) {
+        for (AlertAction *alertStruct in arrOtherStructs) {
             [Alert_Actions addObject:alertStruct.action];
             [actionsheet addButtonWithTitle:alertStruct.title];
         }
@@ -147,6 +151,16 @@ static NSMutableArray *Alert_Actions;
         [actionsheet showInView:self.view];
         
     } else {
+        // 需要传进来弹框的位置，so iPad actionsheet用alert
+        BOOL iPad = [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
+        if (iPad) {
+            if (destructiveButtonStruct) {
+                [self alertWithTitle:title message:message cancelButtonStruct:cancelButtonStruct otherButtonStructs:destructiveButtonStruct, otherButtonStructs, nil];
+            } else {
+                [self alertWithTitle:title message:message cancelButtonStruct:cancelButtonStruct otherButtonStructs:otherButtonStructs, nil];
+            }
+            return;
+        }
         
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
         
@@ -155,8 +169,10 @@ static NSMutableArray *Alert_Actions;
                 destructiveButtonStruct.action();
             }]];
         }
+        
+        // iPad cancel样式不起作用
         if (cancelButtonStruct) {
-            [alertController addAction:[UIAlertAction actionWithTitle:cancelButtonStruct.title style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [alertController addAction:[UIAlertAction actionWithTitle:cancelButtonStruct.title style:iPad ? UIAlertActionStyleDefault : UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                 cancelButtonStruct.action();
             }]];
         }
@@ -168,21 +184,37 @@ static NSMutableArray *Alert_Actions;
             
             va_list args;
             va_start(args, otherButtonStructs);
-            StructAlertTitleAndAction *otherStruct;
-            while ((otherStruct = va_arg(args, StructAlertTitleAndAction *))){
+            AlertAction *otherStruct;
+            while ((otherStruct = va_arg(args, AlertAction *))){
                 [arrOtherStructs addObject:otherStruct];
             }
             va_end(args);
             
-            for (StructAlertTitleAndAction *alertStruct in arrOtherStructs) {
+            for (AlertAction *alertStruct in arrOtherStructs) {
                 [alertController addAction:[UIAlertAction actionWithTitle:alertStruct.title style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     alertStruct.action();
                 }]];
             }
         }
         
+        /*  需要传进来弹框的位置，so iPad actionsheet用alert
+        if (iPad) {
+            UIPopoverPresentationController *ppc = alertController.popoverPresentationController;
+            ppc.sourceView = self.view;
+            ppc.sourceRect = CGRectMake((CGRectGetWidth(ppc.sourceView.bounds)-2)*0.5f, (CGRectGetHeight(ppc.sourceView.bounds)), 2, 2);// 显示在中心位置
+        }
+         */
+        
         [self presentViewController:alertController animated:YES completion:nil];
     }
+}
+
+//提示消息，按钮为“知道了”
+- (void)alertWarringMsg:(NSString *)msg {
+    [self alertWarringMsg:msg title:nil];
+}
+- (void)alertWarringMsg:(NSString *)msg title:(NSString *)title {
+    [self alertWithTitle:title message:msg cancelButtonStruct:[AlertAction actionWithTitle:@"知道了" action:nil] otherButtonStructs:nil];
 }
 
 
