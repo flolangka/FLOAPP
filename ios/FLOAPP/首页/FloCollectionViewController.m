@@ -214,7 +214,12 @@
 
 #pragma mark - ReactNative
 - (void)pushReactNative {
-    NSURL *jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios"];
+    // 需要在终端运行 npm start
+    
+    // FLOMBP的IP
+    NSString *host = @"192.168.0.103";
+    
+    NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/index.ios.bundle?platform=ios", host]];
     RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL : jsCodeLocation
                                                  moduleName        : @"FLOReactNative"
                                                  initialProperties : nil
