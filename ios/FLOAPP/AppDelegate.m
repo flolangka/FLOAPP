@@ -10,8 +10,6 @@
 #import "FLOSideMenu.h"
 #import "FLOCodeViewController.h"
 #import <AFNetworkReachabilityManager.h>
-#import <BaiduMapAPI_Base/BMKMapManager.h>
-#import <BaiduMapAPI_Map/BMKMapView.h>
 #import <MBProgressHUD.h>
 
 #import <UserNotifications/UserNotifications.h>
@@ -30,11 +28,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self networkMonitor];
-    
-    //注册百度地图
-    BMKMapManager *bdManager = [[BMKMapManager alloc]init];
-    [bdManager start:@"ZbXFn3fQqGNxn3TYmtqRhUUB" generalDelegate:nil];
-    
+        
     return YES;
 }
 

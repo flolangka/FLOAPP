@@ -32,6 +32,20 @@
 
 @implementation FLOBDMapViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        
+        //注册百度地图
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            BMKMapManager *bdManager = [[BMKMapManager alloc]init];
+            [bdManager start:@"ZbXFn3fQqGNxn3TYmtqRhUUB" generalDelegate:nil];
+        });
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

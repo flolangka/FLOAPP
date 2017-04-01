@@ -18,7 +18,9 @@
 #import "UIView+FLOUtil.h"
 #import "YYFPSLabel.h"
 #import <UIView+YYAdd.h>
+
 #import <RCTRootView.h>
+#import <RCTBridgeModule.h>
 
 #ifdef DEBUG
 #import <FLEX.h>
@@ -216,8 +218,11 @@
 - (void)pushReactNative {
     // 需要在终端运行 npm start
     
-    // FLOMBP的IP
-    NSString *host = @"192.168.0.103";
+#if TARGET_IPHONE_SIMULATOR
+    NSString *host = @"localhost";
+#else
+    NSString *host = @"192.168.1.184";
+#endif
     
     NSURL *jsCodeLocation = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@:8081/index.ios.bundle?platform=ios", host]];
     RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL : jsCodeLocation
@@ -227,6 +232,17 @@
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view = rootView;
     [self presentViewController:vc animated:YES completion:nil];
+    
+    // 接收RN发来的消息
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RNBridgeMessage:) name:@"RNBridgeMessage" object:nil];
+}
+- (void)RNBridgeMessage:(NSNotification *)notification{
+    NSString *msg = [notification.userInfo objectForKey:@"msg"];
+    
+    if ([msg isEqualToString:@"DismissReactNativeVC"]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:@"RNBridgeMessage" object:nil];
+    }
 }
 
 #pragma mark - Force Touch
@@ -239,5 +255,27 @@
     [self showViewController:viewControllerToCommit sender:self];
 }
 
+
+@end
+
+#pragma mark - React-Native 与 iOS通信
+@interface RTModule : NSObject<RCTBridgeModule>
+@end
+
+@implementation RTModule
+
+RCT_EXPORT_MODULE(RTModule)
+
+//接收RN发的消息
+RCT_EXPORT_METHOD(RNBridgeMessage:(NSString *)msg){
+    NSLog(@"RN传入原生界面的数据为:%@",msg);
+    
+    if (Def_CheckStringClassAndLength(msg)) {
+        //主要这里必须使用主线程发送,不然有可能失效
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"RNBridgeMessage" object:nil userInfo:@{@"msg": msg}];
+        });
+    }
+}
 
 @end

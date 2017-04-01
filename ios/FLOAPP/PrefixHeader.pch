@@ -18,4 +18,16 @@
 #define Def_MBProgressString(str) Def_MBProgressStringDelay(str,2)
 #define Def_MBProgressStringDelay(str,delay) MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES]; progress.mode = MBProgressHUDModeText; progress.label.text = str; [progress hideAnimated:YES afterDelay:delay];
 
+//数值转字符串
+#define Def_NSStringFromInteger(Integer) [NSString stringWithFormat:@"%ld", (long)Integer]
+
+//判断var是否为字符串并不为空
+#define Def_CheckStringClassAndLength(var) (var && [var isKindOfClass:[NSString class]] && var.length)
+
+//判断var是否为字典并不为空
+#define Def_CheckDictionaryClassAndCount(var) (var && [var isKindOfClass:[NSDictionary class]] && var.count)
+
+//判断var是否为数组并不为空
+#define Def_CheckArrayClassAndCount(var) (var && [var isKindOfClass:[NSArray class]] && var.count)
+
 #endif /* PrefixHeader_pch */
