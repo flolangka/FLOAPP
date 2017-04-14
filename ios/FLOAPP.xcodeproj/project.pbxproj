@@ -35,7 +35,11 @@
 		7301A2001D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A1FF1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m */; };
 		7301A2031D6E97A500A4EC2E /* FLOAdjustFontSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2021D6E97A500A4EC2E /* FLOAdjustFontSizeView.m */; };
 		7301A2061D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */; };
-		734186B81E6FE7A90090A16B /* FLODownloadUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 734186B71E6FE7A90090A16B /* FLODownloadUtil.m */; };
+		7337FA5A1EA06EE300DFBD9D /* DownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA591EA06EE300DFBD9D /* DownloadService.m */; };
+		7337FA671EA073F700DFBD9D /* DownloadFile+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA641EA073F700DFBD9D /* DownloadFile+CoreDataClass.m */; };
+		7337FA681EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA661EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m */; };
+		7337FA6C1EA0747900DFBD9D /* FLODownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */; };
+		7337FA6F1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA6E1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m */; };
 		7376EBCA1D640CB3001D1BD3 /* FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC11D640CB3001D1BD3 /* FLOUtil.m */; };
 		7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC31D640CB3001D1BD3 /* NSString+FLOUtil.m */; };
 		7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC51D640CB3001D1BD3 /* UIImage+FLOUtil.m */; };
@@ -189,8 +193,16 @@
 		7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeLabel.m; sourceTree = "<group>"; };
 		7323C45A1E4ACBAD00543251 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
-		734186B61E6FE7A90090A16B /* FLODownloadUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLODownloadUtil.h; sourceTree = "<group>"; };
-		734186B71E6FE7A90090A16B /* FLODownloadUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadUtil.m; sourceTree = "<group>"; };
+		7337FA581EA06EE300DFBD9D /* DownloadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadService.h; sourceTree = "<group>"; };
+		7337FA591EA06EE300DFBD9D /* DownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadService.m; sourceTree = "<group>"; };
+		7337FA631EA073F700DFBD9D /* DownloadFile+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DownloadFile+CoreDataClass.h"; sourceTree = "<group>"; };
+		7337FA641EA073F700DFBD9D /* DownloadFile+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DownloadFile+CoreDataClass.m"; sourceTree = "<group>"; };
+		7337FA651EA073F700DFBD9D /* DownloadFile+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DownloadFile+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7337FA661EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DownloadFile+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7337FA6A1EA0747900DFBD9D /* FLODownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLODownloadManager.h; sourceTree = "<group>"; };
+		7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadManager.m; sourceTree = "<group>"; };
+		7337FA6D1EA0C7CC00DFBD9D /* FLODownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLODownloadTableViewController.h; sourceTree = "<group>"; };
+		7337FA6E1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadTableViewController.m; sourceTree = "<group>"; };
 		7376EBC01D640CB3001D1BD3 /* FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOUtil.h; sourceTree = "<group>"; };
 		7376EBC11D640CB3001D1BD3 /* FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOUtil.m; sourceTree = "<group>"; };
 		7376EBC21D640CB3001D1BD3 /* NSString+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLOUtil.h"; sourceTree = "<group>"; };
@@ -358,14 +370,9 @@
 				1252F4451E1D3DBC00A8C244 /* APLCoreDataStackManager.h */,
 				1252F4461E1D3DBC00A8C244 /* APLCoreDataStackManager.m */,
 				1239A9331D7DA5120064C15C /* FLOCoreData.xcdatamodeld */,
-				1252F43F1E1D393B00A8C244 /* NetWork+CoreDataClass.h */,
-				1252F4401E1D393B00A8C244 /* NetWork+CoreDataClass.m */,
-				1252F4411E1D393B00A8C244 /* NetWork+CoreDataProperties.h */,
-				1252F4421E1D393B00A8C244 /* NetWork+CoreDataProperties.m */,
-				1252F4391E1D2C1800A8C244 /* MediaAddress+CoreDataClass.h */,
-				1252F43A1E1D2C1800A8C244 /* MediaAddress+CoreDataClass.m */,
-				1252F43B1E1D2C1800A8C244 /* MediaAddress+CoreDataProperties.h */,
-				1252F43C1E1D2C1800A8C244 /* MediaAddress+CoreDataProperties.m */,
+				7337FA5E1EA0704200DFBD9D /* NetWork */,
+				7337FA5F1EA0704D00DFBD9D /* MediaAddress */,
+				7337FA691EA0741600DFBD9D /* DownloadFile */,
 			);
 			name = CoreData;
 			path = "模块/CoreData";
@@ -458,6 +465,51 @@
 			path = "模块/字体大小";
 			sourceTree = "<group>";
 		};
+		7337FA541EA0697C00DFBD9D /* 下载 */ = {
+			isa = PBXGroup;
+			children = (
+				7337FA6D1EA0C7CC00DFBD9D /* FLODownloadTableViewController.h */,
+				7337FA6E1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m */,
+				7337FA6A1EA0747900DFBD9D /* FLODownloadManager.h */,
+				7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */,
+			);
+			name = "下载";
+			path = "模块/下载";
+			sourceTree = "<group>";
+		};
+		7337FA5E1EA0704200DFBD9D /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				1252F43F1E1D393B00A8C244 /* NetWork+CoreDataClass.h */,
+				1252F4401E1D393B00A8C244 /* NetWork+CoreDataClass.m */,
+				1252F4411E1D393B00A8C244 /* NetWork+CoreDataProperties.h */,
+				1252F4421E1D393B00A8C244 /* NetWork+CoreDataProperties.m */,
+			);
+			name = NetWork;
+			sourceTree = "<group>";
+		};
+		7337FA5F1EA0704D00DFBD9D /* MediaAddress */ = {
+			isa = PBXGroup;
+			children = (
+				1252F4391E1D2C1800A8C244 /* MediaAddress+CoreDataClass.h */,
+				1252F43A1E1D2C1800A8C244 /* MediaAddress+CoreDataClass.m */,
+				1252F43B1E1D2C1800A8C244 /* MediaAddress+CoreDataProperties.h */,
+				1252F43C1E1D2C1800A8C244 /* MediaAddress+CoreDataProperties.m */,
+			);
+			name = MediaAddress;
+			sourceTree = "<group>";
+		};
+		7337FA691EA0741600DFBD9D /* DownloadFile */ = {
+			isa = PBXGroup;
+			children = (
+				7337FA631EA073F700DFBD9D /* DownloadFile+CoreDataClass.h */,
+				7337FA641EA073F700DFBD9D /* DownloadFile+CoreDataClass.m */,
+				7337FA651EA073F700DFBD9D /* DownloadFile+CoreDataProperties.h */,
+				7337FA661EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m */,
+			);
+			name = DownloadFile;
+			sourceTree = "<group>";
+		};
 		7376EBBF1D640CB3001D1BD3 /* FLOUtility */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,8 +525,8 @@
 				7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */,
 				1242EAF81DAD5D1F00F3595A /* UIViewController+Alert.h */,
 				1242EAF91DAD5D1F00F3595A /* UIViewController+Alert.m */,
-				734186B61E6FE7A90090A16B /* FLODownloadUtil.h */,
-				734186B71E6FE7A90090A16B /* FLODownloadUtil.m */,
+				7337FA581EA06EE300DFBD9D /* DownloadService.h */,
+				7337FA591EA06EE300DFBD9D /* DownloadService.m */,
 			);
 			name = FLOUtility;
 			path = "模块/FLOUtility";
@@ -537,6 +589,7 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				7337FA541EA0697C00DFBD9D /* 下载 */,
 				73F3A19C1E4C6BF100314D70 /* Notifier */,
 				1252F44A1E212B9800A8C244 /* MQTT */,
 				73BBD9891E1E13D700FAAFB3 /* 排序 */,
@@ -1027,6 +1080,11 @@
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = X928ZDD77C;
 						LastSwiftMigration = 0820;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1187,6 +1245,7 @@
 				1239A92A1D7862E00064C15C /* FLONetWorkTableViewController.m in Sources */,
 				84DA68BD1C227F6E001B9E79 /* FLOWeiboStatusTableViewCell.m in Sources */,
 				7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */,
+				7337FA681EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m in Sources */,
 				84EEC5531C2396690089454E /* FLOCodeViewController.m in Sources */,
 				7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */,
 				1252F44D1E212BC200A8C244 /* MQTTService.m in Sources */,
@@ -1198,11 +1257,11 @@
 				73BBD9901E1E13D700FAAFB3 /* SortView.swift in Sources */,
 				849EEDC71C26AD8D00CD9A7C /* FLOWeiboCommentModel.m in Sources */,
 				840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */,
-				734186B81E6FE7A90090A16B /* FLODownloadUtil.m in Sources */,
 				73F3A19F1E4C6DB100314D70 /* FLONotificationViewController.m in Sources */,
 				73E7E0BD1E20BF9100793ABA /* YYFPSLabel.m in Sources */,
 				84754F361C34F58B00C62243 /* FLOSystemSoundTableViewController.m in Sources */,
 				846E9C481C298BDB00843A24 /* FLOBDMapViewController.m in Sources */,
+				7337FA5A1EA06EE300DFBD9D /* DownloadService.m in Sources */,
 				849EEDCD1C26C38700CD9A7C /* FLOWeiboReportComViewController.m in Sources */,
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
 				7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */,
@@ -1216,10 +1275,13 @@
 				846D83661C21B9A6007CA12B /* FLOWeiboAuthorization.m in Sources */,
 				7301A2061D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m in Sources */,
 				84291A0E1C05867A0015F5F1 /* main.m in Sources */,
+				7337FA671EA073F700DFBD9D /* DownloadFile+CoreDataClass.m in Sources */,
 				1252F43D1E1D2C1800A8C244 /* MediaAddress+CoreDataClass.m in Sources */,
+				7337FA6F1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m in Sources */,
 				84DA68BA1C2264DF001B9E79 /* FLOWeiboUserModel.m in Sources */,
 				1242EAFA1DAD5D1F00F3595A /* UIViewController+Alert.m in Sources */,
 				84DA68C01C227F93001B9E79 /* FLOWeiboStatusFoolerTableViewCell.m in Sources */,
+				7337FA6C1EA0747900DFBD9D /* FLODownloadManager.m in Sources */,
 				7376EBCA1D640CB3001D1BD3 /* FLOUtil.m in Sources */,
 				1239A92E1D7C074C0064C15C /* FLOTextViewViewController.m in Sources */,
 				84DD6E801C05A83B005C1AE2 /* FLOSideMenu.m in Sources */,

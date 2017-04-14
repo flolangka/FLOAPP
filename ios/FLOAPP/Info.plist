@@ -33,12 +33,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>请点击&quot;允许&quot;启动定位服务</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>是否允许此App访问你的媒体资料库？</string>
 	<key>NSCameraUsageDescription</key>
 	<string>是否允许此App使用你的相机？</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>请点击"允许"启动定位服务</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>是否允许此App访问你的媒体资料库？</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
@@ -93,6 +93,10 @@
 				<string>mapValue</string>
 			</dict>
 		</dict>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>newsstand-content</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

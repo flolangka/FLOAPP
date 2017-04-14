@@ -30,6 +30,11 @@
 #define COLOR_HEX(hexColor) [UIColor colorWithRed:(((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0) green:(((CGFloat)((hexColor & 0xFF00) >> 8)) / 255.0) blue:(((CGFloat)(hexColor & 0xFF)) / 255.0) alpha:1.0]
 #define COLOR_HEXAlpha(hexColor,falpha) [UIColor colorWithRed:(((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0) green:(((CGFloat)((hexColor & 0xFF00) >> 8)) / 255.0) blue:(((CGFloat)(hexColor & 0xFF)) / 255.0) alpha:(falpha)]
 
+#define DEVICE_NETWORK_CHANGE_NOTIFICATION         @"DeviceNetworkChangeNotification"
+#define DEVICE_NETWORK_CHANGE_2_NONE_NOTIFICATION    @"DeviceNetworkChange2NoneNotification"
+#define DEVICE_NETWORK_CHANGE_2_WIFI_NOTIFICATION    @"DeviceNetworkChange2WifiNotification"
+#define DEVICE_NETWORK_CHANGE_2_VIAWWAN_NOTIFICATION @"DeviceNetworkChange2ViaWWANNotification"
+
 @interface FLOUtil : NSObject
 
 /**
@@ -41,6 +46,30 @@
  */
 + (void)flo_alertWithMessage:(NSString *)msg fromVC:(UIViewController *)VC;
 + (void)flo_alertWithTitle:(NSString *)title message:(NSString *)msg fromVC:(UIViewController *)VC;
+
+/**
+ *  在Caches下查找文件name地址
+ *  @param name 文件名
+ *  @return 文件地址
+ */
++ (NSString *)FilePathInCachesWithName:(NSString *)name;
+
+/**
+ 删除文件
+ 
+ @param Path 文件路径
+ */
++ (void)DropFilePath:(NSString *)Path;
+
+//在Caches下创建文件夹name
++ (void)CreatFilePathInCachesWithName:(NSString *)name;
+
+/**
+ *  检测网络状态
+ *
+ *  @return 0:无网络 1:Wifi 2:2/3/4G
+ */
++ (NSInteger)networkStatus;
 
 @end
 

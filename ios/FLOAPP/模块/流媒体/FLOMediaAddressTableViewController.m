@@ -19,7 +19,6 @@
 {
     NSMutableArray *dataArr;
 }
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -42,7 +41,7 @@
     //建立请求
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"MediaAddress"];
     //读取数据
-    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *array = [[APLCoreDataStackManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
     
     dataArr = [NSMutableArray arrayWithArray:array];
 }
@@ -79,10 +78,10 @@
     maskView.bookMarkURLTF.text = url;
     maskView.submit = ^void(NSString *name, NSString *urlStr){
         // 插入数据库
-        MediaAddress *obj = [NSEntityDescription insertNewObjectForEntityForName:@"MediaAddress" inManagedObjectContext:self.managedObjectContext];
+        MediaAddress *obj = [NSEntityDescription insertNewObjectForEntityForName:@"MediaAddress" inManagedObjectContext:[APLCoreDataStackManager sharedManager].managedObjectContext];
         obj.name = name;
         obj.url = urlStr;
-        [self.managedObjectContext save:nil];
+        [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
         
         // 刷新页面
         [dataArr addObject:obj];
@@ -132,8 +131,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [self.managedObjectContext deleteObject:dataArr[indexPath.row]];
-        [self.managedObjectContext save:nil];
+        [[APLCoreDataStackManager sharedManager].managedObjectContext deleteObject:dataArr[indexPath.row]];
+        [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
         
         [dataArr removeObjectAtIndex:indexPath.row];
         
@@ -150,18 +149,6 @@
     playerVC.player = [AVPlayer playerWithURL:[NSURL URLWithString:obj.url]];
     
     [self presentViewController:playerVC animated:YES completion:nil];
-}
-
-#pragma mark - Core Data support
-- (NSManagedObjectContext *)managedObjectContext {
-    if (_managedObjectContext) {
-        return _managedObjectContext;
-    }
-    
-    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    _managedObjectContext.persistentStoreCoordinator = [[APLCoreDataStackManager sharedManager] persistentStoreCoordinator];
-    
-    return _managedObjectContext;
 }
 
 @end

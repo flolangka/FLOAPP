@@ -16,7 +16,6 @@
 {
     NSMutableArray *dataArr;
 }
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -31,7 +30,7 @@
     //建立请求
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"NetWork"];
     //读取数据
-    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSArray *array = [[APLCoreDataStackManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
     
     if (array) {
         [dataArr addObjectsFromArray:array];
@@ -85,8 +84,8 @@
         
         //更新数据库
         NetWork *data = [dataArr objectAtIndex:indexPath.row];
-        [self.managedObjectContext deleteObject:data];
-        [self.managedObjectContext save:nil];
+        [[APLCoreDataStackManager sharedManager].managedObjectContext deleteObject:data];
+        [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
         
         //更新数据源
         [dataArr removeObjectAtIndex:indexPath.row];
@@ -118,17 +117,5 @@
     // Pass the selected object to the new view controller.
 }
  */
-
-#pragma mark - Core Data support
-- (NSManagedObjectContext *)managedObjectContext {
-    if (_managedObjectContext) {
-        return _managedObjectContext;
-    }
-    
-    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    _managedObjectContext.persistentStoreCoordinator = [[APLCoreDataStackManager sharedManager] persistentStoreCoordinator];
-    
-    return _managedObjectContext;
-}
 
 @end

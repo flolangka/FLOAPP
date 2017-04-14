@@ -8,6 +8,7 @@
 
 #import "FLOUtil.h"
 #import <UIKit/UIKit.h>
+#import <AFNetworkReachabilityManager.h>
 
 @implementation FLOUtil
 
@@ -24,6 +25,59 @@
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
         [VC presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+/**
+ *  在Caches下查找文件name地址
+ *
+ *  @param name 文件名
+ *
+ *  @return 文件地址
+ */
++ (NSString *)FilePathInCachesWithName:(NSString *)name {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *LibraryDirectory = [paths objectAtIndex:0];
+    return [LibraryDirectory stringByAppendingPathComponent:name];
+}
+
+/**
+ 删除文件
+
+ @param Path 文件路径
+ */
++ (void)DropFilePath:(NSString *)Path {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [fileManager removeItemAtPath:Path error:nil];
+}
+
+//在Caches下创建文件夹name
++ (void)CreatFilePathInCachesWithName:(NSString *)name {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *LibraryDirectory = [paths objectAtIndex:0];
+    NSString *imageDir = [LibraryDirectory stringByAppendingPathComponent:name];
+    BOOL isDir = NO;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL existed = [fileManager fileExistsAtPath:imageDir isDirectory:&isDir];
+    if ( !(isDir == YES && existed == YES) ){
+        [fileManager createDirectoryAtPath:imageDir withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+}
+
+/**
+  *  检测网络状态
+  *
+  *  @return 0:无网络 1:Wifi 2:2/3/4G
+  */
++ (NSInteger)networkStatus {
+    AFNetworkReachabilityStatus status = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
+    
+    if (status == AFNetworkReachabilityStatusReachableViaWiFi) {
+        return 1;
+    } else if (status == AFNetworkReachabilityStatusReachableViaWWAN) {
+        return 2;
+    } else {
+        return 0;
     }
 }
 

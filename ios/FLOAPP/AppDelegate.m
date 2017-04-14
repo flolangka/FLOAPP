@@ -11,14 +11,9 @@
 #import "FLOCodeViewController.h"
 #import <AFNetworkReachabilityManager.h>
 #import <MBProgressHUD.h>
-
 #import <UserNotifications/UserNotifications.h>
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
-
-@property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end
 
@@ -37,9 +32,27 @@
 {
     AFNetworkReachabilityManager *networkManager = [AFNetworkReachabilityManager sharedManager];
     [networkManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        if (status == AFNetworkReachabilityStatusNotReachable) {
-            Def_MBProgressString(@"网络异常，请检查网络连接");
+        NSString *networkStatus = nil;
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                networkStatus = DEVICE_NETWORK_CHANGE_2_NONE_NOTIFICATION;
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                networkStatus = DEVICE_NETWORK_CHANGE_2_NONE_NOTIFICATION;
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                networkStatus = DEVICE_NETWORK_CHANGE_2_WIFI_NOTIFICATION;
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                networkStatus = DEVICE_NETWORK_CHANGE_2_VIAWWAN_NOTIFICATION;
+                break;
+            default:
+                break;
         }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+           [[NSNotificationCenter defaultCenter] postNotificationName:DEVICE_NETWORK_CHANGE_NOTIFICATION object:[UIApplication sharedApplication] userInfo:@{@"NetworkChange":networkStatus}]; 
+        });
     }];
     [networkManager startMonitoring];
 }
