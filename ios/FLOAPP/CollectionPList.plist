@@ -168,7 +168,7 @@
 		<key>ItemIconURL</key>
 		<string>http://www.clipartbest.com/cliparts/7ia/6qd/7ia6qdM9T.png</string>
 		<key>ItemAddress</key>
-		<string>FLOMediaAddressTableViewController</string>
+		<string>FLODownloadTableViewController</string>
 	</dict>
 </array>
 </plist>
