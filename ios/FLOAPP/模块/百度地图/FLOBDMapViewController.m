@@ -269,7 +269,7 @@
         [_mapView addAnnotations:annotations];
         [_mapView showAnnotations:annotations animated:YES];
     } else if (error == BMK_SEARCH_AMBIGUOUS_ROURE_ADDR){
-        NSLog(@"起始点有歧义");
+        DLog(@"起始点有歧义");
     } else {
         // 各种情况的判断。。。
     }

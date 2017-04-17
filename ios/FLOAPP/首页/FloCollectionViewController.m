@@ -64,11 +64,12 @@
     
     [self initCollectionView];
     
-    // FPS指示器
+    /*/ FPS指示器
     YYFPSLabel *fps = [YYFPSLabel new];
     fps.centerY = 24;
     fps.centerX = DEVICE_SCREEN_WIDTH/2.;
     [[UIApplication sharedApplication].keyWindow addSubview:fps];
+     */
 }
 
 - (void)initCollectionView {
@@ -268,7 +269,7 @@ RCT_EXPORT_MODULE(RTModule)
 
 //接收RN发的消息
 RCT_EXPORT_METHOD(RNBridgeMessage:(NSString *)msg){
-    NSLog(@"RN传入原生界面的数据为:%@",msg);
+    DLog(@"RN传入原生界面的数据为:%@",msg);
     
     if (Def_CheckStringClassAndLength(msg)) {
         //主要这里必须使用主线程发送,不然有可能失效

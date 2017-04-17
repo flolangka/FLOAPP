@@ -118,7 +118,7 @@
     
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:_captureDevice error:&error];
     if (!input) {
-        NSLog(@"%@", [error localizedDescription]);
+        DLog(@"%@", [error localizedDescription]);
         return NO;
     }
     
@@ -195,7 +195,7 @@
             codeResultVC.codeResultStr = result;
             [self.navigationController pushViewController:codeResultVC animated:YES];
         } else {
-            NSLog(@"不是二维码");
+            DLog(@"不是二维码");
         }
     }
 }

@@ -36,7 +36,7 @@
     } else if (_bookMarkNameTF.text.length < 1) {
         [self showAlert:@"名称不能为空"];
         return;
-    } else if (![_bookMarkURLTF.text hasPrefix:@"http://"] && ![_bookMarkURLTF.text hasPrefix:@"https://"]) {
+    } else if (![_bookMarkURLTF.text hasPrefix:@"http://"] && ![_bookMarkURLTF.text hasPrefix:@"https://"] && ![_bookMarkURLTF.text hasPrefix:@"thunder://"]) {
         [self showAlert:@"地址无效"];
         return;
     }

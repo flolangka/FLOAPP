@@ -21,7 +21,7 @@ static NSString *dataBasePath;
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSLog(@"沙河>>%@", NSHomeDirectory());
+        DLog(@"沙河>>%@", NSHomeDirectory());
         
         dataBaseEngin = [[FLODataBaseEngin alloc] init];
         dataBasePath = [dataBaseEngin databasePath];
@@ -39,7 +39,7 @@ static NSString *dataBasePath;
     if (dataBaseExist) {
         return;
     } else {
-        NSLog(@"数据库不存在,需要复制");
+        DLog(@"数据库不存在,需要复制");
     }
     
     NSError *error;
@@ -47,7 +47,7 @@ static NSString *dataBasePath;
     
     BOOL copySuccess = [fileManager copyItemAtPath:defaultDBPath toPath:dataBasePath error:&error];
     if (!copySuccess) {
-        NSLog(@"复制数据库失败 >> '%@'.", [error localizedDescription]);
+        DLog(@"复制数据库失败 >> '%@'.", [error localizedDescription]);
     }
     
     return;
@@ -186,11 +186,11 @@ static NSString *dataBasePath;
             BOOL insertSuccess = [db executeUpdate:sql withParameterDictionary:muDic];
             if (!insertSuccess) {
                 success = NO;
-                NSLog(@"%@\n插入失败,参数:%@", sql, muDic);
+                DLog(@"%@\n插入失败,参数:%@", sql, muDic);
             }
         }
         if (success) {
-            NSLog(@"保存数据库成功");
+            DLog(@"保存数据库成功");
         }
     }];
 }
@@ -212,9 +212,9 @@ static NSString *dataBasePath;
                 
                 BOOL deleteSuccess = [db executeUpdate:sql];
                 if (deleteSuccess) {
-                    NSLog(@"从数据库删除成功");
+                    DLog(@"从数据库删除成功");
                 } else {
-                    NSLog(@"%@\n删除失败", sql);
+                    DLog(@"%@\n删除失败", sql);
                 }
             }
             
@@ -225,9 +225,9 @@ static NSString *dataBasePath;
                 
                 BOOL deleteSuccess = [db executeUpdate:sql];
                 if (deleteSuccess) {
-                    NSLog(@"从数据库删除成功");
+                    DLog(@"从数据库删除成功");
                 } else {
-                    NSLog(@"%@\n删除失败", sql);
+                    DLog(@"%@\n删除失败", sql);
                 }
             }
         }
@@ -256,7 +256,7 @@ static NSString *dataBasePath;
     NSString *defaultDBPath = [[NSBundle mainBundle] pathForResource:@"floapp" ofType:@"db"];
     BOOL copySuccess = [fileManager copyItemAtPath:defaultDBPath toPath:dataBasePath error:&error];
     if (!copySuccess) {
-        NSLog(@"重置数据库失败 >> '%@'.", [error localizedDescription]);
+        DLog(@"重置数据库失败 >> '%@'.", [error localizedDescription]);
     }
 }
 

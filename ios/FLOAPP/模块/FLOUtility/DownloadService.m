@@ -25,7 +25,7 @@
     
     void(^downloadProgress)(NSString *, float);
     void(^downloadSuspend)(NSString *);
-    void(^downloadFinished)(NSString *);
+    void(^downloadFinished)(NSString *, NSString *);
     void(^downloadFailed)(NSString *);
     
     NSString *resumeDataPath;
@@ -47,7 +47,7 @@
  @param failed 失败事件
  @return dlService
  */
-+ (instancetype)downloadSessionWithIdentifier:(NSString *)iden URLPath:(NSString *)urlPath savePath:(NSString *)savePath resumeDataPath:(NSString *)resumeDataPath progress:(void (^)(NSString *, float))progress suspend:(void (^)(NSString *))suspend finished:(void (^)(NSString *))finished failed:(void (^)(NSString *))failed {
++ (instancetype)downloadSessionWithIdentifier:(NSString *)iden URLPath:(NSString *)urlPath savePath:(NSString *)savePath resumeDataPath:(NSString *)resumeDataPath progress:(void (^)(NSString *, float))progress suspend:(void (^)(NSString *))suspend finished:(void (^)(NSString *, NSString *))finished failed:(void (^)(NSString *))failed {
     DownloadService *dlService = [DownloadService new];
     
     dlService -> taskID = iden;
@@ -119,7 +119,7 @@
         [task cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
             if (resumeData) {
                 BOOL saveSuccess = [resumeData writeToFile:[FLOUtil FilePathInCachesWithName:resumeDataPath] atomically:YES];
-                NSLog(@"暂停下载>%@<，已获取resumeData保存%@", taskID, saveSuccess?@"成功":@"失败");
+                DLog(@"暂停下载>%@<，已获取resumeData保存%@", taskID, saveSuccess?@"成功":@"失败");
             }
         }];
     }
@@ -143,7 +143,11 @@
     downloading = NO;
     
     NSString *fileName = downloadTask.response.suggestedFilename;
-    NSString *filePath = [FLOUtil FilePathInCachesWithName:[savePath stringByAppendingPathComponent:fileName]];
+    NSString *path = savePath;
+    if (![savePath hasSuffix:fileName]) {
+        path = [savePath stringByAppendingPathComponent:fileName];
+    }
+    NSString *filePath = [FLOUtil FilePathInCachesWithName:path];
     [FLOUtil DropFilePath:filePath];
     
     // app重启后location路径可能不对，需要调整
@@ -151,15 +155,15 @@
     
     NSString *lPath = location.absoluteString;
     lPath = [lPath stringByReplacingCharactersInRange:NSMakeRange(0, [lPath rangeOfString:@"/Library/Caches/"].location) withString:preStr];
-    NSLog(@"下载完成: %@", lPath);
+    DLog(@"下载完成: %@\n保存路径: %@", lPath, filePath);
     
     // 文件转换
     NSError *error = nil;
     BOOL moveSuccess = [[NSFileManager defaultManager] moveItemAtPath:lPath toPath:filePath error:&error];
     if (moveSuccess && downloadFinished) {
-        downloadFinished(taskID);
+        downloadFinished(taskID, fileName);
     }
-    NSLog(@"文件转换%@ error:%@", moveSuccess?@"成功":@"失败", error.localizedDescription);
+    DLog(@"文件转换%@ error:%@", moveSuccess?@"成功":@"失败", error.localizedDescription);
 }
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
@@ -180,7 +184,7 @@
  */
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
     if (error && error.userInfo) {
-        NSLog(@"文档下载didCompleteWithError：%@\nTaskID：%@", error.userInfo, taskID);
+        DLog(@"文档下载didCompleteWithError：%@\nTaskID：%@", error.userInfo, taskID);
         downloading = NO;
         
         NSData *resumeData = [error.userInfo objectForKey:@"NSURLSessionDownloadTaskResumeData"];
@@ -212,7 +216,7 @@
 }
 
 - (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error {
-    NSLog(@"文档下载didBecomeInvalidWithError：%@\nTaskID：%@", error.userInfo, taskID);
+    DLog(@"文档下载didBecomeInvalidWithError：%@\nTaskID：%@", error.userInfo, taskID);
 }
 
 @end

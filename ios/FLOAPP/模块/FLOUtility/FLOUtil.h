@@ -61,8 +61,28 @@
  */
 + (void)DropFilePath:(NSString *)Path;
 
-//在Caches下创建文件夹name
-+ (void)CreatFilePathInCachesWithName:(NSString *)name;
+/**
+ 创建文件夹
+
+ @param path 文件夹路径
+ */
++ (void)CreatFilePathInCaches:(NSString *)path;
+
+/**
+ 文件属性
+
+ @param path 路径
+ @return 属性
+ */
++ (NSDictionary *)FileAttributesInCachesPath:(NSString *)path;
+
+/**
+ bytes转21.1K/21.1M/21.1G
+ 
+ @param bytes bytes
+ @return str
+ */
++ (NSString *)FileSizeWithBytes:(unsigned long long)bytes;
 
 /**
  *  检测网络状态
@@ -70,6 +90,14 @@
  *  @return 0:无网络 1:Wifi 2:2/3/4G
  */
 + (NSInteger)networkStatus;
+
+/**
+ 解析迅雷地址等转http地址
+
+ @param path 迅雷地址等
+ @return http地址
+ */
++ (NSString *)parseDownloadPath:(NSString *)path;
 
 @end
 

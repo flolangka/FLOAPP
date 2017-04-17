@@ -40,7 +40,7 @@
                                resumeDataPath:(NSString *)resumeDataPath
                                      progress:(void(^)(NSString *iden, float progress))progress
                                       suspend:(void(^)(NSString *iden))suspend
-                                     finished:(void(^)(NSString *iden))finished
+                                     finished:(void(^)(NSString *iden, NSString *fileName))finished
                                        failed:(void(^)(NSString *iden))failed;
 
 /**

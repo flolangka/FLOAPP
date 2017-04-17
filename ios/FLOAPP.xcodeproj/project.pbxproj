@@ -40,6 +40,9 @@
 		7337FA681EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA661EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m */; };
 		7337FA6C1EA0747900DFBD9D /* FLODownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */; };
 		7337FA6F1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA6E1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m */; };
+		7374333F1EA49D6800BE39B3 /* NSDate+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7374333E1EA49D6800BE39B3 /* NSDate+FLOUtil.m */; };
+		737433421EA4A6E400BE39B3 /* FLODocumentPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737433411EA4A6E400BE39B3 /* FLODocumentPreviewViewController.m */; };
+		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
 		7376EBCA1D640CB3001D1BD3 /* FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC11D640CB3001D1BD3 /* FLOUtil.m */; };
 		7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC31D640CB3001D1BD3 /* NSString+FLOUtil.m */; };
 		7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC51D640CB3001D1BD3 /* UIImage+FLOUtil.m */; };
@@ -203,6 +206,11 @@
 		7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadManager.m; sourceTree = "<group>"; };
 		7337FA6D1EA0C7CC00DFBD9D /* FLODownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLODownloadTableViewController.h; sourceTree = "<group>"; };
 		7337FA6E1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadTableViewController.m; sourceTree = "<group>"; };
+		7374333D1EA49D6800BE39B3 /* NSDate+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+FLOUtil.h"; sourceTree = "<group>"; };
+		7374333E1EA49D6800BE39B3 /* NSDate+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+FLOUtil.m"; sourceTree = "<group>"; };
+		737433401EA4A6E400BE39B3 /* FLODocumentPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLODocumentPreviewViewController.h; path = "模块/FLODocumentPreviewViewController.h"; sourceTree = "<group>"; };
+		737433411EA4A6E400BE39B3 /* FLODocumentPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLODocumentPreviewViewController.m; path = "模块/FLODocumentPreviewViewController.m"; sourceTree = "<group>"; };
+		737433431EA4A70D00BE39B3 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		7376EBC01D640CB3001D1BD3 /* FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOUtil.h; sourceTree = "<group>"; };
 		7376EBC11D640CB3001D1BD3 /* FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOUtil.m; sourceTree = "<group>"; };
 		7376EBC21D640CB3001D1BD3 /* NSString+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLOUtil.h"; sourceTree = "<group>"; };
@@ -336,6 +344,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */,
 				73D3F72D1E852120007C739F /* XCTest.framework in Frameworks */,
 				1252F4491E1D447A00A8C244 /* AVKit.framework in Frameworks */,
 				B244C5ECC0737C6083001B0C /* libPods-FLOAPP.a in Frameworks */,
@@ -360,6 +369,8 @@
 			children = (
 				1239A92C1D7C074C0064C15C /* FLOTextViewViewController.h */,
 				1239A92D1D7C074C0064C15C /* FLOTextViewViewController.m */,
+				737433401EA4A6E400BE39B3 /* FLODocumentPreviewViewController.h */,
+				737433411EA4A6E400BE39B3 /* FLODocumentPreviewViewController.m */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -523,6 +534,8 @@
 				7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */,
 				7376EBC81D640CB3001D1BD3 /* UIView+FLOUtil.h */,
 				7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */,
+				7374333D1EA49D6800BE39B3 /* NSDate+FLOUtil.h */,
+				7374333E1EA49D6800BE39B3 /* NSDate+FLOUtil.m */,
 				1242EAF81DAD5D1F00F3595A /* UIViewController+Alert.h */,
 				1242EAF91DAD5D1F00F3595A /* UIViewController+Alert.m */,
 				7337FA581EA06EE300DFBD9D /* DownloadService.h */,
@@ -965,6 +978,7 @@
 		BA1A1955340CBA90421877C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				737433431EA4A70D00BE39B3 /* QuickLook.framework */,
 				73D3F72C1E852120007C739F /* XCTest.framework */,
 				1252F4481E1D447A00A8C244 /* AVKit.framework */,
 				F694C4E2DFDEE2FA692FDF4E /* libPods-FLOAPP.a */,
@@ -1249,6 +1263,7 @@
 				84EEC5531C2396690089454E /* FLOCodeViewController.m in Sources */,
 				7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */,
 				1252F44D1E212BC200A8C244 /* MQTTService.m in Sources */,
+				737433421EA4A6E400BE39B3 /* FLODocumentPreviewViewController.m in Sources */,
 				1252F4321E1D252500A8C244 /* FLOMediaAddressTableViewController.m in Sources */,
 				84DD6E6F1C05A009005C1AE2 /* FLOTabBarController.m in Sources */,
 				1252F43E1E1D2C1800A8C244 /* MediaAddress+CoreDataProperties.m in Sources */,
@@ -1266,6 +1281,7 @@
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
 				7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */,
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
+				7374333F1EA49D6800BE39B3 /* NSDate+FLOUtil.m in Sources */,
 				841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */,
 				849265F61C27A95F00261F36 /* FLOTouchIDViewController.m in Sources */,
 				1274C7621E13EE35003F1FD5 /* FLOWaterFallViewController.m in Sources */,

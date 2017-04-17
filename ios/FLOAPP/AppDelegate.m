@@ -12,6 +12,7 @@
 #import <AFNetworkReachabilityManager.h>
 #import <MBProgressHUD.h>
 #import <UserNotifications/UserNotifications.h>
+#import "FLODownloadManager.h"
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
@@ -23,6 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self networkMonitor];
+    [[FLODownloadManager manager] checkKilledDownloadService];
         
     return YES;
 }
@@ -61,12 +63,12 @@
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
 {
     if (completionHandler) {
-        NSLog(@"成功");
+        DLog(@"成功");
     }
     
-    NSLog(@"标题>>%@", shortcutItem.localizedTitle);
-    NSLog(@"Type>>%@", shortcutItem.type);
-    NSLog(@"userInfo>>%@", shortcutItem.userInfo);
+    DLog(@"标题>>%@", shortcutItem.localizedTitle);
+    DLog(@"Type>>%@", shortcutItem.type);
+    DLog(@"userInfo>>%@", shortcutItem.userInfo);
     
     FLOSideMenu *sideMenu = (FLOSideMenu *)application.keyWindow.rootViewController;
     UINavigationController *NavController = (UINavigationController *)sideMenu.contentViewController;
@@ -118,7 +120,7 @@
         if (granted) {
             // 点击允许
             [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
-                NSLog(@"%@", settings);
+                DLog(@"%@", settings);
             }];
         } else {
             // 点击不允许

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define DownloadFileSavePath @"/flodownload/file/"
+
 @protocol FLODownloadManagerDelegate <NSObject>
 @optional
 - (void)downloadStarted:(NSString *)taskID;
 - (void)downloadSuspend:(NSString *)taskID;
-- (void)downloadFinished:(NSString *)taskID;
+- (void)downloadFinished:(NSString *)taskID fileName:(NSString *)fileName;
 - (void)downloadFailed:(NSString *)taskID;
 - (void)downloadProgress:(float)progress taskID:(NSString *)taskID;
 

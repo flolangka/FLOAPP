@@ -14,9 +14,11 @@
 
 #import "FLOUtil.h"
 #import <MBProgressHUD.h>
+#import "NSDate+FLOUtil.h"
 
 #define Def_MBProgressString(str) Def_MBProgressStringDelay(str,2)
 #define Def_MBProgressStringDelay(str,delay) MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES]; progress.mode = MBProgressHUDModeText; progress.label.text = str; [progress hideAnimated:YES afterDelay:delay];
+#define Def_StrNowTime 
 
 //数值转字符串
 #define Def_NSStringFromInteger(Integer) [NSString stringWithFormat:@"%ld", (long)Integer]
@@ -29,5 +31,12 @@
 
 //判断var是否为数组并不为空
 #define Def_CheckArrayClassAndCount(var) (var && [var isKindOfClass:[NSArray class]] && var.count)
+
+// 打LOG
+#ifdef DEBUG
+#define DLog(fmt, ...) printf("%s %s [Line %d] %s\n", [[NSDate getNotTime] UTF8String], __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:fmt,##__VA_ARGS__] UTF8String]);
+#else
+#define DLog(...)
+#endif
 
 #endif /* PrefixHeader_pch */

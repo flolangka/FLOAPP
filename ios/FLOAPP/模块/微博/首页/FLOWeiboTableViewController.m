@@ -110,7 +110,7 @@ static NSString * const kFooterCellID = @"footerCell";
                 NSDictionary *result = (NSDictionary *)responseObject;
                 self.title = result[@"screen_name"];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                NSLog(@"请求用户信息错误>>>>%@",error.localizedDescription);
+                DLog(@"请求用户信息错误>>>>%@",error.localizedDescription);
                 self.title = @"微博";
             }];
         }
@@ -210,7 +210,7 @@ static NSString * const kFooterCellID = @"footerCell";
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self.tableView.mj_header endRefreshing];
         
-        NSLog(@"首页请求微博错误>>>>%@",error.localizedDescription);
+        DLog(@"首页请求微博错误>>>>%@",error.localizedDescription);
         self.requestLock = NO;
     }];
     
@@ -394,7 +394,7 @@ static NSString * const kFooterCellID = @"footerCell";
             [self setTitle];
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"登录失败>>>>%@",error.localizedDescription);
+            DLog(@"登录失败>>>>%@",error.localizedDescription);
         }];
     }
     return YES;
@@ -404,7 +404,7 @@ static NSString * const kFooterCellID = @"footerCell";
 - (NSArray<id<UIPreviewActionItem>> *)previewActionItems
 {
     UIPreviewAction *action_cancel = [UIPreviewAction actionWithTitle:@"Cancel" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
-        NSLog(@"取消");
+        DLog(@"取消");
     }];
     
     return @[action_cancel];

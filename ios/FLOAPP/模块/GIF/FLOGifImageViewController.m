@@ -62,7 +62,7 @@
 
 - (void)enumerateAssetsInAssetCollection:(PHAssetCollection *)assetCollection original:(BOOL)original
 {
-    NSLog(@"相簿名:%@", assetCollection.localizedTitle);
+    DLog(@"相簿名:%@", assetCollection.localizedTitle);
     
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
     
@@ -74,7 +74,7 @@
         
         // 从asset中获得图片
 //        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:size contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-//            NSLog(@"result>>>>%@", result);
+//            DLog(@"result>>>>%@", result);
 //        }];
         
         [[PHImageManager defaultManager] requestImageDataForAsset:asset options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {

@@ -39,7 +39,7 @@ static FLODownloadManager *manager;
         manager.dictProgressCopy = @{};
         
         manager.lastNetworkStatus = [FLOUtil networkStatus];
-        
+                
         // 网络变化
         [[NSNotificationCenter defaultCenter] addObserver:manager selector:@selector(DeviceGetNetworkChangeedNotification:) name:DEVICE_NETWORK_CHANGE_NOTIFICATION object:[UIApplication sharedApplication]];
         
@@ -87,14 +87,14 @@ static FLODownloadManager *manager;
         
         _currentDownload = [self dlServiceWithModel:model];
         
-        NSLog(@"打开APP， 处理用户上滑结束进程导致的下载中断 >> %@", model.taskID);
+        DLog(@"打开APP， 处理用户上滑结束进程导致的下载中断 >> %@", model.taskID);
     }
     
     // 如果队列里有任务的话，肯定是WIFI，直接开始下载
     if (!_currentDownload) {
         [self startNextDownload];
     }
-    NSLog(@"DocumentDownloadManager 配置完成 所有下载任务: %@", _muArrTaskID);
+    DLog(@"DocumentDownloadManager 配置完成 所有下载任务: %@", _muArrTaskID);
 }
 
 // 添加所有未完成的下载任务
@@ -194,12 +194,17 @@ static FLODownloadManager *manager;
         if (_delegate && [_delegate respondsToSelector:@selector(downloadSuspend:)]) {
             [_delegate downloadSuspend:iden];
         }
-    } finished:^(NSString *iden) {
+    } finished:^(NSString *iden, NSString *fileName) {
         [self updateStatus:3 taskID:iden];
+        
+        if (![model.savePath hasSuffix:fileName]) {
+            [self updateSavePath:[model.savePath stringByAppendingPathComponent:fileName] taskID:iden];
+        }
+        
         [_muDictProgress removeObjectForKey:iden];
         
-        if (_delegate && [_delegate respondsToSelector:@selector(downloadFinished:)]) {
-            [_delegate downloadFinished:iden];
+        if (_delegate && [_delegate respondsToSelector:@selector(downloadFinished:fileName:)]) {
+            [_delegate downloadFinished:iden fileName:fileName];
         }
         
         [_muArrTaskID removeObject:iden];
@@ -237,6 +242,13 @@ static FLODownloadManager *manager;
         
         [self startNextDownload];
     }
+    
+    // 删除数据库数据，文件
+    DownloadFile *model = [self downloadFileWithTaskID:taskID];
+    if (model && ![model.savePath isEqualToString:DownloadFileSavePath]) {
+        [FLOUtil DropFilePath:[FLOUtil FilePathInCachesWithName:model.savePath]];
+    }
+    [self deleteTaskDataTaskID:taskID];
 }
 
 // 暂停下载
@@ -269,7 +281,7 @@ static FLODownloadManager *manager;
 
 - (NSString *)resumeDataPath:(NSString *)taskID {
     NSString *path = @"/flodownload/resumedata/";
-    [FLOUtil CreatFilePathInCachesWithName:path];
+    [FLOUtil CreatFilePathInCaches:path];
     
     return [path stringByAppendingFormat:@"%@.data", taskID];
 }
@@ -352,7 +364,7 @@ static FLODownloadManager *manager;
 
 - (NSArray *)unFinishedTaskIDs {
     NSFetchRequest *request = [DownloadFile fetchRequest];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"downloadStatus IN (0, 2)"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"downloadStatus IN {0, 2}"];
     request.predicate = predicate;
     NSArray *arrResult = [[APLCoreDataStackManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
     
@@ -377,6 +389,23 @@ static FLODownloadManager *manager;
     DownloadFile *model = [self downloadFileWithTaskID:taskID];
     if (model) {
         model.downloadStatus = status;
+        [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
+    }
+}
+
+// 下载完成更新文件路径
+- (void)updateSavePath:(NSString *)path taskID:(NSString *)taskID {
+    DownloadFile *model = [self downloadFileWithTaskID:taskID];
+    if (model) {
+        model.savePath = path;
+        [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
+    }
+}
+
+- (void)deleteTaskDataTaskID:(NSString *)taskID {
+    DownloadFile *model = [self downloadFileWithTaskID:taskID];
+    if (model) {
+        [[APLCoreDataStackManager sharedManager].managedObjectContext deleteObject:model];
         [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
     }
 }

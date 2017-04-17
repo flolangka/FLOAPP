@@ -52,16 +52,46 @@
 }
 
 //在Caches下创建文件夹name
-+ (void)CreatFilePathInCachesWithName:(NSString *)name {
++ (void)CreatFilePathInCaches:(NSString *)path {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *LibraryDirectory = [paths objectAtIndex:0];
-    NSString *imageDir = [LibraryDirectory stringByAppendingPathComponent:name];
+    NSString *imageDir = [LibraryDirectory stringByAppendingPathComponent:path];
     BOOL isDir = NO;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL existed = [fileManager fileExistsAtPath:imageDir isDirectory:&isDir];
     if ( !(isDir == YES && existed == YES) ){
         [fileManager createDirectoryAtPath:imageDir withIntermediateDirectories:YES attributes:nil error:nil];
     }
+}
+
+/**
+ 文件属性
+ 
+ @param path 路径
+ @return 属性
+ */
++ (NSDictionary *)FileAttributesInCachesPath:(NSString *)path {
+    return [[NSFileManager defaultManager] attributesOfItemAtPath:[self FilePathInCachesWithName:path] error:nil];
+}
+
+/**
+ bytes转21.1K/21.1M/21.1G
+
+ @param bytes bytes
+ @return str
+ */
++ (NSString *)FileSizeWithBytes:(unsigned long long)bytes {
+    NSString *size;
+    if (bytes < 1024) {
+        size = [NSString stringWithFormat:@"%llubytes",bytes];
+    } else if (bytes < 1024*1024) {
+        size = [NSString stringWithFormat:@"%.1fKB",bytes/1024.];
+    } else if (bytes >= 1024*1024 && bytes < 1024*1024*1024){
+        size = [NSString stringWithFormat:@"%.1fM",bytes/1024.0/1024.0];
+    } else {
+        size = [NSString stringWithFormat:@"%.1fG",bytes/1024.0/1024.0/1024.0];
+    }
+    return size;
 }
 
 /**
@@ -78,6 +108,28 @@
         return 2;
     } else {
         return 0;
+    }
+}
+
+/**
+ 解析迅雷地址等转http地址
+ 
+ @param path 迅雷地址等
+ @return http地址
+ */
++ (NSString *)parseDownloadPath:(NSString *)path {
+    NSString *strUrl = path;
+    // 解析迅雷
+    if ([strUrl hasPrefix:@"thunder://"]) {
+        NSData *data = [[NSData alloc] initWithBase64EncodedString:[strUrl substringFromIndex:10] options:0];
+        NSString *parseUrl = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        strUrl = [parseUrl substringWithRange:NSMakeRange(2, parseUrl.length-4)];
+    }
+    
+    if ([strUrl hasPrefix:@"http://"] || [strUrl hasPrefix:@"https://"]) {
+        return strUrl;
+    } else {
+        return path;
     }
 }
 
