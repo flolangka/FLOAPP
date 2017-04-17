@@ -1,6 +1,6 @@
-#FLOAPP
+# FLOAPP
 
-#####一个用于自我技术积累的项目，持续更新...
+##### 一个用于自我技术积累的项目，持续更新...
 
 1. slideMenu -- 侧滑菜单 -- 2015.11.20
 2. 聊天 -- [FloXMPP](https://github.com/flolangka/FLOXMPP)通过XMPP实现的即时通讯应用 -- 2015.11.30
@@ -30,7 +30,7 @@
 26. 后台下载、断点续传  —  2017.4.17
 
 
-#####截图：
+##### 截图：
 ![首页](ScreenShots/IMG_1022.PNG)
 ![书签](ScreenShots/IMG_1023.PNG)	
 ![浏览器](ScreenShots/IMG_1025.PNG)
@@ -51,4 +51,4 @@
 
 
 
-####BY [Flolangka](http://flolangka.com)
+#### BY [Flolangka](http://flolangka.com)
