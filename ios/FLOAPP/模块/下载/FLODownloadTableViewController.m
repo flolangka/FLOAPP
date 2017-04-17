@@ -77,25 +77,27 @@
     maskView.bookMarkNameTF.text = name;
     maskView.bookMarkURLTF.text = url;
     maskView.submit = ^void(NSString *name, NSString *urlStr){
-        // 插入数据库
-        DownloadFile *obj = [NSEntityDescription insertNewObjectForEntityForName:@"DownloadFile" inManagedObjectContext:[APLCoreDataStackManager sharedManager].managedObjectContext];
-        
         // 解析地址
-        obj.downloadURL = [FLOUtil parseDownloadPath:urlStr];
-        obj.downloadStatus = 0;
-        obj.downloadProgress = 0;
-        obj.fileName = name;
-        obj.taskID = [NSString stringWithFormat:@"com.flolangka.FloAPP.%.0f", [NSDate timeIntervalSinceReferenceDate]];
-        obj.savePath = DownloadFileSavePath;
-        obj.downloadDate = [NSDate date];
-        [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
-        
-        // 添加到下载队列
-        [[FLODownloadManager manager] downloadTask:obj.taskID];
-        
-        // 刷新页面
-        [dataArr insertObject:obj atIndex:0];
-        [self.tableView reloadData];
+        NSString *url = [FLOUtil parseDownloadPath:urlStr];
+        if (url) {
+            // 插入数据库
+            DownloadFile *obj = [NSEntityDescription insertNewObjectForEntityForName:@"DownloadFile" inManagedObjectContext:[APLCoreDataStackManager sharedManager].managedObjectContext];
+            obj.downloadURL = url;
+            obj.downloadStatus = 0;
+            obj.downloadProgress = 0;
+            obj.fileName = name;
+            obj.taskID = [NSString stringWithFormat:@"com.flolangka.FloAPP.%.0f", [NSDate timeIntervalSinceReferenceDate]];
+            obj.savePath = DownloadFileSavePath;
+            obj.downloadDate = [NSDate date];
+            [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
+            
+            // 添加到下载队列
+            [[FLODownloadManager manager] downloadTask:obj.taskID];
+            
+            // 刷新页面
+            [dataArr insertObject:obj atIndex:0];
+            [self.tableView reloadData];
+        }        
     };
     
     CGSize size = [UIScreen mainScreen].bounds.size;

@@ -121,16 +121,29 @@
     NSString *strUrl = path;
     // 解析迅雷
     if ([strUrl hasPrefix:@"thunder://"]) {
-        NSData *data = [[NSData alloc] initWithBase64EncodedString:[strUrl substringFromIndex:10] options:0];
+        NSData *data = [self dataWithBase64String:[strUrl substringFromIndex:10]];
+        
         NSString *parseUrl = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
         strUrl = [parseUrl substringWithRange:NSMakeRange(2, parseUrl.length-4)];
     }
     
     if ([strUrl hasPrefix:@"http://"] || [strUrl hasPrefix:@"https://"]) {
         return strUrl;
+    } else if ([strUrl hasPrefix:@"ed2k://"]) {
+        Def_MBProgressString(@"暂不支持电驴资源");
+        return nil;
     } else {
         return path;
     }
+}
++ (NSData *)dataWithBase64String:(NSString *)str {
+    NSData *data = nil;
+    NSString *s = str;
+    do {
+        data = [[NSData alloc] initWithBase64EncodedString:s options:0];
+        s = [s stringByAppendingString:@"="];
+    } while (data == nil);
+    return data;
 }
 
 @end
