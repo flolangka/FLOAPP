@@ -55,6 +55,11 @@
     
     [self configTableHeaderView];
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    // 从widget进来的
+    if (_URLStr) {
+        [self textViewDidEndEditing:textView_para];
+    }
 }
 
 - (void)historyAction:(id)sender {
@@ -106,7 +111,7 @@
     textView_para.font = [UIFont systemFontOfSize:16];
     textView_url.keyboardType = UIKeyboardTypeURL;
     
-    textView_url.text = @"http://";
+    textView_url.text = _URLStr ? : @"http://";
     textView_url.placeholderText = @"http://";
     textView_para.placeholderText = @"Post Parameters (Scroll View Start Request)";
     textView_para.placeholderTextColor = COLOR_HEX(0xc7c7cd);

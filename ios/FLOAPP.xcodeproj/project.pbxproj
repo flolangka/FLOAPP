@@ -40,6 +40,10 @@
 		7337FA681EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA661EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m */; };
 		7337FA6C1EA0747900DFBD9D /* FLODownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */; };
 		7337FA6F1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA6E1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m */; };
+		7348B5AA1EA6FFD60011F8FA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */; };
+		7348B5AE1EA6FFD60011F8FA /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */; };
+		7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */; };
+		7348B5B51EA6FFD60011F8FA /* Flolangka.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7348B5A81EA6FFD60011F8FA /* Flolangka.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7374333F1EA49D6800BE39B3 /* NSDate+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7374333E1EA49D6800BE39B3 /* NSDate+FLOUtil.m */; };
 		737433421EA4A6E400BE39B3 /* FLODocumentPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737433411EA4A6E400BE39B3 /* FLODocumentPreviewViewController.m */; };
 		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
@@ -118,6 +122,13 @@
 			remoteGlobalIDString = 12F956231E06C32E008699B2;
 			remoteInfo = FLOAction;
 		};
+		7348B5B31EA6FFD60011F8FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84291A011C05867A0015F5F1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7348B5A71EA6FFD60011F8FA;
+			remoteInfo = Flolangka;
+		};
 		73F3A1951E4C63F400314D70 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84291A011C05867A0015F5F1 /* Project object */;
@@ -136,6 +147,7 @@
 			files = (
 				73F3A1971E4C63F400314D70 /* FLONotiExtension.appex in Embed App Extensions */,
 				120C150E1E5057D1001A2B4E /* FLONotiServiceExtension.appex in Embed App Extensions */,
+				7348B5B51EA6FFD60011F8FA /* Flolangka.appex in Embed App Extensions */,
 				12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -206,6 +218,12 @@
 		7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadManager.m; sourceTree = "<group>"; };
 		7337FA6D1EA0C7CC00DFBD9D /* FLODownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLODownloadTableViewController.h; sourceTree = "<group>"; };
 		7337FA6E1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadTableViewController.m; sourceTree = "<group>"; };
+		7348B5A81EA6FFD60011F8FA /* Flolangka.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Flolangka.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		7348B5AC1EA6FFD60011F8FA /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		7348B5B01EA6FFD60011F8FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7348B5B21EA6FFD60011F8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7374333D1EA49D6800BE39B3 /* NSDate+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+FLOUtil.h"; sourceTree = "<group>"; };
 		7374333E1EA49D6800BE39B3 /* NSDate+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+FLOUtil.m"; sourceTree = "<group>"; };
 		737433401EA4A6E400BE39B3 /* FLODocumentPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLODocumentPreviewViewController.h; path = "模块/FLODocumentPreviewViewController.h"; sourceTree = "<group>"; };
@@ -328,6 +346,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7348B5A51EA6FFD60011F8FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7348B5AA1EA6FFD60011F8FA /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +547,17 @@
 			name = DownloadFile;
 			sourceTree = "<group>";
 		};
+		7348B5AB1EA6FFD60011F8FA /* Flolangka */ = {
+			isa = PBXGroup;
+			children = (
+				7348B5AC1EA6FFD60011F8FA /* TodayViewController.h */,
+				7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */,
+				7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */,
+				7348B5B21EA6FFD60011F8FA /* Info.plist */,
+			);
+			path = Flolangka;
+			sourceTree = "<group>";
+		};
 		7376EBBF1D640CB3001D1BD3 /* FLOUtility */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,6 +702,7 @@
 				12F956251E06C32E008699B2 /* FLOAction */,
 				73F3A18D1E4C63F400314D70 /* FLONotiContentExtension */,
 				120C15071E5057D1001A2B4E /* FLONotiServiceExtension */,
+				7348B5AB1EA6FFD60011F8FA /* Flolangka */,
 				84291A0A1C05867A0015F5F1 /* Products */,
 				3180D5F5966FFFBE11E63FAD /* Pods */,
 				BA1A1955340CBA90421877C7 /* Frameworks */,
@@ -678,6 +716,7 @@
 				12F956241E06C32E008699B2 /* FLOAction.appex */,
 				73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */,
 				120C15061E5057D1001A2B4E /* FLONotiServiceExtension.appex */,
+				7348B5A81EA6FFD60011F8FA /* Flolangka.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -984,6 +1023,7 @@
 				F694C4E2DFDEE2FA692FDF4E /* libPods-FLOAPP.a */,
 				7323C45A1E4ACBAD00543251 /* UserNotifications.framework */,
 				7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */,
+				7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1025,6 +1065,23 @@
 			productReference = 12F956241E06C32E008699B2 /* FLOAction.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		7348B5A71EA6FFD60011F8FA /* Flolangka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7348B5B81EA6FFD60011F8FA /* Build configuration list for PBXNativeTarget "Flolangka" */;
+			buildPhases = (
+				7348B5A41EA6FFD60011F8FA /* Sources */,
+				7348B5A51EA6FFD60011F8FA /* Frameworks */,
+				7348B5A61EA6FFD60011F8FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flolangka;
+			productName = Flolangka;
+			productReference = 7348B5A81EA6FFD60011F8FA /* Flolangka.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		73F3A1891E4C63F400314D70 /* FLONotiExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73F3A1981E4C63F400314D70 /* Build configuration list for PBXNativeTarget "FLONotiExtension" */;
@@ -1060,6 +1117,7 @@
 				12F9562E1E06C32E008699B2 /* PBXTargetDependency */,
 				73F3A1961E4C63F400314D70 /* PBXTargetDependency */,
 				120C150D1E5057D1001A2B4E /* PBXTargetDependency */,
+				7348B5B41EA6FFD60011F8FA /* PBXTargetDependency */,
 			);
 			name = FLOAPP;
 			productName = XMPPChat;
@@ -1082,6 +1140,11 @@
 					};
 					12F956231E06C32E008699B2 = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = X928ZDD77C;
+						ProvisioningStyle = Automatic;
+					};
+					7348B5A71EA6FFD60011F8FA = {
+						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = X928ZDD77C;
 						ProvisioningStyle = Automatic;
 					};
@@ -1119,6 +1182,7 @@
 				12F956231E06C32E008699B2 /* FLOAction */,
 				73F3A1891E4C63F400314D70 /* FLONotiExtension */,
 				120C15051E5057D1001A2B4E /* FLONotiServiceExtension */,
+				7348B5A71EA6FFD60011F8FA /* Flolangka */,
 			);
 		};
 /* End PBXProject section */
@@ -1138,6 +1202,14 @@
 				12F956341E06C626008699B2 /* Assets.xcassets in Resources */,
 				12F956361E06C69A008699B2 /* FLO@2x.png in Resources */,
 				12F9562B1E06C32E008699B2 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7348B5A61EA6FFD60011F8FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1226,6 +1298,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				12F956281E06C32E008699B2 /* ActionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7348B5A41EA6FFD60011F8FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7348B5AE1EA6FFD60011F8FA /* TodayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1329,6 +1409,11 @@
 			target = 12F956231E06C32E008699B2 /* FLOAction */;
 			targetProxy = 12F9562D1E06C32E008699B2 /* PBXContainerItemProxy */;
 		};
+		7348B5B41EA6FFD60011F8FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7348B5A71EA6FFD60011F8FA /* Flolangka */;
+			targetProxy = 7348B5B31EA6FFD60011F8FA /* PBXContainerItemProxy */;
+		};
 		73F3A1961E4C63F400314D70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 73F3A1891E4C63F400314D70 /* FLONotiExtension */;
@@ -1341,6 +1426,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				12F9562A1E06C32E008699B2 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7348B5B01EA6FFD60011F8FA /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1443,6 +1536,42 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLOAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7348B5B61EA6FFD60011F8FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X928ZDD77C;
+				INFOPLIST_FILE = Flolangka/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.Flolangka;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7348B5B71EA6FFD60011F8FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = X928ZDD77C;
+				INFOPLIST_FILE = Flolangka/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.Flolangka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1782,6 +1911,15 @@
 			buildConfigurations = (
 				12F956301E06C32E008699B2 /* Debug */,
 				12F956311E06C32E008699B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7348B5B81EA6FFD60011F8FA /* Build configuration list for PBXNativeTarget "Flolangka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7348B5B61EA6FFD60011F8FA /* Debug */,
+				7348B5B71EA6FFD60011F8FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

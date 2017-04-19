@@ -79,7 +79,13 @@
 {
     [super viewWillAppear:animated];
     
-    [wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_webViewAddress]]];
+    if ([_webViewAddress hasPrefix:@"/var/"]) {
+        NSString *HTMLString = [NSString stringWithContentsOfFile:_webViewAddress encoding:NSUTF8StringEncoding error:nil];
+        [wkWebView loadHTMLString:HTMLString baseURL:nil];
+    } else {
+        [wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_webViewAddress]]];
+    }
+    
 }
 
 #pragma mark - 配置toolBar

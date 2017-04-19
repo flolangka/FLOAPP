@@ -29,7 +29,7 @@
     
     previewController = [[QLPreviewController alloc] init];
     previewController.dataSource = self;
-    previewController.view.frame = CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64);
+    previewController.view.frame = CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT);
     [self addChildViewController:previewController];
     [self.view addSubview:previewController.view];
     

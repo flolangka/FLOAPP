@@ -17,6 +17,17 @@
 
 @implementation NotificationService
 
+/*
+ {
+     "aps": {
+         "alert": "This is some fancy message.",
+         "badge": 1,
+         "sound": "default",
+         "mutable-content": "1", // 重要字段，需要该字段，UNNotificationServiceExtension才会干活
+         "imageAbsoluteString": "http://upload.univs.cn/2012/0104/1325645511371.jpg"
+     }
+ }
+ */
 - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
     self.contentHandler = contentHandler;
     self.bestAttemptContent = [request.content mutableCopy];

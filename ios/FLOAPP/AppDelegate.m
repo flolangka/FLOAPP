@@ -14,6 +14,10 @@
 #import <UserNotifications/UserNotifications.h>
 #import "FLODownloadManager.h"
 
+#import "FLOWebViewController.h"
+#import "FLONetWorkTableViewController.h"
+#import "FLODownloadTableViewController.h"
+
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
@@ -88,6 +92,30 @@
     } else {
         return;
     }
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    DLog(@"%@", options);
+    DLog(@"%@", url);
+    
+    FLOSideMenu *sideMenu = (FLOSideMenu *)app.keyWindow.rootViewController;
+    UINavigationController *NavController = (UINavigationController *)sideMenu.contentViewController;
+    NSString *strURL = url.absoluteString;
+    if ([strURL hasPrefix:@"FloAPPBrowser://"]) {
+        FLOWebViewController *webViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDWebViewController"];
+        webViewController.webViewAddress = [strURL substringFromIndex:16];
+        [NavController pushViewController:webViewController animated:YES];
+    } else if ([strURL hasPrefix:@"FloAPPRequest://"]) {
+        FLONetWorkTableViewController *networkVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDNetWorkTableViewController"];
+        networkVC.URLStr = [strURL substringFromIndex:16];
+        [NavController pushViewController:networkVC animated:YES];
+    } else if ([strURL hasPrefix:@"FloAPPDownload://"]) {
+        FLODownloadTableViewController *downloadVC = [[FLODownloadTableViewController alloc] init];
+        downloadVC.URLStr = [strURL substringFromIndex:17];
+        [NavController pushViewController:downloadVC animated:YES];
+    }
+    
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

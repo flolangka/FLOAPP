@@ -10,4 +10,7 @@
 
 @interface FLODownloadTableViewController : UITableViewController
 
+// 从widget进来的
+@property (nonatomic, copy) NSString *URLStr;
+
 @end

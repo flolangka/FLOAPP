@@ -12,6 +12,7 @@
 #import "FLOAddBookMarkMaskView.h"
 #import "FLODownloadManager.h"
 #import "FLODocumentPreviewViewController.h"
+#import "FLOWebViewController.h"
 
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
@@ -46,6 +47,23 @@
 //    [self checkPasteboard];
     
     self.tableView.tableFooterView = [UIView new];
+    
+    // 从widget进来的
+    if (_URLStr) {
+        __block BOOL selected = NO;
+        [dataArr enumerateObjectsUsingBlock:^(DownloadFile *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj.downloadURL isEqualToString:_URLStr]) {
+                selected = YES;
+                *stop = YES;
+            }
+        }];
+        
+        if (!selected) {
+            [self addDownloadFileName:@"" url:_URLStr];
+        } else {
+            Def_MBProgressString(@"该地址已下载");
+        }
+    }
 }
 
 - (void)initData {
@@ -73,7 +91,7 @@
 
 - (void)addDownloadFileName:(NSString *)name url:(NSString *)url {
     FLOAddBookMarkMaskView *maskView = [[[NSBundle mainBundle] loadNibNamed:@"FLOAddBookMarkMaskView" owner:nil options:nil] objectAtIndex:0];
-    maskView.navBar.topItem.title = @"添加下载地址";
+    maskView.navBar.topItem.title = @"添加下载任务";
     maskView.bookMarkNameTF.text = name;
     maskView.bookMarkURLTF.text = url;
     maskView.submit = ^void(NSString *name, NSString *urlStr){
@@ -118,7 +136,11 @@
         AVPlayerViewController *playerVC = [[AVPlayerViewController alloc] init];
         playerVC.player = [AVPlayer playerWithURL:fileURL];
         [self presentViewController:playerVC animated:YES completion:nil];
-    } else if ([QLPreviewController canPreviewItem:fileURL]) {
+    } else if ([filePath hasSuffix:@".html"]) {
+        FLOWebViewController *webViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDWebViewController"];
+        webViewController.webViewAddress = filePath;
+        [self.navigationController pushViewController:webViewController animated:YES];
+    }  else if ([QLPreviewController canPreviewItem:fileURL]) {
         FLODocumentPreviewViewController *preview = [[FLODocumentPreviewViewController alloc] init];
         preview.docName = model.savePath;
         preview.docPath = filePath;
