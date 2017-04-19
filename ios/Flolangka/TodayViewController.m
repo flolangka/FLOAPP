@@ -33,7 +33,9 @@
     [self configBtnStyle];
     
     // 收起
-    self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
+    if ([UIDevice currentDevice].systemVersion.floatValue >= 10) {
+        self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
+    }    
     
     // URL
     NSString *pasteboardString = [UIPasteboard generalPasteboard].string;
