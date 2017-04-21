@@ -29,6 +29,7 @@
 25. ReactNative  —  2017.4.5
 26. 后台下载、断点续传  —  2017.4.17
 27. Widget  --  2017.4.19
+28. 富文本编辑器	--	 2017.4.21 [源：ZSSRichTextEditor](https://github.com/nnhubbard/ZSSRichTextEditor)
 
 
 ##### 截图：

@@ -47,8 +47,10 @@ static NSMutableArray *Alert_Actions;
     
     CGFloat iOSVersion = [[UIDevice currentDevice].systemVersion floatValue];
     if (iOSVersion < 8) {
-        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         UIAlertView *alertV = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonStruct?cancelButtonStruct.title:nil otherButtonTitles:nil];
+#pragma clang diagnostic pop        
         
         //otherButton
         NSMutableArray *arrOtherStructs = [NSMutableArray arrayWithCapacity:2];
@@ -118,8 +120,11 @@ static NSMutableArray *Alert_Actions;
     
     CGFloat iOSVersion = [[UIDevice currentDevice].systemVersion floatValue];
     if (iOSVersion < 8) {
-        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         UIActionSheet *actionsheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancelButtonStruct?cancelButtonStruct.title:nil destructiveButtonTitle:destructiveButtonStruct?destructiveButtonStruct.title:nil otherButtonTitles:nil];
+#pragma clang diagnostic pop
+        
         
         //otherButton
         NSMutableArray *arrOtherStructs = [NSMutableArray arrayWithCapacity:2];
@@ -219,6 +224,8 @@ static NSMutableArray *Alert_Actions;
 
 
 #pragma mark - 代理
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     [self alertControlClickedButtonAtIndex:buttonIndex alertControlTag:actionSheet.tag];
 }
@@ -226,6 +233,9 @@ static NSMutableArray *Alert_Actions;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     [self alertControlClickedButtonAtIndex:buttonIndex alertControlTag:alertView.tag];
 }
+#pragma clang diagnostic pop
+
+
 
 - (void)alertControlClickedButtonAtIndex:(NSInteger)buttonIndex alertControlTag:(NSInteger)tag{
     double timeDouble = [[NSDate date] timeIntervalSince1970];

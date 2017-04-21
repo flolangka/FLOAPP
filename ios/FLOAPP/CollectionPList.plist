@@ -142,7 +142,7 @@
 		<key>ItemName</key>
 		<string>MQTT</string>
 		<key>ItemIconURL</key>
-		<string>http://image_md.miniqiang.com/iotArticle/image01/mqtt_logo.png</string>
+		<string>http://wingsquare.com/blog/wp-content/uploads/2015/10/mqtt_log.png</string>
 		<key>ItemAddress</key>
 		<string>FLOMQTTViewController</string>
 	</dict>
@@ -169,6 +169,14 @@
 		<string>http://www.clipartbest.com/cliparts/7ia/6qd/7ia6qdM9T.png</string>
 		<key>ItemAddress</key>
 		<string>FLODownloadTableViewController</string>
+	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>编辑器</string>
+		<key>ItemIconURL</key>
+		<string>http://icons.iconarchive.com/icons/bokehlicia/captiva/256/accessories-text-editor-icon.png</string>
+		<key>ItemAddress</key>
+		<string>FLORichTextEditorViewController</string>
 	</dict>
 </array>
 </plist>

@@ -54,10 +54,10 @@
     dlService -> urlPath = urlPath;
     dlService -> savePath = savePath;
     dlService -> resumeDataPath = resumeDataPath;
-    dlService -> downloadProgress = progress;
-    dlService -> downloadSuspend = suspend;
-    dlService -> downloadFinished = finished;
-    dlService -> downloadFailed = failed;
+    dlService -> downloadProgress = [progress copy];
+    dlService -> downloadSuspend = [suspend copy];
+    dlService -> downloadFinished = [finished copy];
+    dlService -> downloadFailed = [failed copy];
     dlService -> downloading = NO;
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:iden];

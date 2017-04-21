@@ -53,9 +53,7 @@
 
 //在Caches下创建文件夹name
 + (void)CreatFilePathInCaches:(NSString *)path {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *LibraryDirectory = [paths objectAtIndex:0];
-    NSString *imageDir = [LibraryDirectory stringByAppendingPathComponent:path];
+    NSString *imageDir = [self FilePathInCachesWithName:path];
     BOOL isDir = NO;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL existed = [fileManager fileExistsAtPath:imageDir isDirectory:&isDir];

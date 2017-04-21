@@ -35,7 +35,94 @@
 		7301A2001D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A1FF1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m */; };
 		7301A2031D6E97A500A4EC2E /* FLOAdjustFontSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2021D6E97A500A4EC2E /* FLOAdjustFontSizeView.m */; };
 		7301A2061D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */; };
-		7337FA5A1EA06EE300DFBD9D /* DownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA591EA06EE300DFBD9D /* DownloadService.m */; };
+		730A6E5D1EA9984700877681 /* FLORichTextEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E5C1EA9984700877681 /* FLORichTextEditorView.m */; };
+		730A6E621EA998A400877681 /* ZSSBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E5F1EA998A400877681 /* ZSSBarButtonItem.m */; };
+		730A6E631EA998A400877681 /* ZSSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E611EA998A400877681 /* ZSSTextView.m */; };
+		730A6E7A1EA998DE00877681 /* CYRLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E661EA998DE00877681 /* CYRLayoutManager.m */; };
+		730A6E7B1EA998DE00877681 /* CYRTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E681EA998DE00877681 /* CYRTextStorage.m */; };
+		730A6E7C1EA998DE00877681 /* CYRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E6A1EA998DE00877681 /* CYRTextView.m */; };
+		730A6E7D1EA998DE00877681 /* CYRToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E6C1EA998DE00877681 /* CYRToken.m */; };
+		730A6F771EA9999400877681 /* editor.html in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F261EA9999400877681 /* editor.html */; };
+		730A6F781EA9999400877681 /* ZSSbgcolor.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F281EA9999400877681 /* ZSSbgcolor.png */; };
+		730A6F791EA9999400877681 /* ZSSbgcolor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F291EA9999400877681 /* ZSSbgcolor@2x.png */; };
+		730A6F7A1EA9999400877681 /* ZSSbold.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F2A1EA9999400877681 /* ZSSbold.png */; };
+		730A6F7B1EA9999400877681 /* ZSSbold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F2B1EA9999400877681 /* ZSSbold@2x.png */; };
+		730A6F7C1EA9999400877681 /* ZSScenterjustify.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F2C1EA9999400877681 /* ZSScenterjustify.png */; };
+		730A6F7D1EA9999400877681 /* ZSScenterjustify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F2D1EA9999400877681 /* ZSScenterjustify@2x.png */; };
+		730A6F7E1EA9999400877681 /* ZSSclearstyle.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F2E1EA9999400877681 /* ZSSclearstyle.png */; };
+		730A6F7F1EA9999400877681 /* ZSSclearstyle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F2F1EA9999400877681 /* ZSSclearstyle@2x.png */; };
+		730A6F801EA9999400877681 /* ZSSfonts.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F301EA9999400877681 /* ZSSfonts.png */; };
+		730A6F811EA9999400877681 /* ZSSfonts@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F311EA9999400877681 /* ZSSfonts@2x.png */; };
+		730A6F821EA9999400877681 /* ZSSforcejustify.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F321EA9999400877681 /* ZSSforcejustify.png */; };
+		730A6F831EA9999400877681 /* ZSSforcejustify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F331EA9999400877681 /* ZSSforcejustify@2x.png */; };
+		730A6F841EA9999400877681 /* ZSSh1.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F341EA9999400877681 /* ZSSh1.png */; };
+		730A6F851EA9999400877681 /* ZSSh1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F351EA9999400877681 /* ZSSh1@2x.png */; };
+		730A6F861EA9999400877681 /* ZSSh2.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F361EA9999400877681 /* ZSSh2.png */; };
+		730A6F871EA9999400877681 /* ZSSh2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F371EA9999400877681 /* ZSSh2@2x.png */; };
+		730A6F881EA9999400877681 /* ZSSh3.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F381EA9999400877681 /* ZSSh3.png */; };
+		730A6F891EA9999400877681 /* ZSSh3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F391EA9999400877681 /* ZSSh3@2x.png */; };
+		730A6F8A1EA9999400877681 /* ZSSh4.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F3A1EA9999400877681 /* ZSSh4.png */; };
+		730A6F8B1EA9999400877681 /* ZSSh4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F3B1EA9999400877681 /* ZSSh4@2x.png */; };
+		730A6F8C1EA9999400877681 /* ZSSh5.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F3C1EA9999400877681 /* ZSSh5.png */; };
+		730A6F8D1EA9999400877681 /* ZSSh5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F3D1EA9999400877681 /* ZSSh5@2x.png */; };
+		730A6F8E1EA9999400877681 /* ZSSh6.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F3E1EA9999400877681 /* ZSSh6.png */; };
+		730A6F8F1EA9999400877681 /* ZSSh6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F3F1EA9999400877681 /* ZSSh6@2x.png */; };
+		730A6F901EA9999400877681 /* ZSShorizontalrule.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F401EA9999400877681 /* ZSShorizontalrule.png */; };
+		730A6F911EA9999400877681 /* ZSShorizontalrule@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F411EA9999400877681 /* ZSShorizontalrule@2x.png */; };
+		730A6F921EA9999400877681 /* ZSSimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F421EA9999400877681 /* ZSSimage.png */; };
+		730A6F931EA9999400877681 /* ZSSimage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F431EA9999400877681 /* ZSSimage@2x.png */; };
+		730A6F941EA9999400877681 /* ZSSimageDevice.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F441EA9999400877681 /* ZSSimageDevice.png */; };
+		730A6F951EA9999400877681 /* ZSSimageDevice@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F451EA9999400877681 /* ZSSimageDevice@2x.png */; };
+		730A6F961EA9999400877681 /* ZSSindent.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F461EA9999400877681 /* ZSSindent.png */; };
+		730A6F971EA9999400877681 /* ZSSindent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F471EA9999400877681 /* ZSSindent@2x.png */; };
+		730A6F981EA9999400877681 /* ZSSinsertkeyword.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F481EA9999400877681 /* ZSSinsertkeyword.png */; };
+		730A6F991EA9999400877681 /* ZSSinsertkeyword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F491EA9999400877681 /* ZSSinsertkeyword@2x.png */; };
+		730A6F9A1EA9999400877681 /* ZSSitalic.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F4A1EA9999400877681 /* ZSSitalic.png */; };
+		730A6F9B1EA9999400877681 /* ZSSitalic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F4B1EA9999400877681 /* ZSSitalic@2x.png */; };
+		730A6F9C1EA9999400877681 /* ZSSkeyboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F4C1EA9999400877681 /* ZSSkeyboard.png */; };
+		730A6F9D1EA9999400877681 /* ZSSkeyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F4D1EA9999400877681 /* ZSSkeyboard@2x.png */; };
+		730A6F9E1EA9999400877681 /* ZSSleftjustify.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F4E1EA9999400877681 /* ZSSleftjustify.png */; };
+		730A6F9F1EA9999400877681 /* ZSSleftjustify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F4F1EA9999400877681 /* ZSSleftjustify@2x.png */; };
+		730A6FA01EA9999400877681 /* ZSSlink.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F501EA9999400877681 /* ZSSlink.png */; };
+		730A6FA11EA9999400877681 /* ZSSlink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F511EA9999400877681 /* ZSSlink@2x.png */; };
+		730A6FA21EA9999400877681 /* ZSSorderedlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F521EA9999400877681 /* ZSSorderedlist.png */; };
+		730A6FA31EA9999400877681 /* ZSSorderedlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F531EA9999400877681 /* ZSSorderedlist@2x.png */; };
+		730A6FA41EA9999400877681 /* ZSSoutdent.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F541EA9999400877681 /* ZSSoutdent.png */; };
+		730A6FA51EA9999400877681 /* ZSSoutdent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F551EA9999400877681 /* ZSSoutdent@2x.png */; };
+		730A6FA61EA9999400877681 /* ZSSparagraph.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F561EA9999400877681 /* ZSSparagraph.png */; };
+		730A6FA71EA9999400877681 /* ZSSparagraph@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F571EA9999400877681 /* ZSSparagraph@2x.png */; };
+		730A6FA81EA9999400877681 /* ZSSpicker.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F581EA9999400877681 /* ZSSpicker.png */; };
+		730A6FA91EA9999400877681 /* ZSSpicker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F591EA9999400877681 /* ZSSpicker@2x.png */; };
+		730A6FAA1EA9999400877681 /* ZSSquicklink.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F5A1EA9999400877681 /* ZSSquicklink.png */; };
+		730A6FAB1EA9999400877681 /* ZSSquicklink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F5B1EA9999400877681 /* ZSSquicklink@2x.png */; };
+		730A6FAC1EA9999400877681 /* ZSSredo.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F5C1EA9999400877681 /* ZSSredo.png */; };
+		730A6FAD1EA9999400877681 /* ZSSredo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F5D1EA9999400877681 /* ZSSredo@2x.png */; };
+		730A6FAE1EA9999400877681 /* ZSSrightjustify.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F5E1EA9999400877681 /* ZSSrightjustify.png */; };
+		730A6FAF1EA9999400877681 /* ZSSrightjustify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F5F1EA9999400877681 /* ZSSrightjustify@2x.png */; };
+		730A6FB01EA9999400877681 /* ZSSstrikethrough.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F601EA9999400877681 /* ZSSstrikethrough.png */; };
+		730A6FB11EA9999400877681 /* ZSSstrikethrough@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F611EA9999400877681 /* ZSSstrikethrough@2x.png */; };
+		730A6FB21EA9999400877681 /* ZSSsubscript.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F621EA9999400877681 /* ZSSsubscript.png */; };
+		730A6FB31EA9999400877681 /* ZSSsubscript@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F631EA9999400877681 /* ZSSsubscript@2x.png */; };
+		730A6FB41EA9999400877681 /* ZSSsuperscript.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F641EA9999400877681 /* ZSSsuperscript.png */; };
+		730A6FB51EA9999400877681 /* ZSSsuperscript@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F651EA9999400877681 /* ZSSsuperscript@2x.png */; };
+		730A6FB61EA9999400877681 /* ZSStable.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F661EA9999400877681 /* ZSStable.png */; };
+		730A6FB71EA9999400877681 /* ZSStable@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F671EA9999400877681 /* ZSStable@2x.png */; };
+		730A6FB81EA9999400877681 /* ZSStextcolor.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F681EA9999400877681 /* ZSStextcolor.png */; };
+		730A6FB91EA9999400877681 /* ZSStextcolor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F691EA9999400877681 /* ZSStextcolor@2x.png */; };
+		730A6FBA1EA9999400877681 /* ZSSunderline.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F6A1EA9999400877681 /* ZSSunderline.png */; };
+		730A6FBB1EA9999400877681 /* ZSSunderline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F6B1EA9999400877681 /* ZSSunderline@2x.png */; };
+		730A6FBC1EA9999400877681 /* ZSSundo.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F6C1EA9999400877681 /* ZSSundo.png */; };
+		730A6FBD1EA9999400877681 /* ZSSundo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F6D1EA9999400877681 /* ZSSundo@2x.png */; };
+		730A6FBE1EA9999400877681 /* ZSSunlink.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F6E1EA9999400877681 /* ZSSunlink.png */; };
+		730A6FBF1EA9999400877681 /* ZSSunlink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F6F1EA9999400877681 /* ZSSunlink@2x.png */; };
+		730A6FC01EA9999400877681 /* ZSSunorderedlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F701EA9999400877681 /* ZSSunorderedlist.png */; };
+		730A6FC11EA9999400877681 /* ZSSunorderedlist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F711EA9999400877681 /* ZSSunorderedlist@2x.png */; };
+		730A6FC21EA9999400877681 /* ZSSviewsource.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F721EA9999400877681 /* ZSSviewsource.png */; };
+		730A6FC31EA9999400877681 /* ZSSviewsource@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F731EA9999400877681 /* ZSSviewsource@2x.png */; };
+		730A6FC41EA9999400877681 /* jQuery.js in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F741EA9999400877681 /* jQuery.js */; };
+		730A6FC51EA9999400877681 /* JSBeautifier.js in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F751EA9999400877681 /* JSBeautifier.js */; };
+		730A6FC61EA9999400877681 /* ZSSRichTextEditor.js in Resources */ = {isa = PBXBuildFile; fileRef = 730A6F761EA9999400877681 /* ZSSRichTextEditor.js */; };
+		730A6FC91EA999FC00877681 /* FLORichTextEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6FC81EA999FC00877681 /* FLORichTextEditorViewController.m */; };
 		7337FA671EA073F700DFBD9D /* DownloadFile+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA641EA073F700DFBD9D /* DownloadFile+CoreDataClass.m */; };
 		7337FA681EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA661EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m */; };
 		7337FA6C1EA0747900DFBD9D /* FLODownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */; };
@@ -65,6 +152,7 @@
 		73F3A1931E4C63F400314D70 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3A1911E4C63F400314D70 /* MainInterface.storyboard */; };
 		73F3A1971E4C63F400314D70 /* FLONotiExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		73F3A19F1E4C6DB100314D70 /* FLONotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3A19E1E4C6DB100314D70 /* FLONotificationViewController.m */; };
+		73F8536F1EA872D2007EFBAB /* DownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F8536E1EA872D2007EFBAB /* DownloadService.m */; };
 		73FEAD7F1D7012160053AD6D /* FLOGifImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */; };
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
 		841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 841FD21C1C1E9E40003D4F81 /* FLODataBaseEngin.m */; };
@@ -206,10 +294,104 @@
 		7301A2021D6E97A500A4EC2E /* FLOAdjustFontSizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeView.m; sourceTree = "<group>"; };
 		7301A2041D6E988500A4EC2E /* FLOAdjustFontSizeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOAdjustFontSizeLabel.h; sourceTree = "<group>"; };
 		7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeLabel.m; sourceTree = "<group>"; };
+		730A6E5B1EA9984700877681 /* FLORichTextEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLORichTextEditorView.h; sourceTree = "<group>"; };
+		730A6E5C1EA9984700877681 /* FLORichTextEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLORichTextEditorView.m; sourceTree = "<group>"; };
+		730A6E5E1EA998A400877681 /* ZSSBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSBarButtonItem.h; sourceTree = "<group>"; };
+		730A6E5F1EA998A400877681 /* ZSSBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSBarButtonItem.m; sourceTree = "<group>"; };
+		730A6E601EA998A400877681 /* ZSSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSTextView.h; sourceTree = "<group>"; };
+		730A6E611EA998A400877681 /* ZSSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZSSTextView.m; sourceTree = "<group>"; };
+		730A6E651EA998DE00877681 /* CYRLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYRLayoutManager.h; sourceTree = "<group>"; };
+		730A6E661EA998DE00877681 /* CYRLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYRLayoutManager.m; sourceTree = "<group>"; };
+		730A6E671EA998DE00877681 /* CYRTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYRTextStorage.h; sourceTree = "<group>"; };
+		730A6E681EA998DE00877681 /* CYRTextStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYRTextStorage.m; sourceTree = "<group>"; };
+		730A6E691EA998DE00877681 /* CYRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYRTextView.h; sourceTree = "<group>"; };
+		730A6E6A1EA998DE00877681 /* CYRTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYRTextView.m; sourceTree = "<group>"; };
+		730A6E6B1EA998DE00877681 /* CYRToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYRToken.h; sourceTree = "<group>"; };
+		730A6E6C1EA998DE00877681 /* CYRToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYRToken.m; sourceTree = "<group>"; };
+		730A6F261EA9999400877681 /* editor.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = editor.html; sourceTree = "<group>"; };
+		730A6F281EA9999400877681 /* ZSSbgcolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSbgcolor.png; sourceTree = "<group>"; };
+		730A6F291EA9999400877681 /* ZSSbgcolor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSbgcolor@2x.png"; sourceTree = "<group>"; };
+		730A6F2A1EA9999400877681 /* ZSSbold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSbold.png; sourceTree = "<group>"; };
+		730A6F2B1EA9999400877681 /* ZSSbold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSbold@2x.png"; sourceTree = "<group>"; };
+		730A6F2C1EA9999400877681 /* ZSScenterjustify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSScenterjustify.png; sourceTree = "<group>"; };
+		730A6F2D1EA9999400877681 /* ZSScenterjustify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSScenterjustify@2x.png"; sourceTree = "<group>"; };
+		730A6F2E1EA9999400877681 /* ZSSclearstyle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSclearstyle.png; sourceTree = "<group>"; };
+		730A6F2F1EA9999400877681 /* ZSSclearstyle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSclearstyle@2x.png"; sourceTree = "<group>"; };
+		730A6F301EA9999400877681 /* ZSSfonts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSfonts.png; sourceTree = "<group>"; };
+		730A6F311EA9999400877681 /* ZSSfonts@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSfonts@2x.png"; sourceTree = "<group>"; };
+		730A6F321EA9999400877681 /* ZSSforcejustify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSforcejustify.png; sourceTree = "<group>"; };
+		730A6F331EA9999400877681 /* ZSSforcejustify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSforcejustify@2x.png"; sourceTree = "<group>"; };
+		730A6F341EA9999400877681 /* ZSSh1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSh1.png; sourceTree = "<group>"; };
+		730A6F351EA9999400877681 /* ZSSh1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSh1@2x.png"; sourceTree = "<group>"; };
+		730A6F361EA9999400877681 /* ZSSh2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSh2.png; sourceTree = "<group>"; };
+		730A6F371EA9999400877681 /* ZSSh2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSh2@2x.png"; sourceTree = "<group>"; };
+		730A6F381EA9999400877681 /* ZSSh3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSh3.png; sourceTree = "<group>"; };
+		730A6F391EA9999400877681 /* ZSSh3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSh3@2x.png"; sourceTree = "<group>"; };
+		730A6F3A1EA9999400877681 /* ZSSh4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSh4.png; sourceTree = "<group>"; };
+		730A6F3B1EA9999400877681 /* ZSSh4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSh4@2x.png"; sourceTree = "<group>"; };
+		730A6F3C1EA9999400877681 /* ZSSh5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSh5.png; sourceTree = "<group>"; };
+		730A6F3D1EA9999400877681 /* ZSSh5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSh5@2x.png"; sourceTree = "<group>"; };
+		730A6F3E1EA9999400877681 /* ZSSh6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSh6.png; sourceTree = "<group>"; };
+		730A6F3F1EA9999400877681 /* ZSSh6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSh6@2x.png"; sourceTree = "<group>"; };
+		730A6F401EA9999400877681 /* ZSShorizontalrule.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSShorizontalrule.png; sourceTree = "<group>"; };
+		730A6F411EA9999400877681 /* ZSShorizontalrule@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSShorizontalrule@2x.png"; sourceTree = "<group>"; };
+		730A6F421EA9999400877681 /* ZSSimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSimage.png; sourceTree = "<group>"; };
+		730A6F431EA9999400877681 /* ZSSimage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSimage@2x.png"; sourceTree = "<group>"; };
+		730A6F441EA9999400877681 /* ZSSimageDevice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSimageDevice.png; sourceTree = "<group>"; };
+		730A6F451EA9999400877681 /* ZSSimageDevice@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSimageDevice@2x.png"; sourceTree = "<group>"; };
+		730A6F461EA9999400877681 /* ZSSindent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSindent.png; sourceTree = "<group>"; };
+		730A6F471EA9999400877681 /* ZSSindent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSindent@2x.png"; sourceTree = "<group>"; };
+		730A6F481EA9999400877681 /* ZSSinsertkeyword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSinsertkeyword.png; sourceTree = "<group>"; };
+		730A6F491EA9999400877681 /* ZSSinsertkeyword@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSinsertkeyword@2x.png"; sourceTree = "<group>"; };
+		730A6F4A1EA9999400877681 /* ZSSitalic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSitalic.png; sourceTree = "<group>"; };
+		730A6F4B1EA9999400877681 /* ZSSitalic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSitalic@2x.png"; sourceTree = "<group>"; };
+		730A6F4C1EA9999400877681 /* ZSSkeyboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSkeyboard.png; sourceTree = "<group>"; };
+		730A6F4D1EA9999400877681 /* ZSSkeyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSkeyboard@2x.png"; sourceTree = "<group>"; };
+		730A6F4E1EA9999400877681 /* ZSSleftjustify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSleftjustify.png; sourceTree = "<group>"; };
+		730A6F4F1EA9999400877681 /* ZSSleftjustify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSleftjustify@2x.png"; sourceTree = "<group>"; };
+		730A6F501EA9999400877681 /* ZSSlink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSlink.png; sourceTree = "<group>"; };
+		730A6F511EA9999400877681 /* ZSSlink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSlink@2x.png"; sourceTree = "<group>"; };
+		730A6F521EA9999400877681 /* ZSSorderedlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSorderedlist.png; sourceTree = "<group>"; };
+		730A6F531EA9999400877681 /* ZSSorderedlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSorderedlist@2x.png"; sourceTree = "<group>"; };
+		730A6F541EA9999400877681 /* ZSSoutdent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSoutdent.png; sourceTree = "<group>"; };
+		730A6F551EA9999400877681 /* ZSSoutdent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSoutdent@2x.png"; sourceTree = "<group>"; };
+		730A6F561EA9999400877681 /* ZSSparagraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSparagraph.png; sourceTree = "<group>"; };
+		730A6F571EA9999400877681 /* ZSSparagraph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSparagraph@2x.png"; sourceTree = "<group>"; };
+		730A6F581EA9999400877681 /* ZSSpicker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSpicker.png; sourceTree = "<group>"; };
+		730A6F591EA9999400877681 /* ZSSpicker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSpicker@2x.png"; sourceTree = "<group>"; };
+		730A6F5A1EA9999400877681 /* ZSSquicklink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSquicklink.png; sourceTree = "<group>"; };
+		730A6F5B1EA9999400877681 /* ZSSquicklink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSquicklink@2x.png"; sourceTree = "<group>"; };
+		730A6F5C1EA9999400877681 /* ZSSredo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSredo.png; sourceTree = "<group>"; };
+		730A6F5D1EA9999400877681 /* ZSSredo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSredo@2x.png"; sourceTree = "<group>"; };
+		730A6F5E1EA9999400877681 /* ZSSrightjustify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSrightjustify.png; sourceTree = "<group>"; };
+		730A6F5F1EA9999400877681 /* ZSSrightjustify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSrightjustify@2x.png"; sourceTree = "<group>"; };
+		730A6F601EA9999400877681 /* ZSSstrikethrough.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSstrikethrough.png; sourceTree = "<group>"; };
+		730A6F611EA9999400877681 /* ZSSstrikethrough@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSstrikethrough@2x.png"; sourceTree = "<group>"; };
+		730A6F621EA9999400877681 /* ZSSsubscript.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSsubscript.png; sourceTree = "<group>"; };
+		730A6F631EA9999400877681 /* ZSSsubscript@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSsubscript@2x.png"; sourceTree = "<group>"; };
+		730A6F641EA9999400877681 /* ZSSsuperscript.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSsuperscript.png; sourceTree = "<group>"; };
+		730A6F651EA9999400877681 /* ZSSsuperscript@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSsuperscript@2x.png"; sourceTree = "<group>"; };
+		730A6F661EA9999400877681 /* ZSStable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSStable.png; sourceTree = "<group>"; };
+		730A6F671EA9999400877681 /* ZSStable@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSStable@2x.png"; sourceTree = "<group>"; };
+		730A6F681EA9999400877681 /* ZSStextcolor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSStextcolor.png; sourceTree = "<group>"; };
+		730A6F691EA9999400877681 /* ZSStextcolor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSStextcolor@2x.png"; sourceTree = "<group>"; };
+		730A6F6A1EA9999400877681 /* ZSSunderline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSunderline.png; sourceTree = "<group>"; };
+		730A6F6B1EA9999400877681 /* ZSSunderline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSunderline@2x.png"; sourceTree = "<group>"; };
+		730A6F6C1EA9999400877681 /* ZSSundo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSundo.png; sourceTree = "<group>"; };
+		730A6F6D1EA9999400877681 /* ZSSundo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSundo@2x.png"; sourceTree = "<group>"; };
+		730A6F6E1EA9999400877681 /* ZSSunlink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSunlink.png; sourceTree = "<group>"; };
+		730A6F6F1EA9999400877681 /* ZSSunlink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSunlink@2x.png"; sourceTree = "<group>"; };
+		730A6F701EA9999400877681 /* ZSSunorderedlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSunorderedlist.png; sourceTree = "<group>"; };
+		730A6F711EA9999400877681 /* ZSSunorderedlist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSunorderedlist@2x.png"; sourceTree = "<group>"; };
+		730A6F721EA9999400877681 /* ZSSviewsource.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZSSviewsource.png; sourceTree = "<group>"; };
+		730A6F731EA9999400877681 /* ZSSviewsource@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ZSSviewsource@2x.png"; sourceTree = "<group>"; };
+		730A6F741EA9999400877681 /* jQuery.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jQuery.js; sourceTree = "<group>"; };
+		730A6F751EA9999400877681 /* JSBeautifier.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = JSBeautifier.js; sourceTree = "<group>"; };
+		730A6F761EA9999400877681 /* ZSSRichTextEditor.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ZSSRichTextEditor.js; sourceTree = "<group>"; };
+		730A6FC71EA999FC00877681 /* FLORichTextEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLORichTextEditorViewController.h; sourceTree = "<group>"; };
+		730A6FC81EA999FC00877681 /* FLORichTextEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLORichTextEditorViewController.m; sourceTree = "<group>"; };
 		7323C45A1E4ACBAD00543251 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
-		7337FA581EA06EE300DFBD9D /* DownloadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadService.h; sourceTree = "<group>"; };
-		7337FA591EA06EE300DFBD9D /* DownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadService.m; sourceTree = "<group>"; };
 		7337FA631EA073F700DFBD9D /* DownloadFile+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DownloadFile+CoreDataClass.h"; sourceTree = "<group>"; };
 		7337FA641EA073F700DFBD9D /* DownloadFile+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DownloadFile+CoreDataClass.m"; sourceTree = "<group>"; };
 		7337FA651EA073F700DFBD9D /* DownloadFile+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DownloadFile+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -256,6 +438,8 @@
 		73F3A1941E4C63F400314D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73F3A19D1E4C6DB100314D70 /* FLONotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLONotificationViewController.h; sourceTree = "<group>"; };
 		73F3A19E1E4C6DB100314D70 /* FLONotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLONotificationViewController.m; sourceTree = "<group>"; };
+		73F8536D1EA872D2007EFBAB /* DownloadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadService.h; sourceTree = "<group>"; };
+		73F8536E1EA872D2007EFBAB /* DownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadService.m; sourceTree = "<group>"; };
 		73FEAD7D1D7012160053AD6D /* FLOGifImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOGifImageViewController.h; path = "模块/GIF/FLOGifImageViewController.h"; sourceTree = "<group>"; };
 		73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLOGifImageViewController.m; path = "模块/GIF/FLOGifImageViewController.m"; sourceTree = "<group>"; };
 		840EE8171C11E51400DFE53E /* FLOFontTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOFontTableViewController.h; path = "模块/UIFont/FLOFontTableViewController.h"; sourceTree = "<group>"; };
@@ -502,6 +686,135 @@
 			path = "模块/字体大小";
 			sourceTree = "<group>";
 		};
+		730A6E5A1EA996E000877681 /* 富文本编辑器 */ = {
+			isa = PBXGroup;
+			children = (
+				730A6FC71EA999FC00877681 /* FLORichTextEditorViewController.h */,
+				730A6FC81EA999FC00877681 /* FLORichTextEditorViewController.m */,
+				730A6E5B1EA9984700877681 /* FLORichTextEditorView.h */,
+				730A6E5C1EA9984700877681 /* FLORichTextEditorView.m */,
+				730A6E5E1EA998A400877681 /* ZSSBarButtonItem.h */,
+				730A6E5F1EA998A400877681 /* ZSSBarButtonItem.m */,
+				730A6E601EA998A400877681 /* ZSSTextView.h */,
+				730A6E611EA998A400877681 /* ZSSTextView.m */,
+				730A6E641EA998DE00877681 /* CYRTextView */,
+				730A6F251EA9999400877681 /* Editor_Resource */,
+			);
+			name = "富文本编辑器";
+			path = "模块/富文本编辑器";
+			sourceTree = "<group>";
+		};
+		730A6E641EA998DE00877681 /* CYRTextView */ = {
+			isa = PBXGroup;
+			children = (
+				730A6E651EA998DE00877681 /* CYRLayoutManager.h */,
+				730A6E661EA998DE00877681 /* CYRLayoutManager.m */,
+				730A6E671EA998DE00877681 /* CYRTextStorage.h */,
+				730A6E681EA998DE00877681 /* CYRTextStorage.m */,
+				730A6E691EA998DE00877681 /* CYRTextView.h */,
+				730A6E6A1EA998DE00877681 /* CYRTextView.m */,
+				730A6E6B1EA998DE00877681 /* CYRToken.h */,
+				730A6E6C1EA998DE00877681 /* CYRToken.m */,
+			);
+			name = CYRTextView;
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		730A6F251EA9999400877681 /* Editor_Resource */ = {
+			isa = PBXGroup;
+			children = (
+				730A6F261EA9999400877681 /* editor.html */,
+				730A6F271EA9999400877681 /* Images */,
+				730A6F741EA9999400877681 /* jQuery.js */,
+				730A6F751EA9999400877681 /* JSBeautifier.js */,
+				730A6F761EA9999400877681 /* ZSSRichTextEditor.js */,
+			);
+			path = Editor_Resource;
+			sourceTree = "<group>";
+		};
+		730A6F271EA9999400877681 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				730A6F281EA9999400877681 /* ZSSbgcolor.png */,
+				730A6F291EA9999400877681 /* ZSSbgcolor@2x.png */,
+				730A6F2A1EA9999400877681 /* ZSSbold.png */,
+				730A6F2B1EA9999400877681 /* ZSSbold@2x.png */,
+				730A6F2C1EA9999400877681 /* ZSScenterjustify.png */,
+				730A6F2D1EA9999400877681 /* ZSScenterjustify@2x.png */,
+				730A6F2E1EA9999400877681 /* ZSSclearstyle.png */,
+				730A6F2F1EA9999400877681 /* ZSSclearstyle@2x.png */,
+				730A6F301EA9999400877681 /* ZSSfonts.png */,
+				730A6F311EA9999400877681 /* ZSSfonts@2x.png */,
+				730A6F321EA9999400877681 /* ZSSforcejustify.png */,
+				730A6F331EA9999400877681 /* ZSSforcejustify@2x.png */,
+				730A6F341EA9999400877681 /* ZSSh1.png */,
+				730A6F351EA9999400877681 /* ZSSh1@2x.png */,
+				730A6F361EA9999400877681 /* ZSSh2.png */,
+				730A6F371EA9999400877681 /* ZSSh2@2x.png */,
+				730A6F381EA9999400877681 /* ZSSh3.png */,
+				730A6F391EA9999400877681 /* ZSSh3@2x.png */,
+				730A6F3A1EA9999400877681 /* ZSSh4.png */,
+				730A6F3B1EA9999400877681 /* ZSSh4@2x.png */,
+				730A6F3C1EA9999400877681 /* ZSSh5.png */,
+				730A6F3D1EA9999400877681 /* ZSSh5@2x.png */,
+				730A6F3E1EA9999400877681 /* ZSSh6.png */,
+				730A6F3F1EA9999400877681 /* ZSSh6@2x.png */,
+				730A6F401EA9999400877681 /* ZSShorizontalrule.png */,
+				730A6F411EA9999400877681 /* ZSShorizontalrule@2x.png */,
+				730A6F421EA9999400877681 /* ZSSimage.png */,
+				730A6F431EA9999400877681 /* ZSSimage@2x.png */,
+				730A6F441EA9999400877681 /* ZSSimageDevice.png */,
+				730A6F451EA9999400877681 /* ZSSimageDevice@2x.png */,
+				730A6F461EA9999400877681 /* ZSSindent.png */,
+				730A6F471EA9999400877681 /* ZSSindent@2x.png */,
+				730A6F481EA9999400877681 /* ZSSinsertkeyword.png */,
+				730A6F491EA9999400877681 /* ZSSinsertkeyword@2x.png */,
+				730A6F4A1EA9999400877681 /* ZSSitalic.png */,
+				730A6F4B1EA9999400877681 /* ZSSitalic@2x.png */,
+				730A6F4C1EA9999400877681 /* ZSSkeyboard.png */,
+				730A6F4D1EA9999400877681 /* ZSSkeyboard@2x.png */,
+				730A6F4E1EA9999400877681 /* ZSSleftjustify.png */,
+				730A6F4F1EA9999400877681 /* ZSSleftjustify@2x.png */,
+				730A6F501EA9999400877681 /* ZSSlink.png */,
+				730A6F511EA9999400877681 /* ZSSlink@2x.png */,
+				730A6F521EA9999400877681 /* ZSSorderedlist.png */,
+				730A6F531EA9999400877681 /* ZSSorderedlist@2x.png */,
+				730A6F541EA9999400877681 /* ZSSoutdent.png */,
+				730A6F551EA9999400877681 /* ZSSoutdent@2x.png */,
+				730A6F561EA9999400877681 /* ZSSparagraph.png */,
+				730A6F571EA9999400877681 /* ZSSparagraph@2x.png */,
+				730A6F581EA9999400877681 /* ZSSpicker.png */,
+				730A6F591EA9999400877681 /* ZSSpicker@2x.png */,
+				730A6F5A1EA9999400877681 /* ZSSquicklink.png */,
+				730A6F5B1EA9999400877681 /* ZSSquicklink@2x.png */,
+				730A6F5C1EA9999400877681 /* ZSSredo.png */,
+				730A6F5D1EA9999400877681 /* ZSSredo@2x.png */,
+				730A6F5E1EA9999400877681 /* ZSSrightjustify.png */,
+				730A6F5F1EA9999400877681 /* ZSSrightjustify@2x.png */,
+				730A6F601EA9999400877681 /* ZSSstrikethrough.png */,
+				730A6F611EA9999400877681 /* ZSSstrikethrough@2x.png */,
+				730A6F621EA9999400877681 /* ZSSsubscript.png */,
+				730A6F631EA9999400877681 /* ZSSsubscript@2x.png */,
+				730A6F641EA9999400877681 /* ZSSsuperscript.png */,
+				730A6F651EA9999400877681 /* ZSSsuperscript@2x.png */,
+				730A6F661EA9999400877681 /* ZSStable.png */,
+				730A6F671EA9999400877681 /* ZSStable@2x.png */,
+				730A6F681EA9999400877681 /* ZSStextcolor.png */,
+				730A6F691EA9999400877681 /* ZSStextcolor@2x.png */,
+				730A6F6A1EA9999400877681 /* ZSSunderline.png */,
+				730A6F6B1EA9999400877681 /* ZSSunderline@2x.png */,
+				730A6F6C1EA9999400877681 /* ZSSundo.png */,
+				730A6F6D1EA9999400877681 /* ZSSundo@2x.png */,
+				730A6F6E1EA9999400877681 /* ZSSunlink.png */,
+				730A6F6F1EA9999400877681 /* ZSSunlink@2x.png */,
+				730A6F701EA9999400877681 /* ZSSunorderedlist.png */,
+				730A6F711EA9999400877681 /* ZSSunorderedlist@2x.png */,
+				730A6F721EA9999400877681 /* ZSSviewsource.png */,
+				730A6F731EA9999400877681 /* ZSSviewsource@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		7337FA541EA0697C00DFBD9D /* 下载 */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +822,8 @@
 				7337FA6E1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m */,
 				7337FA6A1EA0747900DFBD9D /* FLODownloadManager.h */,
 				7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */,
+				73F8536D1EA872D2007EFBAB /* DownloadService.h */,
+				73F8536E1EA872D2007EFBAB /* DownloadService.m */,
 			);
 			name = "下载";
 			path = "模块/下载";
@@ -575,8 +890,6 @@
 				7374333E1EA49D6800BE39B3 /* NSDate+FLOUtil.m */,
 				1242EAF81DAD5D1F00F3595A /* UIViewController+Alert.h */,
 				1242EAF91DAD5D1F00F3595A /* UIViewController+Alert.m */,
-				7337FA581EA06EE300DFBD9D /* DownloadService.h */,
-				7337FA591EA06EE300DFBD9D /* DownloadService.m */,
 			);
 			name = FLOUtility;
 			path = "模块/FLOUtility";
@@ -639,6 +952,7 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				730A6E5A1EA996E000877681 /* 富文本编辑器 */,
 				7337FA541EA0697C00DFBD9D /* 下载 */,
 				73F3A19C1E4C6BF100314D70 /* Notifier */,
 				1252F44A1E212B9800A8C244 /* MQTT */,
@@ -1225,12 +1539,92 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				730A6FB11EA9999400877681 /* ZSSstrikethrough@2x.png in Resources */,
+				730A6FB61EA9999400877681 /* ZSStable.png in Resources */,
+				730A6FAE1EA9999400877681 /* ZSSrightjustify.png in Resources */,
+				730A6F911EA9999400877681 /* ZSShorizontalrule@2x.png in Resources */,
+				730A6FB31EA9999400877681 /* ZSSsubscript@2x.png in Resources */,
+				730A6F971EA9999400877681 /* ZSSindent@2x.png in Resources */,
+				730A6F8A1EA9999400877681 /* ZSSh4.png in Resources */,
+				730A6F891EA9999400877681 /* ZSSh3@2x.png in Resources */,
+				730A6F7D1EA9999400877681 /* ZSScenterjustify@2x.png in Resources */,
+				730A6F8D1EA9999400877681 /* ZSSh5@2x.png in Resources */,
+				730A6FC21EA9999400877681 /* ZSSviewsource.png in Resources */,
+				730A6FAF1EA9999400877681 /* ZSSrightjustify@2x.png in Resources */,
+				730A6FA51EA9999400877681 /* ZSSoutdent@2x.png in Resources */,
 				845D32C21C1ED14B00831C70 /* FLOAddBookMarkMaskView.xib in Resources */,
+				730A6F811EA9999400877681 /* ZSSfonts@2x.png in Resources */,
+				730A6F9B1EA9999400877681 /* ZSSitalic@2x.png in Resources */,
+				730A6F851EA9999400877681 /* ZSSh1@2x.png in Resources */,
+				730A6FAD1EA9999400877681 /* ZSSredo@2x.png in Resources */,
+				730A6F9E1EA9999400877681 /* ZSSleftjustify.png in Resources */,
+				730A6F981EA9999400877681 /* ZSSinsertkeyword.png in Resources */,
+				730A6FBD1EA9999400877681 /* ZSSundo@2x.png in Resources */,
+				730A6F9C1EA9999400877681 /* ZSSkeyboard.png in Resources */,
+				730A6FA71EA9999400877681 /* ZSSparagraph@2x.png in Resources */,
+				730A6F7A1EA9999400877681 /* ZSSbold.png in Resources */,
+				730A6FBE1EA9999400877681 /* ZSSunlink.png in Resources */,
+				730A6F871EA9999400877681 /* ZSSh2@2x.png in Resources */,
+				730A6F951EA9999400877681 /* ZSSimageDevice@2x.png in Resources */,
+				730A6FBC1EA9999400877681 /* ZSSundo.png in Resources */,
+				730A6FC01EA9999400877681 /* ZSSunorderedlist.png in Resources */,
+				730A6FB21EA9999400877681 /* ZSSsubscript.png in Resources */,
+				730A6F831EA9999400877681 /* ZSSforcejustify@2x.png in Resources */,
+				730A6F901EA9999400877681 /* ZSShorizontalrule.png in Resources */,
+				730A6F8F1EA9999400877681 /* ZSSh6@2x.png in Resources */,
+				730A6FB51EA9999400877681 /* ZSSsuperscript@2x.png in Resources */,
+				730A6F8B1EA9999400877681 /* ZSSh4@2x.png in Resources */,
+				730A6F7C1EA9999400877681 /* ZSScenterjustify.png in Resources */,
+				730A6FB01EA9999400877681 /* ZSSstrikethrough.png in Resources */,
+				730A6F8E1EA9999400877681 /* ZSSh6.png in Resources */,
+				730A6FAC1EA9999400877681 /* ZSSredo.png in Resources */,
+				730A6F9D1EA9999400877681 /* ZSSkeyboard@2x.png in Resources */,
+				730A6FC41EA9999400877681 /* jQuery.js in Resources */,
+				730A6F781EA9999400877681 /* ZSSbgcolor.png in Resources */,
+				730A6FAA1EA9999400877681 /* ZSSquicklink.png in Resources */,
+				730A6F771EA9999400877681 /* editor.html in Resources */,
 				84291A1C1C05867A0015F5F1 /* LaunchScreen.storyboard in Resources */,
+				730A6FC11EA9999400877681 /* ZSSunorderedlist@2x.png in Resources */,
+				730A6FB41EA9999400877681 /* ZSSsuperscript.png in Resources */,
+				730A6FBB1EA9999400877681 /* ZSSunderline@2x.png in Resources */,
+				730A6FB71EA9999400877681 /* ZSStable@2x.png in Resources */,
+				730A6FA91EA9999400877681 /* ZSSpicker@2x.png in Resources */,
+				730A6FA31EA9999400877681 /* ZSSorderedlist@2x.png in Resources */,
 				84291A191C05867A0015F5F1 /* Assets.xcassets in Resources */,
+				730A6FA81EA9999400877681 /* ZSSpicker.png in Resources */,
+				730A6FC61EA9999400877681 /* ZSSRichTextEditor.js in Resources */,
+				730A6F921EA9999400877681 /* ZSSimage.png in Resources */,
+				730A6FA01EA9999400877681 /* ZSSlink.png in Resources */,
+				730A6F821EA9999400877681 /* ZSSforcejustify.png in Resources */,
+				730A6F7E1EA9999400877681 /* ZSSclearstyle.png in Resources */,
+				730A6F991EA9999400877681 /* ZSSinsertkeyword@2x.png in Resources */,
+				730A6F801EA9999400877681 /* ZSSfonts.png in Resources */,
+				730A6FBF1EA9999400877681 /* ZSSunlink@2x.png in Resources */,
+				730A6F881EA9999400877681 /* ZSSh3.png in Resources */,
 				84291A171C05867A0015F5F1 /* Main.storyboard in Resources */,
+				730A6FBA1EA9999400877681 /* ZSSunderline.png in Resources */,
+				730A6FA41EA9999400877681 /* ZSSoutdent.png in Resources */,
+				730A6FC31EA9999400877681 /* ZSSviewsource@2x.png in Resources */,
+				730A6F931EA9999400877681 /* ZSSimage@2x.png in Resources */,
+				730A6FC51EA9999400877681 /* JSBeautifier.js in Resources */,
+				730A6F961EA9999400877681 /* ZSSindent.png in Resources */,
 				845D32BF1C1EC45400831C70 /* floapp.db in Resources */,
+				730A6FA61EA9999400877681 /* ZSSparagraph.png in Resources */,
+				730A6F941EA9999400877681 /* ZSSimageDevice.png in Resources */,
+				730A6F8C1EA9999400877681 /* ZSSh5.png in Resources */,
+				730A6F7F1EA9999400877681 /* ZSSclearstyle@2x.png in Resources */,
 				1290B35E1CFB3F8400D967EE /* CollectionPList.plist in Resources */,
+				730A6FAB1EA9999400877681 /* ZSSquicklink@2x.png in Resources */,
+				730A6F9F1EA9999400877681 /* ZSSleftjustify@2x.png in Resources */,
+				730A6F861EA9999400877681 /* ZSSh2.png in Resources */,
+				730A6F841EA9999400877681 /* ZSSh1.png in Resources */,
+				730A6F791EA9999400877681 /* ZSSbgcolor@2x.png in Resources */,
+				730A6FA21EA9999400877681 /* ZSSorderedlist.png in Resources */,
+				730A6F9A1EA9999400877681 /* ZSSitalic.png in Resources */,
+				730A6FB91EA9999400877681 /* ZSStextcolor@2x.png in Resources */,
+				730A6F7B1EA9999400877681 /* ZSSbold@2x.png in Resources */,
+				730A6FA11EA9999400877681 /* ZSSlink@2x.png in Resources */,
+				730A6FB81EA9999400877681 /* ZSStextcolor.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1328,6 +1722,7 @@
 				1285C71E1D6350120027717D /* FLOColorViewController.m in Sources */,
 				846D83691C21C1B1007CA12B /* FLOWeiboTableViewController.m in Sources */,
 				84F2A6A91C0803030084156F /* FLOUserModel.m in Sources */,
+				730A6E631EA998A400877681 /* ZSSTextView.m in Sources */,
 				84EEC5561C2396A30089454E /* FLOCodeResultViewController.m in Sources */,
 				12DE3E991CE0D5BA006D3989 /* FLOFontSizeViewController.m in Sources */,
 				73BBD99B1E1E1A9100FAAFB3 /* Sort.swift in Sources */,
@@ -1340,8 +1735,11 @@
 				84DA68BD1C227F6E001B9E79 /* FLOWeiboStatusTableViewCell.m in Sources */,
 				7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */,
 				7337FA681EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m in Sources */,
+				730A6E7D1EA998DE00877681 /* CYRToken.m in Sources */,
+				730A6E7C1EA998DE00877681 /* CYRTextView.m in Sources */,
 				84EEC5531C2396690089454E /* FLOCodeViewController.m in Sources */,
 				7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */,
+				730A6E621EA998A400877681 /* ZSSBarButtonItem.m in Sources */,
 				1252F44D1E212BC200A8C244 /* MQTTService.m in Sources */,
 				737433421EA4A6E400BE39B3 /* FLODocumentPreviewViewController.m in Sources */,
 				1252F4321E1D252500A8C244 /* FLOMediaAddressTableViewController.m in Sources */,
@@ -1356,17 +1754,20 @@
 				73E7E0BD1E20BF9100793ABA /* YYFPSLabel.m in Sources */,
 				84754F361C34F58B00C62243 /* FLOSystemSoundTableViewController.m in Sources */,
 				846E9C481C298BDB00843A24 /* FLOBDMapViewController.m in Sources */,
-				7337FA5A1EA06EE300DFBD9D /* DownloadService.m in Sources */,
 				849EEDCD1C26C38700CD9A7C /* FLOWeiboReportComViewController.m in Sources */,
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
 				7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */,
+				730A6FC91EA999FC00877681 /* FLORichTextEditorViewController.m in Sources */,
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
 				7374333F1EA49D6800BE39B3 /* NSDate+FLOUtil.m in Sources */,
 				841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */,
 				849265F61C27A95F00261F36 /* FLOTouchIDViewController.m in Sources */,
+				730A6E7A1EA998DE00877681 /* CYRLayoutManager.m in Sources */,
 				1274C7621E13EE35003F1FD5 /* FLOWaterFallViewController.m in Sources */,
+				730A6E5D1EA9984700877681 /* FLORichTextEditorView.m in Sources */,
 				73BBD9881E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,
+				73F8536F1EA872D2007EFBAB /* DownloadService.m in Sources */,
 				1239A93E1D7DC2510064C15C /* FLONetWorkHistoryTableViewController.m in Sources */,
 				846D83661C21B9A6007CA12B /* FLOWeiboAuthorization.m in Sources */,
 				7301A2061D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m in Sources */,
@@ -1388,6 +1789,7 @@
 				7301A2031D6E97A500A4EC2E /* FLOAdjustFontSizeView.m in Sources */,
 				73BBD99C1E1E1A9100FAAFB3 /* SortClass.swift in Sources */,
 				1239A9351D7DA5120064C15C /* FLOCoreData.xcdatamodeld in Sources */,
+				730A6E7B1EA998DE00877681 /* CYRTextStorage.m in Sources */,
 				73BBD9911E1E13D700FAAFB3 /* ViewController.swift in Sources */,
 				1252F4441E1D393B00A8C244 /* NetWork+CoreDataProperties.m in Sources */,
 				845D32C91C1F0BF200831C70 /* FLOSettingTableViewController.m in Sources */,
