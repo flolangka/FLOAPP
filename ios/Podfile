@@ -10,7 +10,7 @@ target 'FLOAPP' do
     pod 'AFNetworking'
     pod 'MJRefresh'
     pod 'BaiduMapKit'
-    pod 'FLEX'
+    pod 'FLEX', '~> 2.0'
     pod 'Masonry'
     pod 'MQTTClient'
 

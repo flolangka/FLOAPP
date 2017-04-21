@@ -25,6 +25,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     textV = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64)];
+    textV.editable = NO;
     [self.view addSubview:textV];
     
     [MQTTService shareService].eventAction = ^(NSInteger event, NSString *str){
