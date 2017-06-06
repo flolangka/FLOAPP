@@ -13,7 +13,7 @@
  
  2.1 : 点击取消（cancel)
  2.2 : 下载完成 (保存文件)
- 2.3 : 下载中app被kill重启，建session(程序会自动获取resumeData继续下载)
+ 2.3 : 下载中app被kill重启，建session(iOS9以上的会自动获取resumeData继续下载，iOS7、8下载失败)
  2.4 : 下载中断网重连、进入后台，下载任务会继续在后台执行
  */
 
