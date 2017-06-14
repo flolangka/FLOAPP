@@ -127,10 +127,6 @@
 			</dict>
 		</dict>
 	</array>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>newsstand-content</string>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
