@@ -76,6 +76,9 @@
     
     FLOSideMenu *sideMenu = (FLOSideMenu *)application.keyWindow.rootViewController;
     UINavigationController *NavController = (UINavigationController *)sideMenu.contentViewController;
+    [NavController dismissViewControllerAnimated:NO completion:nil];
+    [NavController popToRootViewControllerAnimated:NO];
+    
     NSString *touchType = (NSString *)shortcutItem.userInfo[@"touchkey_touch"];
     if ([touchType isEqualToString:@"qrcodeValue"]) {
         [NavController pushViewController:[[FLOCodeViewController alloc] init] animated:YES];
@@ -100,6 +103,9 @@
     
     FLOSideMenu *sideMenu = (FLOSideMenu *)app.keyWindow.rootViewController;
     UINavigationController *NavController = (UINavigationController *)sideMenu.contentViewController;
+    [NavController dismissViewControllerAnimated:NO completion:nil];
+    [NavController popToRootViewControllerAnimated:NO];
+    
     NSString *strURL = url.absoluteString;
     if ([strURL hasPrefix:@"FloAPPBrowser://"]) {
         FLOWebViewController *webViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDWebViewController"];
