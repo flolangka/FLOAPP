@@ -33,15 +33,33 @@
     self.bestAttemptContent = [request.content mutableCopy];
     
     // Modify the notification content here...
+    NSString *getURL = @"";
+    
     NSDictionary *userInfo = self.bestAttemptContent.userInfo;
-    if (userInfo[@"PicUrl"] || userInfo[@"AudioUrl"]) {
-        NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:userInfo[@"PicUrl"] ? : userInfo[@"AudioUrl"]] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5];
+    getURL = userInfo[@"PicUrl"];
+    if (getURL == nil || getURL.length < 1) {
+        getURL = userInfo[@"AudioUrl"];
+    }
+    if (getURL == nil || getURL.length < 1) {
+        NSDictionary *aps = userInfo[@"aps"];
+        if (aps && [aps isKindOfClass:[NSDictionary class]] && aps.count) {
+            getURL = aps[@"picurl"];
+            if (getURL == nil || getURL.length < 1) {
+                getURL = aps[@"AudioUrl"];
+            }
+        }
+    }
+    
+    if (getURL == nil || getURL.length < 1) {
+        self.contentHandler(self.bestAttemptContent);
+    } else {
+        NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:getURL] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:15];
         //注意使用DownloadTask
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
         NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:urlRequest completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (!error) {
-                NSString *path = [location.path stringByAppendingString:userInfo[@"PicUrl"] ? @".png" : @".mp3"];
+                NSString *path = [location.path stringByAppendingString:response.suggestedFilename];
                 NSError *err = nil;
                 NSURL * pathUrl = [NSURL fileURLWithPath:path];
                 [[NSFileManager defaultManager] moveItemAtURL:location toURL:pathUrl error:nil];
@@ -62,8 +80,6 @@
             }
         }];
         [task resume];
-    } else {
-        self.contentHandler(self.bestAttemptContent);
     }
 }
 
