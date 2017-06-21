@@ -161,7 +161,7 @@
     float top = (height-8)/2.;
     
     CGSize size = CGSizeMake(width, height);
-    UIGraphicsBeginImageContextWithOptions(size, NO, 1.0);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetStrokeColorWithColor(ctx, COLOR_HEX(0x979898).CGColor);
     
