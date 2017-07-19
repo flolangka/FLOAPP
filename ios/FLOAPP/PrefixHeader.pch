@@ -33,11 +33,17 @@
 #define Def_CheckArrayClassAndCount(var) (var && [var isKindOfClass:[NSArray class]] && var.count)
 
 //weak
-#define DOCWeakObj(type)  __weak typeof(type) weak##type = type
+#define FLOWeakObj(type)  __weak typeof(type) weak##type = type
+
+//主线程block
+#define FLOAsyncMainQueueBlock(BLOCK) dispatch_async(dispatch_get_main_queue(), BLOCK);
+
+//异步线程
+#define FLOAsyncGlobalQueueBlock(BLOCK) dispatch_async(dispatch_get_global_queue(0, 0), BLOCK);
 
 // 打LOG
 #ifdef DEBUG
-#define DLog(fmt, ...) printf("%s %s [Line %d] %s\n", [[NSDate getNotTime] UTF8String], __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:fmt,##__VA_ARGS__] UTF8String]);
+#define DLog(fmt, ...) printf("%s %s [Line %d] %s\n", [[NSDate getNowTime] UTF8String], __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:fmt,##__VA_ARGS__] UTF8String]);
 #else
 #define DLog(...)
 #endif

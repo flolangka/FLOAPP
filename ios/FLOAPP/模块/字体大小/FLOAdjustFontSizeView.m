@@ -23,7 +23,7 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         
-        DOCWeakObj(self);
+        FLOWeakObj(self);
         AdjustFontSizeSlider *fontSizeSlider = [[AdjustFontSizeSlider alloc] initWithFrame:CGRectMake(44, 50, CGRectGetWidth([UIScreen mainScreen].bounds)-88, 44)];
         fontSizeSlider.valueChanged = ^(NSInteger value) {
             [weakself sliderFontSizeValueChanged:value];

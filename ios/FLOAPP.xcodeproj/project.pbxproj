@@ -140,6 +140,7 @@
 		7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC51D640CB3001D1BD3 /* UIImage+FLOUtil.m */; };
 		7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */; };
 		7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */; };
+		739581A71F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 739581A61F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m */; };
 		73BBD9881E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD9871E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m */; };
 		73BBD9901E1E13D700FAAFB3 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD98C1E1E13D700FAAFB3 /* SortView.swift */; };
 		73BBD9911E1E13D700FAAFB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD98D1E1E13D700FAAFB3 /* ViewController.swift */; };
@@ -424,6 +425,8 @@
 		7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FLOUtil.m"; sourceTree = "<group>"; };
 		7376EBC81D640CB3001D1BD3 /* UIView+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLOUtil.h"; sourceTree = "<group>"; };
 		7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLOUtil.m"; sourceTree = "<group>"; };
+		739581A51F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOShareDirectoryTableViewController.h; sourceTree = "<group>"; };
+		739581A61F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOShareDirectoryTableViewController.m; sourceTree = "<group>"; };
 		73BBD9861E1DEB7100FAAFB3 /* FLOCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOCollectionViewLayout.h; sourceTree = "<group>"; };
 		73BBD9871E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOCollectionViewLayout.m; sourceTree = "<group>"; };
 		73BBD98C1E1E13D700FAAFB3 /* SortView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
@@ -908,6 +911,16 @@
 			path = "模块/FLOUtility";
 			sourceTree = "<group>";
 		};
+		739581A41F1EEFB200F9D230 /* 共享文件夹 */ = {
+			isa = PBXGroup;
+			children = (
+				739581A51F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.h */,
+				739581A61F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m */,
+			);
+			name = "共享文件夹";
+			path = "模块/共享文件夹";
+			sourceTree = "<group>";
+		};
 		73BBD9891E1E13D700FAAFB3 /* 排序 */ = {
 			isa = PBXGroup;
 			children = (
@@ -965,6 +978,7 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				739581A41F1EEFB200F9D230 /* 共享文件夹 */,
 				12E597D91EE6E96600949F6C /* 字符串加密、解密 */,
 				730A6E5A1EA996E000877681 /* 富文本编辑器 */,
 				7337FA541EA0697C00DFBD9D /* 下载 */,
@@ -1744,6 +1758,7 @@
 				84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */,
 				849EEDCA1C26B6C900CD9A7C /* FLOWeiboDetailViewController.m in Sources */,
 				841FD2211C1EA2DC003D4F81 /* FLOBookMarkModel.m in Sources */,
+				739581A71F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m in Sources */,
 				73FEAD7F1D7012160053AD6D /* FLOGifImageViewController.m in Sources */,
 				845D32C51C1ED16F00831C70 /* FLOAddBookMarkMaskView.m in Sources */,
 				1239A92A1D7862E00064C15C /* FLONetWorkTableViewController.m in Sources */,

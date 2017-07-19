@@ -15,7 +15,7 @@
  *
  *  @return 时:分:秒.毫秒
  */
-+ (NSString *)getNotTime {
++ (NSString *)getNowTime {
     static NSDateFormatter *getNotTimeDateFormatter;
     static dispatch_once_t onceToken;
     

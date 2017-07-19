@@ -178,5 +178,13 @@
 		<key>ItemAddress</key>
 		<string>FLORichTextEditorViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>文件夹</string>
+		<key>ItemIconURL</key>
+		<string>https://cdn2.iconfinder.com/data/icons/flat-seo-web-ikooni/128/flat_seo2-42-512.png</string>
+		<key>ItemAddress</key>
+		<string>FLOShareDirectoryTableViewController</string>
+	</dict>
 </array>
 </plist>
