@@ -23,6 +23,7 @@
 		1252F4491E1D447A00A8C244 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1252F4481E1D447A00A8C244 /* AVKit.framework */; };
 		1252F44D1E212BC200A8C244 /* MQTTService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1252F44C1E212BC200A8C244 /* MQTTService.m */; };
 		1252F4501E22312B00A8C244 /* FLOMQTTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1252F44F1E22312B00A8C244 /* FLOMQTTViewController.m */; };
+		1253FE791F1E6320000B817D /* homeback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1253FE781F1E6320000B817D /* homeback.jpg */; };
 		1274C7621E13EE35003F1FD5 /* FLOWaterFallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1274C7611E13EE35003F1FD5 /* FLOWaterFallViewController.m */; };
 		1285C71E1D6350120027717D /* FLOColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1285C71D1D6350120027717D /* FLOColorViewController.m */; };
 		1290B35E1CFB3F8400D967EE /* CollectionPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1290B35D1CFB3F8400D967EE /* CollectionPList.plist */; };
@@ -275,6 +276,7 @@
 		1252F44C1E212BC200A8C244 /* MQTTService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTService.m; sourceTree = "<group>"; };
 		1252F44E1E22312B00A8C244 /* FLOMQTTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOMQTTViewController.h; sourceTree = "<group>"; };
 		1252F44F1E22312B00A8C244 /* FLOMQTTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOMQTTViewController.m; sourceTree = "<group>"; };
+		1253FE781F1E6320000B817D /* homeback.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homeback.jpg; sourceTree = "<group>"; };
 		1274C7601E13EE35003F1FD5 /* FLOWaterFallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOWaterFallViewController.h; sourceTree = "<group>"; };
 		1274C7611E13EE35003F1FD5 /* FLOWaterFallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOWaterFallViewController.m; sourceTree = "<group>"; };
 		1285C71C1D6350120027717D /* FLOColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOColorViewController.h; path = "模块/UIColor/FLOColorViewController.h"; sourceTree = "<group>"; };
@@ -622,6 +624,15 @@
 			);
 			name = MQTT;
 			path = "模块/MQTT";
+			sourceTree = "<group>";
+		};
+		1253FE771F1E6320000B817D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				1253FE781F1E6320000B817D /* homeback.jpg */,
+			);
+			name = Resource;
+			path = Global/Resource;
 			sourceTree = "<group>";
 		};
 		1274C75F1E13EC3D003F1FD5 /* 瀑布流 */ = {
@@ -1272,6 +1283,7 @@
 		84DD6E701C05A00F005C1AE2 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				1253FE771F1E6320000B817D /* Resource */,
 				841FD2171C1E9DAA003D4F81 /* 数据库 */,
 				84F2A6A61C0802E10084156F /* 用户 */,
 				84DD6E711C05A01B005C1AE2 /* TabBarController */,
@@ -1611,6 +1623,7 @@
 				730A6FA01EA9999400877681 /* ZSSlink.png in Resources */,
 				730A6F821EA9999400877681 /* ZSSforcejustify.png in Resources */,
 				730A6F7E1EA9999400877681 /* ZSSclearstyle.png in Resources */,
+				1253FE791F1E6320000B817D /* homeback.jpg in Resources */,
 				730A6F991EA9999400877681 /* ZSSinsertkeyword@2x.png in Resources */,
 				730A6F801EA9999400877681 /* ZSSfonts.png in Resources */,
 				730A6FBF1EA9999400877681 /* ZSSunlink@2x.png in Resources */,

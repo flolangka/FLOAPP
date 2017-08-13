@@ -97,7 +97,7 @@
     [self.view addSubview:collectionV];
     
     //背景图片
-    UIImage *image = [UIImage imageNamed:@"homeback"];
+    UIImage *image = [UIImage imageNamed:@"homeback.jpg"];
     self.view.layer.contents = (id)image.CGImage;
 }
 
