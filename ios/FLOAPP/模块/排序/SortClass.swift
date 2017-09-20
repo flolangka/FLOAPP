@@ -80,6 +80,7 @@ class SortBaseClass {
 }
 
 /// 冒泡排序：时间复杂度----O(n^2)
+/* 一轮一轮的从后面开始，将比较小的往前挪 */
 class BubbleSort: SortBaseClass, SortType {
     func sort(_ items: Array<Int>) -> Array<Int> {
         //print("冒泡排序：")
@@ -104,8 +105,8 @@ class BubbleSort: SortBaseClass, SortType {
     }
 }
 
-
 /// 插入排序-O(n^2)
+/* 从第二个开始，依次往前比较，直到比前面的数大 */
 class InsertSort: SortBaseClass, SortType{
     func sort(_ items: Array<Int>) -> Array<Int> {
         //print("插入排序")
