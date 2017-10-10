@@ -7,7 +7,7 @@
  Using MQTT in your Objective-C application
  This file contains definitions for mqttio-OBJC backward compatibility
  
- @author Christoph Krey krey.christoph@gmail.com
+ @author Christoph Krey c@ckrey.de
  @copyright Copyright © 2013-2017, Christoph Krey. All rights reserved.
  
  based on Copyright (c) 2011, 2013, 2lemetry LLC
@@ -40,7 +40,6 @@
  @param runLoop see runLoop for description.
  @param runLoopMode see runLoopMode for description.
  @return the initialised MQTTSession object
- @exception NSInternalInconsistencyException if the parameters are invalid
  */
 - (MQTTSession *)initWithClientId:(NSString *)clientId
                          userName:(NSString *)userName
@@ -72,7 +71,6 @@
  @param runLoopMode see initWithClientId for description.
  @param securityPolicy see initWithClientId for description.
  @return the initialised MQTTSession object
- @exception NSInternalInconsistencyException if the parameters are invalid
  */
 - (MQTTSession *)initWithClientId:(NSString *)clientId
                          userName:(NSString *)userName
@@ -124,7 +122,6 @@
  * @param securityPolicy The security policy used to evaluate server trust for secure connections.
  * @param certificates An identity certificate used to reply to a server requiring client certificates according to the description given for SSLSetCertificate(). You may build the certificates array yourself or use the sundry method clientCertFromP12
  * @return the initialised MQTTSession object
- * @exception NSInternalInconsistencyException if the parameters are invalid
  *
  * @code
  #import "MQTTClient.h"
@@ -176,7 +173,7 @@
 * @return the initialised MQTTSession object
 * All other parameters are set to defaults
 */
-- (id)initWithClientId:(NSString *)theClientId;
+- (instancetype)initWithClientId:(NSString *)theClientId;
 
 /** for mqttio-OBJC backward compatibility
  @param theClientId see initWithClientId for description.
@@ -185,7 +182,7 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (id)initWithClientId:(NSString*)theClientId
+- (instancetype)initWithClientId:(NSString*)theClientId
                runLoop:(NSRunLoop*)theRunLoop
                forMode:(NSString*)theRunLoopMode;
 
@@ -196,7 +193,7 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (id)initWithClientId:(NSString*)theClientId
+- (instancetype)initWithClientId:(NSString*)theClientId
               userName:(NSString*)theUsername
               password:(NSString*)thePassword;
 
@@ -209,7 +206,7 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (id)initWithClientId:(NSString*)theClientId
+- (instancetype)initWithClientId:(NSString*)theClientId
               userName:(NSString*)theUserName
               password:(NSString*)thePassword
                runLoop:(NSRunLoop*)theRunLoop
@@ -224,7 +221,7 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (id)initWithClientId:(NSString*)theClientId
+- (instancetype)initWithClientId:(NSString*)theClientId
               userName:(NSString*)theUsername
               password:(NSString*)thePassword
              keepAlive:(UInt16)theKeepAliveInterval
@@ -241,7 +238,7 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (id)initWithClientId:(NSString*)theClientId
+- (instancetype)initWithClientId:(NSString*)theClientId
               userName:(NSString*)theUsername
               password:(NSString*)thePassword
              keepAlive:(UInt16)theKeepAlive
@@ -262,7 +259,7 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (id)initWithClientId:(NSString*)theClientId
+- (instancetype)initWithClientId:(NSString*)theClientId
               userName:(NSString*)theUserName
               password:(NSString*)thePassword
              keepAlive:(UInt16)theKeepAliveInterval
@@ -287,7 +284,7 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (id)initWithClientId:(NSString*)theClientId
+- (instancetype)initWithClientId:(NSString*)theClientId
               userName:(NSString*)theUserName
               password:(NSString*)thePassword
              keepAlive:(UInt16)theKeepAliveInterval
@@ -308,7 +305,7 @@
  @return the initialised MQTTSession object
  All other parameters are set to defaults
  */
-- (id)initWithClientId:(NSString*)theClientId
+- (instancetype)initWithClientId:(NSString*)theClientId
              keepAlive:(UInt16)theKeepAliveInterval
         connectMessage:(MQTTMessage*)theConnectMessage
                runLoop:(NSRunLoop*)theRunLoop
@@ -322,8 +319,7 @@
  @param connectHandler identifies a block which is executed on successfull or unsuccessfull connect. Might be nil
  error is nil in the case of a successful connect
  sessionPresent indicates in MQTT 3.1.1 if persistent session data was present at the server
- 
- @return nothing and returns immediately. To check the connect results, register as an MQTTSessionDelegate and
+ returns nothing and returns immediately. To check the connect results, register as an MQTTSessionDelegate and
  - watch for events
  - watch for connect or connectionRefused messages
  - watch for error messages
@@ -343,7 +339,6 @@
  }];
  @endcode
  
- @deprecated as not all connection parameters are supported, use connect
  */
 
 - (void)connectToHost:(NSString *)host
@@ -356,10 +351,8 @@
  @param host see connectToHost for description
  @param port see connectToHost for description
  @param usingSSL see connectToHost for description
- 
- @return see connectToHost for description
- @deprecated as not all connection parameters are supported, use connect
- 
+ returns see connectToHost for description
+
  */
 - (void)connectToHost:(NSString *)host port:(UInt32)port usingSSL:(BOOL)usingSSL;
 
@@ -369,7 +362,7 @@
  @param port see connectToHost for description
  @deprecated as not all connection parameters are supported, use connect
  */
-- (void)connectToHost:(NSString*)ip port:(UInt32)port;
+- (void)connectToHost:(NSString*)ip port:(UInt32)port __attribute__((deprecated));
 
 /** for mqttio-OBJC backward compatibility
  @param ip see connectToHost for description
@@ -382,7 +375,8 @@
 - (void)connectToHost:(NSString*)ip
                  port:(UInt32)port
 withConnectionHandler:(void (^)(MQTTSessionEvent event))connHandler
-       messageHandler:(void (^)(NSData* data, NSString* topic))messHandler;
+       messageHandler:(void (^)(NSData* data, NSString* topic))messHandler
+__attribute__((deprecated));
 
 /** for mqttio-OBJC backward compatibility
  @param ip see connectToHost for description

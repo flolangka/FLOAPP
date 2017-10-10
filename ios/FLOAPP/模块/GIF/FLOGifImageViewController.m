@@ -117,14 +117,15 @@
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
     
-    for (UIView *subV in cell.contentView.subviews) {
-        [subV removeFromSuperview];
+    UIImageView *imageV = [cell.contentView viewWithTag:1111];
+    if (!imageV) {
+        imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 5, CGRectGetWidth(cell.bounds), CGRectGetHeight(cell.bounds)-5)];
+        imageV.tag = 1111;
+        [cell.contentView addSubview:imageV];
     }
     
-    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 5, CGRectGetWidth(cell.bounds), CGRectGetHeight(cell.bounds)-5)];
     UIImage *gifImage = [UIImage sd_animatedGIFWithData:dataArr_gifImageData[indexPath.item]];
     imageV.image = gifImage;
-    [cell.contentView addSubview:imageV];
     
     return cell;
 }
