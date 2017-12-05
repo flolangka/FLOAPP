@@ -18,7 +18,9 @@
 
 #define Def_MBProgressString(str) Def_MBProgressStringDelay(str,2)
 #define Def_MBProgressStringDelay(str,delay) MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES]; progress.mode = MBProgressHUDModeText; progress.label.text = str; [progress hideAnimated:YES afterDelay:delay];
-#define Def_StrNowTime 
+
+#define Def_MBProgressShow [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+#define Def_MBProgressHide [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
 
 //数值转字符串
 #define Def_NSStringFromInteger(Integer) [NSString stringWithFormat:@"%ld", (long)Integer]

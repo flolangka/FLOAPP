@@ -36,6 +36,8 @@
 		7301A2001D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A1FF1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m */; };
 		7301A2031D6E97A500A4EC2E /* FLOAdjustFontSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2021D6E97A500A4EC2E /* FLOAdjustFontSizeView.m */; };
 		7301A2061D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */; };
+		730817481FBBEC7B0072A398 /* FLOMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730817471FBBEC7B0072A398 /* FLOMusicViewController.m */; };
+		7308174B1FBC0DE30072A398 /* FLOMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7308174A1FBC0DE30072A398 /* FLOMusicModel.m */; };
 		730A6E5D1EA9984700877681 /* FLORichTextEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E5C1EA9984700877681 /* FLORichTextEditorView.m */; };
 		730A6E621EA998A400877681 /* ZSSBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E5F1EA998A400877681 /* ZSSBarButtonItem.m */; };
 		730A6E631EA998A400877681 /* ZSSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E611EA998A400877681 /* ZSSTextView.m */; };
@@ -298,6 +300,10 @@
 		7301A2021D6E97A500A4EC2E /* FLOAdjustFontSizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeView.m; sourceTree = "<group>"; };
 		7301A2041D6E988500A4EC2E /* FLOAdjustFontSizeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOAdjustFontSizeLabel.h; sourceTree = "<group>"; };
 		7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeLabel.m; sourceTree = "<group>"; };
+		730817461FBBEC7B0072A398 /* FLOMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOMusicViewController.h; sourceTree = "<group>"; };
+		730817471FBBEC7B0072A398 /* FLOMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOMusicViewController.m; sourceTree = "<group>"; };
+		730817491FBC0DE30072A398 /* FLOMusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOMusicModel.h; sourceTree = "<group>"; };
+		7308174A1FBC0DE30072A398 /* FLOMusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOMusicModel.m; sourceTree = "<group>"; };
 		730A6E5B1EA9984700877681 /* FLORichTextEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLORichTextEditorView.h; sourceTree = "<group>"; };
 		730A6E5C1EA9984700877681 /* FLORichTextEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLORichTextEditorView.m; sourceTree = "<group>"; };
 		730A6E5E1EA998A400877681 /* ZSSBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSBarButtonItem.h; sourceTree = "<group>"; };
@@ -702,6 +708,18 @@
 			path = "模块/字体大小";
 			sourceTree = "<group>";
 		};
+		730817451FBBEC6A0072A398 /* 音乐 */ = {
+			isa = PBXGroup;
+			children = (
+				730817461FBBEC7B0072A398 /* FLOMusicViewController.h */,
+				730817471FBBEC7B0072A398 /* FLOMusicViewController.m */,
+				730817491FBC0DE30072A398 /* FLOMusicModel.h */,
+				7308174A1FBC0DE30072A398 /* FLOMusicModel.m */,
+			);
+			name = "音乐";
+			path = "模块/音乐";
+			sourceTree = "<group>";
+		};
 		730A6E5A1EA996E000877681 /* 富文本编辑器 */ = {
 			isa = PBXGroup;
 			children = (
@@ -979,6 +997,7 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				730817451FBBEC6A0072A398 /* 音乐 */,
 				739581A41F1EEFB200F9D230 /* 共享文件夹 */,
 				12E597D91EE6E96600949F6C /* 字符串加密、解密 */,
 				730A6E5A1EA996E000877681 /* 富文本编辑器 */,
@@ -1478,27 +1497,27 @@
 				TargetAttributes = {
 					120C15051E5057D1001A2B4E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = X928ZDD77C;
+						DevelopmentTeam = L4Y53T77KN;
 						ProvisioningStyle = Automatic;
 					};
 					12F956231E06C32E008699B2 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = X928ZDD77C;
+						DevelopmentTeam = L4Y53T77KN;
 						ProvisioningStyle = Automatic;
 					};
 					7348B5A71EA6FFD60011F8FA = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = X928ZDD77C;
+						DevelopmentTeam = L4Y53T77KN;
 						ProvisioningStyle = Automatic;
 					};
 					73F3A1891E4C63F400314D70 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = X928ZDD77C;
+						DevelopmentTeam = L4Y53T77KN;
 						ProvisioningStyle = Automatic;
 					};
 					84291A081C05867A0015F5F1 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = X928ZDD77C;
+						DevelopmentTeam = L4Y53T77KN;
 						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1762,6 +1781,7 @@
 				730A6E631EA998A400877681 /* ZSSTextView.m in Sources */,
 				84EEC5561C2396A30089454E /* FLOCodeResultViewController.m in Sources */,
 				12DE3E991CE0D5BA006D3989 /* FLOFontSizeViewController.m in Sources */,
+				730817481FBBEC7B0072A398 /* FLOMusicViewController.m in Sources */,
 				73BBD99B1E1E1A9100FAAFB3 /* Sort.swift in Sources */,
 				84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */,
 				849EEDCA1C26B6C900CD9A7C /* FLOWeiboDetailViewController.m in Sources */,
@@ -1795,6 +1815,7 @@
 				849EEDCD1C26C38700CD9A7C /* FLOWeiboReportComViewController.m in Sources */,
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
 				7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */,
+				7308174B1FBC0DE30072A398 /* FLOMusicModel.m in Sources */,
 				730A6FC91EA999FC00877681 /* FLORichTextEditorViewController.m in Sources */,
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
 				7374333F1EA49D6800BE39B3 /* NSDate+FLOUtil.m in Sources */,
@@ -1914,11 +1935,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X928ZDD77C;
+				DEVELOPMENT_TEAM = L4Y53T77KN;
 				INFOPLIST_FILE = FLONotiServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLONotiServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flo.FloAPP.FLONotiServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1933,11 +1954,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X928ZDD77C;
+				DEVELOPMENT_TEAM = L4Y53T77KN;
 				INFOPLIST_FILE = FLONotiServiceExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLONotiServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flo.FloAPP.FLONotiServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1952,11 +1973,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X928ZDD77C;
+				DEVELOPMENT_TEAM = L4Y53T77KN;
 				INFOPLIST_FILE = FLOAction/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLOAction;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flo.FloAPP.FLOAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1971,11 +1992,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X928ZDD77C;
+				DEVELOPMENT_TEAM = L4Y53T77KN;
 				INFOPLIST_FILE = FLOAction/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLOAction;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flo.FloAPP.FLOAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1989,11 +2010,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X928ZDD77C;
+				DEVELOPMENT_TEAM = L4Y53T77KN;
 				INFOPLIST_FILE = Flolangka/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.Flolangka;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flo.FloAPP.Flolangka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2007,11 +2028,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X928ZDD77C;
+				DEVELOPMENT_TEAM = L4Y53T77KN;
 				INFOPLIST_FILE = Flolangka/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.Flolangka;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flo.FloAPP.Flolangka;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2026,11 +2047,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X928ZDD77C;
+				DEVELOPMENT_TEAM = L4Y53T77KN;
 				INFOPLIST_FILE = FLONotiExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLONotiExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flo.FloAPP.FLONotiExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2045,11 +2066,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = X928ZDD77C;
+				DEVELOPMENT_TEAM = L4Y53T77KN;
 				INFOPLIST_FILE = FLONotiExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLONotiExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flo.FloAPP.FLONotiExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2162,7 +2183,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = X928ZDD77C;
+				DEVELOPMENT_TEAM = L4Y53T77KN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2242,7 +2263,7 @@
 					"-framework",
 					"\"XCTest\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flo.FloAPP;
 				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -2260,7 +2281,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = X928ZDD77C;
+				DEVELOPMENT_TEAM = L4Y53T77KN;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2340,7 +2361,7 @@
 					"-framework",
 					"\"XCTest\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flo.FloAPP;
 				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
