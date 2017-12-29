@@ -8,6 +8,7 @@
 
 #import "FLONotificationViewController.h"
 #import "UIView+FLOUtil.h"
+#import "FLONotificationTimeTableViewController.h"
 
 #import <UserNotifications/UserNotifications.h>
 
@@ -40,6 +41,18 @@
     arrTitle = @[@"None", @"WebUrl", @"PicUrl", @"AudioUrl"];
     arrUrl = @[@"", @"http://flolangka.com", @"http://z.k1982.com/png/up/200712/20071208032104478.png", @"http://fs.web.kugou.com/57eae966379661e1e723476504323935/589d5c14/G002/M04/06/03/ooYBAFUHvO-ATN7OADvOP775Nwc554.mp3"];
     [self configView];
+    
+    //导航栏
+    [self configNav];
+}
+
+- (void)configNav {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"定时通知" style:UIBarButtonItemStyleDone target:self action:@selector(timeNoti)];
+}
+
+- (void)timeNoti {
+    FLONotificationTimeTableViewController *tvc = [[FLONotificationTimeTableViewController alloc] init];
+    [self.navigationController pushViewController:tvc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -17,9 +17,15 @@
         <attribute name="parameterStr" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlPath" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="NotificationTime" representedClassName="NotificationTime" syncable="YES">
+        <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="DownloadFile" positionX="-63" positionY="9" width="128" height="150"/>
         <element name="MediaAddress" positionX="-63" positionY="0" width="128" height="73"/>
         <element name="NetWork" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="NotificationTime" positionX="-54" positionY="54" width="128" height="90"/>
     </elements>
 </model>
