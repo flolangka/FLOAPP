@@ -22,7 +22,7 @@
  
  This file contains implementation for mqttio-OBJC backward compatibility
  
- @author Christoph Krey krey.christoph@gmail.com
+ @author Christoph Krey c@ckrey.de
  @see http://mqtt.org
  */
 
@@ -371,11 +371,13 @@
 }
 
 
-- (void)connectToHost:(NSString*)ip port:(UInt32)port {
+- (void)connectToHost:(NSString*)ip
+                 port:(UInt32)port {
     [self connectToHost:ip port:port usingSSL:NO];
 }
 
-- (void)connectToHost:(NSString*)ip port:(UInt32)port
+- (void)connectToHost:(NSString*)ip
+                 port:(UInt32)port
 withConnectionHandler:(void (^)(MQTTSessionEvent event))connHandler
        messageHandler:(void (^)(NSData* data, NSString* topic))messHandler {
     self.messageHandler = messHandler;

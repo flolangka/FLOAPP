@@ -55,7 +55,7 @@ static NSString *dataBasePath;
 
 - (NSString *)databasePath
 {
-    NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
     NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:@"floapp.db"];
     return writableDBPath;
 }

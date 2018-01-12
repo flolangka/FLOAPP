@@ -30,9 +30,9 @@
     
     [MQTTService shareService].eventAction = ^(NSInteger event, NSString *str){
         if (textV.text.length) {
-            textV.text = [NSString stringWithFormat:@"%@\n%@: %@", textV.text, [self getNotTime], str];
+            textV.text = [NSString stringWithFormat:@"%@\n%@: %@", textV.text, [NSDate getNowTime], str];
         } else {
-            textV.text = [NSString stringWithFormat:@"%@: %@", [self getNotTime], str];
+            textV.text = [NSString stringWithFormat:@"%@: %@", [NSDate getNowTime], str];
         }
         
     };
@@ -48,23 +48,6 @@
     [super viewWillDisappear:animated];
     
     [[MQTTService shareService] close];
-}
-
-/**
- *  获取当前 时:分:秒.毫秒
- *
- *  @return 时:分:秒.毫秒
- */
-- (NSString *)getNotTime {
-    static NSDateFormatter *getNotTimeDateFormatter;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        getNotTimeDateFormatter = [[NSDateFormatter alloc] init];
-        [getNotTimeDateFormatter setDateFormat:@"HH:mm:ss.SSS"];
-    });
-    
-    return [getNotTimeDateFormatter stringFromDate:[NSDate date]];
 }
 
 - (void)didReceiveMemoryWarning {

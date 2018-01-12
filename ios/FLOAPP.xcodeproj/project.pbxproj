@@ -37,6 +37,8 @@
 		7301A2001D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A1FF1D6E88F100A4EC2E /* FLOAdjustFontSizeViewController.m */; };
 		7301A2031D6E97A500A4EC2E /* FLOAdjustFontSizeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2021D6E97A500A4EC2E /* FLOAdjustFontSizeView.m */; };
 		7301A2061D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */; };
+		730817481FBBEC7B0072A398 /* FLOMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 730817471FBBEC7B0072A398 /* FLOMusicViewController.m */; };
+		7308174B1FBC0DE30072A398 /* FLOMusicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7308174A1FBC0DE30072A398 /* FLOMusicModel.m */; };
 		730A6E5D1EA9984700877681 /* FLORichTextEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E5C1EA9984700877681 /* FLORichTextEditorView.m */; };
 		730A6E621EA998A400877681 /* ZSSBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E5F1EA998A400877681 /* ZSSBarButtonItem.m */; };
 		730A6E631EA998A400877681 /* ZSSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 730A6E611EA998A400877681 /* ZSSTextView.m */; };
@@ -132,7 +134,7 @@
 		7348B5AA1EA6FFD60011F8FA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */; };
 		7348B5AE1EA6FFD60011F8FA /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */; };
 		7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */; };
-		7348B5B51EA6FFD60011F8FA /* Flolangka.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7348B5A81EA6FFD60011F8FA /* Flolangka.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7348B5B51EA6FFD60011F8FA /* FlolangkaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7374333F1EA49D6800BE39B3 /* NSDate+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7374333E1EA49D6800BE39B3 /* NSDate+FLOUtil.m */; };
 		737433421EA4A6E400BE39B3 /* FLODocumentPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737433411EA4A6E400BE39B3 /* FLODocumentPreviewViewController.m */; };
 		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
@@ -141,6 +143,9 @@
 		7376EBCC1D640CB3001D1BD3 /* UIImage+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC51D640CB3001D1BD3 /* UIImage+FLOUtil.m */; };
 		7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */; };
 		7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */; };
+		739581A71F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 739581A61F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m */; };
+		73B56E0F1FF60BEA00877550 /* NotificationTime+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B56E0C1FF60BEA00877550 /* NotificationTime+CoreDataClass.m */; };
+		73B56E101FF60BEA00877550 /* NotificationTime+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B56E0E1FF60BEA00877550 /* NotificationTime+CoreDataProperties.m */; };
 		73BBD9881E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD9871E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m */; };
 		73BBD9901E1E13D700FAAFB3 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD98C1E1E13D700FAAFB3 /* SortView.swift */; };
 		73BBD9911E1E13D700FAAFB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD98D1E1E13D700FAAFB3 /* ViewController.swift */; };
@@ -148,6 +153,8 @@
 		73BBD99C1E1E1A9100FAAFB3 /* SortClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD99A1E1E1A9100FAAFB3 /* SortClass.swift */; };
 		73D3F72D1E852120007C739F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D3F72C1E852120007C739F /* XCTest.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		73E7E0BD1E20BF9100793ABA /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E7E0BC1E20BF9100793ABA /* YYFPSLabel.m */; };
+		73F08F3A1FF5D49D00D01137 /* FLONotificationTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F08F391FF5D49D00D01137 /* FLONotificationTimeTableViewController.m */; };
+		73F08F501FF5E5CA00D01137 /* FLONotificationTimeAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F08F4F1FF5E5CA00D01137 /* FLONotificationTimeAddViewController.m */; };
 		73F3A18B1E4C63F400314D70 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7323C45A1E4ACBAD00543251 /* UserNotifications.framework */; };
 		73F3A18C1E4C63F400314D70 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */; };
 		73F3A1901E4C63F400314D70 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3A18F1E4C63F400314D70 /* NotificationViewController.m */; };
@@ -237,7 +244,7 @@
 			files = (
 				73F3A1971E4C63F400314D70 /* FLONotiExtension.appex in Embed App Extensions */,
 				120C150E1E5057D1001A2B4E /* FLONotiServiceExtension.appex in Embed App Extensions */,
-				7348B5B51EA6FFD60011F8FA /* Flolangka.appex in Embed App Extensions */,
+				7348B5B51EA6FFD60011F8FA /* FlolangkaWidget.appex in Embed App Extensions */,
 				12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -299,6 +306,10 @@
 		7301A2021D6E97A500A4EC2E /* FLOAdjustFontSizeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeView.m; sourceTree = "<group>"; };
 		7301A2041D6E988500A4EC2E /* FLOAdjustFontSizeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOAdjustFontSizeLabel.h; sourceTree = "<group>"; };
 		7301A2051D6E988500A4EC2E /* FLOAdjustFontSizeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAdjustFontSizeLabel.m; sourceTree = "<group>"; };
+		730817461FBBEC7B0072A398 /* FLOMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOMusicViewController.h; sourceTree = "<group>"; };
+		730817471FBBEC7B0072A398 /* FLOMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOMusicViewController.m; sourceTree = "<group>"; };
+		730817491FBC0DE30072A398 /* FLOMusicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOMusicModel.h; sourceTree = "<group>"; };
+		7308174A1FBC0DE30072A398 /* FLOMusicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOMusicModel.m; sourceTree = "<group>"; };
 		730A6E5B1EA9984700877681 /* FLORichTextEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLORichTextEditorView.h; sourceTree = "<group>"; };
 		730A6E5C1EA9984700877681 /* FLORichTextEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLORichTextEditorView.m; sourceTree = "<group>"; };
 		730A6E5E1EA998A400877681 /* ZSSBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZSSBarButtonItem.h; sourceTree = "<group>"; };
@@ -405,7 +416,7 @@
 		7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadManager.m; sourceTree = "<group>"; };
 		7337FA6D1EA0C7CC00DFBD9D /* FLODownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLODownloadTableViewController.h; sourceTree = "<group>"; };
 		7337FA6E1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadTableViewController.m; sourceTree = "<group>"; };
-		7348B5A81EA6FFD60011F8FA /* Flolangka.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Flolangka.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlolangkaWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7348B5AC1EA6FFD60011F8FA /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
@@ -426,6 +437,13 @@
 		7376EBC71D640CB3001D1BD3 /* UILabel+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FLOUtil.m"; sourceTree = "<group>"; };
 		7376EBC81D640CB3001D1BD3 /* UIView+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLOUtil.h"; sourceTree = "<group>"; };
 		7376EBC91D640CB3001D1BD3 /* UIView+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLOUtil.m"; sourceTree = "<group>"; };
+		739581A51F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOShareDirectoryTableViewController.h; sourceTree = "<group>"; };
+		739581A61F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOShareDirectoryTableViewController.m; sourceTree = "<group>"; };
+		73B56E0A1FF60B3100877550 /* FLOCoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FLOCoreData 2.xcdatamodel"; sourceTree = "<group>"; };
+		73B56E0B1FF60BEA00877550 /* NotificationTime+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotificationTime+CoreDataClass.h"; sourceTree = "<group>"; };
+		73B56E0C1FF60BEA00877550 /* NotificationTime+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NotificationTime+CoreDataClass.m"; sourceTree = "<group>"; };
+		73B56E0D1FF60BEA00877550 /* NotificationTime+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NotificationTime+CoreDataProperties.h"; sourceTree = "<group>"; };
+		73B56E0E1FF60BEA00877550 /* NotificationTime+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NotificationTime+CoreDataProperties.m"; sourceTree = "<group>"; };
 		73BBD9861E1DEB7100FAAFB3 /* FLOCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOCollectionViewLayout.h; sourceTree = "<group>"; };
 		73BBD9871E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOCollectionViewLayout.m; sourceTree = "<group>"; };
 		73BBD98C1E1E13D700FAAFB3 /* SortView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortView.swift; sourceTree = "<group>"; };
@@ -436,6 +454,10 @@
 		73E537E91D8150DF005FB419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		73E7E0BB1E20BF9100793ABA /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YYFPSLabel.h; path = Global/YYFPSLabel.h; sourceTree = "<group>"; };
 		73E7E0BC1E20BF9100793ABA /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YYFPSLabel.m; path = Global/YYFPSLabel.m; sourceTree = "<group>"; };
+		73F08F381FF5D49D00D01137 /* FLONotificationTimeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONotificationTimeTableViewController.h; sourceTree = "<group>"; };
+		73F08F391FF5D49D00D01137 /* FLONotificationTimeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONotificationTimeTableViewController.m; sourceTree = "<group>"; };
+		73F08F4E1FF5E5CA00D01137 /* FLONotificationTimeAddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONotificationTimeAddViewController.h; sourceTree = "<group>"; };
+		73F08F4F1FF5E5CA00D01137 /* FLONotificationTimeAddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONotificationTimeAddViewController.m; sourceTree = "<group>"; };
 		73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FLONotiExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F3A18E1E4C63F400314D70 /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		73F3A18F1E4C63F400314D70 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
@@ -599,6 +621,7 @@
 				7337FA5E1EA0704200DFBD9D /* NetWork */,
 				7337FA5F1EA0704D00DFBD9D /* MediaAddress */,
 				7337FA691EA0741600DFBD9D /* DownloadFile */,
+				73F08F3B1FF5D70300D01137 /* NotificationTime */,
 			);
 			name = CoreData;
 			path = "模块/CoreData";
@@ -708,6 +731,18 @@
 			);
 			name = "调整字号";
 			path = "模块/字体大小";
+			sourceTree = "<group>";
+		};
+		730817451FBBEC6A0072A398 /* 音乐 */ = {
+			isa = PBXGroup;
+			children = (
+				730817461FBBEC7B0072A398 /* FLOMusicViewController.h */,
+				730817471FBBEC7B0072A398 /* FLOMusicViewController.m */,
+				730817491FBC0DE30072A398 /* FLOMusicModel.h */,
+				7308174A1FBC0DE30072A398 /* FLOMusicModel.m */,
+			);
+			name = "音乐";
+			path = "模块/音乐";
 			sourceTree = "<group>";
 		};
 		730A6E5A1EA996E000877681 /* 富文本编辑器 */ = {
@@ -886,7 +921,7 @@
 			name = DownloadFile;
 			sourceTree = "<group>";
 		};
-		7348B5AB1EA6FFD60011F8FA /* Flolangka */ = {
+		7348B5AB1EA6FFD60011F8FA /* FlolangkaWidget */ = {
 			isa = PBXGroup;
 			children = (
 				7348B5AC1EA6FFD60011F8FA /* TodayViewController.h */,
@@ -894,6 +929,7 @@
 				7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */,
 				7348B5B21EA6FFD60011F8FA /* Info.plist */,
 			);
+			name = FlolangkaWidget;
 			path = Flolangka;
 			sourceTree = "<group>";
 		};
@@ -919,6 +955,16 @@
 			path = "模块/FLOUtility";
 			sourceTree = "<group>";
 		};
+		739581A41F1EEFB200F9D230 /* 共享文件夹 */ = {
+			isa = PBXGroup;
+			children = (
+				739581A51F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.h */,
+				739581A61F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m */,
+			);
+			name = "共享文件夹";
+			path = "模块/共享文件夹";
+			sourceTree = "<group>";
+		};
 		73BBD9891E1E13D700FAAFB3 /* 排序 */ = {
 			isa = PBXGroup;
 			children = (
@@ -929,6 +975,17 @@
 			);
 			name = "排序";
 			path = "模块/排序";
+			sourceTree = "<group>";
+		};
+		73F08F3B1FF5D70300D01137 /* NotificationTime */ = {
+			isa = PBXGroup;
+			children = (
+				73B56E0B1FF60BEA00877550 /* NotificationTime+CoreDataClass.h */,
+				73B56E0C1FF60BEA00877550 /* NotificationTime+CoreDataClass.m */,
+				73B56E0D1FF60BEA00877550 /* NotificationTime+CoreDataProperties.h */,
+				73B56E0E1FF60BEA00877550 /* NotificationTime+CoreDataProperties.m */,
+			);
+			name = NotificationTime;
 			sourceTree = "<group>";
 		};
 		73F3A18D1E4C63F400314D70 /* FLONotiContentExtension */ = {
@@ -948,6 +1005,10 @@
 			children = (
 				73F3A19D1E4C6DB100314D70 /* FLONotificationViewController.h */,
 				73F3A19E1E4C6DB100314D70 /* FLONotificationViewController.m */,
+				73F08F381FF5D49D00D01137 /* FLONotificationTimeTableViewController.h */,
+				73F08F391FF5D49D00D01137 /* FLONotificationTimeTableViewController.m */,
+				73F08F4E1FF5E5CA00D01137 /* FLONotificationTimeAddViewController.h */,
+				73F08F4F1FF5E5CA00D01137 /* FLONotificationTimeAddViewController.m */,
 			);
 			name = Notifier;
 			path = "模块/Notifier";
@@ -976,6 +1037,8 @@
 		840EE8151C11E4CB00DFE53E /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				730817451FBBEC6A0072A398 /* 音乐 */,
+				739581A41F1EEFB200F9D230 /* 共享文件夹 */,
 				12E597D91EE6E96600949F6C /* 字符串加密、解密 */,
 				730A6E5A1EA996E000877681 /* 富文本编辑器 */,
 				7337FA541EA0697C00DFBD9D /* 下载 */,
@@ -1041,7 +1104,7 @@
 				12F956251E06C32E008699B2 /* FLOAction */,
 				73F3A18D1E4C63F400314D70 /* FLONotiContentExtension */,
 				120C15071E5057D1001A2B4E /* FLONotiServiceExtension */,
-				7348B5AB1EA6FFD60011F8FA /* Flolangka */,
+				7348B5AB1EA6FFD60011F8FA /* FlolangkaWidget */,
 				84291A0A1C05867A0015F5F1 /* Products */,
 				3180D5F5966FFFBE11E63FAD /* Pods */,
 				BA1A1955340CBA90421877C7 /* Frameworks */,
@@ -1055,7 +1118,7 @@
 				12F956241E06C32E008699B2 /* FLOAction.appex */,
 				73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */,
 				120C15061E5057D1001A2B4E /* FLONotiServiceExtension.appex */,
-				7348B5A81EA6FFD60011F8FA /* Flolangka.appex */,
+				7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1405,9 +1468,9 @@
 			productReference = 12F956241E06C32E008699B2 /* FLOAction.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		7348B5A71EA6FFD60011F8FA /* Flolangka */ = {
+		7348B5A71EA6FFD60011F8FA /* FlolangkaWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7348B5B81EA6FFD60011F8FA /* Build configuration list for PBXNativeTarget "Flolangka" */;
+			buildConfigurationList = 7348B5B81EA6FFD60011F8FA /* Build configuration list for PBXNativeTarget "FlolangkaWidget" */;
 			buildPhases = (
 				7348B5A41EA6FFD60011F8FA /* Sources */,
 				7348B5A51EA6FFD60011F8FA /* Frameworks */,
@@ -1417,9 +1480,9 @@
 			);
 			dependencies = (
 			);
-			name = Flolangka;
+			name = FlolangkaWidget;
 			productName = Flolangka;
-			productReference = 7348B5A81EA6FFD60011F8FA /* Flolangka.appex */;
+			productReference = 7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		73F3A1891E4C63F400314D70 /* FLONotiExtension */ = {
@@ -1470,7 +1533,7 @@
 		84291A011C05867A0015F5F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Flolangka;
 				TargetAttributes = {
 					120C15051E5057D1001A2B4E = {
@@ -1522,7 +1585,7 @@
 				12F956231E06C32E008699B2 /* FLOAction */,
 				73F3A1891E4C63F400314D70 /* FLONotiExtension */,
 				120C15051E5057D1001A2B4E /* FLONotiServiceExtension */,
-				7348B5A71EA6FFD60011F8FA /* Flolangka */,
+				7348B5A71EA6FFD60011F8FA /* FlolangkaWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -1664,13 +1727,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FLOAPP-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4FC95C759CAF6AB0AB86D771 /* [CP] Copy Pods Resources */ = {
@@ -1679,9 +1745,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP-resources.sh",
+				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1753,17 +1823,21 @@
 				730A6E631EA998A400877681 /* ZSSTextView.m in Sources */,
 				84EEC5561C2396A30089454E /* FLOCodeResultViewController.m in Sources */,
 				12DE3E991CE0D5BA006D3989 /* FLOFontSizeViewController.m in Sources */,
+				730817481FBBEC7B0072A398 /* FLOMusicViewController.m in Sources */,
 				73BBD99B1E1E1A9100FAAFB3 /* Sort.swift in Sources */,
 				84DD6E771C05A106005C1AE2 /* FLOLoginViewController.m in Sources */,
 				849EEDCA1C26B6C900CD9A7C /* FLOWeiboDetailViewController.m in Sources */,
 				841FD2211C1EA2DC003D4F81 /* FLOBookMarkModel.m in Sources */,
+				739581A71F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m in Sources */,
 				73FEAD7F1D7012160053AD6D /* FLOGifImageViewController.m in Sources */,
 				845D32C51C1ED16F00831C70 /* FLOAddBookMarkMaskView.m in Sources */,
 				1239A92A1D7862E00064C15C /* FLONetWorkTableViewController.m in Sources */,
+				73B56E0F1FF60BEA00877550 /* NotificationTime+CoreDataClass.m in Sources */,
 				84DA68BD1C227F6E001B9E79 /* FLOWeiboStatusTableViewCell.m in Sources */,
 				7376EBCE1D640CB3001D1BD3 /* UIView+FLOUtil.m in Sources */,
 				7337FA681EA073F700DFBD9D /* DownloadFile+CoreDataProperties.m in Sources */,
 				730A6E7D1EA998DE00877681 /* CYRToken.m in Sources */,
+				73F08F501FF5E5CA00D01137 /* FLONotificationTimeAddViewController.m in Sources */,
 				730A6E7C1EA998DE00877681 /* CYRTextView.m in Sources */,
 				84EEC5531C2396690089454E /* FLOCodeViewController.m in Sources */,
 				7376EBCD1D640CB3001D1BD3 /* UILabel+FLOUtil.m in Sources */,
@@ -1785,10 +1859,13 @@
 				849EEDCD1C26C38700CD9A7C /* FLOWeiboReportComViewController.m in Sources */,
 				842FE8BF1C06E247005B27D5 /* FLOAccountManager.m in Sources */,
 				7376EBCB1D640CB3001D1BD3 /* NSString+FLOUtil.m in Sources */,
+				7308174B1FBC0DE30072A398 /* FLOMusicModel.m in Sources */,
 				730A6FC91EA999FC00877681 /* FLORichTextEditorViewController.m in Sources */,
+				73B56E101FF60BEA00877550 /* NotificationTime+CoreDataProperties.m in Sources */,
 				84DD6E841C05AB06005C1AE2 /* FLOLeftMenuVC.m in Sources */,
 				7374333F1EA49D6800BE39B3 /* NSDate+FLOUtil.m in Sources */,
 				841FD21D1C1E9E40003D4F81 /* FLODataBaseEngin.m in Sources */,
+				73F08F3A1FF5D49D00D01137 /* FLONotificationTimeTableViewController.m in Sources */,
 				849265F61C27A95F00261F36 /* FLOTouchIDViewController.m in Sources */,
 				730A6E7A1EA998DE00877681 /* CYRLayoutManager.m in Sources */,
 				1274C7621E13EE35003F1FD5 /* FLOWaterFallViewController.m in Sources */,
@@ -1841,7 +1918,7 @@
 		};
 		7348B5B41EA6FFD60011F8FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7348B5A71EA6FFD60011F8FA /* Flolangka */;
+			target = 7348B5A71EA6FFD60011F8FA /* FlolangkaWidget */;
 			targetProxy = 7348B5B31EA6FFD60011F8FA /* PBXContainerItemProxy */;
 		};
 		73F3A1961E4C63F400314D70 /* PBXTargetDependency */ = {
@@ -2053,14 +2130,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -2098,14 +2181,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -2134,6 +2223,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB4495329B11930D78F4441D /* Pods-FLOAPP.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2231,6 +2321,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F3082D274C70DF38A7A3505 /* Pods-FLOAPP.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2345,7 +2436,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7348B5B81EA6FFD60011F8FA /* Build configuration list for PBXNativeTarget "Flolangka" */ = {
+		7348B5B81EA6FFD60011F8FA /* Build configuration list for PBXNativeTarget "FlolangkaWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7348B5B61EA6FFD60011F8FA /* Debug */,
@@ -2387,9 +2478,10 @@
 		1239A9331D7DA5120064C15C /* FLOCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				73B56E0A1FF60B3100877550 /* FLOCoreData 2.xcdatamodel */,
 				1239A9341D7DA5120064C15C /* FLOCoreData.xcdatamodel */,
 			);
-			currentVersion = 1239A9341D7DA5120064C15C /* FLOCoreData.xcdatamodel */;
+			currentVersion = 73B56E0A1FF60B3100877550 /* FLOCoreData 2.xcdatamodel */;
 			path = FLOCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

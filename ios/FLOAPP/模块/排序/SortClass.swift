@@ -80,6 +80,7 @@ class SortBaseClass {
 }
 
 /// 冒泡排序：时间复杂度----O(n^2)
+/* 一轮一轮的从后面开始，将比较小的往前挪 */
 class BubbleSort: SortBaseClass, SortType {
     func sort(_ items: Array<Int>) -> Array<Int> {
         //print("冒泡排序：")
@@ -104,8 +105,8 @@ class BubbleSort: SortBaseClass, SortType {
     }
 }
 
-
 /// 插入排序-O(n^2)
+/* 从第二个开始，依次往前比较，直到比前面的数大 */
 class InsertSort: SortBaseClass, SortType{
     func sort(_ items: Array<Int>) -> Array<Int> {
         //print("插入排序")
@@ -138,6 +139,7 @@ class InsertSort: SortBaseClass, SortType{
 }
 
 //希尔排序：时间复杂度----O(n^(3/2))
+/* 多次步长为\(step)的插入排序 步长越来越小*/
 class ShellSort: SortBaseClass, SortType {
     func sort(_ items: Array<Int>) -> Array<Int> {
         //print("希尔排序")
@@ -172,6 +174,7 @@ class ShellSort: SortBaseClass, SortType {
 }
 
 /// 简单选择排序－O(n^2)
+/* i=0;i++ 从i开始遍历出最小值与i互换位置 */
 class SimpleSelectionSort: SortBaseClass, SortType {
     func sort(_ items: Array<Int>) -> Array<Int> {
         //print("简单选择排序")
@@ -188,6 +191,7 @@ class SimpleSelectionSort: SortBaseClass, SortType {
                     minValue = list[j]
                     minIndex = j
                 }
+                // 该更新无意义，只是可以更直观看出排序过程
                 displayResult(j, value: list[j])
                 j = j + 1
             }

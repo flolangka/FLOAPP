@@ -18,3 +18,31 @@
 
 @end
 
+
+/* CoreData 基本使用
+ 
+ #import "MediaAddress+CoreDataClass.h"
+ #import "APLCoreDataStackManager.h"
+ 
+ // 查询
+ - (void)fetchData {
+ //建立请求
+ NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"MediaAddress"];
+ //读取数据
+ NSArray *array = [[APLCoreDataStackManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
+ 
+ dataArr = [NSMutableArray arrayWithArray:array];
+ }
+ 
+ 
+ // 插入
+ MediaAddress *obj = [NSEntityDescription insertNewObjectForEntityForName:@"MediaAddress" inManagedObjectContext:[APLCoreDataStackManager sharedManager].managedObjectContext];
+ obj.name = name;
+ obj.url = urlStr;
+ [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
+ 
+ 
+ // 删除
+ [[APLCoreDataStackManager sharedManager].managedObjectContext deleteObject:dataArr[indexPath.row]];
+ [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
+ */

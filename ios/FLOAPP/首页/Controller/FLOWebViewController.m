@@ -84,8 +84,7 @@
         [wkWebView loadHTMLString:HTMLString baseURL:nil];
     } else {
         [wkWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_webViewAddress]]];
-    }
-    
+    }    
 }
 
 #pragma mark - 配置toolBar

@@ -15,6 +15,6 @@
  *
  *  @return 时:分:秒.毫秒
  */
-+ (NSString *)getNotTime;
++ (NSString *)getNowTime;
 
 @end

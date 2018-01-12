@@ -13,6 +13,11 @@
 // 删除末尾空格
 - (NSString *)flo_stringByDeleteLastSpace;
 
+- (NSString *)StringEncoded2UTF8String;
 
+- (NSString *)StringDecoded2UTF8String;
+
+//普通字符串转换为十六进制的
+- (NSString *)hexString;
 
 @end
