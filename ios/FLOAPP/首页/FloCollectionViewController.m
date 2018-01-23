@@ -150,7 +150,7 @@
     
     //图标
     if ([item.itemIconURLStr hasPrefix:@"http"]) {
-        [imageV sd_setImageWithURL:[NSURL URLWithString:item.itemIconURLStr] placeholderImage:[UIImage imageNamed:@"iOS"]];
+        [imageV sd_setImageWithURL:[NSURL URLWithString:item.itemIconURLStr] placeholderImage:[UIImage imageNamed:@"interesting"]];
     } else {
         imageV.image = [UIImage imageNamed:item.itemIconURLStr];
     }

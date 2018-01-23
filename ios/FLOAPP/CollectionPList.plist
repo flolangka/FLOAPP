@@ -22,7 +22,7 @@
 		<key>ItemName</key>
 		<string>UIFont</string>
 		<key>ItemIconURL</key>
-		<string>https://cdn.rawgit.com/dtgm/chocolatey-packages/09cd515153eed9aaa929eaf022889bcb8419d601/icons/nexusfont.png</string>
+		<string>http://files.softicons.com/download/system-icons/reality-icons-by-kidaubis/png/256/Folder%20My%20Font.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDFontTableViewController</string>
 	</dict>
@@ -134,7 +134,7 @@
 		<key>ItemName</key>
 		<string>排序</string>
 		<key>ItemIconURL</key>
-		<string>http://img2.web07.cn/UpPic/Png/201410/09/270081090119121.png</string>
+		<string>http://files.softicons.com/download/toolbar-icons/pretty-office-ix-icons-by-custom-icon-design/png/256x256/sortdescend.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDSortViewController</string>
 	</dict>
