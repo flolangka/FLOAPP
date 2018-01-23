@@ -145,6 +145,7 @@
 		739581A71F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 739581A61F1EEFF300F9D230 /* FLOShareDirectoryTableViewController.m */; };
 		73B56E0F1FF60BEA00877550 /* NotificationTime+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B56E0C1FF60BEA00877550 /* NotificationTime+CoreDataClass.m */; };
 		73B56E101FF60BEA00877550 /* NotificationTime+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B56E0E1FF60BEA00877550 /* NotificationTime+CoreDataProperties.m */; };
+		73B6F14F20107635003530B7 /* Monody.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7345F1A5201073E8001257CE /* Monody.caf */; };
 		73BBD9881E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD9871E1DEB7100FAAFB3 /* FLOCollectionViewLayout.m */; };
 		73BBD9901E1E13D700FAAFB3 /* SortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD98C1E1E13D700FAAFB3 /* SortView.swift */; };
 		73BBD9911E1E13D700FAAFB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73BBD98D1E1E13D700FAAFB3 /* ViewController.swift */; };
@@ -414,6 +415,7 @@
 		7337FA6B1EA0747900DFBD9D /* FLODownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadManager.m; sourceTree = "<group>"; };
 		7337FA6D1EA0C7CC00DFBD9D /* FLODownloadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLODownloadTableViewController.h; sourceTree = "<group>"; };
 		7337FA6E1EA0C7CC00DFBD9D /* FLODownloadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODownloadTableViewController.m; sourceTree = "<group>"; };
+		7345F1A5201073E8001257CE /* Monody.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Monody.caf; sourceTree = "<group>"; };
 		7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlolangkaWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7348B5AC1EA6FFD60011F8FA /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -992,6 +994,7 @@
 		73F3A19C1E4C6BF100314D70 /* Notifier */ = {
 			isa = PBXGroup;
 			children = (
+				7345F1A5201073E8001257CE /* Monody.caf */,
 				73F3A19D1E4C6DB100314D70 /* FLONotificationViewController.h */,
 				73F3A19E1E4C6DB100314D70 /* FLONotificationViewController.m */,
 				73F08F381FF5D49D00D01137 /* FLONotificationTimeTableViewController.h */,
@@ -1548,6 +1551,7 @@
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = X928ZDD77C;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -1622,6 +1626,7 @@
 				730A6F911EA9999400877681 /* ZSShorizontalrule@2x.png in Resources */,
 				730A6FB31EA9999400877681 /* ZSSsubscript@2x.png in Resources */,
 				730A6F971EA9999400877681 /* ZSSindent@2x.png in Resources */,
+				73B6F14F20107635003530B7 /* Monody.caf in Resources */,
 				730A6F8A1EA9999400877681 /* ZSSh4.png in Resources */,
 				730A6F891EA9999400877681 /* ZSSh3@2x.png in Resources */,
 				730A6F7D1EA9999400877681 /* ZSScenterjustify@2x.png in Resources */,
@@ -2215,6 +2220,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = X928ZDD77C;
 				ENABLE_BITCODE = NO;
@@ -2299,6 +2305,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
 				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2313,6 +2320,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = X928ZDD77C;
 				ENABLE_BITCODE = NO;
@@ -2397,6 +2405,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP;
 				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
