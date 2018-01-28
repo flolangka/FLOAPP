@@ -162,6 +162,7 @@
 		73F3A1931E4C63F400314D70 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3A1911E4C63F400314D70 /* MainInterface.storyboard */; };
 		73F3A1971E4C63F400314D70 /* FLONotiExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		73F3A19F1E4C6DB100314D70 /* FLONotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3A19E1E4C6DB100314D70 /* FLONotificationViewController.m */; };
+		73F5F019201D9F320019A9FD /* Class_Historian.caf in Resources */ = {isa = PBXBuildFile; fileRef = 73F5F018201D9F160019A9FD /* Class_Historian.caf */; };
 		73F8536F1EA872D2007EFBAB /* DownloadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F8536E1EA872D2007EFBAB /* DownloadService.m */; };
 		73FEAD7F1D7012160053AD6D /* FLOGifImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEAD7E1D7012160053AD6D /* FLOGifImageViewController.m */; };
 		840EE8191C11E51400DFE53E /* FLOFontTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EE8181C11E51400DFE53E /* FLOFontTableViewController.m */; };
@@ -467,6 +468,7 @@
 		73F3A1941E4C63F400314D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73F3A19D1E4C6DB100314D70 /* FLONotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLONotificationViewController.h; sourceTree = "<group>"; };
 		73F3A19E1E4C6DB100314D70 /* FLONotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLONotificationViewController.m; sourceTree = "<group>"; };
+		73F5F018201D9F160019A9FD /* Class_Historian.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Class_Historian.caf; sourceTree = "<group>"; };
 		73F8536D1EA872D2007EFBAB /* DownloadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadService.h; sourceTree = "<group>"; };
 		73F8536E1EA872D2007EFBAB /* DownloadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadService.m; sourceTree = "<group>"; };
 		73FEAD7D1D7012160053AD6D /* FLOGifImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLOGifImageViewController.h; path = "模块/GIF/FLOGifImageViewController.h"; sourceTree = "<group>"; };
@@ -1005,7 +1007,7 @@
 		73F3A19C1E4C6BF100314D70 /* Notifier */ = {
 			isa = PBXGroup;
 			children = (
-				7345F1A5201073E8001257CE /* Monody.caf */,
+				73F5F017201D9EF40019A9FD /* sound */,
 				73F3A19D1E4C6DB100314D70 /* FLONotificationViewController.h */,
 				73F3A19E1E4C6DB100314D70 /* FLONotificationViewController.m */,
 				73F08F381FF5D49D00D01137 /* FLONotificationTimeTableViewController.h */,
@@ -1015,6 +1017,15 @@
 			);
 			name = Notifier;
 			path = "模块/Notifier";
+			sourceTree = "<group>";
+		};
+		73F5F017201D9EF40019A9FD /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				7345F1A5201073E8001257CE /* Monody.caf */,
+				73F5F018201D9F160019A9FD /* Class_Historian.caf */,
+			);
+			path = sound;
 			sourceTree = "<group>";
 		};
 		73FEAD7C1D7011BE0053AD6D /* Gif */ = {
@@ -1671,6 +1682,7 @@
 				730A6F7C1EA9999400877681 /* ZSScenterjustify.png in Resources */,
 				730A6FB01EA9999400877681 /* ZSSstrikethrough.png in Resources */,
 				730A6F8E1EA9999400877681 /* ZSSh6.png in Resources */,
+				73F5F019201D9F320019A9FD /* Class_Historian.caf in Resources */,
 				730A6FAC1EA9999400877681 /* ZSSredo.png in Resources */,
 				730A6F9D1EA9999400877681 /* ZSSkeyboard@2x.png in Resources */,
 				730A6FC41EA9999400877681 /* jQuery.js in Resources */,

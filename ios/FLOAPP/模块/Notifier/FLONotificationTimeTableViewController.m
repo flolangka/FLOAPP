@@ -111,7 +111,7 @@
     
     //延时推送通知
     UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
-    content.sound = [UNNotificationSound soundNamed:@"Monody.caf"];
+    content.sound = [UNNotificationSound soundNamed:@"Class_Historian.caf"];
     content.title = obj.title;
     content.body = obj.body;
     
