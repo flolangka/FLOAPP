@@ -425,6 +425,7 @@
 		7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		7348B5B01EA6FFD60011F8FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7348B5B21EA6FFD60011F8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		735C1A1B201DBF7400416E2D /* FLOCoreData 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FLOCoreData 3.xcdatamodel"; sourceTree = "<group>"; };
 		7374333D1EA49D6800BE39B3 /* NSDate+FLOUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+FLOUtil.h"; sourceTree = "<group>"; };
 		7374333E1EA49D6800BE39B3 /* NSDate+FLOUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+FLOUtil.m"; sourceTree = "<group>"; };
 		737433401EA4A6E400BE39B3 /* FLODocumentPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLODocumentPreviewViewController.h; path = "模块/FLODocumentPreviewViewController.h"; sourceTree = "<group>"; };
@@ -2499,10 +2500,11 @@
 		1239A9331D7DA5120064C15C /* FLOCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				735C1A1B201DBF7400416E2D /* FLOCoreData 3.xcdatamodel */,
 				73B56E0A1FF60B3100877550 /* FLOCoreData 2.xcdatamodel */,
 				1239A9341D7DA5120064C15C /* FLOCoreData.xcdatamodel */,
 			);
-			currentVersion = 73B56E0A1FF60B3100877550 /* FLOCoreData 2.xcdatamodel */;
+			currentVersion = 735C1A1B201DBF7400416E2D /* FLOCoreData 3.xcdatamodel */;
 			path = FLOCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

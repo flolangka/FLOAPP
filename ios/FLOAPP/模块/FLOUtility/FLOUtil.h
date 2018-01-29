@@ -19,13 +19,21 @@
 //2倍屏、3倍屏；乘以宽高即为分辨率
 #define DEVICE_SCREEN_SCALE [UIScreen mainScreen].scale
 
+#define iPhoneX (CGSizeEqualToSize(CGSizeMake(375, 812), [[UIScreen mainScreen] bounds].size))
+
+//iphonex底部增加的高
+#define IPHONEXBOTTOMADDHEIGHT (iPhoneX ? 34 : 0)
+
+//导航栏高
+#define NAVIGATIONTITLEVIEWHEIGHT (44 + (iPhoneX ? 44 : 20))
+
 
 //UIColor
-#define COLOR_RGB(A,B,C) [UIColor colorWithRed:(A)/255.0 green:(B)/255.0 blue:(C)/255.0 alpha:1.0]
-#define COLOR_RGB3SAME(A) [UIColor colorWithRed:(A)/255.0 green:(A)/255.0 blue:(A)/255.0 alpha:1.0]
+#define COLOR_RGB(R,G,B) [UIColor colorWithRed:(R)/255.0 green:(G)/255.0 blue:(B)/255.0 alpha:1.0]
+#define COLOR_RGB3SAME(S) [UIColor colorWithRed:(S)/255.0 green:(S)/255.0 blue:(S)/255.0 alpha:1.0]
 
-#define COLOR_RGBAlpha(A,B,C,AL) [UIColor colorWithRed:(A)/255.0 green:(B)/255.0 blue:(C)/255.0 alpha:AL]
-#define COLOR_RGB3SAMEAlpha(A,AL) [UIColor colorWithRed:(A)/255.0 green:(A)/255.0 blue:(A)/255.0 alpha:AL]
+#define COLOR_RGBAlpha(R,G,B,A) [UIColor colorWithRed:(R)/255.0 green:(G)/255.0 blue:(B)/255.0 alpha:A]
+#define COLOR_RGB3SAMEAlpha(S,A) [UIColor colorWithRed:(S)/255.0 green:(S)/255.0 blue:(S)/255.0 alpha:A]
 
 #define COLOR_HEX(hexColor) [UIColor colorWithRed:(((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0) green:(((CGFloat)((hexColor & 0xFF00) >> 8)) / 255.0) blue:(((CGFloat)(hexColor & 0xFF)) / 255.0) alpha:1.0]
 #define COLOR_HEXAlpha(hexColor,falpha) [UIColor colorWithRed:(((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0) green:(((CGFloat)((hexColor & 0xFF00) >> 8)) / 255.0) blue:(((CGFloat)(hexColor & 0xFF)) / 255.0) alpha:(falpha)]

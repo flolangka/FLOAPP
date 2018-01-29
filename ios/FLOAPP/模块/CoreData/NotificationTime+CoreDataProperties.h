@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *title;
 @property (nonatomic) int64_t time;
 @property (nullable, nonatomic, copy) NSString *body;
+@property (nullable, nonatomic, copy) NSString *sound;
 
 @end
 

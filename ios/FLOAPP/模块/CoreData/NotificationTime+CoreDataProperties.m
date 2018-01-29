@@ -18,5 +18,6 @@
 @dynamic title;
 @dynamic time;
 @dynamic body;
+@dynamic sound;
 
 @end
