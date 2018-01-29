@@ -19,6 +19,7 @@
 //2倍屏、3倍屏；乘以宽高即为分辨率
 #define DEVICE_SCREEN_SCALE [UIScreen mainScreen].scale
 
+//判断iphonex
 #define iPhoneX (CGSizeEqualToSize(CGSizeMake(375, 812), [[UIScreen mainScreen] bounds].size))
 
 //iphonex底部增加的高
@@ -38,7 +39,7 @@
 #define COLOR_HEX(hexColor) [UIColor colorWithRed:(((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0) green:(((CGFloat)((hexColor & 0xFF00) >> 8)) / 255.0) blue:(((CGFloat)(hexColor & 0xFF)) / 255.0) alpha:1.0]
 #define COLOR_HEXAlpha(hexColor,falpha) [UIColor colorWithRed:(((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0) green:(((CGFloat)((hexColor & 0xFF00) >> 8)) / 255.0) blue:(((CGFloat)(hexColor & 0xFF)) / 255.0) alpha:(falpha)]
 
-#define DEVICE_NETWORK_CHANGE_NOTIFICATION         @"DeviceNetworkChangeNotification"
+#define DEVICE_NETWORK_CHANGE_NOTIFICATION           @"DeviceNetworkChangeNotification"
 #define DEVICE_NETWORK_CHANGE_2_NONE_NOTIFICATION    @"DeviceNetworkChange2NoneNotification"
 #define DEVICE_NETWORK_CHANGE_2_WIFI_NOTIFICATION    @"DeviceNetworkChange2WifiNotification"
 #define DEVICE_NETWORK_CHANGE_2_VIAWWAN_NOTIFICATION @"DeviceNetworkChange2ViaWWANNotification"

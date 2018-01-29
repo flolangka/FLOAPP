@@ -50,4 +50,7 @@
 #define DLog(...)
 #endif
 
+//返回网络请求结果的status值，可用来Switch-case
+#define IntStatus(dic) ((dic && [dic isKindOfClass:[NSDictionary class]] && dic.count && dic[@"status"] && [dic[@"status"] isKindOfClass:[NSString class]]) ? [dic[@"status"] intValue] : 0)
+
 #endif /* PrefixHeader_pch */
