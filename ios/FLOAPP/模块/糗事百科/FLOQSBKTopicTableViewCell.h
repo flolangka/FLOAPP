@@ -11,8 +11,6 @@
 
 @interface FLOQSBKTopicTableViewCell : UITableViewCell
 
-+ (float)heightWithTopicItem:(FLOQSBKTopicItem *)item;
-
 - (void)configTopicItem:(FLOQSBKTopicItem *)item;
 
 @end

@@ -186,5 +186,13 @@
 		<key>ItemAddress</key>
 		<string>FLOShareDirectoryTableViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>糗事百科</string>
+		<key>ItemIconURL</key>
+		<string>https://android-artworks.25pp.com/fs08/2016/06/17/3/102_d7a4ae86f7a8ac41f7005f6d43e2bb3e_con.png</string>
+		<key>ItemAddress</key>
+		<string>FLOQSBKTableViewController</string>
+	</dict>
 </array>
 </plist>

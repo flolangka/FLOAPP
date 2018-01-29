@@ -773,12 +773,12 @@
 		73CAAC6D201F087A001B1AE2 /* Notifier */ = {
 			isa = PBXGroup;
 			children = (
-				73CAAC6E201F087A001B1AE2 /* FLONotificationTimeAddViewController.h */,
-				73CAAC6F201F087A001B1AE2 /* FLONotificationTimeAddViewController.m */,
-				73CAAC70201F087A001B1AE2 /* FLONotificationTimeTableViewController.h */,
-				73CAAC71201F087A001B1AE2 /* FLONotificationTimeTableViewController.m */,
 				73CAAC72201F087A001B1AE2 /* FLONotificationViewController.h */,
 				73CAAC73201F087A001B1AE2 /* FLONotificationViewController.m */,
+				73CAAC70201F087A001B1AE2 /* FLONotificationTimeTableViewController.h */,
+				73CAAC71201F087A001B1AE2 /* FLONotificationTimeTableViewController.m */,
+				73CAAC6E201F087A001B1AE2 /* FLONotificationTimeAddViewController.h */,
+				73CAAC6F201F087A001B1AE2 /* FLONotificationTimeAddViewController.m */,
 				73CAAC74201F087A001B1AE2 /* sound */,
 			);
 			path = Notifier;
@@ -2415,7 +2415,7 @@
 				73CAAC3C201F087A001B1AE2 /* FLOCoreData 3.xcdatamodel */,
 				73CAAC3D201F087A001B1AE2 /* FLOCoreData.xcdatamodel */,
 			);
-			currentVersion = 73CAAC3B201F087A001B1AE2 /* FLOCoreData 2.xcdatamodel */;
+			currentVersion = 73CAAC3C201F087A001B1AE2 /* FLOCoreData 3.xcdatamodel */;
 			path = FLOCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

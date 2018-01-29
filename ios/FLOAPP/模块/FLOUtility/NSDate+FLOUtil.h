@@ -17,4 +17,14 @@
  */
 + (NSString *)getNowTime;
 
+/**
+ HH:mm:ss
+ 昨天 HH:mm:ss
+ yyyy-MM-dd HH:mm:ss
+ 
+ @param timeinterval 时间戳
+ @return 时间
+ */
++ (NSString *)timeinterval2StringForDetail:(double)timeinterval;
+
 @end

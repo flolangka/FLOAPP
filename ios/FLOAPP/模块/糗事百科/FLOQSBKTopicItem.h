@@ -10,7 +10,11 @@
 
 @interface FLOQSBKTopicItem : NSObject
 
-@property (nonatomic, assign) float cellHeight;
+@property (nonatomic, copy  ) NSString *userIcon;
+@property (nonatomic, copy  ) NSString *userName;
+@property (nonatomic, copy  ) NSString *createTime;
+@property (nonatomic, copy  ) NSString *content;
+@property (nonatomic, copy  ) NSArray  *pictures;
 
 + (instancetype)itemWithDictionary:(NSDictionary *)dict;
 

@@ -59,4 +59,21 @@
     return hexStr;
 }
 
+/**
+ 限款是需要的高度
+ 
+ @param limitW 限宽
+ @param fontSize 字号
+ @return 高度
+ */
+- (float)heightWithLimitWidth:(float)limitW fontSize:(float)fontSize {
+    if (self == nil || self.length == 0) {
+        return 0;
+    }
+    
+    NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:fontSize]};
+    float height = [self boundingRectWithSize:CGSizeMake(limitW, MAXFLOAT) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  attributes:attribute context:nil].size.height;
+    return ceilf(height);
+}
+
 @end

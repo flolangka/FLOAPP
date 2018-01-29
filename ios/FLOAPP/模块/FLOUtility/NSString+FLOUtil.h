@@ -20,4 +20,13 @@
 //普通字符串转换为十六进制的
 - (NSString *)hexString;
 
+/**
+ 限款是需要的高度
+
+ @param limitW 限宽
+ @param fontSize 字号
+ @return 高度
+ */
+- (float)heightWithLimitWidth:(float)limitW fontSize:(float)fontSize;
+
 @end

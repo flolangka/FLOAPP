@@ -34,6 +34,9 @@
     _currentTopic = @"";
     _dataArrTopic = [NSMutableArray arrayWithCapacity:42];
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = COLOR_RGB(244, 244, 248);
+    
     //导航栏
     [self configNav];
     [self configRefresh];
@@ -42,14 +45,10 @@
 - (void)configNav {
     self.title = @"话题";
     
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTimeNoti)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(rightBarButtonItemAction)];
 }
 
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    [super setEditing:editing animated:animated];
-    
+- (void)rightBarButtonItemAction {    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"TopicID" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     //输入框
@@ -130,9 +129,16 @@
             if (muarr.count > 0) {
                 if (_topicPage == 0) {
                     [_dataArrTopic removeAllObjects];
+                    [_dataArrTopic addObjectsFromArray:muarr];
+                    [self.tableView reloadData];
+                } else {
+                    NSMutableArray *muArr = [NSMutableArray array];
+                    for (int i = 0; i < muarr.count; i++) {
+                        [muArr addObject:[NSIndexPath indexPathForRow:_dataArrTopic.count+i inSection:0]];
+                    }
+                    [_dataArrTopic addObjectsFromArray:muarr];
+                    [self.tableView insertRowsAtIndexPaths:muArr withRowAnimation:UITableViewRowAnimationBottom];
                 }
-                [_dataArrTopic addObjectsFromArray:muarr];
-                [self.tableView reloadData];
                 
                 //页码+1
                 _topicPage ++;
@@ -171,14 +177,6 @@
     [cell configTopicItem:_dataArrTopic[indexPath.row]];
     
     return cell;
-}
-
-#pragma mark - Table view delegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    FLOQSBKTopicItem *topicItem = _dataArrTopic[indexPath.row];
-    
-    return topicItem.cellHeight;
 }
 
 @end
