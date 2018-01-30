@@ -22,9 +22,9 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationBar.barStyle = UIBarStyleBlack;
-    self.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationBar.barTintColor = [UIColor colorWithRed:15/255.0 green:191/255.0 blue:235/255.0 alpha:1.0];
+    self.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationBar.tintColor = [UIColor blackColor];  //文字图标颜色
+//    self.navigationBar.barTintColor = [UIColor colorWithRed:15/255.0 green:191/255.0 blue:235/255.0 alpha:1.0];  //导航栏背景
     self.navigationBar.translucent = NO;
     self.navigationBar.titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:22.0]};
     if (@available(iOS 11.0, *)) {

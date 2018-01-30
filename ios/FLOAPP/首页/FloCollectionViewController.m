@@ -26,7 +26,11 @@
 #import <FLEX.h>
 #endif
 
-@interface FloCollectionViewController()<UIViewControllerPreviewingDelegate>
+@interface FloCollectionViewController()
+<UICollectionViewDelegate,
+UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout,
+UIViewControllerPreviewingDelegate>
 
 {
     id<UIViewControllerPreviewing> previewing;
@@ -50,13 +54,7 @@
         FLOCollectionItem *item = [[FLOCollectionItem alloc] initWithDictionary:dic];
         [_dataArr addObject:item];
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     
-    //检查用户是否登录
-    [self checkIsLogin];
 }
 
 - (void)viewDidLoad {
@@ -70,6 +68,21 @@
     fps.centerX = DEVICE_SCREEN_WIDTH/2.;
     [[UIApplication sharedApplication].keyWindow addSubview:fps];
      */
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    //检查用户是否登录
+    [self checkIsLogin];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)initCollectionView {

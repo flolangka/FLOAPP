@@ -1206,7 +1206,6 @@
 			isa = PBXGroup;
 			children = (
 				73CAADEB201F09E4001B1AE2 /* NavigationController */,
-				73CAADEE201F09E4001B1AE2 /* Resource */,
 				73CAADF0201F09E4001B1AE2 /* SlideMenu */,
 				73CAADF5201F09E4001B1AE2 /* TabBarController */,
 				73CAADF8201F09E4001B1AE2 /* YYFPSLabel.h */,
@@ -1343,6 +1342,7 @@
 				84291A1D1C05867A0015F5F1 /* Info.plist */,
 				1290B35D1CFB3F8400D967EE /* CollectionPList.plist */,
 				73E537E91D8150DF005FB419 /* PrefixHeader.pch */,
+				73CAADEE201F09E4001B1AE2 /* Resource */,
 				84291A0C1C05867A0015F5F1 /* Supporting Files */,
 			);
 			path = FLOAPP;

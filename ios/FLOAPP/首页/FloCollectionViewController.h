@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FloCollectionViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface FloCollectionViewController : UIViewController
 
 @end
