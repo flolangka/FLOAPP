@@ -8,17 +8,20 @@
 
 #import "FLOQSBKTableViewController.h"
 
-#import "FLOQSBKItem.h"
-#import "FLOQSBKTopicItem.h"
-
 #import "FLOQSBKTableViewCell.h"
 #import "FLOQSBKTopicTableViewCell.h"
 
-#import <MJRefresh.h>
-#import <AFHTTPSessionManager.h>
-#import <AVKit/AVKit.h>
+#import "FLOQSBKItem.h"
+#import "FLOQSBKTopicItem.h"
 
-@interface FLOQSBKTableViewController ()
+#import "FLONetworkUtil.h"
+
+#import <MJRefresh.h>
+#import <AVKit/AVKit.h>
+#import <MWPhotoBrowser.h>
+#import <SDWebImage/SDImageCache.h>
+
+@interface FLOQSBKTableViewController () <MWPhotoBrowserDelegate>
 
 //是否是WiFi环境
 @property (nonatomic, assign) BOOL isWIFI;
@@ -35,6 +38,9 @@
 @property (nonatomic, copy  ) NSString *currentTopic;
 @property (nonatomic, assign) NSInteger topicPage;
 @property (nonatomic, strong) NSMutableArray <FLOQSBKTopicItem *>*dataArrTopic;
+
+//浏览图片数据
+@property (nonatomic, strong) NSMutableArray *dataArrPicture;
 
 @end
 
@@ -62,6 +68,10 @@
     [self configRefresh];
     
     [self requestNewData];
+}
+
+- (void)dealloc {
+    [[SDImageCache sharedImageCache] clearMemory];
 }
 
 - (void)configNav {    
@@ -164,10 +174,7 @@
         NSString *adID = [NSString stringWithFormat:@"%.0f000000000000", [[NSDate date] timeIntervalSince1970]];
         NSString *str = [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/newlist?new=%d&AdID=%@", new ? 1 : 0, adID];
         
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
-        [manager GET:str parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [[FLONetworkUtil sharedHTTPSession] GET:str parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             //解析请求结果
             NSArray *itemArr = nil;
@@ -224,11 +231,15 @@
             NSString *adID = [NSString stringWithFormat:@"%.0f000000000000", [[NSDate date] timeIntervalSince1970]];
             NSString *str = [NSString stringWithFormat:@"https://circle.qiushibaike.com/article/topic/%@/all?page=%ld&AdID=%@", _currentTopic, _topicPage+1, adID];
             
-            [[AFHTTPSessionManager manager] GET:str parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [[FLONetworkUtil sharedHTTPSession] GET:str parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 //解析请求结果
                 NSArray *itemArr = nil;
                 NSDictionary *result = (NSDictionary *)responseObject;
+                if ([responseObject isKindOfClass:[NSData class]]) {
+                    result = [(NSData *)responseObject flo_objectFromJSONData];
+                }
+                
                 if (Def_CheckDictionaryClassAndCount(result)) {
                     NSArray *items = result[@"data"];
                     if (Def_CheckArrayClassAndCount(items)) {
@@ -308,6 +319,11 @@
                      content:item.content
                     pictures:item.pictures];
         
+        NSArray *imgPaths = item.pictures;
+        FLOWeakObj(self);
+        cell.imgAction = ^(NSInteger index) {
+            [weakself pictureBrowser:imgPaths index:index];
+        };
         return cell;
     }
     
@@ -338,7 +354,7 @@
         NSString *imgPath = imgItem.mediumImgPath;
         FLOWeakObj(self);
         cell.imgAction = ^{
-            [weakself pictureBrowser:@[imgPath]];
+            [weakself pictureBrowser:@[imgPath] index:0];
         };
     } else if ([item isKindOfClass:[FLOQSBKVideoItem class]]) {
         FLOQSBKVideoItem *videoItem = (FLOQSBKVideoItem *)item;
@@ -360,8 +376,33 @@
 }
 
 #pragma mark - 浏览图片
-- (void)pictureBrowser:(NSArray *)pictures {
+- (void)pictureBrowser:(NSArray *)pictures index:(NSInteger)index {
+    _dataArrPicture = [NSMutableArray array];
+    for (NSString *img in pictures) {
+        [_dataArrPicture addObject:[MWPhoto photoWithURL:[NSURL URLWithString:img]]];
+    }
     
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    
+    // Set options
+    browser.zoomPhotosToFill = YES; // Images that almost fill the screen will be initially zoomed to fill (defaults to YES)
+    browser.enableGrid = NO; // Whether to allow the viewing of all the photo thumbnails on a grid (defaults to YES)
+    
+    [browser setCurrentPhotoIndex:index];
+    
+    // Present
+    [self.navigationController pushViewController:browser animated:YES];
+}
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+    return _dataArrPicture.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+    if (index < _dataArrPicture.count) {
+        return [_dataArrPicture objectAtIndex:index];
+    }
+    return nil;
 }
 
 #pragma mark - 打开视频

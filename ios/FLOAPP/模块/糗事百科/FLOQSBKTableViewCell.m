@@ -101,6 +101,8 @@ static float FLOQSBKContentFontSize = 17;
         make.bottom.equalTo(_myContentView).offset(-15);
         make.height.mas_equalTo(100);
     }];
+    _imgView.contentMode = UIViewContentModeScaleAspectFill;
+    _imgView.clipsToBounds = YES;
     _imgView.userInteractionEnabled = YES;
     [_imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgViewAction)]];
     
@@ -183,6 +185,8 @@ static float FLOQSBKContentFontSize = 17;
     float imgHeight = 0;
     if (Def_CheckStringClassAndLength(imgPath)) {
         imgHeight = DEVICE_SCREEN_WIDTH/imgSize.width * imgSize.height;
+        imgHeight = MIN(imgHeight, 600);
+        
         [_imgView sd_setImageWithURL:[NSURL URLWithString:imgPath]];
     } else {
         _imgView.image = nil;

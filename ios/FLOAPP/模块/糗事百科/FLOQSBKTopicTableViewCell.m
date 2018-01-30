@@ -101,6 +101,7 @@ static float FLOQSBKTopicImageSpace = 8;
         make.bottom.equalTo(_myContentView).offset(-15);
         make.height.mas_equalTo(100);
     }];
+    [_pictureView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pictureViewAction:)]];
     
     float imgSize = [self imgSize];
     for (int i = 0; i < 6; i++) {
@@ -109,9 +110,20 @@ static float FLOQSBKTopicImageSpace = 8;
         imgV.contentMode = UIViewContentModeScaleAspectFill;
         imgV.clipsToBounds = YES;
         [_pictureView addSubview:imgV];
+        
     }
     
     return self;
+}
+
+- (void)pictureViewAction:(UITapGestureRecognizer *)tap {
+    CGPoint point = [tap locationInView:_pictureView];
+    
+    float imgSize = [self imgSize];
+    NSInteger index = (int)(point.x / imgSize) + (int)(point.y / imgSize) * 3;
+    if (_imgAction) {
+        _imgAction(index);
+    }
 }
 
 - (float)imgSize {

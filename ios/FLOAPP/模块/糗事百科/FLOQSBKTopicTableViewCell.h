@@ -10,6 +10,9 @@
 
 @interface FLOQSBKTopicTableViewCell : UITableViewCell
 
+//图片点击事件
+@property (nonatomic, copy  ) void(^imgAction)(NSInteger index);
+
 - (void)configUserIcon:(NSString *)icon
               userName:(NSString *)name
             createTime:(NSString *)time

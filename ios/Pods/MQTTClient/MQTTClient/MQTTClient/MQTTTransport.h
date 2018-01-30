@@ -36,11 +36,8 @@
      MQTTTransportClosed
  };
 
-/** runLoop The runLoop where the streams are scheduled. If nil, defaults to [NSRunLoop currentRunLoop]. */
-@property (strong, nonatomic) NSRunLoop * _Nonnull runLoop;
-
-/** runLoopMode The runLoopMode where the streams are scheduled. If nil, defaults to NSRunLoopCommonModes. */
-@property (strong, nonatomic) NSString * _Nonnull runLoopMode;
+/** queue The queue where the streams are scheduled. */
+@property (strong, nonatomic) dispatch_queue_t _Nonnull queue;
 
 /** host an NSString containing the hostName or IP address of the host to connect to */
 @property (strong, nonatomic) NSString * _Nonnull host;
@@ -51,7 +48,7 @@
 /** MQTTTransportDelegate needs to be set to a class implementing th MQTTTransportDelegate protocol
  * to receive delegate messages.
  */
-@property (strong, nonatomic) _Nullable id<MQTTTransportDelegate> delegate;
+@property (weak, nonatomic) _Nullable id<MQTTTransportDelegate> delegate;
 
 /** state contains the current MQTTTransportState of the transport */
 @property (nonatomic) MQTTTransportState state;

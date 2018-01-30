@@ -13,6 +13,7 @@ target 'FLOAPP' do
     pod 'FLEX', '~> 2.0'
     pod 'Masonry'
     pod 'MQTTClient'
+    pod 'MWPhotoBrowser'
 
     # ReactNative
     # 'node_modules'目录一般位于根目录中

@@ -21,6 +21,7 @@
 		7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */; };
 		7348B5B51EA6FFD60011F8FA /* FlolangkaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
+		73839A5820205E68004D0B73 /* FLONetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 73839A5720205E68004D0B73 /* FLONetworkUtil.m */; };
 		73C9EF01202013260000A21B /* FLOQSBKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C9EF00202013260000A21B /* FLOQSBKItem.m */; };
 		73C9EF0420203C400000A21B /* FLOQSBKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C9EF0320203C400000A21B /* FLOQSBKTableViewCell.m */; };
 		73CAAD36201F087B001B1AE2 /* APLCoreDataStackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC35201F087A001B1AE2 /* APLCoreDataStackManager.m */; };
@@ -281,6 +282,8 @@
 		7348B5B01EA6FFD60011F8FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7348B5B21EA6FFD60011F8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		737433431EA4A70D00BE39B3 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		73839A5620205E68004D0B73 /* FLONetworkUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONetworkUtil.h; sourceTree = "<group>"; };
+		73839A5720205E68004D0B73 /* FLONetworkUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONetworkUtil.m; sourceTree = "<group>"; };
 		73C9EEFF202013260000A21B /* FLOQSBKItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOQSBKItem.h; sourceTree = "<group>"; };
 		73C9EF00202013260000A21B /* FLOQSBKItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOQSBKItem.m; sourceTree = "<group>"; };
 		73C9EF0220203C400000A21B /* FLOQSBKTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOQSBKTableViewCell.h; sourceTree = "<group>"; };
@@ -718,6 +721,8 @@
 			children = (
 				73CAAC4F201F087A001B1AE2 /* FLOUtil.h */,
 				73CAAC50201F087A001B1AE2 /* FLOUtil.m */,
+				73839A5620205E68004D0B73 /* FLONetworkUtil.h */,
+				73839A5720205E68004D0B73 /* FLONetworkUtil.m */,
 				73CAAC51201F087A001B1AE2 /* NSDate+FLOUtil.h */,
 				73CAAC52201F087A001B1AE2 /* NSDate+FLOUtil.m */,
 				73CAAC53201F087A001B1AE2 /* NSString+FLOUtil.h */,
@@ -1684,6 +1689,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1838,6 +1844,7 @@
 				73CAAD54201F087B001B1AE2 /* FLOTouchIDViewController.m in Sources */,
 				73CAADB9201F087B001B1AE2 /* CYRTextView.m in Sources */,
 				73CAAD5A201F087B001B1AE2 /* FLOAddBookMarkMaskView.m in Sources */,
+				73839A5820205E68004D0B73 /* FLONetworkUtil.m in Sources */,
 				73CAADC9201F087B001B1AE2 /* SortView.swift in Sources */,
 				73CAAD50201F087B001B1AE2 /* FLONotificationTimeTableViewController.m in Sources */,
 				73CAAE03201F09E4001B1AE2 /* FLOSideMenu.m in Sources */,
@@ -2167,6 +2174,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -2267,6 +2275,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_WARN_STRICT_PROTOTYPES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;

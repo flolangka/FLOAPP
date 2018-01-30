@@ -11,15 +11,17 @@
 #import "MQTTLog.h"
 
 @interface MQTTCFSocketTransport()
+
 @property (strong, nonatomic) MQTTCFSocketEncoder *encoder;
 @property (strong, nonatomic) MQTTCFSocketDecoder *decoder;
+
 @end
 
 @implementation MQTTCFSocketTransport
+
 @synthesize state;
 @synthesize delegate;
-@synthesize runLoop;
-@synthesize runLoopMode;
+@synthesize queue;
 @dynamic host;
 @dynamic port;
 
@@ -30,7 +32,25 @@
     self.tls = false;
     self.voip = false;
     self.certificates = nil;
+    self.queue = dispatch_get_main_queue();
     return self;
+}
+
+- (void)dealloc {
+    // https://github.com/novastone-media/MQTT-Client-Framework/issues/325
+    // It is probably not the best solution to use deprecated API
+    // but it is bug that happens quite often so it is important to fix it
+    // and if we find better solution we can change it later
+    
+    // We need to make sure that we are closing streams on their queue
+    // Otherwise, we end up with race condition where delegate is deallocated
+    // but still used by run loop event
+    if (self.queue != dispatch_get_current_queue()) {
+        dispatch_sync(self.queue, ^{
+            [self.encoder close];
+            [self.decoder close];
+        });
+    }
 }
 
 - (void)open {
@@ -68,12 +88,11 @@
         }
     }
     
-    if(!connectError){
+    if (!connectError) {
         self.encoder.delegate = nil;
         self.encoder = [[MQTTCFSocketEncoder alloc] init];
+        CFWriteStreamSetDispatchQueue(writeStream, self.queue);
         self.encoder.stream = CFBridgingRelease(writeStream);
-        self.encoder.runLoop = self.runLoop;
-        self.encoder.runLoopMode = self.runLoopMode;
         self.encoder.delegate = self;
         if (self.voip) {
             [self.encoder.stream setProperty:NSStreamNetworkServiceTypeVoIP forKey:NSStreamNetworkServiceType];
@@ -82,9 +101,8 @@
         
         self.decoder.delegate = nil;
         self.decoder = [[MQTTCFSocketDecoder alloc] init];
+        CFReadStreamSetDispatchQueue(readStream, self.queue);
         self.decoder.stream =  CFBridgingRelease(readStream);
-        self.decoder.runLoop = self.runLoop;
-        self.decoder.runLoopMode = self.runLoopMode;
         self.decoder.delegate = self;
         if (self.voip) {
             [self.decoder.stream setProperty:NSStreamNetworkServiceTypeVoIP forKey:NSStreamNetworkServiceType];
