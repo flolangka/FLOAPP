@@ -21,6 +21,8 @@
 		7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */; };
 		7348B5B51EA6FFD60011F8FA /* FlolangkaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
+		73C9EF01202013260000A21B /* FLOQSBKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C9EF00202013260000A21B /* FLOQSBKItem.m */; };
+		73C9EF0420203C400000A21B /* FLOQSBKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C9EF0320203C400000A21B /* FLOQSBKTableViewCell.m */; };
 		73CAAD36201F087B001B1AE2 /* APLCoreDataStackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC35201F087A001B1AE2 /* APLCoreDataStackManager.m */; };
 		73CAAD37201F087B001B1AE2 /* DownloadFile+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC37201F087A001B1AE2 /* DownloadFile+CoreDataClass.m */; };
 		73CAAD38201F087B001B1AE2 /* DownloadFile+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC39201F087A001B1AE2 /* DownloadFile+CoreDataProperties.m */; };
@@ -279,6 +281,10 @@
 		7348B5B01EA6FFD60011F8FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7348B5B21EA6FFD60011F8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		737433431EA4A70D00BE39B3 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		73C9EEFF202013260000A21B /* FLOQSBKItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOQSBKItem.h; sourceTree = "<group>"; };
+		73C9EF00202013260000A21B /* FLOQSBKItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOQSBKItem.m; sourceTree = "<group>"; };
+		73C9EF0220203C400000A21B /* FLOQSBKTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOQSBKTableViewCell.h; sourceTree = "<group>"; };
+		73C9EF0320203C400000A21B /* FLOQSBKTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOQSBKTableViewCell.m; sourceTree = "<group>"; };
 		73CAAC34201F087A001B1AE2 /* APLCoreDataStackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLCoreDataStackManager.h; sourceTree = "<group>"; };
 		73CAAC35201F087A001B1AE2 /* APLCoreDataStackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCoreDataStackManager.m; sourceTree = "<group>"; };
 		73CAAC36201F087A001B1AE2 /* DownloadFile+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DownloadFile+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -1270,6 +1276,10 @@
 				73CAAE0D201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.m */,
 				73CAAE0F201F1167001B1AE2 /* FLOQSBKTopicItem.h */,
 				73CAAE10201F1167001B1AE2 /* FLOQSBKTopicItem.m */,
+				73C9EF0220203C400000A21B /* FLOQSBKTableViewCell.h */,
+				73C9EF0320203C400000A21B /* FLOQSBKTableViewCell.m */,
+				73C9EEFF202013260000A21B /* FLOQSBKItem.h */,
+				73C9EF00202013260000A21B /* FLOQSBKItem.m */,
 			);
 			path = "糗事百科";
 			sourceTree = "<group>";
@@ -1739,6 +1749,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73CAAD4F201F087B001B1AE2 /* FLONotificationTimeAddViewController.m in Sources */,
+				73C9EF01202013260000A21B /* FLOQSBKItem.m in Sources */,
 				73CAAE11201F1167001B1AE2 /* FLOQSBKTopicItem.m in Sources */,
 				73CAADD1201F087B001B1AE2 /* FLOMusicViewController.m in Sources */,
 				73CAADB5201F087B001B1AE2 /* FLORichTextEditorView.m in Sources */,
@@ -1812,6 +1823,7 @@
 				73CAAD3E201F087B001B1AE2 /* NotificationTime+CoreDataClass.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,
 				84291A0E1C05867A0015F5F1 /* main.m in Sources */,
+				73C9EF0420203C400000A21B /* FLOQSBKTableViewCell.m in Sources */,
 				73CAAD43201F087B001B1AE2 /* NSDate+FLOUtil.m in Sources */,
 				73CAAD4B201F087B001B1AE2 /* FLOMQTTViewController.m in Sources */,
 				73CAADC3201F087B001B1AE2 /* FLOWeiboStatusFoolerTableViewCell.m in Sources */,

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class FLOQSBKTopicItem;
 
 @interface FLOQSBKTopicTableViewCell : UITableViewCell
 
-- (void)configTopicItem:(FLOQSBKTopicItem *)item;
+- (void)configUserIcon:(NSString *)icon
+              userName:(NSString *)name
+            createTime:(NSString *)time
+               content:(NSString *)content
+              pictures:(NSArray *)pictures;
 
 @end

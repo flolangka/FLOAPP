@@ -1,32 +1,32 @@
 //
-//  FLOQSBKTopicTableViewCell.m
+//  FLOQSBKTableViewCell.m
 //  FLOAPP
 //
-//  Created by 360doc on 2018/1/29.
+//  Created by 360doc on 2018/1/30.
 //  Copyright © 2018年 Flolangka. All rights reserved.
 //
 
-#import "FLOQSBKTopicTableViewCell.h"
+#import "FLOQSBKTableViewCell.h"
 #import "NSString+FLOUtil.h"
 
 #import <Masonry.h>
 #import <UIImageView+WebCache.h>
 
-@interface FLOQSBKTopicTableViewCell ()
+@interface FLOQSBKTableViewCell ()
 
 @property (nonatomic, strong) UIView *myContentView;
 @property (nonatomic, strong) UIImageView *userIconImgV;
 @property (nonatomic, strong) UILabel *userNameLabel;
 @property (nonatomic, strong) UILabel *createTimeLabel;
 @property (nonatomic, strong) UILabel *contentLabel;
-@property (nonatomic, strong) UIView *pictureView;
+@property (nonatomic, strong) UIImageView *imgView;
+@property (nonatomic, strong) UIImageView *videoPlayImgView;
 
 @end
 
-static float FLOQSBKTopicContentFontSize = 17;
-static float FLOQSBKTopicImageSpace = 8;
+static float FLOQSBKContentFontSize = 17;
 
-@implementation FLOQSBKTopicTableViewCell
+@implementation FLOQSBKTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -47,8 +47,8 @@ static float FLOQSBKTopicImageSpace = 8;
     _userIconImgV = [[UIImageView alloc] init];
     [_myContentView addSubview:_userIconImgV];
     [_userIconImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_myContentView).offset(15);
         make.top.equalTo(_myContentView).offset(15);
+        make.left.equalTo(_myContentView).offset(15);
         make.size.mas_equalTo(CGSizeMake(35, 35));
     }];
     _userIconImgV.layer.cornerRadius = 35/2.;
@@ -58,10 +58,10 @@ static float FLOQSBKTopicImageSpace = 8;
     _userNameLabel = [[UILabel alloc] init];
     [_myContentView addSubview:_userNameLabel];
     [_userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_myContentView).offset(15);
         make.left.equalTo(_userIconImgV.mas_right).offset(15);
         make.right.equalTo(_myContentView).offset(-15);
-        make.top.equalTo(_myContentView).offset(15);
-        make.height.mas_equalTo(20);
+        make.height.mas_equalTo(35);
     }];
     _userNameLabel.font = [UIFont systemFontOfSize:15];
     _userNameLabel.textColor = [UIColor darkGrayColor];
@@ -70,10 +70,10 @@ static float FLOQSBKTopicImageSpace = 8;
     _createTimeLabel = [[UILabel alloc] init];
     [_myContentView addSubview:_createTimeLabel];
     [_createTimeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_userNameLabel);
         make.left.equalTo(_userIconImgV.mas_right).offset(15);
         make.right.equalTo(_myContentView).offset(-15);
-        make.top.equalTo(_userNameLabel);
-        make.height.mas_equalTo(20);
+        make.height.mas_equalTo(35);
     }];
     _createTimeLabel.font = [UIFont systemFontOfSize:12];
     _createTimeLabel.textColor = [UIColor lightGrayColor];
@@ -83,73 +83,121 @@ static float FLOQSBKTopicImageSpace = 8;
     _contentLabel = [[UILabel alloc] init];
     [_myContentView addSubview:_contentLabel];
     [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_userIconImgV.mas_right).offset(15);
+        make.top.equalTo(_userIconImgV.mas_bottom).offset(10);
+        make.left.equalTo(_userIconImgV);
         make.right.equalTo(_createTimeLabel);
-        make.top.equalTo(_userNameLabel.mas_bottom).offset(10);
         make.height.mas_equalTo(24);
     }];
-    _contentLabel.font = [UIFont systemFontOfSize:FLOQSBKTopicContentFontSize];
+    _contentLabel.font = [UIFont systemFontOfSize:FLOQSBKContentFontSize];
     _contentLabel.numberOfLines = 0;
     
     //图片
-    _pictureView = [[UIView alloc] init];
-    [_myContentView addSubview:_pictureView];
-    [_pictureView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _imgView = [[UIImageView alloc] init];
+    [_myContentView addSubview:_imgView];
+    [_imgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_contentLabel.mas_bottom).offset(12);
         make.left.equalTo(_contentLabel);
         make.right.equalTo(_contentLabel);
         make.bottom.equalTo(_myContentView).offset(-15);
         make.height.mas_equalTo(100);
     }];
+    _imgView.userInteractionEnabled = YES;
+    [_imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgViewAction)]];
     
-    float imgSize = [self imgSize];
-    for (int i = 0; i < 6; i++) {
-        UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (imgSize + FLOQSBKTopicImageSpace), i/3 * (imgSize + FLOQSBKTopicImageSpace), imgSize, imgSize)];
-        imgV.tag = 1000 + i;
-        imgV.contentMode = UIViewContentModeScaleAspectFill;
-        imgV.clipsToBounds = YES;
-        [_pictureView addSubview:imgV];
-    }
+    //视频播放图片
+    _videoPlayImgView = [[UIImageView alloc] init];
+    [_imgView addSubview:_videoPlayImgView];
+    [_videoPlayImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(_imgView);
+        make.size.mas_equalTo(CGSizeMake(80, 80));
+    }];
+    _videoPlayImgView.image = [UIImage imageNamed:@"video_youtube"];
     
     return self;
 }
 
-- (float)imgSize {
-    return floorf((DEVICE_SCREEN_WIDTH - 15 - 35 - 15 - 2 * FLOQSBKTopicImageSpace - 15)/3.);
+- (void)imgViewAction {
+    if (_imgAction) {
+        _imgAction();
+    }
 }
 
+//纯文本
+- (void)configUserIcon:(NSString *)icon
+              userName:(NSString *)name
+            createTime:(NSString *)time
+               content:(NSString *)content {
+    [self UserIcon:icon
+          userName:name
+        createTime:time
+           content:content
+         imagePath:nil
+         imageSize:CGSizeZero
+             video:NO];
+}
+
+//图片
 - (void)configUserIcon:(NSString *)icon
               userName:(NSString *)name
             createTime:(NSString *)time
                content:(NSString *)content
-              pictures:(NSArray *)pictures; {
+             imagePath:(NSString *)imgPath
+             imageSize:(CGSize    )imgSize {
+    [self UserIcon:icon
+          userName:name
+        createTime:time
+           content:content
+         imagePath:imgPath
+         imageSize:imgSize
+             video:NO];
+}
+
+//视频
+- (void)configUserIcon:(NSString *)icon
+              userName:(NSString *)name
+            createTime:(NSString *)time
+               content:(NSString *)content
+          videoPicture:(NSString *)videoPicture
+             videoSize:(CGSize    )videoSize {
+    [self UserIcon:icon
+          userName:name
+        createTime:time
+           content:content
+         imagePath:videoPicture
+         imageSize:videoSize
+             video:YES];
+}
+
+- (void)UserIcon:(NSString *)icon
+        userName:(NSString *)name
+      createTime:(NSString *)time
+         content:(NSString *)content
+       imagePath:(NSString *)imgPath
+       imageSize:(CGSize    )imgSize
+           video:(BOOL      )video {
     [_userIconImgV sd_setImageWithURL:[NSURL URLWithString:icon]];
     _userNameLabel.text = name;
     _createTimeLabel.text = time;
     _contentLabel.attributedText = [self attributedContentWithContent:content];
     
-    for (int i = 0; i < 6; i++) {
-        UIImageView *imgV = [_pictureView viewWithTag:1000 + i];
-        
-        if (i < pictures.count) {
-            [imgV sd_setImageWithURL:[NSURL URLWithString:pictures[i]]];
-            imgV.hidden = NO;
-        } else {
-            imgV.hidden = YES;
-        }
-    }    
+    float imgHeight = 0;
+    if (Def_CheckStringClassAndLength(imgPath)) {
+        imgHeight = DEVICE_SCREEN_WIDTH/imgSize.width * imgSize.height;
+        [_imgView sd_setImageWithURL:[NSURL URLWithString:imgPath]];
+    } else {
+        _imgView.image = nil;
+    }
+    _videoPlayImgView.hidden = !video;
     
     //更新正文高度
-    float height = [content heightWithLimitWidth:(DEVICE_SCREEN_WIDTH - 15 - 35 - 15 - 15) fontSize:FLOQSBKTopicContentFontSize];
+    float height = [content heightWithLimitWidth:(DEVICE_SCREEN_WIDTH - 15 - 15) fontSize:FLOQSBKContentFontSize];
     [_contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(height);
     }];
     
     //更新图片区域高度
-    float imgSize = [self imgSize];
-    imgSize = pictures.count > 3 ? (imgSize*2 + FLOQSBKTopicImageSpace) : imgSize;
-    [_pictureView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(imgSize);
+    [_imgView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(imgHeight);
     }];
 }
 
