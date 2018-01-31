@@ -378,6 +378,20 @@
     return cell;
 }
 
+#pragma mark - tableView delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+    [[UIMenuController sharedMenuController] setMenuItems:@[]];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [[UIMenuController sharedMenuController] setMenuVisible:NO animated:YES];
+    [[UIMenuController sharedMenuController] setMenuItems:@[]];
+}
+
 #pragma mark - 浏览图片
 - (void)pictureBrowser:(NSArray *)pictures index:(NSInteger)index {
     _dataArrPicture = [NSMutableArray array];

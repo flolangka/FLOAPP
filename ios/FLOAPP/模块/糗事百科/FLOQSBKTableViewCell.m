@@ -24,7 +24,7 @@
 
 @end
 
-static float FLOQSBKContentFontSize = 17;
+static float FLOQSBKContentFontSize = 16;
 
 @implementation FLOQSBKTableViewCell
 
@@ -89,7 +89,14 @@ static float FLOQSBKContentFontSize = 17;
         make.height.mas_equalTo(24);
     }];
     _contentLabel.font = [UIFont systemFontOfSize:FLOQSBKContentFontSize];
+    _contentLabel.textColor = COLOR_RGB3SAMEAlpha(0, 0.8);
     _contentLabel.numberOfLines = 0;
+    
+    //长按菜单
+    UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognizerHandle:)];
+    [recognizer setMinimumPressDuration:1.0f];
+    [_contentLabel addGestureRecognizer:recognizer];
+    _contentLabel.userInteractionEnabled = YES;
     
     //图片
     _imgView = [[UIImageView alloc] init];
@@ -122,6 +129,33 @@ static float FLOQSBKContentFontSize = 17;
     if (_imgAction) {
         _imgAction();
     }
+}
+
+- (void)longPressGestureRecognizerHandle:(UILongPressGestureRecognizer *)longPressGestureRecognizer {
+    if (longPressGestureRecognizer.state == UIGestureRecognizerStateBegan){
+        [self becomeFirstResponder];
+        
+        CGRect rect = _contentLabel.frame;
+        rect.origin.y += 8+10;
+        
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        [menu setMenuItems:@[[[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(copyContent:)]]];
+        [menu setTargetRect:rect inView:self];
+        [menu setMenuVisible:YES animated:YES];
+    }
+}
+
+- (BOOL)canBecomeFirstResponder{
+    return YES;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    if (action == @selector(copyContent:)) return YES;
+    return NO;
+}
+
+- (void)copyContent:(id)sender {
+    [[UIPasteboard generalPasteboard] setString:_contentLabel.attributedText.string];
 }
 
 //纯文本

@@ -23,7 +23,7 @@
 
 @end
 
-static float FLOQSBKTopicContentFontSize = 17;
+static float FLOQSBKTopicContentFontSize = 16;
 static float FLOQSBKTopicImageSpace = 8;
 
 @implementation FLOQSBKTopicTableViewCell
@@ -89,6 +89,7 @@ static float FLOQSBKTopicImageSpace = 8;
         make.height.mas_equalTo(24);
     }];
     _contentLabel.font = [UIFont systemFontOfSize:FLOQSBKTopicContentFontSize];
+    _contentLabel.textColor = COLOR_RGB3SAMEAlpha(0, 0.8);
     _contentLabel.numberOfLines = 0;
     
     //图片
