@@ -8,8 +8,7 @@
 
 #import "FLOMusicModel.h"
 #import "NSString+FLOUtil.h"
-
-#import <AFNetworking.h>
+#import "FLONetworkUtil.h"
 #import <YYKit/NSString+YYAdd.h>
 
 NSInteger const MusicSearchPageNum = 10;
@@ -56,8 +55,7 @@ NSInteger const MusicSearchPageNum = 10;
         
         url = [url stringByAppendingFormat:@"?app_key=%@&format=%@&key=%@&limit=%@&method=%@&page=%@&sign_method=%@&timestamp=%@&v=%@&sign=%@", appKey, format, [text StringEncoded2UTF8String], Def_NSStringFromInteger(MusicSearchPageNum), method, Def_NSStringFromInteger(page), sign_method, [timestamp StringEncoded2UTF8String], v, sign];
         
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        [manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [[FLONetworkUtil sharedHTTPSession] GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             DLog(@"%@", responseObject);
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (completion) {
@@ -73,8 +71,7 @@ NSInteger const MusicSearchPageNum = 10;
         }];
         
         /*
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        [manager POST:url
+        [[FLONetworkUtil sharedHTTPSession] POST:url
            parameters:@{@"app_key": appKey,
                         @"format": format,
                         @"key": [text StringEncoded2UTF8String],

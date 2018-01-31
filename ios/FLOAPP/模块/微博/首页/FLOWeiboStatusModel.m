@@ -8,7 +8,7 @@
 
 #import "FLOWeiboStatusModel.h"
 #import "FLOWeiboUserModel.h"
-#import <AFHTTPSessionManager.h>
+#import "FLONetworkUtil.h"
 #import "FLOWeiboAuthorization.h"
 
 @implementation FLOWeiboStatusModel
@@ -116,8 +116,8 @@
     if (authorization.isLogin) {
         NSDictionary *parameters = @{kAccessToken:authorization.token,
                                      @"id":statusID};
-        AFHTTPSessionManager *managr = [AFHTTPSessionManager manager];
-        [managr POST:@"https://api.weibo.com/2/favorites/create.json" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [[FLONetworkUtil sharedHTTPSession] POST:@"https://api.weibo.com/2/favorites/create.json" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             success();
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             failure();
@@ -132,9 +132,9 @@
     FLOWeiboAuthorization *authorization = [FLOWeiboAuthorization sharedAuthorization];
     if (authorization.isLogin) {
         NSDictionary *parameters = @{kAccessToken:authorization.token,
-                                     @"id":statusID};        
-        AFHTTPSessionManager *managr = [AFHTTPSessionManager manager];
-        [managr POST:@"https://api.weibo.com/2/favorites/destroy.json" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                     @"id":statusID};
+        
+        [[FLONetworkUtil sharedHTTPSession] POST:@"https://api.weibo.com/2/favorites/destroy.json" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             success();
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             failure();

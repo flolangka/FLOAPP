@@ -8,15 +8,16 @@
 
 #import "FLOWeiboTableViewController.h"
 #import "FLOWeiboAuthorization.h"
-#import <AudioToolbox/AudioToolbox.h>
-#import <AFHTTPSessionManager.h>
 #import "FLOWeiboStatusModel.h"
 #import "FLOWeiboStatusTableViewCell.h"
 #import "FLOWeiboStatusFoolerTableViewCell.h"
 #import "FLODataBaseEngin.h"
 #import "FLOWeiboDetailViewController.h"
 #import "FLOWeiboReportComViewController.h"
+#import "FLONetworkUtil.h"
+
 #import <MJRefresh.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 //登录认证
 static NSString * const appKey = @"1780554149";
@@ -40,7 +41,6 @@ static NSString * const kFooterCellID = @"footerCell";
 @interface FLOWeiboTableViewController ()<UIWebViewDelegate>
 
 {
-    AFHTTPSessionManager *sessionManager;
     FLOWeiboAuthorization *authorization;
 }
 
@@ -66,7 +66,6 @@ static NSString * const kFooterCellID = @"footerCell";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:UIBarButtonItemStyleDone target:self action:@selector(loginOutAction)];
     
-    sessionManager = [AFHTTPSessionManager manager];
     authorization = [FLOWeiboAuthorization sharedAuthorization];
     
     // 初始化prototypeCell
@@ -106,7 +105,7 @@ static NSString * const kFooterCellID = @"footerCell";
         } else {
             NSDictionary *parameters = @{kAccessToken:authorization.token,
                                          kUID:authorization.UID};
-            [sessionManager GET:kUsersShowURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [[FLONetworkUtil sharedHTTPSession] GET:kUsersShowURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 NSDictionary *result = (NSDictionary *)responseObject;
                 self.title = result[@"screen_name"];
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -175,7 +174,7 @@ static NSString * const kFooterCellID = @"footerCell";
         [parameters setObject:statusIDObj forKey:@"max_id"];
     }
     
-    [sessionManager GET:kHomeStatusesURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[FLONetworkUtil sharedHTTPSession] GET:kHomeStatusesURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self.tableView.mj_header endRefreshing];
         
         NSDictionary *result = (NSDictionary *)responseObject;
@@ -372,11 +371,8 @@ static NSString * const kFooterCellID = @"footerCell";
                                      @"grant_type":kGrantType,
                                      @"code":code,
                                      @"redirect_uri":redirectURLStr};
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         
-        // MIMEType:媒体类型
-        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
-        [manager POST:kAccessTokenURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [[FLONetworkUtil sharedHTTPSession] POST:kAccessTokenURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSDictionary *result = (NSDictionary *)responseObject;
             
             // 更新授权信息

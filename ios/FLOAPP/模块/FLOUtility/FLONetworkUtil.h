@@ -12,8 +12,28 @@
 
 @interface FLONetworkUtil : NSObject
 
+/**
+ AFHTTPSessionManager单例
+
+ @return 单例对象
+ */
 + (AFHTTPSessionManager *)sharedHTTPSession;
 
+/**
+ json 结果解析（默认）
+ */
++ (void)HTTPSessionSetJSONResponseSerializer;
+
+/**
+ text/html 结果解析，接口调用前设置，调用完成后需调用 HTTPSessionSetJSONResponseSerializer 还原
+ */
++ (void)HTTPSessionSetTextHTMLResponseSerializer;
+
+/**
+ AFURLSessionManager单例
+
+ @return 单例对象
+ */
 + (AFURLSessionManager *)sharedURLSession;
 
 @end

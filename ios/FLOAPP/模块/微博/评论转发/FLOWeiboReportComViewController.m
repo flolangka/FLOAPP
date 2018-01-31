@@ -8,7 +8,7 @@
 
 #import "FLOWeiboReportComViewController.h"
 #import "FLOWeiboAuthorization.h"
-#import <AFHTTPSessionManager.h>
+#import "FLONetworkUtil.h"
 #import <MBProgressHUD.h>
 
 static NSString * const kRepostStatusURL  = @"https://api.weibo.com/2/statuses/repost.json";
@@ -84,8 +84,7 @@ static NSString * const kCommentStatusURl = @"https://api.weibo.com/2/comments/c
         return;
     }
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager POST:requestURLStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[FLONetworkUtil sharedHTTPSession] POST:requestURLStr parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSString *str = [NSString stringWithFormat:@"%@ 成功", promptStr];
         Def_MBProgressStringDelay(str, 1);
         [self.navigationController popViewControllerAnimated:YES];

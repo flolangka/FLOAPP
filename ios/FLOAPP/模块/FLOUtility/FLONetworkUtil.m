@@ -12,21 +12,63 @@
 
 static AFHTTPSessionManager *httpSessionManager ;
 static AFURLSessionManager *urlSessionManager ;
+static AFJSONResponseSerializer *JSONResponseSerializer ;
+static AFHTTPResponseSerializer *TextHTMLResponseSerializer ;
 
+/**
+ AFHTTPSessionManager单例
+ 
+ @return 单例对象
+ */
 + (AFHTTPSessionManager *)sharedHTTPSession {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    static dispatch_once_t FLONetworkUtil_onceToken;
+    dispatch_once(&FLONetworkUtil_onceToken, ^{
         httpSessionManager = [AFHTTPSessionManager manager];
-        httpSessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        httpSessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
         httpSessionManager.requestSerializer.timeoutInterval = 10;
+        httpSessionManager.responseSerializer = [self sharedJSONResponseSerializer];
     });
     return httpSessionManager;
 }
 
+/**
+ json 结果解析（默认）
+ */
++ (void)HTTPSessionSetJSONResponseSerializer {
+    [self sharedHTTPSession].responseSerializer = [self sharedJSONResponseSerializer];
+}
+
++ (AFJSONResponseSerializer *)sharedJSONResponseSerializer {
+    static dispatch_once_t FLONetworkUtil_onceToken1;
+    dispatch_once(&FLONetworkUtil_onceToken1, ^{
+        JSONResponseSerializer = [AFJSONResponseSerializer serializer];
+    });
+    return JSONResponseSerializer;
+}
+
+/**
+ text/html 结果解析，接口调用前设置，调用完成后需调用 HTTPSessionSetJSONResponseSerializer 还原
+ */
++ (void)HTTPSessionSetTextHTMLResponseSerializer {
+    [self sharedHTTPSession].responseSerializer = [self sharedTextHTMLResponseSerializer];
+}
+
++ (AFHTTPResponseSerializer *)sharedTextHTMLResponseSerializer {
+    static dispatch_once_t FLONetworkUtil_onceToken2;
+    dispatch_once(&FLONetworkUtil_onceToken2, ^{
+        TextHTMLResponseSerializer = [AFHTTPResponseSerializer serializer];
+        TextHTMLResponseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    });
+    return TextHTMLResponseSerializer;
+}
+
+/**
+ AFURLSessionManager单例
+ 
+ @return 单例对象
+ */
 + (AFURLSessionManager *)sharedURLSession {
-    static dispatch_once_t onceToken2;
-    dispatch_once(&onceToken2, ^{
+    static dispatch_once_t FLONetworkUtil_onceToken3;
+    dispatch_once(&FLONetworkUtil_onceToken3, ^{
         urlSessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     });
     return urlSessionManager;

@@ -141,7 +141,7 @@
 #pragma mark - MJRefresh
 - (void)configRefresh {
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestNewData)];
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
 }
 
 //下拉刷新
@@ -174,6 +174,7 @@
         NSString *adID = [NSString stringWithFormat:@"%.0f000000000000", [[NSDate date] timeIntervalSince1970]];
         NSString *str = [NSString stringWithFormat:@"http://m2.qiushibaike.com/article/newlist?new=%d&AdID=%@", new ? 1 : 0, adID];
         
+        [FLONetworkUtil HTTPSessionSetTextHTMLResponseSerializer];
         [[FLONetworkUtil sharedHTTPSession] GET:str parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             //解析请求结果
@@ -290,6 +291,8 @@
 - (void)endRequest {
     [self.tableView.mj_header endRefreshing];
     [self.tableView.mj_footer endRefreshing];
+    
+    [FLONetworkUtil HTTPSessionSetJSONResponseSerializer];
     
     _requesting = NO;
 }

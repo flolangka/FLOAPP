@@ -9,7 +9,7 @@
 #import "FLOWeiboDetailViewController.h"
 #import "FLOWeiboAuthorization.h"
 #import "FLOWeiboStatusModel.h"
-#import <AFHTTPSessionManager.h>
+#import "FLONetworkUtil.h"
 #import "FLOWeiboCommentModel.h"
 #import <MBProgressHUD.h>
 #import "FLOWeiboStatusTableViewCell.h"
@@ -100,8 +100,7 @@ static NSString * const kShowCommentsURL = @"https://api.weibo.com/2/comments/sh
     [parameters setObject:[FLOWeiboAuthorization sharedAuthorization].token forKey:kAccessToken];
     [parameters setObject:_status.statusID forKey:@"id"];
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:kShowCommentsURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [[FLONetworkUtil sharedHTTPSession] GET:kShowCommentsURL parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *result = (NSDictionary *)responseObject;
         NSArray *comments = result[@"comments"];
         
