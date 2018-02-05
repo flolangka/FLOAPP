@@ -44,6 +44,10 @@
     NSArray *array = [[APLCoreDataStackManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
     
     dataArr = [NSMutableArray arrayWithArray:array];
+    
+    if (dataArr.count == 0) {
+        [self addMediaAddressName:@"三分钟 - 陈可辛 - 用 iPhone X 拍摄" url:@"https://images.apple.com/media/cn/chinese-new-year/three-minutes/2018/f14ed516_730e_499a_8374_afd743848de6/films/three-minutes/iphone-three-minutes-tpl-cn-20180201_1280x720h.mp4"];
+    }
 }
 
 // 检测剪切板网址
@@ -60,7 +64,7 @@
         }];
         
         if (!selected) {
-            [self addMediaAddressName:@"" url:pasteboardString];
+            [self loadAddMaskViewName:@"" url:pasteboardString];
             
             Def_MBProgressString(@"检测到剪切板网址");
         }
@@ -68,24 +72,18 @@
 }
 
 - (void)addMediaAddress {
-    [self addMediaAddressName:@"" url:@""];
+    [self loadAddMaskViewName:@"" url:@""];
 }
 
-- (void)addMediaAddressName:(NSString *)name url:(NSString *)url {
+- (void)loadAddMaskViewName:(NSString *)name url:(NSString *)url {
     FLOAddBookMarkMaskView *maskView = [[[NSBundle mainBundle] loadNibNamed:@"FLOAddBookMarkMaskView" owner:nil options:nil] objectAtIndex:0];
     maskView.navBar.topItem.title = @"添加流媒体地址";
     maskView.bookMarkNameTF.text = name;
     maskView.bookMarkURLTF.text = url;
+    
+    FLOWeakObj(self);
     maskView.submit = ^void(NSString *name, NSString *urlStr){
-        // 插入数据库
-        MediaAddress *obj = [NSEntityDescription insertNewObjectForEntityForName:@"MediaAddress" inManagedObjectContext:[APLCoreDataStackManager sharedManager].managedObjectContext];
-        obj.name = name;
-        obj.url = urlStr;
-        [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
-        
-        // 刷新页面
-        [dataArr addObject:obj];
-        [self.tableView reloadData];
+        [weakself addMediaAddressName:name url:urlStr];
     };
     
     CGSize size = [UIScreen mainScreen].bounds.size;
@@ -95,6 +93,18 @@
     [UIView animateWithDuration:0.25 animations:^{
         maskView.frame = CGRectMake(0, 20, size.width, size.height-20);
     }];
+}
+
+- (void)addMediaAddressName:(NSString *)name url:(NSString *)url {
+    // 插入数据库
+    MediaAddress *obj = [NSEntityDescription insertNewObjectForEntityForName:@"MediaAddress" inManagedObjectContext:[APLCoreDataStackManager sharedManager].managedObjectContext];
+    obj.name = name;
+    obj.url = url;
+    [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
+    
+    // 刷新页面
+    [dataArr addObject:obj];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
