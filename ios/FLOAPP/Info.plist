@@ -69,7 +69,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>是否允许此App使用你的相机？</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>请点击"允许"启动定位服务</string>
+	<string>请点击&quot;允许&quot;启动定位服务</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>是否允许此App访问你的媒体资料库？</string>
 	<key>UIApplicationShortcutItems</key>
@@ -80,7 +80,7 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>扫一扫</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.flolangka.XMPPChat.qrcode</string>
+			<string>com.flolangka.floapp.qrcode</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>touchkey_touch</key>
@@ -89,15 +89,15 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
-			<string>UIApplicationShortcutIconTypeBookmark</string>
+			<string>UIApplicationShortcutIconTypeAlarm</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>书签</string>
+			<string>通知</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.flolangka.XMPPChat.bookmark</string>
+			<string>com.flolangka.floapp.notify</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>touchkey_touch</key>
-				<string>bookmarkValue</string>
+				<string>notifyValue</string>
 			</dict>
 		</dict>
 		<dict>
@@ -106,7 +106,7 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>微博</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.flolangka.XMPPChat.weibo</string>
+			<string>com.flolangka.floapp.weibo</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>touchkey_touch</key>
@@ -119,7 +119,7 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>地图</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>com.flolangka.XMPPChat.map</string>
+			<string>com.flolangka.floapp.map</string>
 			<key>UIApplicationShortcutItemUserInfo</key>
 			<dict>
 				<key>touchkey_touch</key>

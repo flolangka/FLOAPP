@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "FLOSideMenu.h"
-#import "FLOCodeViewController.h"
 #import <AFNetworkReachabilityManager.h>
 #import <MBProgressHUD.h>
 #import <UserNotifications/UserNotifications.h>
@@ -81,7 +80,9 @@
     
     NSString *touchType = (NSString *)shortcutItem.userInfo[@"touchkey_touch"];
     if ([touchType isEqualToString:@"qrcodeValue"]) {
-        [NavController pushViewController:[[FLOCodeViewController alloc] init] animated:YES];
+        Class ob = NSClassFromString(@"FLOCodeViewController");
+        UIViewController *viewController = [[ob alloc] init];
+        [NavController pushViewController:viewController animated:YES];
     } else if ([touchType isEqualToString:@"bookmarkValue"]) {
         [NavController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDBookMarkTableViewController"] animated:YES];
     } else if ([touchType isEqualToString:@"weiboValue"]) {
@@ -92,11 +93,16 @@
         viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         
         [NavController.topViewController presentViewController:viewController animated:NO completion:nil];
+    } else if ([touchType isEqualToString:@"notifyValue"]) {
+        Class ob = NSClassFromString(@"FLONotificationTimeTableViewController");
+        UIViewController *viewController = [[ob alloc] init];
+        [NavController pushViewController:viewController animated:YES];
     } else {
         return;
     }
 }
 
+//响应FlolangkaWidget
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     DLog(@"%@", options);
     DLog(@"%@", url);
