@@ -84,8 +84,8 @@ static float FLOQSBKContentFontSize = 16;
     [_myContentView addSubview:_contentLabel];
     [_contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_userIconImgV.mas_bottom).offset(10);
-        make.left.equalTo(_userIconImgV);
-        make.right.equalTo(_createTimeLabel);
+        make.left.equalTo(_myContentView).offset(15);
+        make.right.equalTo(_myContentView).offset(-15);
         make.height.mas_equalTo(24);
     }];
     _contentLabel.font = [UIFont systemFontOfSize:FLOQSBKContentFontSize];
@@ -105,7 +105,7 @@ static float FLOQSBKContentFontSize = 16;
         make.top.equalTo(_contentLabel.mas_bottom).offset(12);
         make.left.equalTo(_contentLabel);
         make.right.equalTo(_contentLabel);
-        make.bottom.equalTo(_myContentView).offset(-15);
+        //make.bottom.equalTo(_myContentView).offset(-15);
         make.height.mas_equalTo(100);
     }];
     _imgView.contentMode = UIViewContentModeScaleAspectFill;
@@ -237,6 +237,25 @@ static float FLOQSBKContentFontSize = 16;
     [_imgView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(imgHeight);
     }];
+}
+
+//计算高度
++ (float)heightWithContent:(NSString *)content
+                  imgSize:(CGSize    )imgSize {
+    float height = 8 + 15 + 35 + 10;
+    
+    height += [content heightWithLimitWidth:(DEVICE_SCREEN_WIDTH - 15 - 15) fontSize:FLOQSBKContentFontSize];
+    
+    height += 12;
+    
+    float imgHeight = 0;
+    if (imgSize.height > 0) {
+        imgHeight = DEVICE_SCREEN_WIDTH/imgSize.width * imgSize.height;
+        imgHeight = MIN(imgHeight, 600);
+    }
+    
+    height += imgHeight + 15;
+    return height;
 }
 
 - (NSAttributedString *)attributedContentWithContent:(NSString *)text {

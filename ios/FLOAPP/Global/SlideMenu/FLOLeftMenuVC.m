@@ -20,6 +20,9 @@
 
 @property (strong, readwrite, nonatomic) UITableView *tableView;
 
+//注销、登陆按钮
+@property (nonatomic, strong) UIButton *bottomBtn;
+
 @end
 
 @implementation FLOLeftMenuVC
@@ -45,30 +48,44 @@
     });
     [self.view addSubview:self.tableView];
     
-    UIButton *logoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [logoutButton setTitle:@"注销" forState:UIControlStateNormal];
-    logoutButton.frame = CGRectMake(10, [UIScreen mainScreen].bounds.size.height-44, 50, 44);
-    logoutButton.tintColor = [UIColor whiteColor];
-    [logoutButton addTarget:self action:@selector(logoutButtonAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:logoutButton];
+    _bottomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _bottomBtn.frame = CGRectMake(10, [UIScreen mainScreen].bounds.size.height-44, 80, 44);
+    _bottomBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    _bottomBtn.tintColor = [UIColor whiteColor];
+    [_bottomBtn addTarget:self action:@selector(bottomButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_bottomBtn];
+    [self refreshBottomBtnTitle];
 }
 
 //注销
-- (void)logoutButtonAction
+- (void)bottomButtonAction:(id)sender
 {
-    [[FLOAccountManager shareManager] logOut];
-    [[FLOWeiboAuthorization sharedAuthorization] logout];
-    
-    //返回首页，首页会判断是否登录，跳转到登陆页
-    [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFloCollectionNavigationController"]
-                                                 animated:YES];
-    [self.sideMenuViewController hideMenuViewController];
+    BOOL isLogin = [[FLOAccountManager shareManager] checkLoginState];
+    if (isLogin) {
+        //注销
+        [[FLOAccountManager shareManager] logOut];
+        [[FLOWeiboAuthorization sharedAuthorization] logout];
+        
+        //返回首页
+        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDFloCollectionNavigationController"]
+                                                     animated:YES];
+        [self.sideMenuViewController hideMenuViewController];
+    } else {
+        //登录
+        [self.sideMenuViewController presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"SBIDloginViewController"] animated:NO completion:nil];
+    }
 }
 
 //刷新用户名
 - (void)refreshView
 {
+    [self refreshBottomBtnTitle];
     [self.tableView reloadData];
+}
+
+- (void)refreshBottomBtnTitle {
+    NSString *btnTitle = [[FLOAccountManager shareManager] checkLoginState] ? @"Logout" : @"Login";
+    [_bottomBtn setTitle:btnTitle forState:UIControlStateNormal];
 }
 
 #pragma mark - UITableView Delegate
@@ -139,9 +156,15 @@
             [subView removeFromSuperview];
         }
         
+        //未登录显示游客
+        NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+        if (!Def_CheckStringClassAndLength(name)) {
+            name = @"游客";
+        }
+        
         //用户
         UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+        nameLabel.text = name;
         nameLabel.font = [UIFont fontWithName:@"Chalkduster" size:28];
         nameLabel.textColor = [UIColor whiteColor];
         nameLabel.textAlignment = NSTextAlignmentCenter;

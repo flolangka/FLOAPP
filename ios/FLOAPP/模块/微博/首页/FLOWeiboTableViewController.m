@@ -11,7 +11,6 @@
 #import "FLOWeiboStatusModel.h"
 #import "FLOWeiboStatusTableViewCell.h"
 #import "FLOWeiboStatusFoolerTableViewCell.h"
-#import "FLODataBaseEngin.h"
 #import "FLOWeiboDetailViewController.h"
 #import "FLOWeiboReportComViewController.h"
 #import "FLONetworkUtil.h"
@@ -79,7 +78,6 @@ static NSString * const kFooterCellID = @"footerCell";
     }];
     
     [self setTitle];
-    [self loadLocalData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -144,13 +142,6 @@ static NSString * const kFooterCellID = @"footerCell";
 }
 
 #pragma mark - 加载数据
-- (void)loadLocalData
-{
-    //加载数据库中数据
-    [self.dataArr addObjectsFromArray:[[FLODataBaseEngin shareInstance] selectWeiboStatus]];
-    [self.tableView reloadData];
-}
-
 //请求网络数据
 - (void)requestData
 {
@@ -342,18 +333,6 @@ static NSString * const kFooterCellID = @"footerCell";
 - (void)removeFromSelfLayer:(CALayer *)layer
 {
     [layer removeFromSuperlayer];
-}
-
-#pragma mark - 退出时将最新的20条数据保存数据库
-- (void)dealloc
-{
-    if ([authorization isLogin] && _dataArr.count > 0) {
-        if (_dataArr.count < 20) {
-            [[FLODataBaseEngin shareInstance] resetWeiboDataWithStatus:_dataArr];
-        } else {
-            [[FLODataBaseEngin shareInstance] resetWeiboDataWithStatus:[_dataArr subarrayWithRange:NSMakeRange(0, 20)]];
-        }
-    }
 }
 
 #pragma mark - 微博认证 Delegate

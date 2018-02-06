@@ -49,11 +49,13 @@ static MQTTService *myService;
 }
 
 - (void)connectToServer {
-    if (session.status == MQTTSessionStatusConnected || session.status == MQTTSessionStatusConnecting) {
-        [self close];
-    } else {
-        [session connectAndWaitTimeout:30];
-    }
+    if (session.transport.host.length) {
+        if (session.status == MQTTSessionStatusConnected || session.status == MQTTSessionStatusConnecting) {
+            [self close];
+        } else {
+            [session connectAndWaitTimeout:30];
+        }
+    }    
 }
 
 - (void)close {

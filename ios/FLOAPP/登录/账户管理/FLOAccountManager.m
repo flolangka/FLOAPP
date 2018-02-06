@@ -24,9 +24,10 @@ static NSString * const userDefaultsKey_password = @"password";
     return _accountManager;
 }
 
+//登录页调用
 - (BOOL)logInWithName:(NSString *)name password:(NSString *)password
 {
-    BOOL loginSuccess = [self connectXMPPServiceWithUserName:name password:password];
+    BOOL loginSuccess = YES;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         if (loginSuccess) {
@@ -40,26 +41,6 @@ static NSString * const userDefaultsKey_password = @"password";
     return loginSuccess;
 }
 
-- (BOOL)connectXMPPService
-{
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSString *userName = [userDefault objectForKey:userDefaultsKey_userName];
-    NSString *password = [userDefault objectForKey:userDefaultsKey_password];
-    
-    return [self connectXMPPServiceWithUserName:userName password:password];
-}
-
-/**
- *  连接XMPP服务器根方法
- */
-- (BOOL)connectXMPPServiceWithUserName:(NSString *)userName password:(NSString *)password
-{
-    //
-    
-    
-    return YES;
-}
-
 /**
  *  注销
  */
@@ -70,6 +51,7 @@ static NSString * const userDefaultsKey_password = @"password";
     [userDefault synchronize];
 }
 
+//首页调用--检查是否有记住的用户名密码
 - (BOOL)checkLoginState
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];

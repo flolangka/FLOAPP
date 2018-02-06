@@ -19,4 +19,8 @@
                content:(NSString *)content
               pictures:(NSArray *)pictures;
 
+//计算高度
++ (float)heightWithContent:(NSString *)content
+              pictureCount:(NSInteger )count;
+
 @end

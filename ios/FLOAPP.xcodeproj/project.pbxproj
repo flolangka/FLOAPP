@@ -16,6 +16,8 @@
 		12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 12F956241E06C32E008699B2 /* FLOAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		12F956341E06C626008699B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84291A181C05867A0015F5F1 /* Assets.xcassets */; };
 		12F956361E06C69A008699B2 /* FLO@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F956351E06C69A008699B2 /* FLO@2x.png */; };
+		7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1D20294C400090A584 /* BookMarkEntity+CoreDataClass.m */; };
+		7329ED2120294C400090A584 /* BookMarkEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */; };
 		7348B5AA1EA6FFD60011F8FA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */; };
 		7348B5AE1EA6FFD60011F8FA /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */; };
 		7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */; };
@@ -62,7 +64,6 @@
 		73CAAD59201F087B001B1AE2 /* FLODownloadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC86201F087A001B1AE2 /* FLODownloadTableViewController.m */; };
 		73CAAD5A201F087B001B1AE2 /* FLOAddBookMarkMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC89201F087A001B1AE2 /* FLOAddBookMarkMaskView.m */; };
 		73CAAD5B201F087B001B1AE2 /* FLOAddBookMarkMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73CAAC8A201F087A001B1AE2 /* FLOAddBookMarkMaskView.xib */; };
-		73CAAD5C201F087B001B1AE2 /* FLOBookMarkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC8C201F087A001B1AE2 /* FLOBookMarkModel.m */; };
 		73CAAD5D201F087B001B1AE2 /* FLOBookMarkTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC8E201F087A001B1AE2 /* FLOBookMarkTableViewController.m */; };
 		73CAAD5E201F087B001B1AE2 /* FLOCodeResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC91201F087A001B1AE2 /* FLOCodeResultViewController.m */; };
 		73CAAD5F201F087B001B1AE2 /* FLOCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC93201F087A001B1AE2 /* FLOCodeViewController.m */; };
@@ -192,7 +193,6 @@
 		73CAAE03201F09E4001B1AE2 /* FLOSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAADF4201F09E4001B1AE2 /* FLOSideMenu.m */; };
 		73CAAE04201F09E4001B1AE2 /* FLOTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAADF7201F09E4001B1AE2 /* FLOTabBarController.m */; };
 		73CAAE05201F09E4001B1AE2 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAADF9201F09E4001B1AE2 /* YYFPSLabel.m */; };
-		73CAAE06201F09E4001B1AE2 /* FLODataBaseEngin.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAADFC201F09E4001B1AE2 /* FLODataBaseEngin.m */; };
 		73CAAE07201F09E4001B1AE2 /* FLOUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAADFF201F09E4001B1AE2 /* FLOUserModel.m */; };
 		73CAAE0B201F0B2A001B1AE2 /* FLOQSBKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAE0A201F0B2A001B1AE2 /* FLOQSBKTableViewController.m */; };
 		73CAAE0E201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAE0D201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.m */; };
@@ -275,6 +275,11 @@
 		4F3082D274C70DF38A7A3505 /* Pods-FLOAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLOAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP.release.xcconfig"; sourceTree = "<group>"; };
 		7323C45A1E4ACBAD00543251 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		7329ED1B20294AF50090A584 /* FLOCoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FLOCoreData 4.xcdatamodel"; sourceTree = "<group>"; };
+		7329ED1C20294C400090A584 /* BookMarkEntity+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookMarkEntity+CoreDataClass.h"; sourceTree = "<group>"; };
+		7329ED1D20294C400090A584 /* BookMarkEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BookMarkEntity+CoreDataClass.m"; sourceTree = "<group>"; };
+		7329ED1E20294C400090A584 /* BookMarkEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookMarkEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BookMarkEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlolangkaWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7348B5AC1EA6FFD60011F8FA /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -362,8 +367,6 @@
 		73CAAC88201F087A001B1AE2 /* FLOAddBookMarkMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOAddBookMarkMaskView.h; sourceTree = "<group>"; };
 		73CAAC89201F087A001B1AE2 /* FLOAddBookMarkMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOAddBookMarkMaskView.m; sourceTree = "<group>"; };
 		73CAAC8A201F087A001B1AE2 /* FLOAddBookMarkMaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLOAddBookMarkMaskView.xib; sourceTree = "<group>"; };
-		73CAAC8B201F087A001B1AE2 /* FLOBookMarkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOBookMarkModel.h; sourceTree = "<group>"; };
-		73CAAC8C201F087A001B1AE2 /* FLOBookMarkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOBookMarkModel.m; sourceTree = "<group>"; };
 		73CAAC8D201F087A001B1AE2 /* FLOBookMarkTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOBookMarkTableViewController.h; sourceTree = "<group>"; };
 		73CAAC8E201F087A001B1AE2 /* FLOBookMarkTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOBookMarkTableViewController.m; sourceTree = "<group>"; };
 		73CAAC90201F087A001B1AE2 /* FLOCodeResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOCodeResultViewController.h; sourceTree = "<group>"; };
@@ -537,8 +540,6 @@
 		73CAADF7201F09E4001B1AE2 /* FLOTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOTabBarController.m; sourceTree = "<group>"; };
 		73CAADF8201F09E4001B1AE2 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		73CAADF9201F09E4001B1AE2 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
-		73CAADFB201F09E4001B1AE2 /* FLODataBaseEngin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLODataBaseEngin.h; sourceTree = "<group>"; };
-		73CAADFC201F09E4001B1AE2 /* FLODataBaseEngin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLODataBaseEngin.m; sourceTree = "<group>"; };
 		73CAADFE201F09E4001B1AE2 /* FLOUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOUserModel.h; sourceTree = "<group>"; };
 		73CAADFF201F09E4001B1AE2 /* FLOUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOUserModel.m; sourceTree = "<group>"; };
 		73CAAE09201F0B2A001B1AE2 /* FLOQSBKTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOQSBKTableViewController.h; sourceTree = "<group>"; };
@@ -643,6 +644,61 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7329ED1720294A3C0090A584 /* NotificationTime */ = {
+			isa = PBXGroup;
+			children = (
+				73CAAC46201F087A001B1AE2 /* NotificationTime+CoreDataClass.h */,
+				73CAAC47201F087A001B1AE2 /* NotificationTime+CoreDataClass.m */,
+				73CAAC48201F087A001B1AE2 /* NotificationTime+CoreDataProperties.h */,
+				73CAAC49201F087A001B1AE2 /* NotificationTime+CoreDataProperties.m */,
+			);
+			path = NotificationTime;
+			sourceTree = "<group>";
+		};
+		7329ED1820294A550090A584 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				73CAAC42201F087A001B1AE2 /* NetWork+CoreDataClass.h */,
+				73CAAC43201F087A001B1AE2 /* NetWork+CoreDataClass.m */,
+				73CAAC44201F087A001B1AE2 /* NetWork+CoreDataProperties.h */,
+				73CAAC45201F087A001B1AE2 /* NetWork+CoreDataProperties.m */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		7329ED1920294AB40090A584 /* MediaAddress */ = {
+			isa = PBXGroup;
+			children = (
+				73CAAC3E201F087A001B1AE2 /* MediaAddress+CoreDataClass.h */,
+				73CAAC3F201F087A001B1AE2 /* MediaAddress+CoreDataClass.m */,
+				73CAAC40201F087A001B1AE2 /* MediaAddress+CoreDataProperties.h */,
+				73CAAC41201F087A001B1AE2 /* MediaAddress+CoreDataProperties.m */,
+			);
+			path = MediaAddress;
+			sourceTree = "<group>";
+		};
+		7329ED1A20294ADD0090A584 /* DownloadFile */ = {
+			isa = PBXGroup;
+			children = (
+				73CAAC36201F087A001B1AE2 /* DownloadFile+CoreDataClass.h */,
+				73CAAC37201F087A001B1AE2 /* DownloadFile+CoreDataClass.m */,
+				73CAAC38201F087A001B1AE2 /* DownloadFile+CoreDataProperties.h */,
+				73CAAC39201F087A001B1AE2 /* DownloadFile+CoreDataProperties.m */,
+			);
+			path = DownloadFile;
+			sourceTree = "<group>";
+		};
+		7329ED2320294CB30090A584 /* BookMarkEntity */ = {
+			isa = PBXGroup;
+			children = (
+				7329ED1C20294C400090A584 /* BookMarkEntity+CoreDataClass.h */,
+				7329ED1D20294C400090A584 /* BookMarkEntity+CoreDataClass.m */,
+				7329ED1E20294C400090A584 /* BookMarkEntity+CoreDataProperties.h */,
+				7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */,
+			);
+			path = BookMarkEntity;
+			sourceTree = "<group>";
+		};
 		7348B5AB1EA6FFD60011F8FA /* FlolangkaWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,23 +751,12 @@
 			children = (
 				73CAAC34201F087A001B1AE2 /* APLCoreDataStackManager.h */,
 				73CAAC35201F087A001B1AE2 /* APLCoreDataStackManager.m */,
-				73CAAC36201F087A001B1AE2 /* DownloadFile+CoreDataClass.h */,
-				73CAAC37201F087A001B1AE2 /* DownloadFile+CoreDataClass.m */,
-				73CAAC38201F087A001B1AE2 /* DownloadFile+CoreDataProperties.h */,
-				73CAAC39201F087A001B1AE2 /* DownloadFile+CoreDataProperties.m */,
 				73CAAC3A201F087A001B1AE2 /* FLOCoreData.xcdatamodeld */,
-				73CAAC3E201F087A001B1AE2 /* MediaAddress+CoreDataClass.h */,
-				73CAAC3F201F087A001B1AE2 /* MediaAddress+CoreDataClass.m */,
-				73CAAC40201F087A001B1AE2 /* MediaAddress+CoreDataProperties.h */,
-				73CAAC41201F087A001B1AE2 /* MediaAddress+CoreDataProperties.m */,
-				73CAAC42201F087A001B1AE2 /* NetWork+CoreDataClass.h */,
-				73CAAC43201F087A001B1AE2 /* NetWork+CoreDataClass.m */,
-				73CAAC44201F087A001B1AE2 /* NetWork+CoreDataProperties.h */,
-				73CAAC45201F087A001B1AE2 /* NetWork+CoreDataProperties.m */,
-				73CAAC46201F087A001B1AE2 /* NotificationTime+CoreDataClass.h */,
-				73CAAC47201F087A001B1AE2 /* NotificationTime+CoreDataClass.m */,
-				73CAAC48201F087A001B1AE2 /* NotificationTime+CoreDataProperties.h */,
-				73CAAC49201F087A001B1AE2 /* NotificationTime+CoreDataProperties.m */,
+				7329ED2320294CB30090A584 /* BookMarkEntity */,
+				7329ED1A20294ADD0090A584 /* DownloadFile */,
+				7329ED1920294AB40090A584 /* MediaAddress */,
+				7329ED1820294A550090A584 /* NetWork */,
+				7329ED1720294A3C0090A584 /* NotificationTime */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -847,13 +892,11 @@
 		73CAAC87201F087A001B1AE2 /* 书签 */ = {
 			isa = PBXGroup;
 			children = (
+				73CAAC8D201F087A001B1AE2 /* FLOBookMarkTableViewController.h */,
+				73CAAC8E201F087A001B1AE2 /* FLOBookMarkTableViewController.m */,
 				73CAAC88201F087A001B1AE2 /* FLOAddBookMarkMaskView.h */,
 				73CAAC89201F087A001B1AE2 /* FLOAddBookMarkMaskView.m */,
 				73CAAC8A201F087A001B1AE2 /* FLOAddBookMarkMaskView.xib */,
-				73CAAC8B201F087A001B1AE2 /* FLOBookMarkModel.h */,
-				73CAAC8C201F087A001B1AE2 /* FLOBookMarkModel.m */,
-				73CAAC8D201F087A001B1AE2 /* FLOBookMarkTableViewController.h */,
-				73CAAC8E201F087A001B1AE2 /* FLOBookMarkTableViewController.m */,
 			);
 			path = "书签";
 			sourceTree = "<group>";
@@ -1210,7 +1253,6 @@
 				73CAADF5201F09E4001B1AE2 /* TabBarController */,
 				73CAADF8201F09E4001B1AE2 /* YYFPSLabel.h */,
 				73CAADF9201F09E4001B1AE2 /* YYFPSLabel.m */,
-				73CAADFA201F09E4001B1AE2 /* 数据库 */,
 				73CAADFD201F09E4001B1AE2 /* 用户 */,
 			);
 			path = Global;
@@ -1251,15 +1293,6 @@
 				73CAADF7201F09E4001B1AE2 /* FLOTabBarController.m */,
 			);
 			path = TabBarController;
-			sourceTree = "<group>";
-		};
-		73CAADFA201F09E4001B1AE2 /* 数据库 */ = {
-			isa = PBXGroup;
-			children = (
-				73CAADFB201F09E4001B1AE2 /* FLODataBaseEngin.h */,
-				73CAADFC201F09E4001B1AE2 /* FLODataBaseEngin.m */,
-			);
-			path = "数据库";
 			sourceTree = "<group>";
 		};
 		73CAADFD201F09E4001B1AE2 /* 用户 */ = {
@@ -1798,6 +1831,7 @@
 				73CAAD59201F087B001B1AE2 /* FLODownloadTableViewController.m in Sources */,
 				73CAADDD201F09B6001B1AE2 /* FLOSettingTableViewController.m in Sources */,
 				73CAADB7201F087B001B1AE2 /* CYRLayoutManager.m in Sources */,
+				7329ED2120294C400090A584 /* BookMarkEntity+CoreDataProperties.m in Sources */,
 				73CAAD47201F087B001B1AE2 /* UIView+FLOUtil.m in Sources */,
 				73CAADC1201F087B001B1AE2 /* FLOWeiboCommentTableViewCell.m in Sources */,
 				73CAAE07201F09E4001B1AE2 /* FLOUserModel.m in Sources */,
@@ -1826,6 +1860,7 @@
 				73CAAD5F201F087B001B1AE2 /* FLOCodeViewController.m in Sources */,
 				73CAAD3F201F087B001B1AE2 /* NotificationTime+CoreDataProperties.m in Sources */,
 				73CAADC8201F087B001B1AE2 /* SortClass.swift in Sources */,
+				7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */,
 				73CAAD3E201F087B001B1AE2 /* NotificationTime+CoreDataClass.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,
 				84291A0E1C05867A0015F5F1 /* main.m in Sources */,
@@ -1837,8 +1872,6 @@
 				73CAAD3A201F087B001B1AE2 /* MediaAddress+CoreDataClass.m in Sources */,
 				73CAADBC201F087B001B1AE2 /* ZSSTextView.m in Sources */,
 				73CAAD5E201F087B001B1AE2 /* FLOCodeResultViewController.m in Sources */,
-				73CAAD5C201F087B001B1AE2 /* FLOBookMarkModel.m in Sources */,
-				73CAAE06201F09E4001B1AE2 /* FLODataBaseEngin.m in Sources */,
 				73CAAE00201F09E4001B1AE2 /* FLONavigationController.m in Sources */,
 				73CAADBD201F087B001B1AE2 /* FLOWeiboAuthorization.m in Sources */,
 				73CAAD54201F087B001B1AE2 /* FLOTouchIDViewController.m in Sources */,
@@ -2432,11 +2465,12 @@
 		73CAAC3A201F087A001B1AE2 /* FLOCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				7329ED1B20294AF50090A584 /* FLOCoreData 4.xcdatamodel */,
 				73CAAC3B201F087A001B1AE2 /* FLOCoreData 2.xcdatamodel */,
 				73CAAC3C201F087A001B1AE2 /* FLOCoreData 3.xcdatamodel */,
 				73CAAC3D201F087A001B1AE2 /* FLOCoreData.xcdatamodel */,
 			);
-			currentVersion = 73CAAC3C201F087A001B1AE2 /* FLOCoreData 3.xcdatamodel */;
+			currentVersion = 7329ED1B20294AF50090A584 /* FLOCoreData 4.xcdatamodel */;
 			path = FLOCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

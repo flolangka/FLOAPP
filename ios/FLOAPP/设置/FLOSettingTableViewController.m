@@ -7,8 +7,8 @@
 //
 
 #import "FLOSettingTableViewController.h"
-#import "FLODataBaseEngin.h"
 #import <MBProgressHUD.h>
+#import <SDWebImageManager.h>
 
 @interface FLOSettingTableViewController ()
 
@@ -18,12 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,26 +35,40 @@
     return 1;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *identifier = @"SettingRightDetailCellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+    }
+    
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"清除缓存";
+        
+        NSUInteger size = [[SDImageCache sharedImageCache] getSize];
+        cell.detailTextLabel.text = [FLOUtil FileSizeWithBytes:size];
+    }
+    
+    return cell;
+}
+
 #pragma mark - TableView Delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == 0) {
-        [[FLODataBaseEngin shareInstance] resetDatabase];
-        Def_MBProgressStringDelay(@"重置数据库成功", 1);
+        [[SDImageCache sharedImageCache] clearDisk];
+        [tableView reloadData];
+        
+        Def_MBProgressStringDelay(@"清除缓存成功", 1);
     }
 }
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
 /*
 // Override to support conditional editing of the table view.

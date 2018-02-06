@@ -196,6 +196,14 @@
             for (NSDictionary *dict in itemArr) {
                 FLOQSBKItem *item = [FLOQSBKItem itemWithDictionary:dict];
                 if (item) {
+                    CGSize size = CGSizeZero;
+                    if ([item isKindOfClass:[FLOQSBKImageItem class]]) {
+                        size = [(FLOQSBKImageItem *)item size];
+                    } else if ([item isKindOfClass:[FLOQSBKVideoItem class]]) {
+                        size = [(FLOQSBKVideoItem *)item size];
+                    }
+                    
+                    item.cellHeight = [FLOQSBKTableViewCell heightWithContent:item.content imgSize:size];
                     [muarr addObject:item];
                 }
             }
@@ -253,6 +261,7 @@
                 for (NSDictionary *dict in itemArr) {
                     FLOQSBKTopicItem *item = [FLOQSBKTopicItem itemWithDictionary:dict];
                     if (item) {
+                        item.cellHeight = [FLOQSBKTopicTableViewCell heightWithContent:item.content pictureCount:item.pictures.count];
                         [muarr addObject:item];
                     }
                 }
@@ -379,6 +388,16 @@
 }
 
 #pragma mark - tableView delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_seg.selectedSegmentIndex == 1) {
+        FLOQSBKTopicItem *item = _dataArrTopic[indexPath.row];
+        return item.cellHeight;
+    } else {
+        FLOQSBKItem *item = _dataArr[indexPath.row];
+        return item.cellHeight;
+    }
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

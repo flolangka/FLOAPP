@@ -35,4 +35,8 @@
           videoPicture:(NSString *)videoPicture
              videoSize:(CGSize    )videoSize;
 
+//计算高度
++ (float)heightWithContent:(NSString *)content
+                   imgSize:(CGSize    )imgSize;
+
 @end

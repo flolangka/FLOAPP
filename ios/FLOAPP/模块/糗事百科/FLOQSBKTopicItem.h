@@ -16,6 +16,8 @@
 @property (nonatomic, copy  ) NSString *content;
 @property (nonatomic, copy  ) NSArray  *pictures;
 
+@property (nonatomic, assign) float cellHeight;
+
 + (instancetype)itemWithDictionary:(NSDictionary *)dict;
 
 @end

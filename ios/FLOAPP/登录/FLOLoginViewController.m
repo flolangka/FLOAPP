@@ -35,24 +35,21 @@
         [self showPromptTitle:@"请输入密码..."];
     } else {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             BOOL loginSuccess = [[FLOAccountManager shareManager] logInWithName:_userNameTF.text password:_passwordTF.text];
-            sleep(2);
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [MBProgressHUD hideHUDForView:self.view animated:NO];
-                
-                if (loginSuccess) {
-                    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                    [self dismissViewControllerAnimated:YES completion:^{
-                        FLOLeftMenuVC *leftMenuVC = [[UIApplication sharedApplication].windows[0].rootViewController valueForKey:@"leftMenuViewController"];
-                        [leftMenuVC refreshView];
-                    }];
-                } else {
-                    [self showPromptTitle:@"登录失败..."];
-                }
-            });
+            [MBProgressHUD hideHUDForView:self.view animated:NO];
+            
+            if (loginSuccess) {
+                self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                [self dismissViewControllerAnimated:YES completion:^{
+                    FLOLeftMenuVC *leftMenuVC = [[UIApplication sharedApplication].windows[0].rootViewController valueForKey:@"leftMenuViewController"];
+                    [leftMenuVC refreshView];
+                }];
+            } else {
+                [self showPromptTitle:@"登录失败..."];
+            }
         });
     }
 }

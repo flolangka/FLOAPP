@@ -77,6 +77,8 @@
 // 检测剪切板网址
 - (void)checkPasteboard {
     NSString *pasteboardString = [UIPasteboard generalPasteboard].string;
+    [[UIPasteboard generalPasteboard] setString:@""];
+    
     if (pasteboardString && ([pasteboardString hasPrefix:@"http://"] || [pasteboardString hasPrefix:@"https://"] || [pasteboardString hasPrefix:@"thunder://"])) {
         
         [self addDownloadFileName:@"" url:pasteboardString];

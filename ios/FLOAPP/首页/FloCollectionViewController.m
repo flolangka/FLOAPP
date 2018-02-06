@@ -12,7 +12,6 @@
 #import "FLOCollectionItem.h"
 #import "FLOWebViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "FLODataBaseEngin.h"
 #import <MBProgressHUD.h>
 #import "FLOCollectionViewLayout.h"
 #import "UIView+FLOUtil.h"
@@ -76,7 +75,7 @@ UIViewControllerPreviewingDelegate>
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     //检查用户是否登录
-    [self checkIsLogin];
+    //[self checkIsLogin];  2018-02-05 17:37:33 免登陆
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

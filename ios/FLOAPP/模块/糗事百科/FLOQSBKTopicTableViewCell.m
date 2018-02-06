@@ -99,19 +99,18 @@ static float FLOQSBKTopicImageSpace = 8;
         make.top.equalTo(_contentLabel.mas_bottom).offset(12);
         make.left.equalTo(_contentLabel);
         make.right.equalTo(_contentLabel);
-        make.bottom.equalTo(_myContentView).offset(-15);
+        //make.bottom.equalTo(_myContentView).offset(-15);
         make.height.mas_equalTo(100);
     }];
     [_pictureView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pictureViewAction:)]];
     
-    float imgSize = [self imgSize];
+    float imgSize = [[self class] imgSize];
     for (int i = 0; i < 6; i++) {
         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(i%3 * (imgSize + FLOQSBKTopicImageSpace), i/3 * (imgSize + FLOQSBKTopicImageSpace), imgSize, imgSize)];
         imgV.tag = 1000 + i;
         imgV.contentMode = UIViewContentModeScaleAspectFill;
         imgV.clipsToBounds = YES;
         [_pictureView addSubview:imgV];
-        
     }
     
     return self;
@@ -120,14 +119,14 @@ static float FLOQSBKTopicImageSpace = 8;
 - (void)pictureViewAction:(UITapGestureRecognizer *)tap {
     CGPoint point = [tap locationInView:_pictureView];
     
-    float imgSize = [self imgSize];
+    float imgSize = [[self class] imgSize];
     NSInteger index = (int)(point.x / imgSize) + (int)(point.y / imgSize) * 3;
     if (_imgAction) {
         _imgAction(index);
     }
 }
 
-- (float)imgSize {
++ (float)imgSize {
     return floorf((DEVICE_SCREEN_WIDTH - 15 - 35 - 15 - 2 * FLOQSBKTopicImageSpace - 15)/3.);
 }
 
@@ -159,11 +158,27 @@ static float FLOQSBKTopicImageSpace = 8;
     }];
     
     //更新图片区域高度
-    float imgSize = [self imgSize];
+    float imgSize = [[self class] imgSize];
     imgSize = pictures.count > 3 ? (imgSize*2 + FLOQSBKTopicImageSpace) : imgSize;
     [_pictureView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(imgSize);
     }];
+}
+
+//计算高度
++ (float)heightWithContent:(NSString *)content
+              pictureCount:(NSInteger )count {
+    float height = 8 + 15 + 20 + 10;
+    
+    height += [content heightWithLimitWidth:(DEVICE_SCREEN_WIDTH - 15 - 35 - 15 - 15) fontSize:FLOQSBKTopicContentFontSize];
+    
+    height += 12;
+    
+    float imgSize = [self imgSize];
+    imgSize = count > 3 ? (imgSize*2 + FLOQSBKTopicImageSpace) : imgSize;
+    
+    height += imgSize + 15;
+    return height;
 }
 
 - (NSAttributedString *)attributedContentWithContent:(NSString *)text {

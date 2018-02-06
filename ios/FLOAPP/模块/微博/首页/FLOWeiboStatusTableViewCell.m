@@ -119,19 +119,19 @@
     
     NSArray *topics = [[self regexTopic] matchesInString:str options:0 range:NSMakeRange(0, text.length)];
     for (NSTextCheckingResult *rs in topics) {
-        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:[str substringWithRange:rs.range] attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.1 green:0.3 blue:1 alpha:0.8]}]];
+        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:[str substringWithRange:rs.range] attributes:@{NSForegroundColorAttributeName: COLOR_RGB(100, 156, 213)}]];
     }
     
     NSArray *ats = [[self regexAt] matchesInString:str options:0 range:NSMakeRange(0, text.length)];
     for (NSTextCheckingResult *rs in ats) {
-        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:[str substringWithRange:rs.range] attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.1 green:0.3 blue:1 alpha:0.8]}]];
+        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:[str substringWithRange:rs.range] attributes:@{NSForegroundColorAttributeName: COLOR_RGB(100, 156, 213)}]];
     }
     
     NSArray *httpURLs = [[self regexHTTP] matchesInString:text.string options:0 range:NSMakeRange(0, text.length)];
     for (int i = 0; i < httpURLs.count; i++) {
         httpURLs = [[self regexHTTP] matchesInString:text.string options:0 range:NSMakeRange(0, text.length)];
         NSTextCheckingResult *rs = httpURLs[0];
-        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:@"©网页链接" attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.1 green:0.3 blue:1 alpha:0.8]}]];
+        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:@"©网页链接" attributes:@{NSForegroundColorAttributeName: COLOR_RGB(100, 156, 213)}]];
     }
     
     return text;
@@ -145,7 +145,7 @@
     for (int i = 0; i < httpURLs.count; i++) {
         httpURLs = [[self regexHTTP] matchesInString:text.string options:0 range:NSMakeRange(0, text.length)];
         NSTextCheckingResult *rs = httpURLs[0];
-        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:@"©网页链接" attributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:0.1 green:0.3 blue:1 alpha:0.8]}]];
+        [text replaceCharactersInRange:rs.range withAttributedString:[[NSAttributedString alloc] initWithString:@"©网页链接" attributes:@{NSForegroundColorAttributeName: COLOR_RGB(100, 156, 213)}]];
     }
     
     return text.string;
@@ -228,6 +228,8 @@
     for (int i = 0; i < imageArray.count; i ++) {
         NSString *imageURL = imageArray[i];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i % 4 * (imageWidth + 5), 8 + (imageWidth + 5)* (i/4), imageWidth, imageWidth)];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
         [view addSubview:imageView];
         imageView.backgroundColor = [UIColor lightGrayColor];
         [imageView sd_setImageWithURL:[NSURL URLWithString:imageURL]];

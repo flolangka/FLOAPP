@@ -7,8 +7,8 @@
 //
 
 #import "FLOBookMarkTableViewController.h"
-#import "FLODataBaseEngin.h"
-#import "FLOBookMarkModel.h"
+#import "BookMarkEntity+CoreDataClass.h"
+#import "APLCoreDataStackManager.h"
 #import "FLOWebViewController.h"
 #import "FLOAddBookMarkMaskView.h"
 #import <MBProgressHUD.h>
@@ -47,40 +47,22 @@
     [googleBtn addTarget:self action:@selector(googleBtnAction:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     BOOL firstLoad = self.dataArr == nil;
     
-    NSArray *recordBookMarks = [[FLODataBaseEngin shareInstance] selectAllBookMark];
-    self.dataArr = [NSMutableArray arrayWithArray:recordBookMarks];
+    self.dataArr = [NSMutableArray arrayWithArray:[self localData]];
     [self.tableView reloadData];
     
     // 剪切板网址检测
     if (firstLoad) {
-        NSString *pasteboardString = [UIPasteboard generalPasteboard].string;
-        if (pasteboardString && ([pasteboardString hasPrefix:@"http://"] || [pasteboardString hasPrefix:@"https://"])) {
-            __block BOOL selected = NO;
-            
-            [_dataArr enumerateObjectsUsingBlock:^(FLOBookMarkModel *bookMark, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([bookMark.bookMarkURLStr isEqualToString:pasteboardString]) {
-                    selected = YES;
-                    *stop = YES;
-                }
-            }];
-            
-            if (!selected) {
-                [self addBookMarkName:@"" url:pasteboardString];
-                
-                Def_MBProgressString(@"检测到剪切板网址");
-            }
-        }
+        [self checkPasteboard];
     }
     
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    for (FLOBookMarkModel *bookModel in recordBookMarks) {
-        if (!_currentRequestURlStr || !_currentDocumentTitle || [bookModel.bookMarkURLStr isEqualToString:_currentRequestURlStr]) {
+    for (BookMarkEntity *bookModel in _dataArr) {
+        if (!_currentRequestURlStr || !_currentDocumentTitle || [bookModel.url isEqualToString:_currentRequestURlStr]) {
             //右上角 加入书签
             self.navigationItem.rightBarButtonItem = nil;
             break;
@@ -96,6 +78,59 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [googleBtn removeFromSuperview];
+}
+
+// 检测剪切板网址
+- (void)checkPasteboard {
+    NSString *pasteboardString = [UIPasteboard generalPasteboard].string;
+    [[UIPasteboard generalPasteboard] setString:@""];
+    
+    if (pasteboardString && ([pasteboardString hasPrefix:@"http://"] || [pasteboardString hasPrefix:@"https://"])) {
+        __block BOOL selected = NO;
+        
+        [_dataArr enumerateObjectsUsingBlock:^(BookMarkEntity *bookMark, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([bookMark.url isEqualToString:pasteboardString]) {
+                selected = YES;
+                *stop = YES;
+            }
+        }];
+        
+        if (!selected) {
+            [self addBookMarkName:@"" url:pasteboardString];
+            
+            Def_MBProgressString(@"检测到剪切板网址");
+        }
+    }
+}
+
+- (NSArray *)localData {
+    //建立请求
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"BookMarkEntity"];
+    //读取数据
+    NSArray *recordBookMarks = [[APLCoreDataStackManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
+    
+    //默认数据
+    if (recordBookMarks.count == 0) {
+        DLog(@"数据库中没有书签，添加默认书签");
+        BookMarkEntity *entity1 = [self newBookMarkEntityName:@"Apple中国" url:@"http://www.apple.com/cn/"];
+        BookMarkEntity *entity2 = [self newBookMarkEntityName:@"GitHub" url:@"https://github.com/"];
+        BookMarkEntity *entity3 = [self newBookMarkEntityName:@"Sqlite" url:@"https://www.sqlite.org/"];
+        BookMarkEntity *entity4 = [self newBookMarkEntityName:@"W3School" url:@"http://www.w3school.com.cn/"];
+        BookMarkEntity *entity5 = [self newBookMarkEntityName:@"Flolangka" url:@"http://flolangka.com/"];
+        
+        [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
+        recordBookMarks = @[entity1, entity2, entity3, entity4, entity5];
+    }
+    
+    return recordBookMarks;
+}
+
+- (BookMarkEntity *)newBookMarkEntityName:(NSString *)name url:(NSString *)url {
+    BookMarkEntity *obj = [NSEntityDescription insertNewObjectForEntityForName:@"BookMarkEntity" inManagedObjectContext:[APLCoreDataStackManager sharedManager].managedObjectContext];
+    obj.name = name;
+    obj.url = url;
+    
+    return obj;
 }
 
 #pragma mark - 输入网址
@@ -151,7 +186,6 @@
     }  
 }
 
-
 #pragma mark - 添加书签
 - (void)addBookMark {
     [self addBookMarkName:_currentDocumentTitle url:_currentRequestURlStr];
@@ -161,11 +195,15 @@
     FLOAddBookMarkMaskView *maskView = [[[NSBundle mainBundle] loadNibNamed:@"FLOAddBookMarkMaskView" owner:nil options:nil] objectAtIndex:0];
     maskView.bookMarkNameTF.text = name;
     maskView.bookMarkURLTF.text = url;
+    
+    FLOWeakObj(self);
     maskView.submit = ^void(NSString *name, NSString *urlStr){
-        [[FLODataBaseEngin shareInstance] insertBookMark:[[FLOBookMarkModel alloc] initWithBookMarkName:name urlString:urlStr]];
+        // 插入数据库
+        [weakself newBookMarkEntityName:name url:urlStr];
+        [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
         
         //刷新页面
-        [self viewWillAppear:YES];
+        [weakself viewWillAppear:YES];
     };
     
     CGSize size = [UIScreen mainScreen].bounds.size;
@@ -189,9 +227,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookMarkCellID" forIndexPath:indexPath];
     
-    FLOBookMarkModel *bookMark = _dataArr[indexPath.row];
-    cell.textLabel.text = bookMark.bookMarkName;
-    cell.detailTextLabel.text = bookMark.bookMarkURLStr;
+    BookMarkEntity *bookMark = _dataArr[indexPath.row];
+    cell.textLabel.text = bookMark.name;
+    cell.detailTextLabel.text = bookMark.url;
     
     return cell;
 }
@@ -199,16 +237,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    FLOBookMarkModel *bookMark = _dataArr[indexPath.row];
+    BookMarkEntity *bookMark = _dataArr[indexPath.row];
     
     NSArray *viewControllers = self.navigationController.viewControllers;
     UIViewController *backVC = [viewControllers objectAtIndex:viewControllers.count-2];
     if ([backVC isKindOfClass:[FLOWebViewController class]]) {
-        [(FLOWebViewController *)backVC setWebViewAddress:bookMark.bookMarkURLStr];
+        [(FLOWebViewController *)backVC setWebViewAddress:bookMark.url];
         [self.navigationController popViewControllerAnimated:YES];
     } else {
         FLOWebViewController *webViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SBIDWebViewController"];
-        webViewController.webViewAddress = bookMark.bookMarkURLStr;
+        webViewController.webViewAddress = bookMark.url;
         [self.navigationController pushViewController:webViewController animated:YES];
     }
 }
@@ -220,7 +258,8 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [[FLODataBaseEngin shareInstance] deleteBookMark:self.dataArr[indexPath.row]];
+        [[APLCoreDataStackManager sharedManager].managedObjectContext deleteObject:_dataArr[indexPath.row]];
+        [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
         
         [self.dataArr removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];

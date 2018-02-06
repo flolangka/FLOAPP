@@ -15,6 +15,8 @@
 @property (nonatomic, copy  ) NSString *createTime;
 @property (nonatomic, copy  ) NSString *content;
 
+@property (nonatomic, assign) float cellHeight;
+
 + (instancetype)itemWithDictionary:(NSDictionary *)dict;
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "FLOWeiboAuthorization.h"
-#import "FLODataBaseEngin.h"
 
 static FLOWeiboAuthorization *authorization;
 static NSString * userAuthorizationFilePath;
@@ -56,8 +55,7 @@ static NSString * userAuthorizationFilePath;
     self.expiresDate = nil;
     self.UID = nil;
     
-    // 删除数据
-    [[FLODataBaseEngin shareInstance] clearWeiboData];
+    // 删除登录授权信息
     [[NSFileManager defaultManager] removeItemAtPath:userAuthorizationFilePath error:nil];
 }
 
