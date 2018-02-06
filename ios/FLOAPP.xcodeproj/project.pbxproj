@@ -18,6 +18,7 @@
 		12F956361E06C69A008699B2 /* FLO@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F956351E06C69A008699B2 /* FLO@2x.png */; };
 		7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1D20294C400090A584 /* BookMarkEntity+CoreDataClass.m */; };
 		7329ED2120294C400090A584 /* BookMarkEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */; };
+		7329ED2720297C4D0090A584 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7329ED2620297C4D0090A584 /* Main.storyboard */; };
 		7348B5AA1EA6FFD60011F8FA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */; };
 		7348B5AE1EA6FFD60011F8FA /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */; };
 		7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */; };
@@ -205,7 +206,6 @@
 		73F3A1971E4C63F400314D70 /* FLONotiExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		84291A0E1C05867A0015F5F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A0D1C05867A0015F5F1 /* main.m */; };
 		84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A101C05867A0015F5F1 /* AppDelegate.m */; };
-		84291A171C05867A0015F5F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84291A151C05867A0015F5F1 /* Main.storyboard */; };
 		84291A191C05867A0015F5F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84291A181C05867A0015F5F1 /* Assets.xcassets */; };
 		84291A1C1C05867A0015F5F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84291A1A1C05867A0015F5F1 /* LaunchScreen.storyboard */; };
 		B244C5ECC0737C6083001B0C /* libPods-FLOAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F694C4E2DFDEE2FA692FDF4E /* libPods-FLOAPP.a */; };
@@ -280,6 +280,7 @@
 		7329ED1D20294C400090A584 /* BookMarkEntity+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BookMarkEntity+CoreDataClass.m"; sourceTree = "<group>"; };
 		7329ED1E20294C400090A584 /* BookMarkEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookMarkEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
 		7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BookMarkEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		7329ED2620297C4D0090A584 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlolangkaWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		7348B5AC1EA6FFD60011F8FA /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
@@ -559,7 +560,6 @@
 		84291A0D1C05867A0015F5F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84291A0F1C05867A0015F5F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84291A101C05867A0015F5F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84291A161C05867A0015F5F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84291A181C05867A0015F5F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84291A1B1C05867A0015F5F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84291A1D1C05867A0015F5F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1369,8 +1369,8 @@
 				73CAADEA201F09E4001B1AE2 /* Global */,
 				84291A0F1C05867A0015F5F1 /* AppDelegate.h */,
 				84291A101C05867A0015F5F1 /* AppDelegate.m */,
-				84291A151C05867A0015F5F1 /* Main.storyboard */,
 				84291A181C05867A0015F5F1 /* Assets.xcassets */,
+				7329ED2620297C4D0090A584 /* Main.storyboard */,
 				84291A1A1C05867A0015F5F1 /* LaunchScreen.storyboard */,
 				84291A1D1C05867A0015F5F1 /* Info.plist */,
 				1290B35D1CFB3F8400D967EE /* CollectionPList.plist */,
@@ -1531,7 +1531,7 @@
 					84291A081C05867A0015F5F1 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = X928ZDD77C;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1628,6 +1628,7 @@
 				73CAAD7B201F087B001B1AE2 /* ZSSh5@2x.png in Resources */,
 				73CAAD7A201F087B001B1AE2 /* ZSSh5.png in Resources */,
 				73CAAD95201F087B001B1AE2 /* ZSSparagraph@2x.png in Resources */,
+				7329ED2720297C4D0090A584 /* Main.storyboard in Resources */,
 				73CAAD96201F087B001B1AE2 /* ZSSpicker.png in Resources */,
 				73CAAD92201F087B001B1AE2 /* ZSSoutdent.png in Resources */,
 				73CAAD9B201F087B001B1AE2 /* ZSSredo@2x.png in Resources */,
@@ -1672,7 +1673,6 @@
 				73CAAD83201F087B001B1AE2 /* ZSSimageDevice@2x.png in Resources */,
 				73CAAE01201F09E4001B1AE2 /* homeback.jpg in Resources */,
 				73CAAD86201F087B001B1AE2 /* ZSSinsertkeyword.png in Resources */,
-				84291A171C05867A0015F5F1 /* Main.storyboard in Resources */,
 				73CAAD8A201F087B001B1AE2 /* ZSSkeyboard.png in Resources */,
 				73CAAD73201F087B001B1AE2 /* ZSSh1@2x.png in Resources */,
 				73CAAD8C201F087B001B1AE2 /* ZSSleftjustify.png in Resources */,
@@ -1932,14 +1932,6 @@
 				73F3A1921E4C63F400314D70 /* Base */,
 			);
 			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-		84291A151C05867A0015F5F1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84291A161C05867A0015F5F1 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		84291A1A1C05867A0015F5F1 /* LaunchScreen.storyboard */ = {
@@ -2296,7 +2288,8 @@
 				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2397,7 +2390,8 @@
 				PRODUCT_NAME = FLOAPP;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -184,7 +184,7 @@
 }
 
 // iOS 10通知的点击事件(启动、未启动都会走)
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler{
     
     completionHandler();  // 系统要求执行这个方法
 }
