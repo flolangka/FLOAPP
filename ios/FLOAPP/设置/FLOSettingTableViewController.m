@@ -10,6 +10,10 @@
 #import <MBProgressHUD.h>
 #import <SDWebImageManager.h>
 
+#ifdef DEBUG
+#import <FLEX.h>
+#endif
+
 @interface FLOSettingTableViewController ()
 
 @end
@@ -28,7 +32,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -43,11 +47,24 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     }
     
-    if (indexPath.row == 0) {
-        cell.textLabel.text = @"清除缓存";
-        
-        NSUInteger size = [[SDImageCache sharedImageCache] getSize];
-        cell.detailTextLabel.text = [FLOUtil FileSizeWithBytes:size];
+    switch (indexPath.section) {
+        case 0:
+        {
+            cell.textLabel.text = @"FLEX";
+            cell.detailTextLabel.text = @"";
+        }
+            break;
+        case 1:
+        {
+            cell.textLabel.text = @"清除缓存";
+            
+            NSUInteger size = [[SDImageCache sharedImageCache] getSize];
+            cell.detailTextLabel.text = [FLOUtil FileSizeWithBytes:size];
+        }
+            break;
+            
+        default:
+            break;
     }
     
     return cell;
@@ -58,15 +75,27 @@
     return 44;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == 0) {
-        [[SDImageCache sharedImageCache] clearDisk];
-        [tableView reloadData];
-        
-        Def_MBProgressStringDelay(@"清除缓存成功", 1);
+    switch (indexPath.section) {
+        case 0:
+        {
+#ifdef DEBUG
+            [[FLEXManager sharedManager] showExplorer];
+#endif
+        }
+            break;
+        case 1:
+        {
+            [[SDImageCache sharedImageCache] clearDisk];
+            [tableView reloadData];
+            
+            Def_MBProgressStringDelay(@"清除缓存成功", 1);
+        }
+            break;
+        default:
+            break;
     }
 }
 

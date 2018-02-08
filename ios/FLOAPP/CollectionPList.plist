@@ -54,7 +54,7 @@
 		<key>ItemName</key>
 		<string>Sound</string>
 		<key>ItemIconURL</key>
-		<string>http://mgip.biology.gatech.edu/images/icons/blue_velvet/128/sound.png</string>
+		<string>http://icons.iconarchive.com/icons/graphicloads/100-flat/256/sound-3-icon.png</string>
 		<key>ItemAddress</key>
 		<string>FLOSystemSoundTableViewController</string>
 	</dict>

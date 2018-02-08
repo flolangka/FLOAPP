@@ -25,6 +25,7 @@
 		7348B5B51EA6FFD60011F8FA /* FlolangkaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
 		73839A5820205E68004D0B73 /* FLONetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 73839A5720205E68004D0B73 /* FLONetworkUtil.m */; };
+		73A15381202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A15380202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m */; };
 		73C9EF01202013260000A21B /* FLOQSBKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C9EF00202013260000A21B /* FLOQSBKItem.m */; };
 		73C9EF0420203C400000A21B /* FLOQSBKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C9EF0320203C400000A21B /* FLOQSBKTableViewCell.m */; };
 		73CAAD36201F087B001B1AE2 /* APLCoreDataStackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAC35201F087A001B1AE2 /* APLCoreDataStackManager.m */; };
@@ -290,6 +291,8 @@
 		737433431EA4A70D00BE39B3 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		73839A5620205E68004D0B73 /* FLONetworkUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONetworkUtil.h; sourceTree = "<group>"; };
 		73839A5720205E68004D0B73 /* FLONetworkUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONetworkUtil.m; sourceTree = "<group>"; };
+		73A1537F202BEFC800BE07E3 /* FLOFileBrowserTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOFileBrowserTableViewController.h; sourceTree = "<group>"; };
+		73A15380202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOFileBrowserTableViewController.m; sourceTree = "<group>"; };
 		73C9EEFF202013260000A21B /* FLOQSBKItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOQSBKItem.h; sourceTree = "<group>"; };
 		73C9EF00202013260000A21B /* FLOQSBKItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOQSBKItem.m; sourceTree = "<group>"; };
 		73C9EF0220203C400000A21B /* FLOQSBKTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOQSBKTableViewCell.h; sourceTree = "<group>"; };
@@ -917,6 +920,8 @@
 			children = (
 				73CAAC95201F087A001B1AE2 /* FLOShareDirectoryTableViewController.h */,
 				73CAAC96201F087A001B1AE2 /* FLOShareDirectoryTableViewController.m */,
+				73A1537F202BEFC800BE07E3 /* FLOFileBrowserTableViewController.h */,
+				73A15380202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m */,
 			);
 			path = "共享文件夹";
 			sourceTree = "<group>";
@@ -1810,6 +1815,7 @@
 				73CAAD37201F087B001B1AE2 /* DownloadFile+CoreDataClass.m in Sources */,
 				73CAAD49201F087B001B1AE2 /* FLOFontSizeViewController.m in Sources */,
 				73CAADC7201F087B001B1AE2 /* Sort.swift in Sources */,
+				73A15381202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m in Sources */,
 				73CAADBE201F087B001B1AE2 /* FLOWeiboUserModel.m in Sources */,
 				73CAAD44201F087B001B1AE2 /* NSString+FLOUtil.m in Sources */,
 				73CAAD46201F087B001B1AE2 /* UILabel+FLOUtil.m in Sources */,
