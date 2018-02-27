@@ -7,15 +7,23 @@
 //
 
 #import "FLOLeftMenuVC.h"
-#import <RESideMenu.h>
 #import "FLOAccountManager.h"
 #import "FLOWeiboAuthorization.h"
+#import "FLONetworkUtil.h"
+
+#import <RESideMenu.h>
+#import <AFNetworkReachabilityManager.h>
 
 @interface FLOLeftMenuVC ()<UITableViewDataSource, UITableViewDelegate, RESideMenuDelegate>
 
 {
     NSArray *_titles;
     NSArray *_images;
+    
+    //高德系统城市编码，用来获取天气
+    NSString *_adcode;
+    NSString *_weather;
+    NSString *_city;
 }
 
 @property (strong, readwrite, nonatomic) UITableView *tableView;
@@ -25,6 +33,8 @@
 
 @end
 
+static NSString *GAODEWEBSERVICEKEY = @"228d2810df59cb83d930fee8532d0a20";
+
 @implementation FLOLeftMenuVC
 
 - (void)viewDidLoad {
@@ -32,9 +42,12 @@
     
     _titles = @[@"首页", @"设置"];
     _images = @[@"IconHome", @"IconSettings"];
+    _adcode = @"";
+    _weather = @"";
+    _city = @"";
     
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 100 + 54 * _titles.count) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 100 + 54 * (_titles.count + 1)) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -55,6 +68,7 @@
     [_bottomBtn addTarget:self action:@selector(bottomButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_bottomBtn];
     [self refreshBottomBtnTitle];
+    [self refreshWeather];
 }
 
 //注销
@@ -86,6 +100,47 @@
 - (void)refreshBottomBtnTitle {
     NSString *btnTitle = [[FLOAccountManager shareManager] checkLoginState] ? @"Logout" : @"Login";
     [_bottomBtn setTitle:btnTitle forState:UIControlStateNormal];
+}
+
+#pragma mark - weather
+- (void)refreshWeather {
+    if (!Def_CheckStringClassAndLength(_adcode)) {
+        //获取城市编码
+        [[FLONetworkUtil sharedHTTPSession] GET:@"http://restapi.amap.com/v3/ip"
+                                     parameters:@{@"key" : GAODEWEBSERVICEKEY}
+                                       progress:nil
+                                        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                            NSDictionary *result = [FLONetworkUtil dictionaryResult:responseObject];
+                                            
+                                            NSString *adcode = result[@"adcode"];
+                                            if (Def_CheckStringClassAndLength(adcode)) {
+                                                _adcode = adcode;
+                                                _city = result[@"city"];
+                                                [self refreshWeather:_adcode];
+                                            }
+                                        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                            
+                                        }];
+    }
+}
+
+- (void)refreshWeather:(NSString *)adcode {
+    //获取天气
+    [[FLONetworkUtil sharedHTTPSession] GET:@"http://restapi.amap.com/v3/weather/weatherInfo"
+                                 parameters:@{@"key" : GAODEWEBSERVICEKEY,
+                                              @"city": adcode}
+                                   progress:nil
+                                    success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                                        NSDictionary *result = [FLONetworkUtil dictionaryResult:responseObject];
+        
+                                        NSArray *lives = result[@"lives"];
+                                        if (Def_CheckArrayClassAndCount(lives)) {
+                                            _weather = lives.firstObject[@"weather"];
+                                            [self.tableView reloadData];
+                                        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 #pragma mark - UITableView Delegate
@@ -134,7 +189,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return sectionIndex == 0 ? 1 : _titles.count;
+    return sectionIndex == 0 ? 1 : _titles.count+1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -186,12 +241,18 @@
         [cell.contentView addSubview:nameLabel];
         
     } else {
-        //菜单
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         cell.textLabel.textColor = [UIColor whiteColor];
         
-        cell.textLabel.text = _titles[indexPath.row];
-        cell.imageView.image = [UIImage imageNamed:_images[indexPath.row]];
+        if (indexPath.row == _titles.count) {
+            //天气
+            cell.textLabel.text = [NSString stringWithFormat:@"%@-%@", _city, _weather];
+            cell.imageView.image = [UIImage imageNamed:@"IconWeather"];
+        } else {
+            //菜单
+            cell.textLabel.text = _titles[indexPath.row];
+            cell.imageView.image = [UIImage imageNamed:_images[indexPath.row]];
+        }
     }
     
     return cell;

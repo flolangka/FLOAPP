@@ -36,4 +36,12 @@
  */
 + (AFURLSessionManager *)sharedURLSession;
 
+/**
+ 返回结果转NSDictionary
+ 
+ @param responseObject 返回结果
+ @return NSDictionary
+ */
++ (NSDictionary *)dictionaryResult:(id)responseObject;
+
 @end

@@ -74,4 +74,22 @@ static AFHTTPResponseSerializer *TextHTMLResponseSerializer ;
     return urlSessionManager;
 }
 
+/**
+ 返回结果转NSDictionary
+
+ @param responseObject 返回结果
+ @return NSDictionary
+ */
++ (NSDictionary *)dictionaryResult:(id)responseObject {
+    NSDictionary *result = nil;
+    
+    if ([responseObject isKindOfClass:[NSDictionary class]]) {
+        result = (NSDictionary *)responseObject;
+    } else if ([responseObject isKindOfClass:[NSData class]]) {
+        result = [(NSData *)responseObject flo_objectFromJSONData];
+    }
+    
+    return result;
+}
+
 @end
