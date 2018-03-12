@@ -205,6 +205,11 @@
 		73F3A1901E4C63F400314D70 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3A18F1E4C63F400314D70 /* NotificationViewController.m */; };
 		73F3A1931E4C63F400314D70 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73F3A1911E4C63F400314D70 /* MainInterface.storyboard */; };
 		73F3A1971E4C63F400314D70 /* FLONotiExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		73F3B4F220510F420014DFB8 /* FLOShareEmotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3B4F120510F420014DFB8 /* FLOShareEmotionViewController.m */; };
+		73FEF0902056156300B872A8 /* FLOShareEmotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEF08F2056156300B872A8 /* FLOShareEmotionCollectionViewCell.m */; };
+		73FEF0932056157B00B872A8 /* FLOShareEmotionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEF0922056157B00B872A8 /* FLOShareEmotionViewModel.m */; };
+		73FEF0962056554F00B872A8 /* FLOLiveIdentityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEF0952056554F00B872A8 /* FLOLiveIdentityView.m */; };
+		73FEF0992056555F00B872A8 /* FLOGIFIdentityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73FEF0982056555F00B872A8 /* FLOGIFIdentityView.m */; };
 		84291A0E1C05867A0015F5F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A0D1C05867A0015F5F1 /* main.m */; };
 		84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84291A101C05867A0015F5F1 /* AppDelegate.m */; };
 		84291A191C05867A0015F5F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84291A181C05867A0015F5F1 /* Assets.xcassets */; };
@@ -559,6 +564,17 @@
 		73F3A18F1E4C63F400314D70 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		73F3A1921E4C63F400314D70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		73F3A1941E4C63F400314D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73F3B4F020510F420014DFB8 /* FLOShareEmotionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOShareEmotionViewController.h; sourceTree = "<group>"; };
+		73F3B4F120510F420014DFB8 /* FLOShareEmotionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOShareEmotionViewController.m; sourceTree = "<group>"; };
+		73F3B4F32051270E0014DFB8 /* APPConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APPConfig.h; sourceTree = "<group>"; };
+		73FEF08E2056156300B872A8 /* FLOShareEmotionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOShareEmotionCollectionViewCell.h; sourceTree = "<group>"; };
+		73FEF08F2056156300B872A8 /* FLOShareEmotionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOShareEmotionCollectionViewCell.m; sourceTree = "<group>"; };
+		73FEF0912056157B00B872A8 /* FLOShareEmotionViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOShareEmotionViewModel.h; sourceTree = "<group>"; };
+		73FEF0922056157B00B872A8 /* FLOShareEmotionViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOShareEmotionViewModel.m; sourceTree = "<group>"; };
+		73FEF0942056554F00B872A8 /* FLOLiveIdentityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOLiveIdentityView.h; sourceTree = "<group>"; };
+		73FEF0952056554F00B872A8 /* FLOLiveIdentityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOLiveIdentityView.m; sourceTree = "<group>"; };
+		73FEF0972056555F00B872A8 /* FLOGIFIdentityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOGIFIdentityView.h; sourceTree = "<group>"; };
+		73FEF0982056555F00B872A8 /* FLOGIFIdentityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOGIFIdentityView.m; sourceTree = "<group>"; };
 		84291A091C05867A0015F5F1 /* FLOAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLOAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84291A0D1C05867A0015F5F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84291A0F1C05867A0015F5F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -717,6 +733,7 @@
 		73CAAC32201F087A001B1AE2 /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				73F3B4EF20510DED0014DFB8 /* 微信表情 */,
 				73CAAE08201F0ACC001B1AE2 /* 糗事百科 */,
 				73CAAC33201F087A001B1AE2 /* CoreData */,
 				73CAAC4E201F087A001B1AE2 /* FLOUtility */,
@@ -1338,6 +1355,23 @@
 			path = FLONotiExtension;
 			sourceTree = "<group>";
 		};
+		73F3B4EF20510DED0014DFB8 /* 微信表情 */ = {
+			isa = PBXGroup;
+			children = (
+				73F3B4F020510F420014DFB8 /* FLOShareEmotionViewController.h */,
+				73F3B4F120510F420014DFB8 /* FLOShareEmotionViewController.m */,
+				73FEF08E2056156300B872A8 /* FLOShareEmotionCollectionViewCell.h */,
+				73FEF08F2056156300B872A8 /* FLOShareEmotionCollectionViewCell.m */,
+				73FEF0912056157B00B872A8 /* FLOShareEmotionViewModel.h */,
+				73FEF0922056157B00B872A8 /* FLOShareEmotionViewModel.m */,
+				73FEF0942056554F00B872A8 /* FLOLiveIdentityView.h */,
+				73FEF0952056554F00B872A8 /* FLOLiveIdentityView.m */,
+				73FEF0972056555F00B872A8 /* FLOGIFIdentityView.h */,
+				73FEF0982056555F00B872A8 /* FLOGIFIdentityView.m */,
+			);
+			path = "微信表情";
+			sourceTree = "<group>";
+		};
 		84291A001C05867A0015F5F1 = {
 			isa = PBXGroup;
 			children = (
@@ -1380,6 +1414,7 @@
 				84291A1D1C05867A0015F5F1 /* Info.plist */,
 				1290B35D1CFB3F8400D967EE /* CollectionPList.plist */,
 				73E537E91D8150DF005FB419 /* PrefixHeader.pch */,
+				73F3B4F32051270E0014DFB8 /* APPConfig.h */,
 				73CAADEE201F09E4001B1AE2 /* Resource */,
 				84291A0C1C05867A0015F5F1 /* Supporting Files */,
 			);
@@ -1727,11 +1762,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				$PODS_CONFIGURATION_BUILD_DIR/MWPhotoBrowser/MWPhotoBrowser.bundle,
+				"${PODS_CONFIGURATION_BUILD_DIR}/MWPhotoBrowser/MWPhotoBrowser.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MWPhotoBrowser.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1821,17 +1858,21 @@
 				73CAAD46201F087B001B1AE2 /* UILabel+FLOUtil.m in Sources */,
 				73CAAD3C201F087B001B1AE2 /* NetWork+CoreDataClass.m in Sources */,
 				73CAADBA201F087B001B1AE2 /* CYRToken.m in Sources */,
+				73FEF0962056554F00B872A8 /* FLOLiveIdentityView.m in Sources */,
 				73CAADC0201F087B001B1AE2 /* FLOWeiboCommentModel.m in Sources */,
 				73CAAE0B201F0B2A001B1AE2 /* FLOQSBKTableViewController.m in Sources */,
 				73CAAD4D201F087B001B1AE2 /* FLONetWorkHistoryTableViewController.m in Sources */,
 				73CAADC2201F087B001B1AE2 /* FLOWeiboDetailViewController.m in Sources */,
+				73FEF0902056156300B872A8 /* FLOShareEmotionCollectionViewCell.m in Sources */,
 				73CAADC5201F087B001B1AE2 /* FLOWeiboStatusTableViewCell.m in Sources */,
 				73CAADE8201F09BF001B1AE2 /* FloCollectionViewController.m in Sources */,
 				73CAADCA201F087B001B1AE2 /* ViewController.swift in Sources */,
 				73CAAD42201F087B001B1AE2 /* FLOUtil.m in Sources */,
+				73FEF0992056555F00B872A8 /* FLOGIFIdentityView.m in Sources */,
 				73CAAD63201F087B001B1AE2 /* FLOAdjustFontSizeViewController.m in Sources */,
 				73CAAE02201F09E4001B1AE2 /* FLOLeftMenuVC.m in Sources */,
 				73CAAD4A201F087B001B1AE2 /* FLOGifImageViewController.m in Sources */,
+				73F3B4F220510F420014DFB8 /* FLOShareEmotionViewController.m in Sources */,
 				73CAAD3B201F087B001B1AE2 /* MediaAddress+CoreDataProperties.m in Sources */,
 				73CAADCD201F087B001B1AE2 /* FLOWaterFallViewController.m in Sources */,
 				73CAAD59201F087B001B1AE2 /* FLODownloadTableViewController.m in Sources */,
@@ -1860,6 +1901,7 @@
 				73CAAD51201F087B001B1AE2 /* FLONotificationViewController.m in Sources */,
 				73CAAD41201F087B001B1AE2 /* FLOTextViewViewController.m in Sources */,
 				73CAAD57201F087B001B1AE2 /* DownloadService.m in Sources */,
+				73FEF0932056157B00B872A8 /* FLOShareEmotionViewModel.m in Sources */,
 				73CAAD39201F087B001B1AE2 /* FLOCoreData.xcdatamodeld in Sources */,
 				73CAAD4E201F087B001B1AE2 /* FLONetWorkTableViewController.m in Sources */,
 				73CAADD8201F09A9001B1AE2 /* FLOLoginViewController.m in Sources */,

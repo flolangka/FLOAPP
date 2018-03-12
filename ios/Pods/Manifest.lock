@@ -23,14 +23,14 @@ PODS:
   - Masonry (1.1.0)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.15.3)
-  - MQTTClient (0.11.0):
-    - MQTTClient/Core (= 0.11.0)
-  - MQTTClient/Core (0.11.0):
+  - MQTTClient (0.13.0):
+    - MQTTClient/Core (= 0.13.0)
+  - MQTTClient/Core (0.13.0):
     - MQTTClient/Manager
     - MQTTClient/Min
-  - MQTTClient/Manager (0.11.0):
+  - MQTTClient/Manager (0.13.0):
     - MQTTClient/Min
-  - MQTTClient/Min (0.11.0)
+  - MQTTClient/Min (0.13.0)
   - MWPhotoBrowser (2.1.2):
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
@@ -67,6 +67,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - WechatOpenSDK (1.8.1)
   - Yoga (0.42.3.React)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -95,6 +96,7 @@ DEPENDENCIES:
   - React/RCTWebSocket (from `../node_modules/react-native`)
   - RESideMenu
   - SDWebImage
+  - WechatOpenSDK
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
   - YYKit
 
@@ -113,14 +115,15 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
-  MQTTClient: 524355b7088c59aa31f0a1dfa908b84c1c156ad4
+  MQTTClient: aced164e080fb139daa98fc745d01da279e55945
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
-  React: 35e039680feacd0563677d49ba410112d2748559
+  React: 60f63611bd9392398f1191d883b5944e9b501ef1
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  Yoga: 86ce777665c8259b94ef8dbea76b84634237f4ea
+  WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
+  Yoga: ee3dae4d89b27276f4be20241c2bab84f296b626
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 36075061fbfdf7be2e8307086d9c9202e265a048
+PODFILE CHECKSUM: a3318d09df685b7f557c1549ac314eb772d8739e
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

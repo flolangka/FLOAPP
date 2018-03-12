@@ -60,7 +60,7 @@
 }
 
 /**
- 限款是需要的高度
+ 限宽时需要的高度
  
  @param limitW 限宽
  @param fontSize 字号
@@ -74,6 +74,23 @@
     NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:fontSize]};
     float height = [self boundingRectWithSize:CGSizeMake(limitW, MAXFLOAT) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  attributes:attribute context:nil].size.height;
     return ceilf(height);
+}
+
+/**
+ 限高时需要的宽度
+ 
+ @param limitH 限高
+ @param fontSize 字号
+ @return 宽度
+ */
+- (float)widthWithLimitHeight:(float)limitH fontSize:(float)fontSize {
+    if (self == nil || self.length == 0) {
+        return 0;
+    }
+    
+    NSDictionary *attribute = @{NSFontAttributeName: [UIFont systemFontOfSize:fontSize]};
+    float width = [self boundingRectWithSize:CGSizeMake(MAXFLOAT, limitH) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  attributes:attribute context:nil].size.width;
+    return ceilf(width);
 }
 
 @end

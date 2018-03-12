@@ -15,6 +15,7 @@ target 'FLOAPP' do
     pod 'Masonry'
     pod 'MQTTClient'
     pod 'MWPhotoBrowser'
+    pod 'WechatOpenSDK'
 
     # ReactNative
     # 'node_modules'目录一般位于根目录中

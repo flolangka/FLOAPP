@@ -33,8 +33,6 @@
 
 @end
 
-static NSString *GAODEWEBSERVICEKEY = @"228d2810df59cb83d930fee8532d0a20";
-
 @implementation FLOLeftMenuVC
 
 - (void)viewDidLoad {
@@ -107,7 +105,7 @@ static NSString *GAODEWEBSERVICEKEY = @"228d2810df59cb83d930fee8532d0a20";
     if (!Def_CheckStringClassAndLength(_adcode)) {
         //获取城市编码
         [[FLONetworkUtil sharedHTTPSession] GET:@"http://restapi.amap.com/v3/ip"
-                                     parameters:@{@"key" : GAODEWEBSERVICEKEY}
+                                     parameters:@{@"key" : GAODEWebServiceKey}
                                        progress:nil
                                         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                                             NSDictionary *result = [FLONetworkUtil dictionaryResult:responseObject];
@@ -127,7 +125,7 @@ static NSString *GAODEWEBSERVICEKEY = @"228d2810df59cb83d930fee8532d0a20";
 - (void)refreshWeather:(NSString *)adcode {
     //获取天气
     [[FLONetworkUtil sharedHTTPSession] GET:@"http://restapi.amap.com/v3/weather/weatherInfo"
-                                 parameters:@{@"key" : GAODEWEBSERVICEKEY,
+                                 parameters:@{@"key" : GAODEWebServiceKey,
                                               @"city": adcode}
                                    progress:nil
                                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

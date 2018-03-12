@@ -13,7 +13,7 @@
 @interface FLOGifImageViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 
 {
-    NSMutableArray *dataArr_gifImageData;
+    NSMutableArray *dataArr_gifAsset;
     UICollectionView *collectionV;
     
     UIControl *bgControl;
@@ -29,7 +29,7 @@
     self.title = @"Gif";
     
     //获取相册中的gif图片
-    dataArr_gifImageData = [NSMutableArray arrayWithCapacity:42];
+    dataArr_gifAsset = [NSMutableArray arrayWithCapacity:42];
     
     //初始化collectionV
     collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(5, 0, DEVICE_SCREEN_WIDTH-10, DEVICE_SCREEN_HEIGHT-64) collectionViewLayout:[UICollectionViewFlowLayout new]];
@@ -43,49 +43,19 @@
     [self getOriginalImages];
 }
 
-- (void)getOriginalImages
-{
-    /*  与相机胶卷重复
-    // 获得所有的自定义相簿
-    PHFetchResult<PHAssetCollection *> *assetCollections = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
-    // 遍历所有的自定义相簿
-    for (PHAssetCollection *assetCollection in assetCollections) {
-        [self enumerateAssetsInAssetCollection:assetCollection original:YES];
-    }
-     */
-    
+- (void)getOriginalImages {
     // 获得相机胶卷
     PHAssetCollection *cameraRoll = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil].lastObject;
+    
     // 遍历相机胶卷,获取大图
-    [self enumerateAssetsInAssetCollection:cameraRoll original:YES];
-}
-
-- (void)enumerateAssetsInAssetCollection:(PHAssetCollection *)assetCollection original:(BOOL)original
-{
-    DLog(@"相簿名:%@", assetCollection.localizedTitle);
-    
-    PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
-    
-    // 获得某个相簿中的所有PHAsset对象
-    PHFetchResult<PHAsset *> *assets = [PHAsset fetchAssetsInAssetCollection:assetCollection options:nil];
+    PHFetchResult<PHAsset *> *assets = [PHAsset fetchAssetsInAssetCollection:cameraRoll options:nil];
     for (PHAsset *asset in assets) {
-        // 是否要原图
-//        CGSize size = original ? CGSizeMake(asset.pixelWidth, asset.pixelHeight) : CGSizeZero;
         
-        // 从asset中获得图片
-//        [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:size contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-//            DLog(@"result>>>>%@", result);
-//        }];
-        
-        [[PHImageManager defaultManager] requestImageDataForAsset:asset options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-            if (dataUTI && [dataUTI isEqualToString:@"com.compuserve.gif"]) {
-                [dataArr_gifImageData addObject:imageData];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [collectionV reloadData];
-                });
-            }
-        }];
+        //com.compuserve.gif
+        NSString *uniformType = [asset valueForKey:@"uniformTypeIdentifier"] ? : @"";
+        if ([uniformType hasSuffix:@"gif"]) {
+            [dataArr_gifAsset addObject:asset];
+        }
     }
 }
 
@@ -110,7 +80,7 @@
 #pragma mark - CollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return dataArr_gifImageData.count;
+    return dataArr_gifAsset.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -123,9 +93,15 @@
         imageV.tag = 1111;
         [cell.contentView addSubview:imageV];
     }
+    FLOWeakObj(imageV);
     
-    UIImage *gifImage = [UIImage sd_animatedGIFWithData:dataArr_gifImageData[indexPath.item]];
-    imageV.image = gifImage;
+    PHAsset *asset = dataArr_gifAsset[indexPath.item];
+    
+    //通过PHAsset获取imageData
+    [[PHImageManager defaultManager] requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        UIImage *gifImage = [UIImage sd_animatedGIFWithData:imageData];
+        weakimageV.image = gifImage;
+    }];
     
     return cell;
 }
@@ -160,9 +136,11 @@
         [imageV addGestureRecognizer:pinchGes];
     }
     
-    UIImageView *imageV = [bgControl viewWithTag:1000];
-    UIImage *gifImage = [UIImage sd_animatedGIFWithData:dataArr_gifImageData[indexPath.item]];
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    UIImageView *cellImageV = [cell.contentView viewWithTag:1111];
+    UIImage *gifImage = cellImageV.image;
     
+    UIImageView *imageV = [bgControl viewWithTag:1000];
     CGRect imageVFrame = imageV.frame;
     imageVFrame.size.width = gifImage.size.width;
     imageVFrame.size.height = gifImage.size.height;

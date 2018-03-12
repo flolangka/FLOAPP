@@ -194,5 +194,13 @@
 		<key>ItemAddress</key>
 		<string>FLOQSBKTableViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>微信表情</string>
+		<key>ItemIconURL</key>
+		<string>http://www.veryhuo.com/uploads/allimg/1509/1-1509141506030-L.png</string>
+		<key>ItemAddress</key>
+		<string>FLOShareEmotionViewController</string>
+	</dict>
 </array>
 </plist>

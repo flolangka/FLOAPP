@@ -7,17 +7,20 @@
 //
 
 #import "AppDelegate.h"
+
 #import "FLOSideMenu.h"
-#import <AFNetworkReachabilityManager.h>
-#import <MBProgressHUD.h>
-#import <UserNotifications/UserNotifications.h>
 #import "FLODownloadManager.h"
 
 #import "FLOWebViewController.h"
 #import "FLONetWorkTableViewController.h"
 #import "FLODownloadTableViewController.h"
 
-@interface AppDelegate ()<UNUserNotificationCenterDelegate>
+#import <WXApi.h>
+#import <MBProgressHUD.h>
+#import <AFNetworkReachabilityManager.h>
+#import <UserNotifications/UserNotifications.h>
+
+@interface AppDelegate ()<UNUserNotificationCenterDelegate, WXApiDelegate>
 
 @end
 
@@ -28,6 +31,9 @@
     
     [self networkMonitor];
     [[FLODownloadManager manager] checkKilledDownloadService];
+    
+    //注册微信，不开启MTA数据上报
+    //[WXApi registerApp:WXAppKey enableMTA:NO];
         
     return YES;
 }
@@ -102,34 +108,69 @@
     }
 }
 
-//响应FlolangkaWidget
+//响应FlolangkaWidget、其他app调起
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     DLog(@"%@", options);
     DLog(@"%@", url);
     
-    FLOSideMenu *sideMenu = (FLOSideMenu *)app.keyWindow.rootViewController;
-    UINavigationController *NavController = (UINavigationController *)sideMenu.contentViewController;
-    [NavController dismissViewControllerAnimated:NO completion:nil];
-    [NavController popToRootViewControllerAnimated:NO];
-    
     NSString *strURL = url.absoluteString;
+    
+    UIViewController *viewController = nil;
     if ([strURL hasPrefix:@"FloAPPBrowser://"]) {
         FLOWebViewController *webViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDWebViewController"];
         webViewController.webViewAddress = [strURL substringFromIndex:16];
-        [NavController pushViewController:webViewController animated:YES];
+        viewController = webViewController;
     } else if ([strURL hasPrefix:@"FloAPPRequest://"]) {
         FLONetWorkTableViewController *networkVC = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SBIDNetWorkTableViewController"];
         networkVC.URLStr = [strURL substringFromIndex:16];
-        [NavController pushViewController:networkVC animated:YES];
+        viewController = networkVC;
     } else if ([strURL hasPrefix:@"FloAPPDownload://"]) {
         FLODownloadTableViewController *downloadVC = [[FLODownloadTableViewController alloc] init];
         downloadVC.URLStr = [strURL substringFromIndex:17];
-        [NavController pushViewController:downloadVC animated:YES];
+        viewController = downloadVC;
+    }
+    
+    if (viewController) {
+        FLOSideMenu *sideMenu = (FLOSideMenu *)app.keyWindow.rootViewController;
+        UINavigationController *NavController = (UINavigationController *)sideMenu.contentViewController;
+        [NavController dismissViewControllerAnimated:NO completion:nil];
+        [NavController popToRootViewControllerAnimated:NO];
+        [NavController pushViewController:viewController animated:YES];
+    } else {
+        //微信
+        [WXApi handleOpenURL:url delegate:self];
     }
     
     return YES;
 }
 
+#pragma mark - WXApiDelegate
+/*! @brief 收到一个来自微信的请求，第三方应用程序处理完后调用sendResp向微信发送结果
+ *
+ * 收到一个来自微信的请求，异步处理完成后必须调用sendResp发送处理结果给微信。
+ * 可能收到的请求有GetMessageFromWXReq、ShowMessageFromWXReq等。
+ * @param req 具体请求内容，是自动释放的
+ */
+- (void)onReq:(BaseReq*)req {
+    NSString *logStr = [NSString stringWithFormat:@"\n微信请求： %@\n    type：%d\n   openID：%@", NSStringFromClass([req class]), req.type, req.openID];
+    DLog(@"%@", logStr);
+    
+    [WXApi sendResp:nil];
+}
+
+/*! @brief 发送一个sendReq后，收到微信的回应
+ *
+ * 收到一个来自微信的处理结果。调用一次sendReq后会收到onResp。
+ * 可能收到的处理结果有SendMessageToWXResp、SendAuthResp等。
+ * @param resp具体的回应内容，是自动释放的
+ */
+- (void)onResp:(BaseResp*)resp {
+    NSString *logStr = [NSString stringWithFormat:@"\n微信回应： %@\n    type：%d\n   errCode：%d\n    errStr：%@", NSStringFromClass([resp class]), resp.type, resp.errCode, resp.errStr];
+    DLog(@"%@", logStr);
+}
+
+
+#pragma mark - app 生命周期
 - (void)applicationWillResignActive:(UIApplication *)application {
     
 }

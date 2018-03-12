@@ -176,59 +176,63 @@
         
         [FLONetworkUtil HTTPSessionSetTextHTMLResponseSerializer];
         [[FLONetworkUtil sharedHTTPSession] GET:str parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [self endRequest];
             
-            //解析请求结果
-            NSArray *itemArr = nil;
-            NSDictionary *result = (NSDictionary *)responseObject;
-            if ([responseObject isKindOfClass:[NSData class]]) {
-                result = [(NSData *)responseObject flo_objectFromJSONData];
-            }
-            
-            if (Def_CheckDictionaryClassAndCount(result)) {
-                NSArray *items = result[@"items"];
-                if (Def_CheckArrayClassAndCount(items)) {
-                    itemArr = items;
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                //解析请求结果
+                NSArray *itemArr = nil;
+                NSDictionary *result = [FLONetworkUtil dictionaryResult:responseObject];
+                
+                if (Def_CheckDictionaryClassAndCount(result)) {
+                    NSArray *items = result[@"items"];
+                    if (Def_CheckArrayClassAndCount(items)) {
+                        itemArr = items;
+                    }
                 }
-            }
-            
-            //转model
-            NSMutableArray *muarr = [NSMutableArray arrayWithCapacity:itemArr.count];
-            for (NSDictionary *dict in itemArr) {
-                FLOQSBKItem *item = [FLOQSBKItem itemWithDictionary:dict];
-                if (item) {
-                    CGSize size = CGSizeZero;
-                    if ([item isKindOfClass:[FLOQSBKImageItem class]]) {
-                        size = [(FLOQSBKImageItem *)item size];
-                    } else if ([item isKindOfClass:[FLOQSBKVideoItem class]]) {
-                        size = [(FLOQSBKVideoItem *)item size];
+                
+                //转model
+                NSMutableArray *muarr = [NSMutableArray arrayWithCapacity:itemArr.count];
+                for (NSDictionary *dict in itemArr) {
+                    FLOQSBKItem *item = [FLOQSBKItem itemWithDictionary:dict];
+                    if (item) {
+                        CGSize size = CGSizeZero;
+                        if ([item isKindOfClass:[FLOQSBKImageItem class]]) {
+                            size = [(FLOQSBKImageItem *)item size];
+                        } else if ([item isKindOfClass:[FLOQSBKVideoItem class]]) {
+                            size = [(FLOQSBKVideoItem *)item size];
+                        }
+                        
+                        item.cellHeight = [FLOQSBKTableViewCell heightWithContent:item.content imgSize:size];
+                        [muarr addObject:item];
+                    }
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //添加到数据源，刷新页面
+                    if (muarr.count > 0) {
+                        if (new) {
+                            [_dataArr removeAllObjects];
+                            [_dataArr addObjectsFromArray:muarr];
+                            [self.tableView reloadData];
+                        } else {
+                            NSMutableArray *muArr = [NSMutableArray array];
+                            for (int i = 0; i < muarr.count; i++) {
+                                [muArr addObject:[NSIndexPath indexPathForRow:_dataArr.count+i inSection:0]];
+                            }
+                            [_dataArr addObjectsFromArray:muarr];
+                            [self.tableView insertRowsAtIndexPaths:muArr withRowAnimation:UITableViewRowAnimationFade];
+                        }
                     }
                     
-                    item.cellHeight = [FLOQSBKTableViewCell heightWithContent:item.content imgSize:size];
-                    [muarr addObject:item];
-                }
-            }
+                    Def_MBProgressHide;
+                    _requesting = NO;
+                });
+            });
             
-            //添加到数据源，刷新页面
-            if (muarr.count > 0) {
-                if (new) {
-                    [_dataArr removeAllObjects];
-                    [_dataArr addObjectsFromArray:muarr];
-                    [self.tableView reloadData];
-                } else {
-                    NSMutableArray *muArr = [NSMutableArray array];
-                    for (int i = 0; i < muarr.count; i++) {
-                        [muArr addObject:[NSIndexPath indexPathForRow:_dataArr.count+i inSection:0]];
-                    }
-                    [_dataArr addObjectsFromArray:muarr];
-                    [self.tableView insertRowsAtIndexPaths:muArr withRowAnimation:UITableViewRowAnimationBottom];
-                }
-            }
-            
-            Def_MBProgressHide;
-            [self endRequest];
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             Def_MBProgressHide;
             [self endRequest];
+            _requesting = NO;
         }];
     } else {
         if (Def_CheckStringClassAndLength(_currentTopic)) {
@@ -241,58 +245,62 @@
             NSString *str = [NSString stringWithFormat:@"https://circle.qiushibaike.com/article/topic/%@/all?page=%ld&AdID=%@", _currentTopic, _topicPage+1, adID];
             
             [[FLONetworkUtil sharedHTTPSession] GET:str parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                [self endRequest];
                 
-                //解析请求结果
-                NSArray *itemArr = nil;
-                NSDictionary *result = (NSDictionary *)responseObject;
-                if ([responseObject isKindOfClass:[NSData class]]) {
-                    result = [(NSData *)responseObject flo_objectFromJSONData];
-                }
-                
-                if (Def_CheckDictionaryClassAndCount(result)) {
-                    NSArray *items = result[@"data"];
-                    if (Def_CheckArrayClassAndCount(items)) {
-                        itemArr = items;
-                    }
-                }
-                
-                //转model
-                NSMutableArray *muarr = [NSMutableArray arrayWithCapacity:itemArr.count];
-                for (NSDictionary *dict in itemArr) {
-                    FLOQSBKTopicItem *item = [FLOQSBKTopicItem itemWithDictionary:dict];
-                    if (item) {
-                        item.cellHeight = [FLOQSBKTopicTableViewCell heightWithContent:item.content pictureCount:item.pictures.count];
-                        [muarr addObject:item];
-                    }
-                }
-                
-                //添加到数据源，刷新页面
-                if (muarr.count > 0) {
-                    if (_topicPage == 0) {
-                        [_dataArrTopic removeAllObjects];
-                        [_dataArrTopic addObjectsFromArray:muarr];
-                        [self.tableView reloadData];
-                    } else {
-                        NSMutableArray *muArr = [NSMutableArray array];
-                        for (int i = 0; i < muarr.count; i++) {
-                            [muArr addObject:[NSIndexPath indexPathForRow:_dataArrTopic.count+i inSection:0]];
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    //解析请求结果
+                    NSArray *itemArr = nil;
+                    NSDictionary *result = [FLONetworkUtil dictionaryResult:responseObject];
+                    
+                    if (Def_CheckDictionaryClassAndCount(result)) {
+                        NSArray *items = result[@"data"];
+                        if (Def_CheckArrayClassAndCount(items)) {
+                            itemArr = items;
                         }
-                        [_dataArrTopic addObjectsFromArray:muarr];
-                        [self.tableView insertRowsAtIndexPaths:muArr withRowAnimation:UITableViewRowAnimationBottom];
                     }
                     
-                    //页码+1
-                    _topicPage ++;
-                }
-                
-                Def_MBProgressHide;
-                [self endRequest];
+                    //转model
+                    NSMutableArray *muarr = [NSMutableArray arrayWithCapacity:itemArr.count];
+                    for (NSDictionary *dict in itemArr) {
+                        FLOQSBKTopicItem *item = [FLOQSBKTopicItem itemWithDictionary:dict];
+                        if (item) {
+                            item.cellHeight = [FLOQSBKTopicTableViewCell heightWithContent:item.content pictureCount:item.pictures.count];
+                            [muarr addObject:item];
+                        }
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        //添加到数据源，刷新页面
+                        if (muarr.count > 0) {
+                            if (_topicPage == 0) {
+                                [_dataArrTopic removeAllObjects];
+                                [_dataArrTopic addObjectsFromArray:muarr];
+                                [self.tableView reloadData];
+                            } else {
+                                NSMutableArray *muArr = [NSMutableArray array];
+                                for (int i = 0; i < muarr.count; i++) {
+                                    [muArr addObject:[NSIndexPath indexPathForRow:_dataArrTopic.count+i inSection:0]];
+                                }
+                                [_dataArrTopic addObjectsFromArray:muarr];
+                                [self.tableView insertRowsAtIndexPaths:muArr withRowAnimation:UITableViewRowAnimationFade];
+                            }
+                            
+                            //页码+1
+                            _topicPage ++;
+                        }
+                        
+                        Def_MBProgressHide;
+                        _requesting = NO;
+                    });
+                });
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 Def_MBProgressHide;
                 [self endRequest];
+                _requesting = NO;
             }];
         } else {
             [self endRequest];
+            _requesting = NO;
         }
     }
 }
@@ -302,8 +310,6 @@
     [self.tableView.mj_footer endRefreshing];
     
     [FLONetworkUtil HTTPSessionSetJSONResponseSerializer];
-    
-    _requesting = NO;
 }
 
 #pragma mark - Table view data source
