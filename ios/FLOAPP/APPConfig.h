@@ -10,8 +10,8 @@
 #define APPConfig_h
 
 //微信
-static NSString *WXAppKey = @"wxdc1e388c3822c80b";
-static NSString *WXAppSecret = @"3baf1193c85774b3fd9d18447d76cab0";
+static NSString *WXAppKey = @"wx...";
+static NSString *WXAppSecret = @"....";
 
 //高德
 static NSString *GAODEWebServiceKey = @"228d2810df59cb83d930fee8532d0a20";
