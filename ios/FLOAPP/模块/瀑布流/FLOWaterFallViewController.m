@@ -43,9 +43,9 @@
     FLOCollectionViewLayout *layout = [[FLOCollectionViewLayout alloc] init];
     layout.numberOfColum = 2;
     layout.itemSpace = 10;
+    FLOWeakObj(self);
     layout.itemHeight = ^CGFloat(NSIndexPath *indexPath){
-        UIImage *image = [dataArray objectAtIndex:indexPath.item];
-        return image.size.height * width / image.size.width;
+        return [weakself itemHeight:indexPath];
     };
     
     collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64) collectionViewLayout:layout];
@@ -55,6 +55,11 @@
     [self.view addSubview:collectionV];
     
     collectionV.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(bottomRefreshing)];
+}
+
+- (CGFloat)itemHeight:(NSIndexPath *)indexPath {
+    UIImage *image = [dataArray objectAtIndex:indexPath.item];
+    return image.size.height * width / image.size.width;
 }
 
 - (void)bottomRefreshing {

@@ -70,9 +70,10 @@
     _zSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_VNODE, filedes, DISPATCH_VNODE_WRITE, _zDispatchQueue);
     
     // 当文件发生改变时会调用该 block
+    FLOWeakObj(self);
     dispatch_source_set_event_handler(_zSource, ^{
         // 文件发生改变
-        [self fileChanage];
+        [weakself fileChanage];
     });
     
     // 当文件监听停止时会调用该 block

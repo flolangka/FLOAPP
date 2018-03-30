@@ -193,9 +193,7 @@
 		73CAAE01201F09E4001B1AE2 /* homeback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 73CAADEF201F09E4001B1AE2 /* homeback.jpg */; };
 		73CAAE02201F09E4001B1AE2 /* FLOLeftMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAADF2201F09E4001B1AE2 /* FLOLeftMenuVC.m */; };
 		73CAAE03201F09E4001B1AE2 /* FLOSideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAADF4201F09E4001B1AE2 /* FLOSideMenu.m */; };
-		73CAAE04201F09E4001B1AE2 /* FLOTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAADF7201F09E4001B1AE2 /* FLOTabBarController.m */; };
 		73CAAE05201F09E4001B1AE2 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAADF9201F09E4001B1AE2 /* YYFPSLabel.m */; };
-		73CAAE07201F09E4001B1AE2 /* FLOUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAADFF201F09E4001B1AE2 /* FLOUserModel.m */; };
 		73CAAE0B201F0B2A001B1AE2 /* FLOQSBKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAE0A201F0B2A001B1AE2 /* FLOQSBKTableViewController.m */; };
 		73CAAE0E201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAE0D201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.m */; };
 		73CAAE11201F1167001B1AE2 /* FLOQSBKTopicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAE10201F1167001B1AE2 /* FLOQSBKTopicItem.m */; };
@@ -545,12 +543,8 @@
 		73CAADF2201F09E4001B1AE2 /* FLOLeftMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOLeftMenuVC.m; sourceTree = "<group>"; };
 		73CAADF3201F09E4001B1AE2 /* FLOSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOSideMenu.h; sourceTree = "<group>"; };
 		73CAADF4201F09E4001B1AE2 /* FLOSideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOSideMenu.m; sourceTree = "<group>"; };
-		73CAADF6201F09E4001B1AE2 /* FLOTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOTabBarController.h; sourceTree = "<group>"; };
-		73CAADF7201F09E4001B1AE2 /* FLOTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOTabBarController.m; sourceTree = "<group>"; };
 		73CAADF8201F09E4001B1AE2 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		73CAADF9201F09E4001B1AE2 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
-		73CAADFE201F09E4001B1AE2 /* FLOUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOUserModel.h; sourceTree = "<group>"; };
-		73CAADFF201F09E4001B1AE2 /* FLOUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOUserModel.m; sourceTree = "<group>"; };
 		73CAAE09201F0B2A001B1AE2 /* FLOQSBKTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOQSBKTableViewController.h; sourceTree = "<group>"; };
 		73CAAE0A201F0B2A001B1AE2 /* FLOQSBKTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOQSBKTableViewController.m; sourceTree = "<group>"; };
 		73CAAE0C201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOQSBKTopicTableViewCell.h; sourceTree = "<group>"; };
@@ -1272,10 +1266,10 @@
 			children = (
 				73CAADEB201F09E4001B1AE2 /* NavigationController */,
 				73CAADF0201F09E4001B1AE2 /* SlideMenu */,
-				73CAADF5201F09E4001B1AE2 /* TabBarController */,
+				73CAADD2201F09A8001B1AE2 /* 登录 */,
+				73CAADDA201F09B5001B1AE2 /* 设置 */,
 				73CAADF8201F09E4001B1AE2 /* YYFPSLabel.h */,
 				73CAADF9201F09E4001B1AE2 /* YYFPSLabel.m */,
-				73CAADFD201F09E4001B1AE2 /* 用户 */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -1308,24 +1302,6 @@
 			path = SlideMenu;
 			sourceTree = "<group>";
 		};
-		73CAADF5201F09E4001B1AE2 /* TabBarController */ = {
-			isa = PBXGroup;
-			children = (
-				73CAADF6201F09E4001B1AE2 /* FLOTabBarController.h */,
-				73CAADF7201F09E4001B1AE2 /* FLOTabBarController.m */,
-			);
-			path = TabBarController;
-			sourceTree = "<group>";
-		};
-		73CAADFD201F09E4001B1AE2 /* 用户 */ = {
-			isa = PBXGroup;
-			children = (
-				73CAADFE201F09E4001B1AE2 /* FLOUserModel.h */,
-				73CAADFF201F09E4001B1AE2 /* FLOUserModel.m */,
-			);
-			path = "用户";
-			sourceTree = "<group>";
-		};
 		73CAAE08201F0ACC001B1AE2 /* 糗事百科 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1341,6 +1317,13 @@
 				73C9EF00202013260000A21B /* FLOQSBKItem.m */,
 			);
 			path = "糗事百科";
+			sourceTree = "<group>";
+		};
+		73DED46E206E2EFE00376FA9 /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BaseClass;
 			sourceTree = "<group>";
 		};
 		73F3A18D1E4C63F400314D70 /* FLONotiContentExtension */ = {
@@ -1403,9 +1386,8 @@
 			children = (
 				73CAAC32201F087A001B1AE2 /* 模块 */,
 				73CAADDE201F09BF001B1AE2 /* 首页 */,
-				73CAADD2201F09A8001B1AE2 /* 登录 */,
-				73CAADDA201F09B5001B1AE2 /* 设置 */,
 				73CAADEA201F09E4001B1AE2 /* Global */,
+				73DED46E206E2EFE00376FA9 /* BaseClass */,
 				84291A0F1C05867A0015F5F1 /* AppDelegate.h */,
 				84291A101C05867A0015F5F1 /* AppDelegate.m */,
 				84291A181C05867A0015F5F1 /* Assets.xcassets */,
@@ -1844,7 +1826,6 @@
 				73CAAD61201F087B001B1AE2 /* FLOAdjustFontSizeLabel.m in Sources */,
 				73CAAD48201F087B001B1AE2 /* UIViewController+Alert.m in Sources */,
 				73CAAD58201F087B001B1AE2 /* FLODownloadManager.m in Sources */,
-				73CAAE04201F09E4001B1AE2 /* FLOTabBarController.m in Sources */,
 				73CAADBF201F087B001B1AE2 /* FLOWeiboReportComViewController.m in Sources */,
 				73CAADBB201F087B001B1AE2 /* ZSSBarButtonItem.m in Sources */,
 				73CAAD60201F087B001B1AE2 /* FLOShareDirectoryTableViewController.m in Sources */,
@@ -1881,7 +1862,6 @@
 				7329ED2120294C400090A584 /* BookMarkEntity+CoreDataProperties.m in Sources */,
 				73CAAD47201F087B001B1AE2 /* UIView+FLOUtil.m in Sources */,
 				73CAADC1201F087B001B1AE2 /* FLOWeiboCommentTableViewCell.m in Sources */,
-				73CAAE07201F09E4001B1AE2 /* FLOUserModel.m in Sources */,
 				73CAAD62201F087B001B1AE2 /* FLOAdjustFontSizeView.m in Sources */,
 				73CAAD45201F087B001B1AE2 /* UIImage+FLOUtil.m in Sources */,
 				73CAADC6201F087B001B1AE2 /* FLOWeiboTableViewController.m in Sources */,
