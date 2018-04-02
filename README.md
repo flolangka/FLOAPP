@@ -1,6 +1,6 @@
 # FLOAPP
 
-##### 一个用于自我技术积累的项目，持续更新...
+### 一个用于自我技术积累的项目，持续更新...
 
 1. slideMenu -- 侧滑菜单 -- 2015.11.20
 2. 聊天 -- [FloXMPP](https://github.com/flolangka/FLOXMPP)通过XMPP实现的即时通讯应用 -- 2015.11.30
@@ -31,8 +31,20 @@
 27. Widget  --  2017.4.19
 28. 富文本编辑器	--	 2017.4.21 [源：ZSSRichTextEditor](https://github.com/nnhubbard/ZSSRichTextEditor)
 
+### Noti:
+[ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) 是作为 [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) 添加到项目中的，so有2种clone方法：
+###### 1
+```
+git clone --recurse-submodules https://github.com/flolangka/FLOAPP.git
+```
+###### 2
+```
+git clone https://github.com/flolangka/FLOAPP.git
+git submodule init
+git submodule update
+```
 
-##### 截图：
+### 截图：
 ![首页](ScreenShots/IMG_1022.PNG)
 ![书签](ScreenShots/IMG_1023.PNG)	
 ![浏览器](ScreenShots/IMG_1025.PNG)
