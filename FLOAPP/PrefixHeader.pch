@@ -1,0 +1,57 @@
+//
+//  PrefixHeader.pch
+//  XMPPChat
+//
+//  Created by 360doc on 16/9/8.
+//  Copyright © 2016年 Flolangka. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "FLOUtil.h"
+#import <MBProgressHUD.h>
+#import "NSDate+FLOUtil.h"
+#import "APPConfig.h"
+
+#define Def_MBProgressString(str) Def_MBProgressStringDelay(str,2)
+#define Def_MBProgressStringDelay(str,delay) MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES]; progress.mode = MBProgressHUDModeText; progress.labelText = str; [progress hide:YES afterDelay:delay];
+
+#define Def_MBProgressShow [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+#define Def_MBProgressHide [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
+
+//数值转字符串
+#define Def_NSStringFromInteger(Integer) [NSString stringWithFormat:@"%ld", (long)Integer]
+
+//判断var是否为字符串并不为空
+#define Def_CheckStringClassAndLength(var) (var && [var isKindOfClass:[NSString class]] && var.length)
+
+//判断var是否为字典并不为空
+#define Def_CheckDictionaryClassAndCount(var) (var && [var isKindOfClass:[NSDictionary class]] && var.count)
+
+//判断var是否为数组并不为空
+#define Def_CheckArrayClassAndCount(var) (var && [var isKindOfClass:[NSArray class]] && var.count)
+
+//weak
+#define FLOWeakObj(type)  __weak typeof(type) weak##type = type
+
+//主线程block
+#define FLOAsyncMainQueueBlock(BLOCK) dispatch_async(dispatch_get_main_queue(), BLOCK);
+
+//异步线程
+#define FLOAsyncGlobalQueueBlock(BLOCK) dispatch_async(dispatch_get_global_queue(0, 0), BLOCK);
+
+// 打LOG
+#ifdef DEBUG
+#define DLog(fmt, ...) printf("%s %s [Line %d] %s\n", [[NSDate getNowTime] UTF8String], __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:fmt,##__VA_ARGS__] UTF8String]);
+#else
+#define DLog(...)
+#endif
+
+//返回网络请求结果的status值，可用来Switch-case
+#define IntStatus(dic) ((dic && [dic isKindOfClass:[NSDictionary class]] && dic.count && dic[@"status"] && [dic[@"status"] isKindOfClass:[NSString class]]) ? [dic[@"status"] intValue] : 0)
+
+#endif /* PrefixHeader_pch */
