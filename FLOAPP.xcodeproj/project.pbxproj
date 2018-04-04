@@ -19,6 +19,12 @@
 		7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1D20294C400090A584 /* BookMarkEntity+CoreDataClass.m */; };
 		7329ED2120294C400090A584 /* BookMarkEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */; };
 		7329ED2720297C4D0090A584 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7329ED2620297C4D0090A584 /* Main.storyboard */; };
+		732A017B20746DC400D4962B /* FLOBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A017A20746DC400D4962B /* FLOBaseViewController.m */; };
+		732A019220746E7B00D4962B /* FLOTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A019120746E7B00D4962B /* FLOTableViewController.m */; };
+		732A019520746E9100D4962B /* FLOCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A019420746E9100D4962B /* FLOCollectionViewController.m */; };
+		732A019820746EE200D4962B /* FLOBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A019720746EE200D4962B /* FLOBaseViewModel.m */; };
+		732A019B20746F0000D4962B /* FLOTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A019A20746F0000D4962B /* FLOTableViewModel.m */; };
+		732A019E20746F1D00D4962B /* FLOCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A019D20746F1D00D4962B /* FLOCollectionViewModel.m */; };
 		7344DDAF20722A3A00409393 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7344DD7220722A1700409393 /* ReactiveCocoa.framework */; };
 		7344DDB020722A3A00409393 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7344DD7220722A1700409393 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7344DDB420722A4000409393 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7344DD8E20722A1F00409393 /* ReactiveSwift.framework */; };
@@ -485,6 +491,18 @@
 		7329ED1E20294C400090A584 /* BookMarkEntity+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookMarkEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
 		7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BookMarkEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7329ED2620297C4D0090A584 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		732A017920746DC400D4962B /* FLOBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOBaseViewController.h; sourceTree = "<group>"; };
+		732A017A20746DC400D4962B /* FLOBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOBaseViewController.m; sourceTree = "<group>"; };
+		732A019020746E7B00D4962B /* FLOTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOTableViewController.h; sourceTree = "<group>"; };
+		732A019120746E7B00D4962B /* FLOTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOTableViewController.m; sourceTree = "<group>"; };
+		732A019320746E9100D4962B /* FLOCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOCollectionViewController.h; sourceTree = "<group>"; };
+		732A019420746E9100D4962B /* FLOCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOCollectionViewController.m; sourceTree = "<group>"; };
+		732A019620746EE200D4962B /* FLOBaseViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOBaseViewModel.h; sourceTree = "<group>"; };
+		732A019720746EE200D4962B /* FLOBaseViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOBaseViewModel.m; sourceTree = "<group>"; };
+		732A019920746F0000D4962B /* FLOTableViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOTableViewModel.h; sourceTree = "<group>"; };
+		732A019A20746F0000D4962B /* FLOTableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOTableViewModel.m; sourceTree = "<group>"; };
+		732A019C20746F1D00D4962B /* FLOCollectionViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOCollectionViewModel.h; sourceTree = "<group>"; };
+		732A019D20746F1D00D4962B /* FLOCollectionViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOCollectionViewModel.m; sourceTree = "<group>"; };
 		7344DD6120722A1600409393 /* ReactiveCocoa.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveCocoa.xcodeproj; path = ReactiveCocoa/ReactiveCocoa.xcodeproj; sourceTree = "<group>"; };
 		7344DD7F20722A1F00409393 /* ReactiveSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveSwift.xcodeproj; path = ReactiveCocoa/Carthage/Checkouts/ReactiveSwift/ReactiveSwift.xcodeproj; sourceTree = "<group>"; };
 		7344DD9720722A2400409393 /* Result.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Result.xcodeproj; path = ReactiveCocoa/Carthage/Checkouts/Result/Result.xcodeproj; sourceTree = "<group>"; };
@@ -915,6 +933,32 @@
 				7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */,
 			);
 			path = BookMarkEntity;
+			sourceTree = "<group>";
+		};
+		732A019F20746F2E00D4962B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				732A017920746DC400D4962B /* FLOBaseViewController.h */,
+				732A017A20746DC400D4962B /* FLOBaseViewController.m */,
+				732A019020746E7B00D4962B /* FLOTableViewController.h */,
+				732A019120746E7B00D4962B /* FLOTableViewController.m */,
+				732A019320746E9100D4962B /* FLOCollectionViewController.h */,
+				732A019420746E9100D4962B /* FLOCollectionViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		732A01A020746F3B00D4962B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				732A019620746EE200D4962B /* FLOBaseViewModel.h */,
+				732A019720746EE200D4962B /* FLOBaseViewModel.m */,
+				732A019920746F0000D4962B /* FLOTableViewModel.h */,
+				732A019A20746F0000D4962B /* FLOTableViewModel.m */,
+				732A019C20746F1D00D4962B /* FLOCollectionViewModel.h */,
+				732A019D20746F1D00D4962B /* FLOCollectionViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		7344DD6220722A1600409393 /* Products */ = {
@@ -1571,6 +1615,8 @@
 		73DED46E206E2EFE00376FA9 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				732A019F20746F2E00D4962B /* View */,
+				732A01A020746F3B00D4962B /* ViewModel */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -2252,6 +2298,7 @@
 				73CAADB5201F087B001B1AE2 /* FLORichTextEditorView.m in Sources */,
 				73CAADB6201F087B001B1AE2 /* FLORichTextEditorViewController.m in Sources */,
 				73CAAE0E201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.m in Sources */,
+				732A019820746EE200D4962B /* FLOBaseViewModel.m in Sources */,
 				73CAADD0201F087B001B1AE2 /* FLOMusicModel.m in Sources */,
 				73CAAD56201F087B001B1AE2 /* FLOFontTableViewController.m in Sources */,
 				73CAAD40201F087B001B1AE2 /* FLODocumentPreviewViewController.m in Sources */,
@@ -2284,6 +2331,7 @@
 				73CAADCA201F087B001B1AE2 /* ViewController.swift in Sources */,
 				73CAAD42201F087B001B1AE2 /* FLOUtil.m in Sources */,
 				73FEF0992056555F00B872A8 /* FLOGIFIdentityView.m in Sources */,
+				732A017B20746DC400D4962B /* FLOBaseViewController.m in Sources */,
 				73CAAD63201F087B001B1AE2 /* FLOAdjustFontSizeViewController.m in Sources */,
 				73CAAE02201F09E4001B1AE2 /* FLOLeftMenuVC.m in Sources */,
 				73CAAD4A201F087B001B1AE2 /* FLOGifImageViewController.m in Sources */,
@@ -2303,6 +2351,7 @@
 				73CAADCF201F087B001B1AE2 /* FLOSystemSoundTableViewController.m in Sources */,
 				73CAADCB201F087B001B1AE2 /* FLOMediaAddressTableViewController.m in Sources */,
 				73CAAE05201F09E4001B1AE2 /* YYFPSLabel.m in Sources */,
+				732A019220746E7B00D4962B /* FLOTableViewController.m in Sources */,
 				73CAADE7201F09BF001B1AE2 /* FLOWebViewController.m in Sources */,
 				73CAADB8201F087B001B1AE2 /* CYRTextStorage.m in Sources */,
 				73CAADCC201F087B001B1AE2 /* FLOCollectionViewLayout.m in Sources */,
@@ -2334,14 +2383,17 @@
 				73CAAD3A201F087B001B1AE2 /* MediaAddress+CoreDataClass.m in Sources */,
 				73CAADBC201F087B001B1AE2 /* ZSSTextView.m in Sources */,
 				73CAAD5E201F087B001B1AE2 /* FLOCodeResultViewController.m in Sources */,
+				732A019E20746F1D00D4962B /* FLOCollectionViewModel.m in Sources */,
 				73CAAE00201F09E4001B1AE2 /* FLONavigationController.m in Sources */,
 				73CAADBD201F087B001B1AE2 /* FLOWeiboAuthorization.m in Sources */,
+				732A019B20746F0000D4962B /* FLOTableViewModel.m in Sources */,
 				73CAAD54201F087B001B1AE2 /* FLOTouchIDViewController.m in Sources */,
 				73CAADB9201F087B001B1AE2 /* CYRTextView.m in Sources */,
 				73CAAD5A201F087B001B1AE2 /* FLOAddBookMarkMaskView.m in Sources */,
 				73839A5820205E68004D0B73 /* FLONetworkUtil.m in Sources */,
 				73CAADC9201F087B001B1AE2 /* SortView.swift in Sources */,
 				73CAAD50201F087B001B1AE2 /* FLONotificationTimeTableViewController.m in Sources */,
+				732A019520746E9100D4962B /* FLOCollectionViewController.m in Sources */,
 				73CAAE03201F09E4001B1AE2 /* FLOSideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
