@@ -26,12 +26,13 @@
 		732A019B20746F0000D4962B /* FLOTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A019A20746F0000D4962B /* FLOTableViewModel.m */; };
 		732A019E20746F1D00D4962B /* FLOCollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 732A019D20746F1D00D4962B /* FLOCollectionViewModel.m */; };
 		7348B5AA1EA6FFD60011F8FA /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */; };
-		7348B5AE1EA6FFD60011F8FA /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */; };
-		7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */; };
-		7348B5B51EA6FFD60011F8FA /* FlolangkaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7348B5B51EA6FFD60011F8FA /* FLOWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7348B5A81EA6FFD60011F8FA /* FLOWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		734E3F922079F12900909EA5 /* MVVMRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 734E3F912079F12900909EA5 /* MVVMRouter.m */; };
 		734E3FCB207A097F00909EA5 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734E3FBC207A08AB00909EA5 /* ReactiveObjC.framework */; };
 		734E3FCC207A097F00909EA5 /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 734E3FBC207A08AB00909EA5 /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		734E3FE5207A1AB400909EA5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 734E3FE0207A1AB400909EA5 /* MainInterface.storyboard */; };
+		734E3FE6207A1AB400909EA5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 734E3FE2207A1AB400909EA5 /* Info.plist */; };
+		734E3FE7207A1AB400909EA5 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 734E3FE4207A1AB400909EA5 /* TodayViewController.m */; };
 		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
 		73839A5820205E68004D0B73 /* FLONetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 73839A5720205E68004D0B73 /* FLONetworkUtil.m */; };
 		73A15381202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A15380202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m */; };
@@ -319,7 +320,7 @@
 			files = (
 				73F3A1971E4C63F400314D70 /* FLONotiExtension.appex in Embed App Extensions */,
 				120C150E1E5057D1001A2B4E /* FLONotiServiceExtension.appex in Embed App Extensions */,
-				7348B5B51EA6FFD60011F8FA /* FlolangkaWidget.appex in Embed App Extensions */,
+				7348B5B51EA6FFD60011F8FA /* FLOWidget.appex in Embed App Extensions */,
 				12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -372,15 +373,15 @@
 		732A019A20746F0000D4962B /* FLOTableViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOTableViewModel.m; sourceTree = "<group>"; };
 		732A019C20746F1D00D4962B /* FLOCollectionViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOCollectionViewModel.h; sourceTree = "<group>"; };
 		732A019D20746F1D00D4962B /* FLOCollectionViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOCollectionViewModel.m; sourceTree = "<group>"; };
-		7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FlolangkaWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7348B5A81EA6FFD60011F8FA /* FLOWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FLOWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7348B5A91EA6FFD60011F8FA /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		7348B5AC1EA6FFD60011F8FA /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
-		7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
-		7348B5B01EA6FFD60011F8FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		7348B5B21EA6FFD60011F8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		734E3F902079F12900909EA5 /* MVVMRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMRouter.h; sourceTree = "<group>"; };
 		734E3F912079F12900909EA5 /* MVVMRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMRouter.m; sourceTree = "<group>"; };
 		734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveObjC.xcodeproj; path = ReactiveObjC/ReactiveObjC.xcodeproj; sourceTree = "<group>"; };
+		734E3FE1207A1AB400909EA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		734E3FE2207A1AB400909EA5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		734E3FE3207A1AB400909EA5 /* TodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		734E3FE4207A1AB400909EA5 /* TodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		737433431EA4A70D00BE39B3 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		73839A5620205E68004D0B73 /* FLONetworkUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONetworkUtil.h; sourceTree = "<group>"; };
 		73839A5720205E68004D0B73 /* FLONetworkUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONetworkUtil.m; sourceTree = "<group>"; };
@@ -828,18 +829,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		7348B5AB1EA6FFD60011F8FA /* FlolangkaWidget */ = {
-			isa = PBXGroup;
-			children = (
-				7348B5AC1EA6FFD60011F8FA /* TodayViewController.h */,
-				7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */,
-				7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */,
-				7348B5B21EA6FFD60011F8FA /* Info.plist */,
-			);
-			name = FlolangkaWidget;
-			path = Flolangka;
-			sourceTree = "<group>";
-		};
 		734E3FAE207A08AA00909EA5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -852,6 +841,17 @@
 				734E3FC4207A08AB00909EA5 /* ReactiveObjCTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		734E3FDF207A1AB400909EA5 /* FLOWidget */ = {
+			isa = PBXGroup;
+			children = (
+				734E3FE3207A1AB400909EA5 /* TodayViewController.h */,
+				734E3FE4207A1AB400909EA5 /* TodayViewController.m */,
+				734E3FE0207A1AB400909EA5 /* MainInterface.storyboard */,
+				734E3FE2207A1AB400909EA5 /* Info.plist */,
+			);
+			path = FLOWidget;
 			sourceTree = "<group>";
 		};
 		73CAAC32201F087A001B1AE2 /* 模块 */ = {
@@ -1496,7 +1496,7 @@
 				12F956251E06C32E008699B2 /* FLOAction */,
 				73F3A18D1E4C63F400314D70 /* FLONotiContentExtension */,
 				120C15071E5057D1001A2B4E /* FLONotiServiceExtension */,
-				7348B5AB1EA6FFD60011F8FA /* FlolangkaWidget */,
+				734E3FDF207A1AB400909EA5 /* FLOWidget */,
 				84291A0A1C05867A0015F5F1 /* Products */,
 				3180D5F5966FFFBE11E63FAD /* Pods */,
 				BA1A1955340CBA90421877C7 /* Frameworks */,
@@ -1510,7 +1510,7 @@
 				12F956241E06C32E008699B2 /* FLOAction.appex */,
 				73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */,
 				120C15061E5057D1001A2B4E /* FLONotiServiceExtension.appex */,
-				7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */,
+				7348B5A81EA6FFD60011F8FA /* FLOWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1597,9 +1597,9 @@
 			productReference = 12F956241E06C32E008699B2 /* FLOAction.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		7348B5A71EA6FFD60011F8FA /* FlolangkaWidget */ = {
+		7348B5A71EA6FFD60011F8FA /* FLOWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7348B5B81EA6FFD60011F8FA /* Build configuration list for PBXNativeTarget "FlolangkaWidget" */;
+			buildConfigurationList = 7348B5B81EA6FFD60011F8FA /* Build configuration list for PBXNativeTarget "FLOWidget" */;
 			buildPhases = (
 				7348B5A41EA6FFD60011F8FA /* Sources */,
 				7348B5A51EA6FFD60011F8FA /* Frameworks */,
@@ -1609,9 +1609,9 @@
 			);
 			dependencies = (
 			);
-			name = FlolangkaWidget;
+			name = FLOWidget;
 			productName = Flolangka;
-			productReference = 7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */;
+			productReference = 7348B5A81EA6FFD60011F8FA /* FLOWidget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		73F3A1891E4C63F400314D70 /* FLONotiExtension */ = {
@@ -1723,7 +1723,7 @@
 				12F956231E06C32E008699B2 /* FLOAction */,
 				73F3A1891E4C63F400314D70 /* FLONotiExtension */,
 				120C15051E5057D1001A2B4E /* FLONotiServiceExtension */,
-				7348B5A71EA6FFD60011F8FA /* FlolangkaWidget */,
+				7348B5A71EA6FFD60011F8FA /* FLOWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -1802,7 +1802,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */,
+				734E3FE6207A1AB400909EA5 /* Info.plist in Resources */,
+				734E3FE5207A1AB400909EA5 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1990,7 +1991,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7348B5AE1EA6FFD60011F8FA /* TodayViewController.m in Sources */,
+				734E3FE7207A1AB400909EA5 /* TodayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2129,7 +2130,7 @@
 		};
 		7348B5B41EA6FFD60011F8FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7348B5A71EA6FFD60011F8FA /* FlolangkaWidget */;
+			target = 7348B5A71EA6FFD60011F8FA /* FLOWidget */;
 			targetProxy = 7348B5B31EA6FFD60011F8FA /* PBXContainerItemProxy */;
 		};
 		734E3FCE207A097F00909EA5 /* PBXTargetDependency */ = {
@@ -2153,10 +2154,10 @@
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
-		7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */ = {
+		734E3FE0207A1AB400909EA5 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7348B5B01EA6FFD60011F8FA /* Base */,
+				734E3FE1207A1AB400909EA5 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -2265,10 +2266,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = X928ZDD77C;
-				INFOPLIST_FILE = Flolangka/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FLOWidget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.Flolangka;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLOWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2283,10 +2284,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = X928ZDD77C;
-				INFOPLIST_FILE = Flolangka/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FLOWidget/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.Flolangka;
+				PRODUCT_BUNDLE_IDENTIFIER = com.flolangka.FloAPP.FLOWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -2646,7 +2647,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7348B5B81EA6FFD60011F8FA /* Build configuration list for PBXNativeTarget "FlolangkaWidget" */ = {
+		7348B5B81EA6FFD60011F8FA /* Build configuration list for PBXNativeTarget "FLOWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7348B5B61EA6FFD60011F8FA /* Debug */,
