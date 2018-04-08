@@ -30,6 +30,8 @@
 		7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */; };
 		7348B5B51EA6FFD60011F8FA /* FlolangkaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		734E3F922079F12900909EA5 /* MVVMRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 734E3F912079F12900909EA5 /* MVVMRouter.m */; };
+		734E3FCB207A097F00909EA5 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734E3FBC207A08AB00909EA5 /* ReactiveObjC.framework */; };
+		734E3FCC207A097F00909EA5 /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 734E3FBC207A08AB00909EA5 /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
 		73839A5820205E68004D0B73 /* FLONetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 73839A5720205E68004D0B73 /* FLONetworkUtil.m */; };
 		73A15381202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A15380202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m */; };
@@ -243,6 +245,62 @@
 			remoteGlobalIDString = 7348B5A71EA6FFD60011F8FA;
 			remoteInfo = Flolangka;
 		};
+		734E3FB7207A08AB00909EA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D04725EA19E49ED7006002AA;
+			remoteInfo = "ReactiveObjC-macOS";
+		};
+		734E3FB9207A08AB00909EA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D04725F519E49ED7006002AA;
+			remoteInfo = "ReactiveObjC-macOSTests";
+		};
+		734E3FBB207A08AB00909EA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047260C19E49F82006002AA;
+			remoteInfo = "ReactiveObjC-iOS";
+		};
+		734E3FBD207A08AB00909EA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047261619E49F82006002AA;
+			remoteInfo = "ReactiveObjC-iOSTests";
+		};
+		734E3FBF207A08AB00909EA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9B315541B3940610001CB9C;
+			remoteInfo = "ReactiveObjC-watchOS";
+		};
+		734E3FC1207A08AB00909EA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 57A4D2411BA13D7A00F7D4B1;
+			remoteInfo = "ReactiveObjC-tvOS";
+		};
+		734E3FC3207A08AB00909EA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7DFBED031CDB8C9500EE435B;
+			remoteInfo = "ReactiveObjC-tvOSTests";
+		};
+		734E3FCD207A097F00909EA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D047260B19E49F82006002AA;
+			remoteInfo = "ReactiveObjC-iOS";
+		};
 		73F3A1951E4C63F400314D70 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84291A011C05867A0015F5F1 /* Project object */;
@@ -265,6 +323,17 @@
 				12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		734E3FCF207A097F00909EA5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				734E3FCC207A097F00909EA5 /* ReactiveObjC.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -311,6 +380,7 @@
 		7348B5B21EA6FFD60011F8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		734E3F902079F12900909EA5 /* MVVMRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMRouter.h; sourceTree = "<group>"; };
 		734E3F912079F12900909EA5 /* MVVMRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMRouter.m; sourceTree = "<group>"; };
+		734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveObjC.xcodeproj; path = ReactiveObjC/ReactiveObjC.xcodeproj; sourceTree = "<group>"; };
 		737433431EA4A70D00BE39B3 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		73839A5620205E68004D0B73 /* FLONetworkUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONetworkUtil.h; sourceTree = "<group>"; };
 		73839A5720205E68004D0B73 /* FLONetworkUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONetworkUtil.m; sourceTree = "<group>"; };
@@ -639,6 +709,7 @@
 				737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */,
 				1252F4491E1D447A00A8C244 /* AVKit.framework in Frameworks */,
 				B244C5ECC0737C6083001B0C /* libPods-FLOAPP.a in Frameworks */,
+				734E3FCB207A097F00909EA5 /* ReactiveObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,6 +838,20 @@
 			);
 			name = FlolangkaWidget;
 			path = Flolangka;
+			sourceTree = "<group>";
+		};
+		734E3FAE207A08AA00909EA5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				734E3FB8207A08AB00909EA5 /* ReactiveObjC.framework */,
+				734E3FBA207A08AB00909EA5 /* ReactiveObjCTests.xctest */,
+				734E3FBC207A08AB00909EA5 /* ReactiveObjC.framework */,
+				734E3FBE207A08AB00909EA5 /* ReactiveObjCTests.xctest */,
+				734E3FC0207A08AB00909EA5 /* ReactiveObjC.framework */,
+				734E3FC2207A08AB00909EA5 /* ReactiveObjC.framework */,
+				734E3FC4207A08AB00909EA5 /* ReactiveObjCTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		73CAAC32201F087A001B1AE2 /* 模块 */ = {
@@ -1463,6 +1548,7 @@
 		BA1A1955340CBA90421877C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */,
 				737433431EA4A70D00BE39B3 /* QuickLook.framework */,
 				73D3F72C1E852120007C739F /* XCTest.framework */,
 				1252F4481E1D447A00A8C244 /* AVKit.framework */,
@@ -1556,6 +1642,7 @@
 				F835D83C944336EE1C5B84BE /* [CP] Embed Pods Frameworks */,
 				4FC95C759CAF6AB0AB86D771 /* [CP] Copy Pods Resources */,
 				12F956331E06C32E008699B2 /* Embed App Extensions */,
+				734E3FCF207A097F00909EA5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1564,6 +1651,7 @@
 				73F3A1961E4C63F400314D70 /* PBXTargetDependency */,
 				120C150D1E5057D1001A2B4E /* PBXTargetDependency */,
 				7348B5B41EA6FFD60011F8FA /* PBXTargetDependency */,
+				734E3FCE207A097F00909EA5 /* PBXTargetDependency */,
 			);
 			name = FLOAPP;
 			productName = XMPPChat;
@@ -1623,6 +1711,12 @@
 			mainGroup = 84291A001C05867A0015F5F1;
 			productRefGroup = 84291A0A1C05867A0015F5F1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 734E3FAE207A08AA00909EA5 /* Products */;
+					ProjectRef = 734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				84291A081C05867A0015F5F1 /* FLOAPP */,
@@ -1633,6 +1727,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		734E3FB8207A08AB00909EA5 /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 734E3FB7207A08AB00909EA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		734E3FBA207A08AB00909EA5 /* ReactiveObjCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveObjCTests.xctest;
+			remoteRef = 734E3FB9207A08AB00909EA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		734E3FBC207A08AB00909EA5 /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 734E3FBB207A08AB00909EA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		734E3FBE207A08AB00909EA5 /* ReactiveObjCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveObjCTests.xctest;
+			remoteRef = 734E3FBD207A08AB00909EA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		734E3FC0207A08AB00909EA5 /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 734E3FBF207A08AB00909EA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		734E3FC2207A08AB00909EA5 /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 734E3FC1207A08AB00909EA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		734E3FC4207A08AB00909EA5 /* ReactiveObjCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveObjCTests.xctest;
+			remoteRef = 734E3FC3207A08AB00909EA5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		120C15041E5057D1001A2B4E /* Resources */ = {
@@ -1985,6 +2131,11 @@
 			isa = PBXTargetDependency;
 			target = 7348B5A71EA6FFD60011F8FA /* FlolangkaWidget */;
 			targetProxy = 7348B5B31EA6FFD60011F8FA /* PBXContainerItemProxy */;
+		};
+		734E3FCE207A097F00909EA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ReactiveObjC-iOS";
+			targetProxy = 734E3FCD207A097F00909EA5 /* PBXContainerItemProxy */;
 		};
 		73F3A1961E4C63F400314D70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

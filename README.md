@@ -32,7 +32,7 @@
 28. 富文本编辑器	--	 2017.4.21 [源：ZSSRichTextEditor](https://github.com/nnhubbard/ZSSRichTextEditor)
 
 ### Noti:
-[ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) 是作为 [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) 添加到项目中的，so有2种clone方法：
+[ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveObjC) 是作为 [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) 添加到项目中的，so有2种clone方法：
 ###### 1
 ```
 git clone --recurse-submodules https://github.com/flolangka/FLOAPP.git
