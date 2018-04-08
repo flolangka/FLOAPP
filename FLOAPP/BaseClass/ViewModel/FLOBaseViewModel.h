@@ -10,4 +10,7 @@
 
 @interface FLOBaseViewModel : NSObject
 
+@property (nonatomic, strong) NSString *title;
+
+
 @end

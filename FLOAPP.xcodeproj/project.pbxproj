@@ -35,6 +35,7 @@
 		7348B5AE1EA6FFD60011F8FA /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */; };
 		7348B5B11EA6FFD60011F8FA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7348B5AF1EA6FFD60011F8FA /* MainInterface.storyboard */; };
 		7348B5B51EA6FFD60011F8FA /* FlolangkaWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7348B5A81EA6FFD60011F8FA /* FlolangkaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		734E3F922079F12900909EA5 /* MVVMRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 734E3F912079F12900909EA5 /* MVVMRouter.m */; };
 		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
 		73839A5820205E68004D0B73 /* FLONetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 73839A5720205E68004D0B73 /* FLONetworkUtil.m */; };
 		73A15381202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A15380202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m */; };
@@ -512,6 +513,8 @@
 		7348B5AD1EA6FFD60011F8FA /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		7348B5B01EA6FFD60011F8FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7348B5B21EA6FFD60011F8FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		734E3F902079F12900909EA5 /* MVVMRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMRouter.h; sourceTree = "<group>"; };
+		734E3F912079F12900909EA5 /* MVVMRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVVMRouter.m; sourceTree = "<group>"; };
 		737433431EA4A70D00BE39B3 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		73839A5620205E68004D0B73 /* FLONetworkUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONetworkUtil.h; sourceTree = "<group>"; };
 		73839A5720205E68004D0B73 /* FLONetworkUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONetworkUtil.m; sourceTree = "<group>"; };
@@ -1563,6 +1566,8 @@
 				73CAADDA201F09B5001B1AE2 /* 设置 */,
 				73CAADF8201F09E4001B1AE2 /* YYFPSLabel.h */,
 				73CAADF9201F09E4001B1AE2 /* YYFPSLabel.m */,
+				734E3F902079F12900909EA5 /* MVVMRouter.h */,
+				734E3F912079F12900909EA5 /* MVVMRouter.m */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -2369,6 +2374,7 @@
 				73CAAD4E201F087B001B1AE2 /* FLONetWorkTableViewController.m in Sources */,
 				73CAADD8201F09A9001B1AE2 /* FLOLoginViewController.m in Sources */,
 				73CAAD5F201F087B001B1AE2 /* FLOCodeViewController.m in Sources */,
+				734E3F922079F12900909EA5 /* MVVMRouter.m in Sources */,
 				73CAAD3F201F087B001B1AE2 /* NotificationTime+CoreDataProperties.m in Sources */,
 				73CAADC8201F087B001B1AE2 /* SortClass.swift in Sources */,
 				7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */,

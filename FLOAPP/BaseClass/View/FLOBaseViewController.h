@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FLOBaseViewModel.h"
 
 @interface FLOBaseViewController : UIViewController
+
+@property (nonatomic, strong, readonly) FLOBaseViewModel *viewModel;
+
+- (instancetype)initWithViewModel:(FLOBaseViewModel *)viewModel;
+
+- (void)bindViewModel;
 
 @end

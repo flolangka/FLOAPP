@@ -10,13 +10,28 @@
 
 @interface FLOBaseViewController ()
 
+@property (nonatomic, strong, readwrite) FLOBaseViewModel *viewModel;
+
 @end
 
 @implementation FLOBaseViewController
 
+- (instancetype)initWithViewModel:(FLOBaseViewModel *)viewModel {
+    self = [super init];
+    if (self) {
+        self.viewModel = viewModel;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self bindViewModel];
+}
+
+- (void)bindViewModel {
+    
 }
 
 - (void)didReceiveMemoryWarning {
