@@ -40,28 +40,13 @@ git clone --recurse-submodules https://github.com/flolangka/FLOAPP.git
 ###### 2
 ```
 git clone https://github.com/flolangka/FLOAPP.git
-git submodule init
-git submodule update
+cd FLOAPP
+git submodule update --init --recursive
 ```
-
-### 截图：
-![首页](ScreenShots/IMG_1022.PNG)
-![书签](ScreenShots/IMG_1023.PNG)	
-![浏览器](ScreenShots/IMG_1025.PNG)
-![新浪微博](ScreenShots/IMG_1037.PNG)
-![扫一扫](ScreenShots/IMG_1027.PNG)
-![百度地图](ScreenShots/IMG_1030.PNG)
-![字体大小](ScreenShots/IMG_1033.PNG)
-![UIColor](ScreenShots/IMG_1034.PNG)
-![字体调整](ScreenShots/IMG_1035.PNG)
-![Gif](ScreenShots/IMG_1036.PNG)
-![网络请求](ScreenShots/IMG_1038.PNG)	
-![网络请求结果](ScreenShots/IMG_1039.PNG)
-![富文本编辑器](ScreenShots/IMG_1040.PNG)
-
-
-
-
+###### End
+```
+pod install
+```
 
 
 
