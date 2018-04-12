@@ -19,15 +19,6 @@
 //2倍屏、3倍屏；乘以宽高即为分辨率
 #define DEVICE_SCREEN_SCALE [UIScreen mainScreen].scale
 
-//判断iphonex
-#define iPhoneX (CGSizeEqualToSize(CGSizeMake(375, 812), [[UIScreen mainScreen] bounds].size))
-
-//iphonex底部增加的高
-#define IPHONEXBOTTOMADDHEIGHT (iPhoneX ? 34 : 0)
-
-//导航栏高
-#define NAVIGATIONTITLEVIEWHEIGHT (44 + (iPhoneX ? 44 : 20))
-
 
 //UIColor
 #define COLOR_RGB(R,G,B) [UIColor colorWithRed:(R)/255.0 green:(G)/255.0 blue:(B)/255.0 alpha:1.0]

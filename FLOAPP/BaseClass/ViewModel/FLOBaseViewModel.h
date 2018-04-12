@@ -11,6 +11,7 @@
 @interface FLOBaseViewModel : NSObject
 
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, assign) BOOL loading;
 
 
 @end

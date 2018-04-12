@@ -12,10 +12,15 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#import <ReactiveObjC/ReactiveObjC.h>
+
 #import "FLOUtil.h"
 #import <MBProgressHUD.h>
 #import "NSDate+FLOUtil.h"
 #import "APPConfig.h"
+#import "FLOAPPConfig.h"
+
+#define MYAPPConfig [FLOAPPConfig shareInstance]
 
 #define Def_MBProgressString(str) Def_MBProgressStringDelay(str,2)
 #define Def_MBProgressStringDelay(str,delay) MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES]; progress.mode = MBProgressHUDModeText; progress.labelText = str; [progress hide:YES afterDelay:delay];

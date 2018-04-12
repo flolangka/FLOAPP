@@ -10,4 +10,9 @@
 
 @interface FLOTableViewModel : FLOBaseViewModel
 
+@property (nonatomic, assign) UITableViewStyle tableViewStyle;
+
+// 数据源 @[@[], @[]], 每个小数组为一个section的数据
+@property (nonatomic, strong) NSMutableArray *dataArr;
+
 @end

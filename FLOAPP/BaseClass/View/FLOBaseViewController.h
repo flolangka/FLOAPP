@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FLOBaseViewModel.h"
+
+@class FLOBaseViewModel;
 
 @interface FLOBaseViewController : UIViewController
 

@@ -16,6 +16,7 @@
 		12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 12F956241E06C32E008699B2 /* FLOAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		12F956341E06C626008699B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84291A181C05867A0015F5F1 /* Assets.xcassets */; };
 		12F956361E06C69A008699B2 /* FLO@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F956351E06C69A008699B2 /* FLO@2x.png */; };
+		730B42FD207DEDD1007CC874 /* FLOAPPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 730B42FC207DEDD1007CC874 /* FLOAPPConfig.m */; };
 		7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1D20294C400090A584 /* BookMarkEntity+CoreDataClass.m */; };
 		7329ED2120294C400090A584 /* BookMarkEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */; };
 		7329ED2720297C4D0090A584 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7329ED2620297C4D0090A584 /* Main.storyboard */; };
@@ -353,6 +354,8 @@
 		12F9562C1E06C32E008699B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12F956351E06C69A008699B2 /* FLO@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FLO@2x.png"; sourceTree = "<group>"; };
 		4F3082D274C70DF38A7A3505 /* Pods-FLOAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLOAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP.release.xcconfig"; sourceTree = "<group>"; };
+		730B42FB207DEDD1007CC874 /* FLOAPPConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOAPPConfig.h; sourceTree = "<group>"; };
+		730B42FC207DEDD1007CC874 /* FLOAPPConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOAPPConfig.m; sourceTree = "<group>"; };
 		7323C45A1E4ACBAD00543251 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		7329ED1B20294AF50090A584 /* FLOCoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FLOCoreData 4.xcdatamodel"; sourceTree = "<group>"; };
@@ -1220,9 +1223,9 @@
 			isa = PBXGroup;
 			children = (
 				73CAAD06201F087B001B1AE2 /* 登录认证 */,
-				73CAAD0B201F087B001B1AE2 /* 评论转发 */,
-				73CAAD0E201F087B001B1AE2 /* 详情 */,
 				73CAAD15201F087B001B1AE2 /* 首页 */,
+				73CAAD0E201F087B001B1AE2 /* 详情 */,
+				73CAAD0B201F087B001B1AE2 /* 评论转发 */,
 			);
 			path = "微博";
 			sourceTree = "<group>";
@@ -1402,6 +1405,8 @@
 				73CAADF9201F09E4001B1AE2 /* YYFPSLabel.m */,
 				734E3F902079F12900909EA5 /* MVVMRouter.h */,
 				734E3F912079F12900909EA5 /* MVVMRouter.m */,
+				730B42FB207DEDD1007CC874 /* FLOAPPConfig.h */,
+				730B42FC207DEDD1007CC874 /* FLOAPPConfig.m */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -2096,6 +2101,7 @@
 				73CAAD43201F087B001B1AE2 /* NSDate+FLOUtil.m in Sources */,
 				73CAAD4B201F087B001B1AE2 /* FLOMQTTViewController.m in Sources */,
 				73CAADC3201F087B001B1AE2 /* FLOWeiboStatusFoolerTableViewCell.m in Sources */,
+				730B42FD207DEDD1007CC874 /* FLOAPPConfig.m in Sources */,
 				73CAADCE201F087B001B1AE2 /* FLOBDMapViewController.m in Sources */,
 				73CAAD3A201F087B001B1AE2 /* MediaAddress+CoreDataClass.m in Sources */,
 				73CAADBC201F087B001B1AE2 /* ZSSTextView.m in Sources */,

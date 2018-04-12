@@ -9,5 +9,10 @@
 #import "FLOBaseViewController.h"
 
 @interface FLOTableViewController : FLOBaseViewController
+<UITableViewDelegate,
+UITableViewDataSource>
+
+@property (nonatomic, strong, readonly) UITableView *tableView;
+
 
 @end

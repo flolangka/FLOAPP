@@ -8,6 +8,7 @@
 
 #import "MVVMRouter.h"
 #import "FLOBaseViewController.h"
+#import "FLOBaseViewModel.h"
 
 @implementation MVVMRouter
 

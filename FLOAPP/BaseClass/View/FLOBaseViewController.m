@@ -7,6 +7,7 @@
 //
 
 #import "FLOBaseViewController.h"
+#import "FLOBaseViewModel.h"
 
 @interface FLOBaseViewController ()
 
@@ -31,7 +32,17 @@
 }
 
 - (void)bindViewModel {
+    // 导航栏标题
+    RAC(self, title) = RACObserve(self.viewModel, title);
     
+    // 加载转圈
+    [RACObserve(self.viewModel, loading) subscribeNext:^(NSNumber *loading) {
+        if (loading.boolValue) {
+            Def_MBProgressShow;
+        } else {
+            Def_MBProgressHide;
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
