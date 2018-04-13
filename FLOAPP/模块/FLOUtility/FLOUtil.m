@@ -93,6 +93,49 @@
 }
 
 /**
+ 时间转换
+ 
+ @param second 秒数
+ @return 00:00:00
+ */
++ (NSString *)timeH_M_SWithSecond:(NSInteger)second {
+    NSInteger h = second / (60*60);
+    NSString *strH = [NSString stringWithFormat:@"%ld:", h];
+    if (h == 0) {
+        strH = @"";
+    } else if (h < 10) {
+        strH = [@"0" stringByAppendingString:strH];
+    }
+    
+    NSInteger m = (second % (60*60)) / 60;
+    NSString *strM = [NSString stringWithFormat:@"%ld:", m];
+    if (m < 10) {
+        strM = [@"0" stringByAppendingString:strM];
+    }
+    
+    NSInteger s = (second % (60*60)) % 60;
+    NSString *strS = [NSString stringWithFormat:@"%ld", s];
+    if (s < 10) {
+        strS = [@"0" stringByAppendingString:strS];
+    }
+    return [NSString stringWithFormat:@"%@%@%@", strH, strM, strS];
+}
+
+/**
+ 整数以万为单位
+
+ @param count 整数
+ @return 9999、1.1万
+ */
++ (NSString *)integerStr_10000:(NSInteger)count {
+    NSString *str = [NSString stringWithFormat:@"%ld", count];
+    if (count >= 10000) {
+        str = [NSString stringWithFormat:@"%.1f万", count/10000.];
+    }
+    return str;
+}
+
+/**
   *  检测网络状态
   *
   *  @return 0:无网络 1:Wifi 2:2/3/4G

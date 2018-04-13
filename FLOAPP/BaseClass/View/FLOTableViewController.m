@@ -9,6 +9,8 @@
 #import "FLOTableViewController.h"
 #import "FLOTableViewModel.h"
 
+#import <MJRefresh.h>
+
 @interface FLOTableViewController ()
 
 @property (nonatomic, strong, readwrite) FLOTableViewModel *viewModel;
@@ -39,7 +41,9 @@
 #pragma mark -
 
 - (void)configTableView {
-    _tableView = [[UITableView alloc] initWithFrame:self.view.frame style:self.viewModel.tableViewStyle];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-MYAPPConfig.navigationBarHeight) style:self.viewModel.tableViewStyle];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     
     if (@available(iOS 11.0, *)) {
@@ -65,6 +69,10 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self heightForRowAtIndexPath:indexPath withObject:[[self.viewModel.dataArr objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+}
+
 //子类提供cell
 - (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellForIndexPath:(NSIndexPath *)indexPath {
     NSString *cellid = @"cellid";
@@ -80,6 +88,45 @@
     
 }
 
+//子类设置cell高度
+- (float)heightForRowAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object {
+    return 44;
+}
+
+#pragma mark - refresh
+- (void)addHeaderRefresh {
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshAction)];
+}
+- (void)headerRefreshAction {
+    if (self.requesting) {
+        [self endHeaderRefresh];
+        return;
+    }
+}
+- (void)endHeaderRefresh {
+    [self.tableView.mj_header endRefreshing];
+}
+- (void)removeHeaderRefresh {
+    [self endHeaderRefresh];
+    self.tableView.mj_header = nil;
+}
+
+- (void)addFooterRefresh {
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefreshAction)];
+}
+- (void)footerRefreshAction {
+    if (self.requesting) {
+        [self endFooterRefresh];
+        return;
+    }
+}
+- (void)endFooterRefresh {
+    [self.tableView.mj_footer endRefreshing];
+}
+- (void)removeFooterRefresh {
+    [self endFooterRefresh];
+    self.tableView.mj_footer = nil;
+}
 
 /*
 #pragma mark - Navigation

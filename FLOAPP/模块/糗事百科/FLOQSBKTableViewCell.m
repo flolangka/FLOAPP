@@ -8,6 +8,7 @@
 
 #import "FLOQSBKTableViewCell.h"
 #import "NSString+FLOUtil.h"
+#import "FLOVideoIdentityView.h"
 
 #import <Masonry.h>
 #import <UIImageView+WebCache.h>
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) UILabel *createTimeLabel;
 @property (nonatomic, strong) UILabel *contentLabel;
 @property (nonatomic, strong) UIImageView *imgView;
-@property (nonatomic, strong) UIImageView *videoPlayImgView;
+@property (nonatomic, strong) FLOVideoIdentityView *videoIdentityView;
 
 @end
 
@@ -114,13 +115,12 @@ static float FLOQSBKContentFontSize = 16;
     [_imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgViewAction)]];
     
     //视频播放图片
-    _videoPlayImgView = [[UIImageView alloc] init];
-    [_imgView addSubview:_videoPlayImgView];
-    [_videoPlayImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _videoIdentityView = [FLOVideoIdentityView videoIdentityView];
+    [_imgView addSubview:_videoIdentityView];
+    [_videoIdentityView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(_imgView);
-        make.size.mas_equalTo(CGSizeMake(80, 80));
+        make.size.mas_equalTo(_videoIdentityView.bounds.size);
     }];
-    _videoPlayImgView.image = [UIImage imageNamed:@"video_youtube"];
     
     return self;
 }
@@ -211,7 +211,7 @@ static float FLOQSBKContentFontSize = 16;
        imagePath:(NSString *)imgPath
        imageSize:(CGSize    )imgSize
            video:(BOOL      )video {
-    [_userIconImgV sd_setImageWithURL:[NSURL URLWithString:icon]];
+    [_userIconImgV sd_setImageWithURL:[NSURL URLWithString:icon] placeholderImage:[UIImage imageNamed:@"usericon_Placeholder"]];
     _userNameLabel.text = name;
     _createTimeLabel.text = time;
     _contentLabel.attributedText = [self attributedContentWithContent:content];
@@ -225,7 +225,7 @@ static float FLOQSBKContentFontSize = 16;
     } else {
         _imgView.image = nil;
     }
-    _videoPlayImgView.hidden = !video;
+    _videoIdentityView.hidden = !video;
     
     //更新正文高度
     float height = [content heightWithLimitWidth:(DEVICE_SCREEN_WIDTH - 15 - 15) fontSize:FLOQSBKContentFontSize];

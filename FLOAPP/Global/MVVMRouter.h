@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class FLOBaseViewController;
-@class FLOBaseViewModel;
+#import "FLOBaseViewController.h"
+#import "FLOBaseViewModel.h"
 
 @interface MVVMRouter : NSObject
 

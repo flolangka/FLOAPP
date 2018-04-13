@@ -7,8 +7,6 @@
 //
 
 #import "MVVMRouter.h"
-#import "FLOBaseViewController.h"
-#import "FLOBaseViewModel.h"
 
 @implementation MVVMRouter
 
@@ -22,7 +20,7 @@
 }
 
 + (NSDictionary *)routerInfo {
-    return @{};
+    return @{@"FLONETEASEVideoViewModel": @"FLONETEASEVideoViewController"};
 }
 
 @end

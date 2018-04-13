@@ -11,12 +11,14 @@
 #import "FLOSideMenu.h"
 #import "FLOCollectionItem.h"
 #import "FLOWebViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import <MBProgressHUD.h>
 #import "FLOCollectionViewLayout.h"
 #import "UIView+FLOUtil.h"
 #import "YYFPSLabel.h"
+#import "MVVMRouter.h"
+
 #import <UIView+YYAdd.h>
+#import <MBProgressHUD.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #ifdef DEBUG
 #import <FLEX.h>
@@ -203,6 +205,12 @@ UIViewControllerPreviewingDelegate>
         webViewController.webViewAddress = itemAddress;
         
         [self.navigationController pushViewController:webViewController animated:YES];
+    } else if ([itemAddress hasSuffix:@"ViewModel"]) {
+        Class ob = NSClassFromString(itemAddress);
+        FLOBaseViewModel *viewModel = [[ob alloc] init];
+        FLOBaseViewController *viewC = [MVVMRouter viewControllerForViewModel:viewModel];
+        
+        [self.navigationController pushViewController:viewC animated:YES];
     } else if ([itemAddress hasPrefix:@"FLO"]) {
         Class ob = NSClassFromString(itemAddress);
         UIViewController *viewController = [[ob alloc] init];

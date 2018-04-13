@@ -135,7 +135,7 @@ static float FLOQSBKTopicImageSpace = 8;
             createTime:(NSString *)time
                content:(NSString *)content
               pictures:(NSArray *)pictures; {
-    [_userIconImgV sd_setImageWithURL:[NSURL URLWithString:icon]];
+    [_userIconImgV sd_setImageWithURL:[NSURL URLWithString:icon] placeholderImage:[UIImage imageNamed:@"usericon_Placeholder"]];
     _userNameLabel.text = name;
     _createTimeLabel.text = time;
     _contentLabel.attributedText = [self attributedContentWithContent:content];

@@ -202,5 +202,13 @@
 		<key>ItemAddress</key>
 		<string>FLOShareEmotionViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>网易视频</string>
+		<key>ItemIconURL</key>
+		<string>https://img.shouji.com.cn/simg/20170512/9691123276.png</string>
+		<key>ItemAddress</key>
+		<string>FLONETEASEVideoViewModel</string>
+	</dict>
 </array>
 </plist>

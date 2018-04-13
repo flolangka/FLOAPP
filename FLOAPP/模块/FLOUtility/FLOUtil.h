@@ -85,6 +85,22 @@
 + (NSString *)FileSizeWithBytes:(unsigned long long)bytes;
 
 /**
+ 时间转换
+
+ @param second 秒数
+ @return 00:00:00
+ */
++ (NSString *)timeH_M_SWithSecond:(NSInteger)second;
+
+/**
+ 整数以万为单位
+ 
+ @param count 整数
+ @return 9999、1.1万
+ */
++ (NSString *)integerStr_10000:(NSInteger)count;
+
+/**
  *  检测网络状态
  *
  *  @return 0:无网络 1:Wifi 2:2/3/4G
