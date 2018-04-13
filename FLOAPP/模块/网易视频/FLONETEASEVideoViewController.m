@@ -91,14 +91,18 @@
     
     self.requesting = YES;
     @weakify(self);
-    [self.viewModel requestMoreDataCompletion:^(BOOL moreData) {
+    [self.viewModel requestMoreDataEndRequest:^{
+        @strongify(self);
+        
+        //接口返回结果就结束上拉状态，否则在刷新页面时会抖动
+        [self endFooterRefresh];
+    } completion:^(BOOL moreData) {
         @strongify(self);
         
         if (moreData) {
             [self.tableView reloadData];
         }
         self.requesting = NO;
-        [self endFooterRefresh];
     }];
 }
 

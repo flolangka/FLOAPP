@@ -26,7 +26,10 @@
         _voteCount = [info[@"voteCount"] integerValue];
         _title = info[@"title"];
         _userName = info[@"topicName"];
-        _userIcon = info[@"topicImg"];        
+        
+        NSDictionary *videoTopic = info[@"videoTopic"];
+        NSString *topic_icons = [videoTopic objectForKey:@"topic_icons"] ? : @"";
+        _userIcon = Def_CheckStringClassAndLength(topic_icons) ? topic_icons : info[@"topicImg"];
     }
     return self;
 }
