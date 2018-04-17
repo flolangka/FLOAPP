@@ -44,6 +44,12 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-MYAPPConfig.navigationBarHeight) style:self.viewModel.tableViewStyle];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    
+    //解决iOS11 上contentSize不准问题
+    _tableView.estimatedRowHeight = 0;
+    _tableView.estimatedSectionHeaderHeight = 0;
+    _tableView.estimatedSectionFooterHeight = 0;
+    
     [self.view addSubview:_tableView];
     
     if (@available(iOS 11.0, *)) {

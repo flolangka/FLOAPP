@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "FLONETEASEVideoItemViewModel.h"
 
 @interface FLONETEASEVideoTableViewCell : UITableViewCell
 
 @property (nonatomic, strong, readonly) FLONETEASEVideoItemViewModel *viewModel;
+
+//播放视频
+- (void)playWithPlayerLayer:(AVPlayerLayer *)playerLayer;
 
 //显示内容
 - (void)bindViewModel:(FLONETEASEVideoItemViewModel *)viewModel;

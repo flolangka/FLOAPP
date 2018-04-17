@@ -86,7 +86,7 @@
     }];
 }
 
-- (void)requestMoreDataEndRequest:(void (^)())endRequest completion:(void (^)(BOOL))completion {
+- (void)requestMoreDataEndRequest:(void (^)())endRequest completion:(void (^)(NSIndexSet *))completion {
     NSString *url = @"https://c.m.163.com/recommend/getChanListNews";
     NSDictionary *paras = @{@"channel": @"T1457068979049",
                             @"passport": @"DRGIi4b/h/dg0c7Z9v4%2B0GWlYJxG7i/ExMsC/IX1t2E%3D",
@@ -135,11 +135,14 @@
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 //添加到数据源，刷新页面
+                NSIndexSet *indexSet = nil;
+                
                 if (muarr.count > 0) {
+                    indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(self.dataArr.count, muarr.count)];
                     [self.dataArr addObjectsFromArray:muarr];
                 }
                 
-                completion(muarr.count > 0);
+                completion(indexSet);
             });
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -148,7 +151,7 @@
         }
         
         if (completion) {
-            completion(NO);
+            completion(nil);
         }
     }];
 }

@@ -76,6 +76,17 @@
     }];
 }
 
+//播放视频
+- (void)playWithPlayerLayer:(AVPlayerLayer *)playerLayer {
+    playerLayer.frame = CGRectMake(0, 0, MYAPPConfig.screenWidth-24, (MYAPPConfig.screenWidth-24)*9/16.);
+    
+    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.viewModel.item.url_m3u8]];
+    [playerLayer.player replaceCurrentItemWithPlayerItem:playerItem];
+    [playerLayer.player play];
+    
+    [_coverImageView.layer addSublayer:playerLayer];
+}
+
 //显示内容
 - (void)bindViewModel:(FLONETEASEVideoItemViewModel *)viewModel {
     self.viewModel = viewModel;

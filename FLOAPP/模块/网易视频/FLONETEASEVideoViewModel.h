@@ -11,6 +11,6 @@
 @interface FLONETEASEVideoViewModel : FLOTableViewModel
 
 - (void)requestNewDataCompletion:(void(^)(BOOL newData))completion;
-- (void)requestMoreDataEndRequest:(void(^)())endRequest completion:(void(^)(BOOL moreData))completion;
+- (void)requestMoreDataEndRequest:(void(^)())endRequest completion:(void(^)(NSIndexSet *indexSet))completion;
 
 @end
