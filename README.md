@@ -30,6 +30,11 @@
 26. 后台下载、断点续传  —  2017.4.17
 27. Widget  --  2017.4.19
 28. 富文本编辑器	--	 2017.4.21 [源：ZSSRichTextEditor](https://github.com/nnhubbard/ZSSRichTextEditor)
+29. 文件管理器  --  2017.7.19
+30. 糗事百科  --  2018.1.30
+31. 相册  --  2018.3.12
+32. 网易视频  --  2018.4.17
+
 
 ### Noti:
 [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveObjC) 是作为 [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) 添加到项目中的，so有2种clone方法：
