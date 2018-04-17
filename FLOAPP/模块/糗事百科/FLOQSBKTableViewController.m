@@ -59,7 +59,10 @@
     _dataArrTopic = [NSMutableArray arrayWithCapacity:42];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = COLOR_HEX(0xefeff4);
+    self.tableView.backgroundColor = COLOR_HEX(0xefeff4);    
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
     
     //导航栏
     [self configNav];
