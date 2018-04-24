@@ -25,6 +25,7 @@ static NSString *FLOShareEmotionCollectionViewCellID = @"FLOShareEmotionCollecti
     
     UICollectionView *collectionV;
     float itemWidth;
+    BOOL sortAscending;
 }
 
 @end
@@ -35,12 +36,21 @@ static NSString *FLOShareEmotionCollectionViewCellID = @"FLOShareEmotionCollecti
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"分享到微信";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_sort"] style:UIBarButtonItemStyleDone target:self action:@selector(sortAction:)];
+    
+    //默认时间降序
+    sortAscending = NO;
     
     //获取数据
     [self getImages];
     
     //初始化collectionV
     [self initCollectionView];
+}
+
+- (void)sortAction:(id)sender {
+    sortAscending = !sortAscending;
+    [collectionV reloadData];
 }
 
 - (void)initCollectionView {
@@ -90,15 +100,23 @@ static NSString *FLOShareEmotionCollectionViewCellID = @"FLOShareEmotionCollecti
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     FLOShareEmotionCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FLOShareEmotionCollectionViewCellID forIndexPath:indexPath];
     
-    PHAsset *asset = [assets objectAtIndex:indexPath.item];
+    PHAsset *asset = [self assetAtIndexPath:indexPath];
     [viewModel configCell:cell model:asset];
     
     return cell;
 }
 
+- (PHAsset *)assetAtIndexPath:(NSIndexPath *)indexPath {
+    if (sortAscending) {
+        return [assets objectAtIndex:indexPath.item];
+    } else {
+        return [assets objectAtIndex:assets.count-indexPath.item-1];
+    }
+}
+
 #pragma mark --UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    PHAsset *asset = [assets objectAtIndex:indexPath.item];
+    PHAsset *asset = [self assetAtIndexPath:indexPath];
     
     if (asset.mediaType == PHAssetMediaTypeVideo) {
         Def_MBProgressString(@"暂不支持视频");
@@ -108,10 +126,12 @@ static NSString *FLOShareEmotionCollectionViewCellID = @"FLOShareEmotionCollecti
         Def_MBProgressString(@"暂不支持该格式");
     } else {
         if (![WXApi isWXAppInstalled]) {
+            FLOWeakObj(asset);
             [[PHImageManager defaultManager] requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-                DLog(@"%@\n%@\n%ld", dataUTI, info, imageData.length);
+                DLog(@"%@\n%@\n%ld, (%lu, %lu)", dataUTI, info, (long)imageData.length, weakasset.pixelWidth, weakasset.pixelHeight);
                 return ;
                 
+                /*
                 //微信表情数据
                 WXEmoticonObject *emoji = [WXEmoticonObject object];
                 emoji.emoticonData = imageData;     //大小不能超过10M
@@ -127,6 +147,7 @@ static NSString *FLOShareEmotionCollectionViewCellID = @"FLOShareEmotionCollecti
                 req.bText = NO;
                 req.scene = WXSceneSession;
                 [WXApi sendReq:req];
+                 */
             }];
         }
     }

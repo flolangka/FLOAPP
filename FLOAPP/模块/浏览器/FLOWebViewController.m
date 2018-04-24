@@ -115,7 +115,7 @@
         UIImage *image = [self imageWithView:wkWebView];
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 
-        [self showCurtImage:image];
+        [self flo_showCurtImage:image time:1 hideAnimated:YES];
     }];
     UIAlertAction *curtFullImageAction = [UIAlertAction actionWithTitle:@"截取全部区域" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //播放系统photoShutter声音
@@ -124,7 +124,7 @@
         UIImage *image = [self fullImageWithScrollView:wkWebView.scrollView];
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
         
-        [self showCurtImage:image];
+        [self flo_showCurtImage:image time:1 hideAnimated:YES];
     }];
     [alertController addAction:curtImageAction];
     [alertController addAction:curtFullImageAction];
@@ -166,48 +166,6 @@
     UIGraphicsEndImageContext();
     
     return image;
-}
-
-//将截取得到的图片显示1秒
-- (void)showCurtImage:(UIImage *)image
-{
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    
-    //背景透明
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    backgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-    
-    //加载截图
-    CGSize imageSize = [self sizeWithWidth:image.size.width height:image.size.height];
-    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(size.width/2-imageSize.width/2, size.height*0.15, imageSize.width, imageSize.height)];
-    imageV.image = image;
-    
-    [backgroundView addSubview:imageV];
-    [[UIApplication sharedApplication].keyWindow addSubview:backgroundView];
-    
-    [self performSelector:@selector(hideMaskView:) withObject:imageV afterDelay:1.0];
-}
-
-//等比缩放
-- (CGSize)sizeWithWidth:(CGFloat)width height:(CGFloat)height
-{
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    
-    CGFloat toHeight = size.height*0.7;
-    CGFloat scal = height/toHeight;
-    CGFloat toWidth = width/scal;
-    
-    return CGSizeMake(toWidth, toHeight);
-}
-
-- (void)hideMaskView:(UIView *)view
-{
-    UIView *maskView = [[UIApplication sharedApplication].keyWindow.subviews lastObject];
-    [UIView animateWithDuration:0.25 animations:^{
-        view.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    } completion:^(BOOL finished) {
-        [maskView removeFromSuperview];
-    }];
 }
 
 #pragma mark - ToolBar 操作

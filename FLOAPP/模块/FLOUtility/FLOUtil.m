@@ -326,3 +326,50 @@
     return data;
 }
 @end
+
+#pragma mark - NSObject
+@implementation NSObject (FLOUtility)
+
+/**
+ 全屏显示图片
+ 
+ @param image 图片
+ @param time 显示时间
+ @param animated 隐藏动画
+ */
+- (void)flo_showCurtImage:(UIImage *)image time:(NSTimeInterval)time hideAnimated:(BOOL)animated {
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    
+    //背景透明
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    backgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+    
+    //等比缩放
+    CGSize imageSize = ({
+        CGFloat toHeight = size.height*0.7;
+        CGFloat scal = image.size.height/toHeight;
+        CGFloat toWidth = image.size.width/scal;
+        CGSizeMake(toWidth, toHeight);
+    });
+    
+    //加载截图
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+    imageV.image = image;
+    [backgroundView addSubview:imageV];
+    imageV.center = backgroundView.center;
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:backgroundView];
+    
+    //定时消失
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        UIView *maskView = [[UIApplication sharedApplication].keyWindow.subviews lastObject];
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            imageV.transform = CGAffineTransformMakeScale(0.01, 0.01);
+        } completion:^(BOOL finished) {
+            [maskView removeFromSuperview];
+        }];
+    });
+}
+
+@end

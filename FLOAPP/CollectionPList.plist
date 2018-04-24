@@ -210,5 +210,13 @@
 		<key>ItemAddress</key>
 		<string>FLONETEASEVideoViewModel</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>相机</string>
+		<key>ItemIconURL</key>
+		<string>http://chittagongit.com/images/ios-9-camera-icon/ios-9-camera-icon-9.jpg</string>
+		<key>ItemAddress</key>
+		<string>PresentFLOCameraViewController</string>
+	</dict>
 </array>
 </plist>

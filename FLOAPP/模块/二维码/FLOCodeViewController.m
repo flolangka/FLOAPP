@@ -74,7 +74,8 @@
     
     _lightBtn.selected = NO;
     [_captureSession stopRunning];
-    _timer.fireDate = [NSDate distantFuture];
+    [_timer invalidate];
+    _timer = nil;
 }
 
 #pragma mark - 闪光灯开关
@@ -170,6 +171,7 @@
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    CGContextRelease(context);
     
     CALayer *maskLayer = [[CALayer alloc] init];
     maskLayer.bounds = self.view.bounds;

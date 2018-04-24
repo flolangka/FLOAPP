@@ -61,6 +61,7 @@
     [super viewWillAppear:animated];
     
     //初始化、从全屏返回
+    self.playerLayer.player.muted = YES;
     [self playerLayerRemoveFromSuperlayer];
 }
 
@@ -144,6 +145,7 @@
         //点击正在播放的视频，进入全屏继续播放
         AVPlayerViewController *playerVC = [[AVPlayerViewController alloc] init];
         playerVC.player = self.playerLayer.player;
+        playerVC.player.muted = NO;
         
         [self presentViewController:playerVC animated:YES completion:nil];
     } else {

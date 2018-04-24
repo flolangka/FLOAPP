@@ -19,4 +19,11 @@
 //压缩图片
 - (UIImage *)flo_scaleToSize:(CGSize)newSize;
 
+/**
+ *  处理拍照图片旋转问题
+ *
+ *  @return 处理后图片
+ */
+- (UIImage *)fixOrientation;
+
 @end

@@ -38,6 +38,7 @@
 		734E3FE5207A1AB400909EA5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 734E3FE0207A1AB400909EA5 /* MainInterface.storyboard */; };
 		734E3FE6207A1AB400909EA5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 734E3FE2207A1AB400909EA5 /* Info.plist */; };
 		734E3FE7207A1AB400909EA5 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 734E3FE4207A1AB400909EA5 /* TodayViewController.m */; };
+		73563A82208DAF99001A7036 /* FLOCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73563A81208DAF99001A7036 /* FLOCameraViewController.m */; };
 		735907B2207F407B00CAE54B /* FLONETEASEVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 735907B0207F407B00CAE54B /* FLONETEASEVideoTableViewCell.m */; };
 		735907B3207F407B00CAE54B /* FLONETEASEVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735907B1207F407B00CAE54B /* FLONETEASEVideoTableViewCell.xib */; };
 		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
@@ -400,6 +401,8 @@
 		734E3FE2207A1AB400909EA5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		734E3FE3207A1AB400909EA5 /* TodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		734E3FE4207A1AB400909EA5 /* TodayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		73563A80208DAF99001A7036 /* FLOCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOCameraViewController.h; sourceTree = "<group>"; };
+		73563A81208DAF99001A7036 /* FLOCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOCameraViewController.m; sourceTree = "<group>"; };
 		735907AF207F407B00CAE54B /* FLONETEASEVideoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONETEASEVideoTableViewCell.h; sourceTree = "<group>"; };
 		735907B0207F407B00CAE54B /* FLONETEASEVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONETEASEVideoTableViewCell.m; sourceTree = "<group>"; };
 		735907B1207F407B00CAE54B /* FLONETEASEVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FLONETEASEVideoTableViewCell.xib; sourceTree = "<group>"; };
@@ -895,9 +898,19 @@
 			path = FLOWidget;
 			sourceTree = "<group>";
 		};
+		73563A79208DAF58001A7036 /* 相机 */ = {
+			isa = PBXGroup;
+			children = (
+				73563A80208DAF99001A7036 /* FLOCameraViewController.h */,
+				73563A81208DAF99001A7036 /* FLOCameraViewController.m */,
+			);
+			path = "相机";
+			sourceTree = "<group>";
+		};
 		73CAAC32201F087A001B1AE2 /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				73563A79208DAF58001A7036 /* 相机 */,
 				7315499B207EF98B0025C713 /* 网易视频 */,
 				73F3B4EF20510DED0014DFB8 /* 微信表情 */,
 				73CAAE08201F0ACC001B1AE2 /* 糗事百科 */,
@@ -2112,6 +2125,7 @@
 				73CAADCD201F087B001B1AE2 /* FLOWaterFallViewController.m in Sources */,
 				73CAAD59201F087B001B1AE2 /* FLODownloadTableViewController.m in Sources */,
 				73CAADDD201F09B6001B1AE2 /* FLOSettingTableViewController.m in Sources */,
+				73563A82208DAF99001A7036 /* FLOCameraViewController.m in Sources */,
 				73CAADB7201F087B001B1AE2 /* CYRLayoutManager.m in Sources */,
 				7329ED2120294C400090A584 /* BookMarkEntity+CoreDataProperties.m in Sources */,
 				73CAAD47201F087B001B1AE2 /* UIView+FLOUtil.m in Sources */,

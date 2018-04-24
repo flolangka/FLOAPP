@@ -140,3 +140,17 @@
 - (id)flo_objectFromJSONString;
 - (NSData *)flo_JSONData;
 @end
+
+#pragma mark - NSObject
+@interface NSObject (FLOUtility)
+/**
+ 全屏显示图片
+
+ @param image 图片
+ @param time 显示时间
+ @param animated 隐藏动画
+ */
+- (void)flo_showCurtImage:(UIImage *)image time:(NSTimeInterval)time hideAnimated:(BOOL)animated;
+@end
+
+
