@@ -19,8 +19,16 @@
     return [[NSClassFromString(className) alloc] initWithViewModel:viewModel];
 }
 
++ (FLOBaseViewController *)viewControllerForViewModelClassString:(NSString *)viewModelClassString {
+    Class ob = NSClassFromString(viewModelClassString);
+    FLOBaseViewModel *viewModel = [[ob alloc] init];
+    return [self viewControllerForViewModel:viewModel];
+}
+
 + (NSDictionary *)routerInfo {
-    return @{@"FLONETEASEVideoViewModel": @"FLONETEASEVideoViewController"};
+    return @{@"FLONETEASEVideoViewModel": @"FLONETEASEVideoViewController",
+             @"FLOAlgorithmViewModel": @"FLOAlgorithmViewController"
+             };
 }
 
 @end

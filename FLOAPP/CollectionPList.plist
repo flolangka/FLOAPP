@@ -218,5 +218,13 @@
 		<key>ItemAddress</key>
 		<string>PresentFLOCameraViewController</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>算法</string>
+		<key>ItemIconURL</key>
+		<string>https://cdn4.iconfinder.com/data/icons/data-science/64/35_machine_learning-512.png</string>
+		<key>ItemAddress</key>
+		<string>FLOAlgorithmViewModel</string>
+	</dict>
 </array>
 </plist>

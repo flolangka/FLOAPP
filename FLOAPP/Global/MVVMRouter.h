@@ -13,5 +13,6 @@
 @interface MVVMRouter : NSObject
 
 + (FLOBaseViewController *)viewControllerForViewModel:(FLOBaseViewModel *)viewModel;
++ (FLOBaseViewController *)viewControllerForViewModelClassString:(NSString *)viewModelClassString;
 
 @end

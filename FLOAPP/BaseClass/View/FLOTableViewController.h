@@ -25,13 +25,15 @@ UITableViewDataSource>
 - (float)heightForRowAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object;
 
 - (void)addHeaderRefresh;
-- (void)headerRefreshAction;
 - (void)endHeaderRefresh;
 - (void)removeHeaderRefresh;
+//子类实现
+- (void)headerRefreshAction;
 
 - (void)addFooterRefresh;
-- (void)footerRefreshAction;
 - (void)endFooterRefresh;
 - (void)removeFooterRefresh;
+//子类实现
+- (void)footerRefreshAction;
 
 @end

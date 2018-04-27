@@ -21,6 +21,8 @@
 		731549A1207EFC580025C713 /* FLONETEASEVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731549A0207EFC580025C713 /* FLONETEASEVideoViewController.m */; };
 		731549A9207F07C40025C713 /* FLONETEASEVideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 731549A8207F07C40025C713 /* FLONETEASEVideoItem.m */; };
 		731549AC207F07E40025C713 /* FLONETEASEVideoItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 731549AB207F07E40025C713 /* FLONETEASEVideoItemViewModel.m */; };
+		73178E742092BB1200C22FA0 /* FLOAlgorithmViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73178E732092BB1200C22FA0 /* FLOAlgorithmViewModel.m */; };
+		73178E772092BC3800C22FA0 /* FLOAlgorithmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73178E762092BC3800C22FA0 /* FLOAlgorithmViewController.m */; };
 		7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1D20294C400090A584 /* BookMarkEntity+CoreDataClass.m */; };
 		7329ED2120294C400090A584 /* BookMarkEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */; };
 		7329ED2720297C4D0090A584 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7329ED2620297C4D0090A584 /* Main.storyboard */; };
@@ -372,6 +374,10 @@
 		731549A8207F07C40025C713 /* FLONETEASEVideoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONETEASEVideoItem.m; sourceTree = "<group>"; };
 		731549AA207F07E40025C713 /* FLONETEASEVideoItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONETEASEVideoItemViewModel.h; sourceTree = "<group>"; };
 		731549AB207F07E40025C713 /* FLONETEASEVideoItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONETEASEVideoItemViewModel.m; sourceTree = "<group>"; };
+		73178E722092BB1200C22FA0 /* FLOAlgorithmViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOAlgorithmViewModel.h; sourceTree = "<group>"; };
+		73178E732092BB1200C22FA0 /* FLOAlgorithmViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOAlgorithmViewModel.m; sourceTree = "<group>"; };
+		73178E752092BC3800C22FA0 /* FLOAlgorithmViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOAlgorithmViewController.h; sourceTree = "<group>"; };
+		73178E762092BC3800C22FA0 /* FLOAlgorithmViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOAlgorithmViewController.m; sourceTree = "<group>"; };
 		7323C45A1E4ACBAD00543251 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		7329ED1B20294AF50090A584 /* FLOCoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FLOCoreData 4.xcdatamodel"; sourceTree = "<group>"; };
@@ -792,6 +798,25 @@
 			path = "网易视频";
 			sourceTree = "<group>";
 		};
+		73178E6A2092BA3B00C22FA0 /* 算法 */ = {
+			isa = PBXGroup;
+			children = (
+				73178E722092BB1200C22FA0 /* FLOAlgorithmViewModel.h */,
+				73178E732092BB1200C22FA0 /* FLOAlgorithmViewModel.m */,
+				73178E752092BC3800C22FA0 /* FLOAlgorithmViewController.h */,
+				73178E762092BC3800C22FA0 /* FLOAlgorithmViewController.m */,
+				73178E712092BA4600C22FA0 /* 排序 */,
+			);
+			path = "算法";
+			sourceTree = "<group>";
+		};
+		73178E712092BA4600C22FA0 /* 排序 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "排序";
+			sourceTree = "<group>";
+		};
 		7329ED1720294A3C0090A584 /* NotificationTime */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +935,7 @@
 		73CAAC32201F087A001B1AE2 /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				73178E6A2092BA3B00C22FA0 /* 算法 */,
 				73563A79208DAF58001A7036 /* 相机 */,
 				7315499B207EF98B0025C713 /* 网易视频 */,
 				73F3B4EF20510DED0014DFB8 /* 微信表情 */,
@@ -1585,12 +1611,12 @@
 		84291A0B1C05867A0015F5F1 /* FLOAPP */ = {
 			isa = PBXGroup;
 			children = (
-				73CAAC32201F087A001B1AE2 /* 模块 */,
+				84291A0F1C05867A0015F5F1 /* AppDelegate.h */,
+				84291A101C05867A0015F5F1 /* AppDelegate.m */,
 				73CAADDE201F09BF001B1AE2 /* 首页 */,
 				73CAADEA201F09E4001B1AE2 /* Global */,
 				73DED46E206E2EFE00376FA9 /* BaseClass */,
-				84291A0F1C05867A0015F5F1 /* AppDelegate.h */,
-				84291A101C05867A0015F5F1 /* AppDelegate.m */,
+				73CAAC32201F087A001B1AE2 /* 模块 */,
 				84291A181C05867A0015F5F1 /* Assets.xcassets */,
 				7329ED2620297C4D0090A584 /* Main.storyboard */,
 				84291A1A1C05867A0015F5F1 /* LaunchScreen.storyboard */,
@@ -2157,6 +2183,7 @@
 				73CAADD8201F09A9001B1AE2 /* FLOLoginViewController.m in Sources */,
 				73CAAD5F201F087B001B1AE2 /* FLOCodeViewController.m in Sources */,
 				734E3F922079F12900909EA5 /* MVVMRouter.m in Sources */,
+				73178E742092BB1200C22FA0 /* FLOAlgorithmViewModel.m in Sources */,
 				73CAAD3F201F087B001B1AE2 /* NotificationTime+CoreDataProperties.m in Sources */,
 				73CAADC8201F087B001B1AE2 /* SortClass.swift in Sources */,
 				7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */,
@@ -2181,6 +2208,7 @@
 				73CAAD54201F087B001B1AE2 /* FLOTouchIDViewController.m in Sources */,
 				73CAADB9201F087B001B1AE2 /* CYRTextView.m in Sources */,
 				73CAAD5A201F087B001B1AE2 /* FLOAddBookMarkMaskView.m in Sources */,
+				73178E772092BC3800C22FA0 /* FLOAlgorithmViewController.m in Sources */,
 				73839A5820205E68004D0B73 /* FLONetworkUtil.m in Sources */,
 				73CAADC9201F087B001B1AE2 /* SortView.swift in Sources */,
 				73CAAD50201F087B001B1AE2 /* FLONotificationTimeTableViewController.m in Sources */,

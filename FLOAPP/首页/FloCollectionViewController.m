@@ -206,9 +206,7 @@ UIViewControllerPreviewingDelegate>
         
         [self.navigationController pushViewController:webViewController animated:YES];
     } else if ([itemAddress hasSuffix:@"ViewModel"]) {
-        Class ob = NSClassFromString(itemAddress);
-        FLOBaseViewModel *viewModel = [[ob alloc] init];
-        FLOBaseViewController *viewC = [MVVMRouter viewControllerForViewModel:viewModel];
+        FLOBaseViewController *viewC = [MVVMRouter viewControllerForViewModelClassString:itemAddress];
         
         [self.navigationController pushViewController:viewC animated:YES];
     } else if ([itemAddress hasPrefix:@"FLO"]) {
