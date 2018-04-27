@@ -96,8 +96,9 @@ UIViewControllerPreviewingDelegate>
     FLOCollectionViewLayout *layout = [[FLOCollectionViewLayout alloc] init];
     layout.numberOfColum = num - 1;
     layout.itemSpace = space;
+    CGFloat weakWidth = width;
     layout.itemHeight = ^CGFloat(NSIndexPath *indexPath){
-        return width+17;
+        return weakWidth+17;
     };
     
     collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64) collectionViewLayout:layout];

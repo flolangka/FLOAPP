@@ -23,6 +23,10 @@
 		731549AC207F07E40025C713 /* FLONETEASEVideoItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 731549AB207F07E40025C713 /* FLONETEASEVideoItemViewModel.m */; };
 		73178E742092BB1200C22FA0 /* FLOAlgorithmViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73178E732092BB1200C22FA0 /* FLOAlgorithmViewModel.m */; };
 		73178E772092BC3800C22FA0 /* FLOAlgorithmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73178E762092BC3800C22FA0 /* FLOAlgorithmViewController.m */; };
+		73178E7B2092FA2C00C22FA0 /* FLOSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73178E7A2092FA2C00C22FA0 /* FLOSortViewController.m */; };
+		73178E842092FA4000C22FA0 /* FLOSortViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 73178E832092FA4000C22FA0 /* FLOSortViewModel.m */; };
+		73178E872092FFEB00C22FA0 /* FLOSortView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73178E862092FFEB00C22FA0 /* FLOSortView.m */; };
+		73178E8A209328B200C22FA0 /* FLOSortClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 73178E89209328B200C22FA0 /* FLOSortClass.m */; };
 		7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1D20294C400090A584 /* BookMarkEntity+CoreDataClass.m */; };
 		7329ED2120294C400090A584 /* BookMarkEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 7329ED1F20294C400090A584 /* BookMarkEntity+CoreDataProperties.m */; };
 		7329ED2720297C4D0090A584 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7329ED2620297C4D0090A584 /* Main.storyboard */; };
@@ -378,6 +382,14 @@
 		73178E732092BB1200C22FA0 /* FLOAlgorithmViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOAlgorithmViewModel.m; sourceTree = "<group>"; };
 		73178E752092BC3800C22FA0 /* FLOAlgorithmViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOAlgorithmViewController.h; sourceTree = "<group>"; };
 		73178E762092BC3800C22FA0 /* FLOAlgorithmViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOAlgorithmViewController.m; sourceTree = "<group>"; };
+		73178E792092FA2C00C22FA0 /* FLOSortViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOSortViewController.h; sourceTree = "<group>"; };
+		73178E7A2092FA2C00C22FA0 /* FLOSortViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOSortViewController.m; sourceTree = "<group>"; };
+		73178E822092FA4000C22FA0 /* FLOSortViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOSortViewModel.h; sourceTree = "<group>"; };
+		73178E832092FA4000C22FA0 /* FLOSortViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOSortViewModel.m; sourceTree = "<group>"; };
+		73178E852092FFEB00C22FA0 /* FLOSortView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOSortView.h; sourceTree = "<group>"; };
+		73178E862092FFEB00C22FA0 /* FLOSortView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOSortView.m; sourceTree = "<group>"; };
+		73178E88209328B200C22FA0 /* FLOSortClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOSortClass.h; sourceTree = "<group>"; };
+		73178E89209328B200C22FA0 /* FLOSortClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOSortClass.m; sourceTree = "<group>"; };
 		7323C45A1E4ACBAD00543251 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		7329ED1B20294AF50090A584 /* FLOCoreData 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FLOCoreData 4.xcdatamodel"; sourceTree = "<group>"; };
@@ -813,6 +825,14 @@
 		73178E712092BA4600C22FA0 /* 排序 */ = {
 			isa = PBXGroup;
 			children = (
+				73178E822092FA4000C22FA0 /* FLOSortViewModel.h */,
+				73178E832092FA4000C22FA0 /* FLOSortViewModel.m */,
+				73178E792092FA2C00C22FA0 /* FLOSortViewController.h */,
+				73178E7A2092FA2C00C22FA0 /* FLOSortViewController.m */,
+				73178E852092FFEB00C22FA0 /* FLOSortView.h */,
+				73178E862092FFEB00C22FA0 /* FLOSortView.m */,
+				73178E88209328B200C22FA0 /* FLOSortClass.h */,
+				73178E89209328B200C22FA0 /* FLOSortClass.m */,
 			);
 			path = "排序";
 			sourceTree = "<group>";
@@ -2109,11 +2129,13 @@
 				73CAADB6201F087B001B1AE2 /* FLORichTextEditorViewController.m in Sources */,
 				73CAAE0E201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.m in Sources */,
 				732A019820746EE200D4962B /* FLOBaseViewModel.m in Sources */,
+				73178E842092FA4000C22FA0 /* FLOSortViewModel.m in Sources */,
 				73CAADD0201F087B001B1AE2 /* FLOMusicModel.m in Sources */,
 				73CAAD56201F087B001B1AE2 /* FLOFontTableViewController.m in Sources */,
 				73CAAD40201F087B001B1AE2 /* FLODocumentPreviewViewController.m in Sources */,
 				73CAADD9201F09A9001B1AE2 /* FLOAccountManager.m in Sources */,
 				73CAAD5D201F087B001B1AE2 /* FLOBookMarkTableViewController.m in Sources */,
+				73178E8A209328B200C22FA0 /* FLOSortClass.m in Sources */,
 				73CAAD61201F087B001B1AE2 /* FLOAdjustFontSizeLabel.m in Sources */,
 				73CAAD48201F087B001B1AE2 /* UIViewController+Alert.m in Sources */,
 				73CAAD58201F087B001B1AE2 /* FLODownloadManager.m in Sources */,
@@ -2182,11 +2204,13 @@
 				73CAAD4E201F087B001B1AE2 /* FLONetWorkTableViewController.m in Sources */,
 				73CAADD8201F09A9001B1AE2 /* FLOLoginViewController.m in Sources */,
 				73CAAD5F201F087B001B1AE2 /* FLOCodeViewController.m in Sources */,
+				73178E872092FFEB00C22FA0 /* FLOSortView.m in Sources */,
 				734E3F922079F12900909EA5 /* MVVMRouter.m in Sources */,
 				73178E742092BB1200C22FA0 /* FLOAlgorithmViewModel.m in Sources */,
 				73CAAD3F201F087B001B1AE2 /* NotificationTime+CoreDataProperties.m in Sources */,
 				73CAADC8201F087B001B1AE2 /* SortClass.swift in Sources */,
 				7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */,
+				73178E7B2092FA2C00C22FA0 /* FLOSortViewController.m in Sources */,
 				731549A1207EFC580025C713 /* FLONETEASEVideoViewController.m in Sources */,
 				73CAAD3E201F087B001B1AE2 /* NotificationTime+CoreDataClass.m in Sources */,
 				84291A111C05867A0015F5F1 /* AppDelegate.m in Sources */,

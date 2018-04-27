@@ -20,7 +20,7 @@
         self.dataArr = [NSMutableArray arrayWithObject:[NSMutableArray arrayWithCapacity:1]];
         
         [self.dataArr.firstObject addObject:@{@"title": @"排序",
-                                              @"viewModel": @""
+                                              @"viewModel": @"FLOSortViewModel"
                                               }];
     }
     return self;
