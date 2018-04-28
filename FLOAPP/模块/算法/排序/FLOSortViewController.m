@@ -9,7 +9,7 @@
 #import "FLOSortViewController.h"
 #import "FLOSortViewModel.h"
 #import "FLOSortView.h"
-
+#import "FLOSortClass.h"
 
 @interface FLOSortViewController ()
 
@@ -49,7 +49,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sort" style:UIBarButtonItemStyleDone target:self action:@selector(sortBarButtonItemAction:)];
     
-    _seg = [[UISegmentedControl alloc] initWithItems:@[@"冒泡", @"选择", @"插入", @"希尔", @"堆排", @"归并", @"快排", @"基数"]];
+    _seg = [[UISegmentedControl alloc] initWithItems:[FLOSortClass sortTypes]];
     _seg.frame = CGRectMake(5, 10, MYAPPConfig.screenWidth-10, 35);
     _seg.tintColor = COLOR_RGB3SAME(0);
     [_seg addTarget:self action:@selector(segmentedControlAction:) forControlEvents:UIControlEventValueChanged];
@@ -70,6 +70,24 @@
 - (void)sortBarButtonItemAction:(id)sender {
     self.viewModel.sorting = YES;
     
+    FLOWeakObj(self);
+    FLOSortClass *sort = [[FLOSortClass alloc] init];
+    sort.finished = ^{
+        weakself.viewModel.sorting = NO;
+    };
+    sort.indexValueChanged = ^(NSInteger index, float value) {
+        [weakself updateValue:value atIndex:index];
+    };
+    
+    [sort sort:[NSArray arrayWithArray:_sortArr] type:_seg.selectedSegmentIndex];
+}
+
+- (void)updateValue:(float)value atIndex:(NSInteger)index {
+    self.sortArr[index] = @(value);
+    FLOSortView *view = [self.sortContainerView viewWithTag:1000+index];
+    if (view) {
+        [view updateHeight:value];
+    }
 }
 
 - (void)segmentedControlAction:(id)sender {
@@ -81,6 +99,7 @@
         FLOSortView *view = [[FLOSortView alloc] initWithFrame:CGRectMake(i*width, 0, width, arc4random_uniform(_sortContainerView.height))];
         [_sortContainerView addSubview:view];
         
+        view.tag = 1000 + i;
         [view updateHeight:view.height];
         [self.sortArr addObject:@(view.height)];
     }

@@ -17,7 +17,7 @@ enum SortTypeEnum: Int {
     case HeapSort           //堆排序
     case MergeSort          //归并排序
     case QuickSort          //快速排序
-    case RadixSort          //快速排序
+    case RadixSort          //基数排序
 }
 
 /// 排序类的简单工厂
