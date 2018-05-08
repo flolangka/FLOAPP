@@ -1770,7 +1770,6 @@
 				84291A051C05867A0015F5F1 /* Sources */,
 				84291A061C05867A0015F5F1 /* Frameworks */,
 				84291A071C05867A0015F5F1 /* Resources */,
-				F835D83C944336EE1C5B84BE /* [CP] Embed Pods Frameworks */,
 				4FC95C759CAF6AB0AB86D771 /* [CP] Copy Pods Resources */,
 				12F956331E06C32E008699B2 /* Embed App Extensions */,
 				734E3FCF207A097F00909EA5 /* Embed Frameworks */,
@@ -2083,21 +2082,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F835D83C944336EE1C5B84BE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -206,15 +206,6 @@ UIViewControllerPreviewingDelegate>
         webViewController.webViewAddress = itemAddress;
         
         [self.navigationController pushViewController:webViewController animated:YES];
-    } else if ([itemAddress hasSuffix:@"ViewModel"]) {
-        FLOBaseViewController *viewController = [MVVMRouter viewControllerForViewModelClassString:itemAddress];
-        
-        [self.navigationController pushViewController:viewController animated:YES];
-    } else if ([itemAddress hasPrefix:@"FLO"]) {
-        Class ob = NSClassFromString(itemAddress);
-        UIViewController *viewController = [[ob alloc] init];
-        
-        [self.navigationController pushViewController:viewController animated:YES];
     } else if ([itemAddress hasPrefix:@"Present"]) {
         NSString *classStr = [itemAddress substringFromIndex:7];
         
@@ -229,6 +220,15 @@ UIViewControllerPreviewingDelegate>
             
             [self presentViewController:viewController animated:NO completion:nil];
         }
+    } else if ([itemAddress hasSuffix:@"ViewModel"]) {
+        FLOBaseViewController *viewController = [MVVMRouter viewControllerForViewModelClassString:itemAddress];
+        
+        [self.navigationController pushViewController:viewController animated:YES];
+    } else if ([itemAddress hasPrefix:@"FLO"]) {
+        Class ob = NSClassFromString(itemAddress);
+        UIViewController *viewController = [[ob alloc] init];
+        
+        [self.navigationController pushViewController:viewController animated:YES];
     } else if ([itemAddress isEqualToString:@"Force_Touch"]) {
         Def_MBProgressStringDelay(@"用力按我吧", 1);
     } else if ([itemAddress isEqualToString:@"ReactNative"]) {

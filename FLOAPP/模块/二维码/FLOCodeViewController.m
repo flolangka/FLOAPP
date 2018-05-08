@@ -171,7 +171,7 @@
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    CGContextRelease(context);
+    //CGContextRelease(context);
     
     CALayer *maskLayer = [[CALayer alloc] init];
     maskLayer.bounds = self.view.bounds;

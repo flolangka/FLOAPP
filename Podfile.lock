@@ -34,7 +34,7 @@ PODS:
   - MWPhotoBrowser (2.1.2):
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
-    - SDWebImage (!= 3.7.2, ~> 3.7)
+    - "SDWebImage (!= 3.7.2, ~> 3.7)"
   - RESideMenu (4.0.7)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -59,6 +59,23 @@ DEPENDENCIES:
   - WechatOpenSDK
   - YYKit
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - BaiduMapKit
+    - DACircularProgress
+    - FLEX
+    - FMDB
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MQTTClient
+    - MWPhotoBrowser
+    - RESideMenu
+    - SDWebImage
+    - WechatOpenSDK
+    - YYKit
+
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   BaiduMapKit: 4ac88f5a363500760392825b69709f4a0125f81e
@@ -77,4 +94,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 882b419dc8a604bdacc18fedf358613fc0f32dbd
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

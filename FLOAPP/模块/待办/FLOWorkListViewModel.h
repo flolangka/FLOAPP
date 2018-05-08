@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Flolangka. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "FLOTableViewModel.h"
 
 @interface FLOWorkListViewModel : FLOTableViewModel
 
