@@ -23,7 +23,7 @@ static NSString * const cellID = @"cellIdentifier";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.title = @"SystemSound";
+        self.title = @"系统声音";
     }
     return self;
 }

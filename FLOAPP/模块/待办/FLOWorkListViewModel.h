@@ -1,5 +1,5 @@
 //
-//  FLOMusicViewController.h
+//  FLOWorkListViewModel.h
 //  FLOAPP
 //
 //  Created by 沈敏 on 2018/5/8.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FLOMusicViewController : FLOTableViewController
+@interface FLOWorkListViewModel : FLOTableViewModel
 
 @end

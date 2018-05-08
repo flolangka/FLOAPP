@@ -207,9 +207,9 @@ UIViewControllerPreviewingDelegate>
         
         [self.navigationController pushViewController:webViewController animated:YES];
     } else if ([itemAddress hasSuffix:@"ViewModel"]) {
-        FLOBaseViewController *viewC = [MVVMRouter viewControllerForViewModelClassString:itemAddress];
+        FLOBaseViewController *viewController = [MVVMRouter viewControllerForViewModelClassString:itemAddress];
         
-        [self.navigationController pushViewController:viewC animated:YES];
+        [self.navigationController pushViewController:viewController animated:YES];
     } else if ([itemAddress hasPrefix:@"FLO"]) {
         Class ob = NSClassFromString(itemAddress);
         UIViewController *viewController = [[ob alloc] init];
@@ -217,11 +217,18 @@ UIViewControllerPreviewingDelegate>
         [self.navigationController pushViewController:viewController animated:YES];
     } else if ([itemAddress hasPrefix:@"Present"]) {
         NSString *classStr = [itemAddress substringFromIndex:7];
-        Class ob = NSClassFromString(classStr);
-        UIViewController *viewController = [[ob alloc] init];
-        viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         
-        [self presentViewController:viewController animated:YES completion:nil];
+        if ([classStr hasSuffix:@"ViewModel"]) {
+            FLOBaseViewController *viewController = [MVVMRouter viewControllerForViewModelClassString:classStr];
+            
+            [self presentViewController:viewController animated:NO completion:nil];
+        } else {
+            Class ob = NSClassFromString(classStr);
+            UIViewController *viewController = [[ob alloc] init];
+            viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            
+            [self presentViewController:viewController animated:NO completion:nil];
+        }
     } else if ([itemAddress isEqualToString:@"Force_Touch"]) {
         Def_MBProgressStringDelay(@"用力按我吧", 1);
     } else if ([itemAddress isEqualToString:@"ReactNative"]) {

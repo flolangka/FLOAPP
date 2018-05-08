@@ -32,7 +32,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.title = @"FontSize";
+        self.title = @"字体大小";
     }
     return self;
 }

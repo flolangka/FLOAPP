@@ -38,7 +38,7 @@
     
     //查询数据库
     //建立请求
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"NetWork"];
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"接口测试"];
     //读取数据
     NSArray *array = [[APLCoreDataStackManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
     for (NetWork *data in array) {

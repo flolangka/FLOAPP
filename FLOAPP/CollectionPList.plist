@@ -14,7 +14,7 @@
 		<key>ItemName</key>
 		<string>MQTT</string>
 		<key>ItemIconURL</key>
-		<string>http://wingsquare.com/blog/wp-content/uploads/2015/10/mqtt_log.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/mqtt_log.png</string>
 		<key>ItemAddress</key>
 		<string>FLOMQTTViewController</string>
 	</dict>
@@ -22,7 +22,7 @@
 		<key>ItemName</key>
 		<string>ReactNative</string>
 		<key>ItemIconURL</key>
-		<string>http://www.kiodev.com/wp-content/uploads/2016/03/react-logo.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/react-logo.png</string>
 		<key>ItemAddress</key>
 		<string>ReactNative</string>
 	</dict>
@@ -38,7 +38,7 @@
 		<key>ItemName</key>
 		<string>书签</string>
 		<key>ItemIconURL</key>
-		<string>http://files.softicons.com/download/social-media-icons/pretty-social-media-icons-by-custom-icon-design/png/256/Favorite.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/Favorite.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDBookMarkTableViewController</string>
 	</dict>
@@ -46,15 +46,15 @@
 		<key>ItemName</key>
 		<string>UIColor</string>
 		<key>ItemIconURL</key>
-		<string>http://d.lanrentuku.com/down/png/1012/nx10-png/color_picker.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/color_picker.png</string>
 		<key>ItemAddress</key>
 		<string>FLOColorViewController</string>
 	</dict>
 	<dict>
 		<key>ItemName</key>
-		<string>Sound</string>
+		<string>系统声音</string>
 		<key>ItemIconURL</key>
-		<string>http://icons.iconarchive.com/icons/graphicloads/100-flat/256/sound-3-icon.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/sound-3-icon.png</string>
 		<key>ItemAddress</key>
 		<string>FLOSystemSoundTableViewController</string>
 	</dict>
@@ -62,7 +62,7 @@
 		<key>ItemName</key>
 		<string>UIFont</string>
 		<key>ItemIconURL</key>
-		<string>http://files.softicons.com/download/system-icons/reality-icons-by-kidaubis/png/256/Folder%20My%20Font.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/icon_uifont.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDFontTableViewController</string>
 	</dict>
@@ -70,15 +70,15 @@
 		<key>ItemName</key>
 		<string>调整字号</string>
 		<key>ItemIconURL</key>
-		<string>http://www.ecommercejuice.com/wp-content/uploads/2012/08/ecommerce-font.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/icon_adjust_fontsize.png</string>
 		<key>ItemAddress</key>
 		<string>FLOAdjustFontSizeViewController</string>
 	</dict>
 	<dict>
 		<key>ItemName</key>
-		<string>FontSize</string>
+		<string>字体大小</string>
 		<key>ItemIconURL</key>
-		<string>https://cdn3.iconfinder.com/data/icons/glypho-generic-icons/64/edit-font-size-128.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/icon_fontsize.jpg</string>
 		<key>ItemAddress</key>
 		<string>FLOFontSizeViewController</string>
 	</dict>
@@ -86,7 +86,7 @@
 		<key>ItemName</key>
 		<string>扫一扫</string>
 		<key>ItemIconURL</key>
-		<string>http://2.pic.pc6.com/up/2016-2/20162395134.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/20162395134.png</string>
 		<key>ItemAddress</key>
 		<string>FLOCodeViewController</string>
 	</dict>
@@ -94,7 +94,7 @@
 		<key>ItemName</key>
 		<string>Touch ID</string>
 		<key>ItemIconURL</key>
-		<string>http://img14.3lian.com/201506/24/aca6182e57695911ab7eef6280c6858c.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/aca6182e57695911ab7eef6280c6858c.png</string>
 		<key>ItemAddress</key>
 		<string>FLOTouchIDViewController</string>
 	</dict>
@@ -102,7 +102,7 @@
 		<key>ItemName</key>
 		<string>百度地图</string>
 		<key>ItemIconURL</key>
-		<string>http://i-2.shouji56.com/2015/4/20/0c10323e-bc83-4c1f-b3a5-6a8420d8621e.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/0c10323e-bc83-4c1f-b3a5-6a8420d8621e.png</string>
 		<key>ItemAddress</key>
 		<string>PresentFLOBDMapViewController</string>
 	</dict>
@@ -118,7 +118,7 @@
 		<key>ItemName</key>
 		<string>Notifier</string>
 		<key>ItemIconURL</key>
-		<string>https://upload.wikimedia.org/wikipedia/en/4/4e/APNS_Logo.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/APNS_Logo.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDNotificationViewController</string>
 	</dict>
@@ -126,7 +126,7 @@
 		<key>ItemName</key>
 		<string>瀑布流</string>
 		<key>ItemIconURL</key>
-		<string>http://www.lingyun.net/Uploads/2016-07-15/5788ae31a8af5.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/5788ae31a8af5.png</string>
 		<key>ItemAddress</key>
 		<string>FLOWaterFallViewController</string>
 	</dict>
@@ -134,15 +134,15 @@
 		<key>ItemName</key>
 		<string>Gif</string>
 		<key>ItemIconURL</key>
-		<string>http://a3.mzstatic.com/us/r30/Purple1/v4/88/2b/08/882b0807-82ce-cff9-d9c5-4e23a45b8009/icon128-2x.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/icon128-2x.png</string>
 		<key>ItemAddress</key>
 		<string>FLOGifImageViewController</string>
 	</dict>
 	<dict>
 		<key>ItemName</key>
-		<string>NetWork</string>
+		<string>接口测试</string>
 		<key>ItemIconURL</key>
-		<string>http://icons.iconseeker.com/png/fullsize/black-glossy/network-64.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/icon_api.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDNetWorkTableViewController</string>
 	</dict>
@@ -150,7 +150,7 @@
 		<key>ItemName</key>
 		<string>下载</string>
 		<key>ItemIconURL</key>
-		<string>http://www.clipartbest.com/cliparts/7ia/6qd/7ia6qdM9T.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/7ia6qdM9T.png</string>
 		<key>ItemAddress</key>
 		<string>FLODownloadTableViewController</string>
 	</dict>
@@ -158,7 +158,7 @@
 		<key>ItemName</key>
 		<string>流媒体</string>
 		<key>ItemIconURL</key>
-		<string>http://www.wyke47.com/Images/tvset.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/tvset.png</string>
 		<key>ItemAddress</key>
 		<string>FLOMediaAddressTableViewController</string>
 	</dict>
@@ -166,7 +166,7 @@
 		<key>ItemName</key>
 		<string>排序</string>
 		<key>ItemIconURL</key>
-		<string>http://files.softicons.com/download/toolbar-icons/pretty-office-ix-icons-by-custom-icon-design/png/256x256/sortdescend.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/sortdescend.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDSortViewController</string>
 	</dict>
@@ -174,7 +174,7 @@
 		<key>ItemName</key>
 		<string>编辑器</string>
 		<key>ItemIconURL</key>
-		<string>http://icons.iconarchive.com/icons/bokehlicia/captiva/256/accessories-text-editor-icon.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/accessories-text-editor-icon.png</string>
 		<key>ItemAddress</key>
 		<string>FLORichTextEditorViewController</string>
 	</dict>
@@ -182,7 +182,7 @@
 		<key>ItemName</key>
 		<string>文件夹</string>
 		<key>ItemIconURL</key>
-		<string>https://cdn2.iconfinder.com/data/icons/flat-seo-web-ikooni/128/flat_seo2-42-512.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/icon_floder.png</string>
 		<key>ItemAddress</key>
 		<string>FLOShareDirectoryTableViewController</string>
 	</dict>
@@ -190,7 +190,7 @@
 		<key>ItemName</key>
 		<string>糗事百科</string>
 		<key>ItemIconURL</key>
-		<string>https://android-artworks.25pp.com/fs08/2016/06/17/3/102_d7a4ae86f7a8ac41f7005f6d43e2bb3e_con.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/102_d7a4ae86f7a8ac41f7005f6d43e2bb3e_con.png</string>
 		<key>ItemAddress</key>
 		<string>FLOQSBKTableViewController</string>
 	</dict>
@@ -198,7 +198,7 @@
 		<key>ItemName</key>
 		<string>微信表情</string>
 		<key>ItemIconURL</key>
-		<string>http://www.veryhuo.com/uploads/allimg/1509/1-1509141506030-L.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/1-1509141506030-L.png</string>
 		<key>ItemAddress</key>
 		<string>FLOShareEmotionViewController</string>
 	</dict>
@@ -206,7 +206,7 @@
 		<key>ItemName</key>
 		<string>网易视频</string>
 		<key>ItemIconURL</key>
-		<string>https://img.shouji.com.cn/simg/20170512/9691123276.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/9691123276.png</string>
 		<key>ItemAddress</key>
 		<string>FLONETEASEVideoViewModel</string>
 	</dict>
@@ -214,7 +214,7 @@
 		<key>ItemName</key>
 		<string>相机</string>
 		<key>ItemIconURL</key>
-		<string>http://chittagongit.com/images/ios-9-camera-icon/ios-9-camera-icon-9.jpg</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/ios-9-camera-icon-9.jpg</string>
 		<key>ItemAddress</key>
 		<string>PresentFLOCameraViewController</string>
 	</dict>
@@ -222,9 +222,25 @@
 		<key>ItemName</key>
 		<string>算法</string>
 		<key>ItemIconURL</key>
-		<string>https://cdn4.iconfinder.com/data/icons/data-science/64/35_machine_learning-512.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/icon_algorithm.png</string>
 		<key>ItemAddress</key>
 		<string>FLOAlgorithmViewModel</string>
+	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>待办事项</string>
+		<key>ItemIconURL</key>
+		<string>http://oe63fs3d3.bkt.clouddn.com/icon_work_list.png</string>
+		<key>ItemAddress</key>
+		<string>PresentFLOWorkListViewModel</string>
+	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>我的音乐</string>
+		<key>ItemIconURL</key>
+		<string>http://oe63fs3d3.bkt.clouddn.com/itunes-logo-png-transparent.png</string>
+		<key>ItemAddress</key>
+		<string>FLOMusicViewModel</string>
 	</dict>
 </array>
 </plist>

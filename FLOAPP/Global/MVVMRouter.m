@@ -28,7 +28,9 @@
 + (NSDictionary *)routerInfo {
     return @{@"FLONETEASEVideoViewModel": @"FLONETEASEVideoViewController",
              @"FLOAlgorithmViewModel": @"FLOAlgorithmViewController",
-             @"FLOSortViewModel": @"FLOSortViewController"
+             @"FLOSortViewModel": @"FLOSortViewController",
+             @"FLOWorkListViewModel": @"FLOWorkListViewController",
+             @"FLOMusicViewModel": @"FLOMusicViewController"
              };
 }
 
