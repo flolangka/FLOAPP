@@ -32,6 +32,7 @@
     return image;
 }
 
+//图片圆角
 - (UIImage *)flo_drawRectRadius:(CGFloat)radius {
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
     
@@ -157,6 +158,19 @@
     CGContextRelease(ctx);
     CGImageRelease(cgimg);
     return img;
+}
+
+/**
+ 裁剪、获取目标区域的图片
+ 
+ @param rect 区域
+ @return 新的图片
+ */
+- (UIImage *)clipToRect:(CGRect)rect {
+    CGImageRef subImageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
+    UIImage *smallImage = [UIImage imageWithCGImage:subImageRef];
+    CGImageRelease(subImageRef);
+    return smallImage;
 }
 
 

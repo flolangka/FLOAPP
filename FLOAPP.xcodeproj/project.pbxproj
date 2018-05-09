@@ -1773,6 +1773,7 @@
 				4FC95C759CAF6AB0AB86D771 /* [CP] Copy Pods Resources */,
 				12F956331E06C32E008699B2 /* Embed App Extensions */,
 				734E3FCF207A097F00909EA5 /* Embed Frameworks */,
+				14AEF7935B650EA085952602 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2044,6 +2045,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		14AEF7935B650EA085952602 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		1E2808BE8AA03BD0DC3A546F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
