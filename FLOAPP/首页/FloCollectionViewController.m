@@ -71,7 +71,8 @@ UIViewControllerPreviewingDelegate>
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    BOOL animate = self.presentedViewController == nil;
+    [self.navigationController setNavigationBarHidden:YES animated:animate];
     
     //检查用户是否登录
     //[self checkIsLogin];  2018-02-05 17:37:33 免登陆

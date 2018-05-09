@@ -22,7 +22,7 @@
 		<key>ItemName</key>
 		<string>ReactNative</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/react-logo.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/react.png</string>
 		<key>ItemAddress</key>
 		<string>ReactNative</string>
 	</dict>
@@ -38,7 +38,7 @@
 		<key>ItemName</key>
 		<string>书签</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/Favorite.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/bookmark-icon.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDBookMarkTableViewController</string>
 	</dict>
@@ -46,7 +46,7 @@
 		<key>ItemName</key>
 		<string>UIColor</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/color_picker.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/New-Procreate-logo-icon.jpg</string>
 		<key>ItemAddress</key>
 		<string>FLOColorViewController</string>
 	</dict>
@@ -54,7 +54,7 @@
 		<key>ItemName</key>
 		<string>系统声音</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/sound-3-icon.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/Volume-icon.gif</string>
 		<key>ItemAddress</key>
 		<string>FLOSystemSoundTableViewController</string>
 	</dict>
@@ -62,7 +62,7 @@
 		<key>ItemName</key>
 		<string>系统字体</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/icon_uifont.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/icon.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDFontTableViewController</string>
 	</dict>
@@ -78,7 +78,7 @@
 		<key>ItemName</key>
 		<string>调整字号</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/icon_adjust_fontsize.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/30.png</string>
 		<key>ItemAddress</key>
 		<string>FLOAdjustFontSizeViewController</string>
 	</dict>
@@ -134,7 +134,7 @@
 		<key>ItemName</key>
 		<string>Gif</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/icon128-2x.png</string>
+		<string>http://oe63fs3d3.bkt.clouddn.com/images.png</string>
 		<key>ItemAddress</key>
 		<string>FLOGifImageViewController</string>
 	</dict>

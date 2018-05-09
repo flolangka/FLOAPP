@@ -15,7 +15,6 @@
 @interface FLOWorkListViewController ()
 
 {
-    UIView *backgroundContentView;
     UIImageView *backgroundImageView;
     UIView *backgroundMaskView;
     UIScrollView *backgroundScrollView;
@@ -25,36 +24,41 @@
 }
 
 @property (nonatomic, strong, readwrite) FLOWorkListViewModel *viewModel;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
 
 @end
 
 @implementation FLOWorkListViewController
 @dynamic viewModel;
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    contentViewHeight = MYAPPConfig.screenHeight-MYAPPConfig.navigationBarHeight;
+    contentViewHeight = MYAPPConfig.screenHeight-MYAPPConfig.statusBarHeight;
     [self createBackgroundView];
     [self createBackgroundScrollView];
-    [self createBaseView];
+    [self createContentView];
     
-    self.tableView.frame = CGRectMake(0, 44, MYAPPConfig.screenWidth, contentViewHeight-44);
+    self.tableView.frame = CGRectMake(0, 49, MYAPPConfig.screenWidth, contentViewHeight-49);
     [contentView addSubview:self.tableView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [backgroundScrollView setContentOffset:CGPointMake(0, contentViewHeight) animated:YES];
 }
 
 - (void)createBackgroundView {
     //滑动时伸缩的view
-    backgroundContentView = [[UIView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:backgroundContentView];
-    
-    backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, MYAPPConfig.navigationBarHeight, MYAPPConfig.screenWidth, contentViewHeight)];
-    [backgroundContentView addSubview:backgroundImageView];
-    
+    backgroundImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     UIImage *snapshot = [[UIApplication sharedApplication].keyWindow snapshotImageAfterScreenUpdates:NO];
-    CGSize size = snapshot.size;
-    snapshot = [snapshot clipToRect:CGRectMake(0, MYAPPConfig.navigationBarHeight*snapshot.scale, size.width*snapshot.scale, (size.height-MYAPPConfig.navigationBarHeight)*snapshot.scale)];
     backgroundImageView.image = snapshot;
+    [self.view addSubview:backgroundImageView];
     
     //滑动时黑色透明的view
     backgroundMaskView = [[UIView alloc] initWithFrame:self.view.bounds];
@@ -64,7 +68,7 @@
 
 //用于向下滑动返回上一页
 - (void)createBackgroundScrollView {
-    backgroundScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, MYAPPConfig.navigationBarHeight, MYAPPConfig.screenWidth, contentViewHeight)];
+    backgroundScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, MYAPPConfig.statusBarHeight, MYAPPConfig.screenWidth, contentViewHeight)];
     backgroundScrollView.showsVerticalScrollIndicator = NO;
     backgroundScrollView.showsHorizontalScrollIndicator = NO;
     backgroundScrollView.pagingEnabled = YES;
@@ -80,12 +84,26 @@
     }
 }
 
-- (void)createBaseView {
+- (void)createContentView {
     contentView = [[UIView alloc] initWithFrame:CGRectMake(0, contentViewHeight, MYAPPConfig.screenWidth, contentViewHeight)];
     [backgroundScrollView addSubview:contentView];
     
     [contentView flo_setCornerRadius:10 roundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
     contentView.backgroundColor = COLOR_RGB(56, 64, 79);
+    
+    [contentView addSubview:self.segmentedControl];
+}
+
+#pragma mark - get/set
+- (UISegmentedControl *)segmentedControl {
+    if (_segmentedControl == nil) {
+        _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Todo", @"Undo", @"Done"]];
+        _segmentedControl.frame = CGRectMake((MYAPPConfig.screenWidth - 180)/2, 10, 180, 29);
+        _segmentedControl.tintColor = COLOR_HEX(0xffffff);
+        _segmentedControl.selectedSegmentIndex = 0;
+        [_segmentedControl addTarget:self action:@selector(segmentedControlAction:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _segmentedControl;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -108,7 +126,7 @@
         backgroundMaskView.backgroundColor = COLOR_HEXAlpha(0x000000, y/contentViewHeight);
         
         float s = y/contentViewHeight*40;
-        backgroundContentView.transform = CGAffineTransformMakeScale((MYAPPConfig.screenWidth-s)/MYAPPConfig.screenWidth, (contentViewHeight-s)/contentViewHeight);
+        backgroundImageView.transform = CGAffineTransformMakeScale((MYAPPConfig.screenWidth-s)/MYAPPConfig.screenWidth, (contentViewHeight-s)/contentViewHeight);
     }
 }
 
@@ -117,6 +135,12 @@
     [self dismissViewControllerAnimated:NO completion:^{
         
     }];
+}
+
+- (void)segmentedControlAction:(UISegmentedControl *)sender {
+    if (sender == _segmentedControl) {
+        
+    }
 }
 
 @end

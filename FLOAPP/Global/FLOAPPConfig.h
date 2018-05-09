@@ -14,6 +14,7 @@
 @property (nonatomic, assign, readonly) float screenHeight;
 
 @property (nonatomic, assign, readonly) BOOL iPhoneX;
+@property (nonatomic, assign, readonly) float statusBarHeight;
 @property (nonatomic, assign, readonly) float navigationBarHeight;
 @property (nonatomic, assign, readonly) float iPhoneXBottomHeight;
 

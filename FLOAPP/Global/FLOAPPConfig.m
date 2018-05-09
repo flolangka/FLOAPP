@@ -14,6 +14,7 @@
 @property (nonatomic, assign, readwrite) float screenHeight;
 
 @property (nonatomic, assign, readwrite) BOOL iPhoneX;
+@property (nonatomic, assign, readwrite) float statusBarHeight;
 @property (nonatomic, assign, readwrite) float navigationBarHeight;
 @property (nonatomic, assign, readwrite) float iPhoneXBottomHeight;
 
@@ -37,7 +38,8 @@ static FLOAPPConfig *shareAppConfig;
     _screenHeight = CGRectGetHeight([UIScreen mainScreen].bounds);
     
     _iPhoneX = CGSizeEqualToSize(CGSizeMake(375, 812), [[UIScreen mainScreen] bounds].size);
-    _navigationBarHeight = (44 + (_iPhoneX ? 44 : 20));
+    _statusBarHeight = _iPhoneX ? 44 : 20;
+    _navigationBarHeight = _statusBarHeight + 44;
     _iPhoneXBottomHeight = _iPhoneX ? 34 : 0;
 }
 
