@@ -87,7 +87,7 @@ UIViewControllerPreviewingDelegate>
 - (void)initCollectionView {
     // CollectionView布局样式
     CGFloat maxWidth = 70;
-    CGFloat space = 16;
+    CGFloat space = 18;
     int num = 3;
     do {
         width = (DEVICE_SCREEN_WIDTH - (num+1)*space)/(float)num;
@@ -102,11 +102,12 @@ UIViewControllerPreviewingDelegate>
         return weakWidth+17;
     };
     
-    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64) collectionViewLayout:layout];
+    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT) collectionViewLayout:layout];
     collectionV.backgroundColor = [UIColor clearColor];
     collectionV.dataSource = self;
     collectionV.delegate = self;
     [collectionV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CollectionViewCellID"];
+    [collectionV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CollectionViewForce_TouchCellID"];
     [self.view addSubview:collectionV];
     
     //背景图片
@@ -140,9 +141,17 @@ UIViewControllerPreviewingDelegate>
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCellID" forIndexPath:indexPath];
-    
     FLOCollectionItem *item = _dataArr[indexPath.item];
+    
+    UICollectionViewCell *cell = nil;
+    if ([item.itemAddress isEqualToString:@"Force_Touch"]) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewForce_TouchCellID" forIndexPath:indexPath];
+        
+        //注册Force_Touch
+        previewing = [self registerForPreviewingWithDelegate:self sourceView:cell];
+    } else {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCellID" forIndexPath:indexPath];
+    }
     
     UIImageView *imageV = [cell.contentView viewWithTag:4444];
     UILabel *label = [cell.contentView viewWithTag:5555];
@@ -170,11 +179,6 @@ UIViewControllerPreviewingDelegate>
     
     //名称
     label.text = item.itemName;
-    
-    //注册Force_Touch
-    if ([item.itemAddress isEqualToString:@"Force_Touch"]) {
-        previewing = [self registerForPreviewingWithDelegate:self sourceView:cell];
-    }
     
     return cell;
 }

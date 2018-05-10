@@ -60,7 +60,7 @@ DEPENDENCIES:
   - YYKit
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
     - BaiduMapKit
     - DACircularProgress
@@ -94,4 +94,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 882b419dc8a604bdacc18fedf358613fc0f32dbd
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.2
