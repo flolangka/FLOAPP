@@ -21,6 +21,10 @@
 		12F956341E06C626008699B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84291A181C05867A0015F5F1 /* Assets.xcassets */; };
 		12F956361E06C69A008699B2 /* FLO@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F956351E06C69A008699B2 /* FLO@2x.png */; };
 		730B42FD207DEDD1007CC874 /* FLOAPPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 730B42FC207DEDD1007CC874 /* FLOAPPConfig.m */; };
+		730CD56520A43704006434D2 /* FLOWorkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730CD56420A43704006434D2 /* FLOWorkListCell.m */; };
+		730CD56820A43952006434D2 /* FLOWorkItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 730CD56720A43952006434D2 /* FLOWorkItemViewModel.m */; };
+		730CD56F20A442ED006434D2 /* WorkList+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 730CD56C20A442EC006434D2 /* WorkList+CoreDataClass.m */; };
+		730CD57020A442ED006434D2 /* WorkList+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 730CD56E20A442EC006434D2 /* WorkList+CoreDataProperties.m */; };
 		7315499E207EFA700025C713 /* FLONETEASEVideoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7315499D207EFA700025C713 /* FLONETEASEVideoViewModel.m */; };
 		731549A1207EFC580025C713 /* FLONETEASEVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731549A0207EFC580025C713 /* FLONETEASEVideoViewController.m */; };
 		731549A9207F07C40025C713 /* FLONETEASEVideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 731549A8207F07C40025C713 /* FLONETEASEVideoItem.m */; };
@@ -380,6 +384,15 @@
 		4F3082D274C70DF38A7A3505 /* Pods-FLOAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLOAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP.release.xcconfig"; sourceTree = "<group>"; };
 		730B42FB207DEDD1007CC874 /* FLOAPPConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOAPPConfig.h; sourceTree = "<group>"; };
 		730B42FC207DEDD1007CC874 /* FLOAPPConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOAPPConfig.m; sourceTree = "<group>"; };
+		730CD56320A43704006434D2 /* FLOWorkListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOWorkListCell.h; sourceTree = "<group>"; };
+		730CD56420A43704006434D2 /* FLOWorkListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOWorkListCell.m; sourceTree = "<group>"; };
+		730CD56620A43952006434D2 /* FLOWorkItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOWorkItemViewModel.h; sourceTree = "<group>"; };
+		730CD56720A43952006434D2 /* FLOWorkItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOWorkItemViewModel.m; sourceTree = "<group>"; };
+		730CD56920A43F72006434D2 /* FLOCoreData 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "FLOCoreData 5.xcdatamodel"; sourceTree = "<group>"; };
+		730CD56B20A442EC006434D2 /* WorkList+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorkList+CoreDataClass.h"; sourceTree = "<group>"; };
+		730CD56C20A442EC006434D2 /* WorkList+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WorkList+CoreDataClass.m"; sourceTree = "<group>"; };
+		730CD56D20A442EC006434D2 /* WorkList+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorkList+CoreDataProperties.h"; sourceTree = "<group>"; };
+		730CD56E20A442EC006434D2 /* WorkList+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "WorkList+CoreDataProperties.m"; sourceTree = "<group>"; };
 		7315499C207EFA700025C713 /* FLONETEASEVideoViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONETEASEVideoViewModel.h; sourceTree = "<group>"; };
 		7315499D207EFA700025C713 /* FLONETEASEVideoViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONETEASEVideoViewModel.m; sourceTree = "<group>"; };
 		7315499F207EFC580025C713 /* FLONETEASEVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONETEASEVideoViewController.h; sourceTree = "<group>"; };
@@ -784,6 +797,10 @@
 				122C5B9C20A1D8140014A0E9 /* FLOWorkListViewModel.m */,
 				122C5B9E20A1D8710014A0E9 /* FLOWorkListViewController.h */,
 				122C5B9F20A1D8710014A0E9 /* FLOWorkListViewController.m */,
+				730CD56620A43952006434D2 /* FLOWorkItemViewModel.h */,
+				730CD56720A43952006434D2 /* FLOWorkItemViewModel.m */,
+				730CD56320A43704006434D2 /* FLOWorkListCell.h */,
+				730CD56420A43704006434D2 /* FLOWorkListCell.m */,
 			);
 			path = "待办";
 			sourceTree = "<group>";
@@ -807,6 +824,17 @@
 				4F3082D274C70DF38A7A3505 /* Pods-FLOAPP.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		730CD56A20A44269006434D2 /* WorkList */ = {
+			isa = PBXGroup;
+			children = (
+				730CD56B20A442EC006434D2 /* WorkList+CoreDataClass.h */,
+				730CD56C20A442EC006434D2 /* WorkList+CoreDataClass.m */,
+				730CD56D20A442EC006434D2 /* WorkList+CoreDataProperties.h */,
+				730CD56E20A442EC006434D2 /* WorkList+CoreDataProperties.m */,
+			);
+			path = WorkList;
 			sourceTree = "<group>";
 		};
 		7315499B207EF98B0025C713 /* 网易视频 */ = {
@@ -1020,6 +1048,7 @@
 				7329ED1920294AB40090A584 /* MediaAddress */,
 				7329ED1820294A550090A584 /* NetWork */,
 				7329ED1720294A3C0090A584 /* NotificationTime */,
+				730CD56A20A44269006434D2 /* WorkList */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -2127,6 +2156,7 @@
 				73C9EF01202013260000A21B /* FLOQSBKItem.m in Sources */,
 				73CAAE11201F1167001B1AE2 /* FLOQSBKTopicItem.m in Sources */,
 				73CAADB5201F087B001B1AE2 /* FLORichTextEditorView.m in Sources */,
+				730CD56820A43952006434D2 /* FLOWorkItemViewModel.m in Sources */,
 				73CAADB6201F087B001B1AE2 /* FLORichTextEditorViewController.m in Sources */,
 				73CAAE0E201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.m in Sources */,
 				732A019820746EE200D4962B /* FLOBaseViewModel.m in Sources */,
@@ -2150,6 +2180,7 @@
 				73CAADBE201F087B001B1AE2 /* FLOWeiboUserModel.m in Sources */,
 				73CAAD44201F087B001B1AE2 /* NSString+FLOUtil.m in Sources */,
 				73CAAD46201F087B001B1AE2 /* UILabel+FLOUtil.m in Sources */,
+				730CD57020A442ED006434D2 /* WorkList+CoreDataProperties.m in Sources */,
 				73CAAD3C201F087B001B1AE2 /* NetWork+CoreDataClass.m in Sources */,
 				73CAADBA201F087B001B1AE2 /* CYRToken.m in Sources */,
 				73FEF0962056554F00B872A8 /* FLOLiveIdentityView.m in Sources */,
@@ -2173,6 +2204,7 @@
 				73CAAD3B201F087B001B1AE2 /* MediaAddress+CoreDataProperties.m in Sources */,
 				73CAADCD201F087B001B1AE2 /* FLOWaterFallViewController.m in Sources */,
 				73CAAD59201F087B001B1AE2 /* FLODownloadTableViewController.m in Sources */,
+				730CD56520A43704006434D2 /* FLOWorkListCell.m in Sources */,
 				73CAADDD201F09B6001B1AE2 /* FLOSettingTableViewController.m in Sources */,
 				73563A82208DAF99001A7036 /* FLOCameraViewController.m in Sources */,
 				73CAADB7201F087B001B1AE2 /* CYRLayoutManager.m in Sources */,
@@ -2241,6 +2273,7 @@
 				73CAADC9201F087B001B1AE2 /* SortView.swift in Sources */,
 				73CAAD50201F087B001B1AE2 /* FLONotificationTimeTableViewController.m in Sources */,
 				7315499E207EFA700025C713 /* FLONETEASEVideoViewModel.m in Sources */,
+				730CD56F20A442ED006434D2 /* WorkList+CoreDataClass.m in Sources */,
 				731549A9207F07C40025C713 /* FLONETEASEVideoItem.m in Sources */,
 				732A019520746E9100D4962B /* FLOCollectionViewController.m in Sources */,
 				73CAAE03201F09E4001B1AE2 /* FLOSideMenu.m in Sources */,
@@ -2821,12 +2854,13 @@
 		73CAAC3A201F087A001B1AE2 /* FLOCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				730CD56920A43F72006434D2 /* FLOCoreData 5.xcdatamodel */,
 				7329ED1B20294AF50090A584 /* FLOCoreData 4.xcdatamodel */,
 				73CAAC3B201F087A001B1AE2 /* FLOCoreData 2.xcdatamodel */,
 				73CAAC3C201F087A001B1AE2 /* FLOCoreData 3.xcdatamodel */,
 				73CAAC3D201F087A001B1AE2 /* FLOCoreData.xcdatamodel */,
 			);
-			currentVersion = 7329ED1B20294AF50090A584 /* FLOCoreData 4.xcdatamodel */;
+			currentVersion = 730CD56920A43F72006434D2 /* FLOCoreData 5.xcdatamodel */;
 			path = FLOCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

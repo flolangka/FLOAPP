@@ -44,6 +44,9 @@
     [self createContentView];
     
     self.tableView.frame = CGRectMake(0, 49, MYAPPConfig.screenWidth, contentViewHeight-49);
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
     [contentView addSubview:self.tableView];
 }
 
@@ -141,6 +144,25 @@
     if (sender == _segmentedControl) {
         
     }
+}
+
+#pragma mark - UITableView
+
+- (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellForIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellid = @"FLOWorkListCellID";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
+    }
+    return cell;
+}
+
+- (void)configCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object {
+    cell.backgroundColor = [UIColor redColor];
+}
+
+- (float)heightForRowAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object {
+    return 700;
 }
 
 @end
