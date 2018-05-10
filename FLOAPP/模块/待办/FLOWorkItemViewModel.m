@@ -7,7 +7,19 @@
 //
 
 #import "FLOWorkItemViewModel.h"
+#import "WorkList+CoreDataClass.h"
 
 @implementation FLOWorkItemViewModel
+
+- (instancetype)initWithItem:(WorkList *)item {
+    self = [super init];
+    if (self) {
+        _item = item;
+        
+    }
+    return self;
+}
+
+
 
 @end

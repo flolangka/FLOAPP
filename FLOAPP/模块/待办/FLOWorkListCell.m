@@ -7,6 +7,13 @@
 //
 
 #import "FLOWorkListCell.h"
+#import "FLOWorkItemViewModel.h"
+
+@interface FLOWorkListCell ()
+
+@property (nonatomic, strong, readwrite) FLOWorkItemViewModel *viewModel;
+
+@end
 
 @implementation FLOWorkListCell
 
@@ -19,6 +26,17 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+//显示内容
+- (void)bindViewModel:(FLOWorkItemViewModel *)viewModel {
+    self.viewModel = viewModel;
+    
+}
+
+//计算cell高度
++ (float)heightWithViewModel:(FLOWorkItemViewModel *)viewModel {
+    return 30 + 0;
 }
 
 @end

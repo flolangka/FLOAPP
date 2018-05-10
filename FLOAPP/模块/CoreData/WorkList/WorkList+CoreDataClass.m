@@ -14,7 +14,17 @@
 
 //查
 + (NSArray <WorkList *>*)workListAtStatus:(NSInteger)status {
+    NSFetchRequest *request = [WorkList fetchRequest];
     
+    //设置排序
+    NSSortDescriptor *time = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:status == 0];
+    request.sortDescriptors = @[time];
+    
+    //设置过滤条件
+    NSPredicate *pre = [NSPredicate predicateWithFormat:@"status = %ld", status];
+    request.predicate = pre;
+    
+    return [[APLCoreDataStackManager sharedManager].managedObjectContext executeFetchRequest:request error:nil];
 }
 
 //增

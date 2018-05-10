@@ -7,7 +7,17 @@
 //
 
 #import "FLOTableViewModel.h"
+#import "FLOWorkItemViewModel.h"
+#import "WorkList+CoreDataClass.h"
 
 @interface FLOWorkListViewModel : FLOTableViewModel
+
+/**
+ 获取数据
+
+ @param status 0、1、2
+ @return 数据源
+ */
+- (NSArray <FLOWorkItemViewModel *>*)workItemViewModelsAtStatus:(NSInteger)status;
 
 @end

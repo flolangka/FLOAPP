@@ -7,6 +7,7 @@
 //
 
 #import "FLOWorkListViewModel.h"
+#import "FLOWorkListCell.h"
 
 @implementation FLOWorkListViewModel
 
@@ -14,11 +15,30 @@
     self = [super init];
     if (self) {        
         self.tableViewStyle = UITableViewStylePlain;
-        self.dataArr = [NSMutableArray arrayWithObject:[NSMutableArray arrayWithCapacity:1]];
-        
-        [self.dataArr.firstObject addObject:@"1"];
+        self.dataArr = [NSMutableArray arrayWithObject:[NSMutableArray arrayWithCapacity:1]];        
     }
     return self;
+}
+
+/**
+ 获取数据
+ 
+ @param status 0、1、2
+ @return 数据源
+ */
+- (NSArray <FLOWorkItemViewModel *>*)workItemViewModelsAtStatus:(NSInteger)status {
+    NSArray *worlList = [WorkList workListAtStatus:status];
+    
+    NSMutableArray <FLOWorkItemViewModel *>*muarr = [NSMutableArray arrayWithCapacity:worlList.count];
+    for (WorkList *item in worlList) {
+        FLOWorkItemViewModel *vm = [[FLOWorkItemViewModel alloc] initWithItem:item];
+        
+        if (vm) {
+            vm.cellHeight = [FLOWorkListCell heightWithViewModel:vm];
+            [muarr addObject:vm];
+        }
+    }
+    return muarr;
 }
 
 @end

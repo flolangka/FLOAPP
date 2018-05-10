@@ -10,6 +10,8 @@
 #import "FLOWorkListViewModel.h"
 #import "UIView+FLOUtil.h"
 #import "UIImage+FLOUtil.h"
+#import "FLOWorkListCell.h"
+
 #import <UIView+YYAdd.h>
 
 @interface FLOWorkListViewController ()
@@ -103,8 +105,22 @@
         _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Todo", @"Undo", @"Done"]];
         _segmentedControl.frame = CGRectMake((MYAPPConfig.screenWidth - 180)/2, 10, 180, 29);
         _segmentedControl.tintColor = COLOR_HEX(0xffffff);
+        
+        //切换数据源，刷新页面
+        @weakify(self);
+        [RACObserve(_segmentedControl, selectedSegmentIndex) subscribeNext:^(NSNumber *index) {
+            @strongify(self);
+            
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                NSArray *arr = [self.viewModel workItemViewModelsAtStatus:index.integerValue];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.viewModel.dataArr = [NSMutableArray arrayWithArray:@[arr]];
+                    [self.tableView reloadData];
+                });
+            });
+        }];
         _segmentedControl.selectedSegmentIndex = 0;
-        [_segmentedControl addTarget:self action:@selector(segmentedControlAction:) forControlEvents:UIControlEventValueChanged];
     }
     return _segmentedControl;
 }
@@ -140,29 +156,23 @@
     }];
 }
 
-- (void)segmentedControlAction:(UISegmentedControl *)sender {
-    if (sender == _segmentedControl) {
-        
-    }
-}
-
 #pragma mark - UITableView
 
 - (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellForIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellid = @"FLOWorkListCellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    FLOWorkListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
+        cell = [[FLOWorkListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
     }
     return cell;
 }
 
-- (void)configCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object {
-    cell.backgroundColor = [UIColor redColor];
+- (void)configCell:(FLOWorkListCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(FLOWorkItemViewModel *)object {
+    [cell bindViewModel:object];
 }
 
-- (float)heightForRowAtIndexPath:(NSIndexPath *)indexPath withObject:(id)object {
-    return 700;
+- (float)heightForRowAtIndexPath:(NSIndexPath *)indexPath withObject:(FLOWorkItemViewModel *)object {
+    return object.cellHeight;
 }
 
 @end

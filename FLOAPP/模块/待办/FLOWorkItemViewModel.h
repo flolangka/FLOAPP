@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+@class WorkList;
 
 @interface FLOWorkItemViewModel : NSObject
+
+@property (nonatomic, strong, readonly) WorkList *item;
+
+@property (nonatomic, assign) float cellHeight;
+
+- (instancetype)initWithItem:(WorkList *)item;
 
 @end
