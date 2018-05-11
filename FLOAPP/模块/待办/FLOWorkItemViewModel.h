@@ -17,4 +17,9 @@
 
 - (instancetype)initWithItem:(WorkList *)item;
 
+/**
+ item 修改后更新显示内容
+ */
+- (void)update;
+
 @end

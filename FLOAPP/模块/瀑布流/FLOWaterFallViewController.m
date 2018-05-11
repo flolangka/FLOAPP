@@ -42,7 +42,8 @@
     // 瀑布流样式
     FLOCollectionViewLayout *layout = [[FLOCollectionViewLayout alloc] init];
     layout.numberOfColum = 2;
-    layout.itemSpace = 10;
+    layout.horizontalSpace = 10;
+    layout.verticalSpace = 10;
     FLOWeakObj(self);
     layout.itemHeight = ^CGFloat(NSIndexPath *indexPath){
         return [weakself itemHeight:indexPath];

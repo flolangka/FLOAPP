@@ -18,9 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray <WorkList *>*)workListAtStatus:(NSInteger)status;
 
 //增
-+ (void)insertEntityTitle:(NSString *)title
-                     desc:(NSString *)desc
-                    items:(NSArray <NSString *>*)items;
++ (instancetype)insertEntityTitle:(NSString *)title
+                             desc:(NSString *)desc
+                            items:(NSArray <NSString *>*)items;
 
 //删
 + (void)deleteEntity:(WorkList *)entity;

@@ -11,6 +11,7 @@
 #import "UIView+FLOUtil.h"
 #import "UIImage+FLOUtil.h"
 #import "FLOWorkListCell.h"
+#import "FLOWorkItemEditViewController.h"
 
 #import <UIView+YYAdd.h>
 
@@ -44,12 +45,19 @@
     [self createBackgroundView];
     [self createBackgroundScrollView];
     [self createContentView];
+    [self createTitleView];
     
     self.tableView.frame = CGRectMake(0, 49, MYAPPConfig.screenWidth, contentViewHeight-49);
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
     [contentView addSubview:self.tableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -95,8 +103,22 @@
     
     [contentView flo_setCornerRadius:10 roundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight];
     contentView.backgroundColor = COLOR_RGB(56, 64, 79);
-    
+}
+
+- (void)createTitleView {
     [contentView addSubview:self.segmentedControl];
+    
+    //新建按钮
+    UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addBtn addTarget:self action:@selector(addButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    addBtn.frame = CGRectMake(MYAPPConfig.screenWidth-44-5, 3, 44, 44);
+    [addBtn setTintColor:COLOR_HEX(0xffffff)];
+    [addBtn setImageEdgeInsets:UIEdgeInsetsMake(10, 10, 10, 10)];
+    [addBtn setImage:[[UIImage imageNamed:@"icon_write"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [contentView addSubview:addBtn];
+    
+    //分割线
+    [contentView flo_addLineMarginTop:48.5 left:0 right:0];
 }
 
 #pragma mark - get/set
@@ -154,6 +176,30 @@
     [self dismissViewControllerAnimated:NO completion:^{
         
     }];
+}
+
+- (void)addButtonAction:(UIButton *)sender {
+    FLOWorkItemEditViewController *editVC = [[FLOWorkItemEditViewController alloc] init];
+    FLOWeakObj(self);
+    editVC.editCompletion = ^(WorkList *item) {
+        if (item) {
+            [weakself showNewWorkItem:item];
+        }
+    };
+    
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;    
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    [self.navigationController pushViewController:editVC animated:YES];
+}
+
+- (void)showNewWorkItem:(WorkList *)item {
+    if (_segmentedControl.selectedSegmentIndex == 0) {
+        NSMutableArray *muarr = [NSMutableArray arrayWithArray:self.viewModel.dataArr.firstObject];
+        [muarr insertObject:item atIndex:0];
+        
+        self.viewModel.dataArr = [NSMutableArray arrayWithArray:@[muarr]];
+        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+    }
 }
 
 #pragma mark - UITableView

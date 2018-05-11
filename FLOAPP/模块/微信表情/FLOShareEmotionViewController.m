@@ -67,7 +67,8 @@ static NSString *FLOShareEmotionCollectionViewCellID = @"FLOShareEmotionCollecti
     
     FLOCollectionViewLayout *layout = [[FLOCollectionViewLayout alloc] init];
     layout.numberOfColum = num - 1;
-    layout.itemSpace = space;
+    layout.horizontalSpace = space;
+    layout.verticalSpace = space;
     
     float itemHeight = itemWidth;
     layout.itemHeight = ^CGFloat(NSIndexPath *indexPath){

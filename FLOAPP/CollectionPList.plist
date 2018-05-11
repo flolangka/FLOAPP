@@ -232,7 +232,7 @@
 		<key>ItemIconURL</key>
 		<string>http://oe63fs3d3.bkt.clouddn.com/icon_work_list.png</string>
 		<key>ItemAddress</key>
-		<string>PresentFLOWorkListViewModel</string>
+		<string>PresentNavigationControllerFLOWorkListViewModel</string>
 	</dict>
 	<dict>
 		<key>ItemName</key>

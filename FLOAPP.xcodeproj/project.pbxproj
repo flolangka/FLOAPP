@@ -20,6 +20,7 @@
 		12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 12F956241E06C32E008699B2 /* FLOAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		12F956341E06C626008699B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84291A181C05867A0015F5F1 /* Assets.xcassets */; };
 		12F956361E06C69A008699B2 /* FLO@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 12F956351E06C69A008699B2 /* FLO@2x.png */; };
+		7308498A20A53246009C5DA6 /* FLOWorkItemEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7308498920A53246009C5DA6 /* FLOWorkItemEditViewController.m */; };
 		730B42FD207DEDD1007CC874 /* FLOAPPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 730B42FC207DEDD1007CC874 /* FLOAPPConfig.m */; };
 		730CD56520A43704006434D2 /* FLOWorkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 730CD56420A43704006434D2 /* FLOWorkListCell.m */; };
 		730CD56820A43952006434D2 /* FLOWorkItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 730CD56720A43952006434D2 /* FLOWorkItemViewModel.m */; };
@@ -382,6 +383,8 @@
 		12F9562C1E06C32E008699B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12F956351E06C69A008699B2 /* FLO@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FLO@2x.png"; sourceTree = "<group>"; };
 		4F3082D274C70DF38A7A3505 /* Pods-FLOAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FLOAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-FLOAPP/Pods-FLOAPP.release.xcconfig"; sourceTree = "<group>"; };
+		7308498820A53246009C5DA6 /* FLOWorkItemEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOWorkItemEditViewController.h; sourceTree = "<group>"; };
+		7308498920A53246009C5DA6 /* FLOWorkItemEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOWorkItemEditViewController.m; sourceTree = "<group>"; };
 		730B42FB207DEDD1007CC874 /* FLOAPPConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOAPPConfig.h; sourceTree = "<group>"; };
 		730B42FC207DEDD1007CC874 /* FLOAPPConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOAPPConfig.m; sourceTree = "<group>"; };
 		730CD56320A43704006434D2 /* FLOWorkListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOWorkListCell.h; sourceTree = "<group>"; };
@@ -801,6 +804,8 @@
 				730CD56720A43952006434D2 /* FLOWorkItemViewModel.m */,
 				730CD56320A43704006434D2 /* FLOWorkListCell.h */,
 				730CD56420A43704006434D2 /* FLOWorkListCell.m */,
+				7308498820A53246009C5DA6 /* FLOWorkItemEditViewController.h */,
+				7308498920A53246009C5DA6 /* FLOWorkItemEditViewController.m */,
 			);
 			path = "待办";
 			sourceTree = "<group>";
@@ -2182,6 +2187,7 @@
 				73CAAD46201F087B001B1AE2 /* UILabel+FLOUtil.m in Sources */,
 				730CD57020A442ED006434D2 /* WorkList+CoreDataProperties.m in Sources */,
 				73CAAD3C201F087B001B1AE2 /* NetWork+CoreDataClass.m in Sources */,
+				7308498A20A53246009C5DA6 /* FLOWorkItemEditViewController.m in Sources */,
 				73CAADBA201F087B001B1AE2 /* CYRToken.m in Sources */,
 				73FEF0962056554F00B872A8 /* FLOLiveIdentityView.m in Sources */,
 				73CAADC0201F087B001B1AE2 /* FLOWeiboCommentModel.m in Sources */,

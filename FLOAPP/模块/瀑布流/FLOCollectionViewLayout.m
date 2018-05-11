@@ -51,7 +51,7 @@
 - (NSArray <UICollectionViewLayoutAttributes *>*)layoutAttributes {
     NSInteger totalNums = [[self collectionView] numberOfItemsInSection:0];
     
-    CGFloat itemWidth = (DEVICE_SCREEN_WIDTH-(_numberOfColum+1)*_itemSpace)/(float)_numberOfColum;
+    CGFloat itemWidth = (DEVICE_SCREEN_WIDTH-(_numberOfColum+1)*_horizontalSpace)/(float)_numberOfColum;
     CGFloat x = 0;
     CGFloat y = 0;
     CGFloat height = 0;
@@ -84,8 +84,8 @@
             currentColum = index;
         }
         
-        x = _itemSpace + currentColum * (itemWidth+_itemSpace);
-        y = _itemSpace + [maxYOfColums[currentColum] floatValue];
+        x = _horizontalSpace + currentColum * (itemWidth+_horizontalSpace);
+        y = _verticalSpace + [maxYOfColums[currentColum] floatValue];
         
         // 更新该列的height
         [maxYOfColums replaceObjectAtIndex:currentColum withObject:@(y+height)];

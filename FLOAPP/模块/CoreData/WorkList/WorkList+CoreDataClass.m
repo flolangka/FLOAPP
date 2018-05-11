@@ -28,9 +28,9 @@
 }
 
 //增
-+ (void)insertEntityTitle:(NSString *)title
-                     desc:(NSString *)desc
-                    items:(NSArray <NSString *>*)items {
++ (instancetype)insertEntityTitle:(NSString *)title
+                             desc:(NSString *)desc
+                            items:(NSArray <NSString *>*)items {
     WorkList *entity = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(self) inManagedObjectContext:[APLCoreDataStackManager sharedManager].managedObjectContext];
     
     entity.title = title;
@@ -47,6 +47,7 @@
     entity.itemsStatus = [muArrItemStatus flo_JSONData];
     
     [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
+    return entity;
 }
 
 //删

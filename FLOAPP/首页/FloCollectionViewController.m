@@ -87,7 +87,7 @@ UIViewControllerPreviewingDelegate>
 - (void)initCollectionView {
     // CollectionView布局样式
     CGFloat maxWidth = 70;
-    CGFloat space = 18;
+    CGFloat space = 27;
     int num = 3;
     do {
         width = (DEVICE_SCREEN_WIDTH - (num+1)*space)/(float)num;
@@ -96,7 +96,8 @@ UIViewControllerPreviewingDelegate>
     
     FLOCollectionViewLayout *layout = [[FLOCollectionViewLayout alloc] init];
     layout.numberOfColum = num - 1;
-    layout.itemSpace = space;
+    layout.horizontalSpace = space;
+    layout.verticalSpace = 12;
     CGFloat weakWidth = width;
     layout.itemHeight = ^CGFloat(NSIndexPath *indexPath){
         return weakWidth+17;
@@ -104,6 +105,7 @@ UIViewControllerPreviewingDelegate>
     
     collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT) collectionViewLayout:layout];
     collectionV.backgroundColor = [UIColor clearColor];
+    collectionV.contentInset = UIEdgeInsetsMake(0, 0, 20, 0);
     collectionV.dataSource = self;
     collectionV.delegate = self;
     [collectionV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CollectionViewCellID"];
@@ -214,16 +216,25 @@ UIViewControllerPreviewingDelegate>
     } else if ([itemAddress hasPrefix:@"Present"]) {
         NSString *classStr = [itemAddress substringFromIndex:7];
         
+        BOOL nav = [classStr hasPrefix:@"NavigationController"];
+        if (nav) {
+            classStr = [classStr substringFromIndex:[@"NavigationController" length]];
+        }
+        
+        UIViewController *vc = nil;
         if ([classStr hasSuffix:@"ViewModel"]) {
-            FLOBaseViewController *viewController = [MVVMRouter viewControllerForViewModelClassString:classStr];
-            
-            [self presentViewController:viewController animated:NO completion:nil];
+            vc = [MVVMRouter viewControllerForViewModelClassString:classStr];
         } else {
             Class ob = NSClassFromString(classStr);
-            UIViewController *viewController = [[ob alloc] init];
-            viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            
-            [self presentViewController:viewController animated:NO completion:nil];
+            vc = [[ob alloc] init];
+            vc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        }
+        
+        if (nav) {
+            UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:navC animated:NO completion:nil];
+        } else {
+            [self presentViewController:vc animated:NO completion:nil];
         }
     } else if ([itemAddress hasSuffix:@"ViewModel"]) {
         FLOBaseViewController *viewController = [MVVMRouter viewControllerForViewModelClassString:itemAddress];

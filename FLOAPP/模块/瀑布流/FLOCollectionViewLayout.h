@@ -12,8 +12,11 @@
 
 // 几列
 @property (nonatomic, assign) NSInteger numberOfColum;
+
 // item直接间距
-@property (nonatomic, assign) CGFloat itemSpace;
+@property (nonatomic, assign) CGFloat horizontalSpace;
+@property (nonatomic, assign) CGFloat verticalSpace;
+
 // item高度回调
 @property (nonatomic, copy) CGFloat(^itemHeight)(NSIndexPath *);
 

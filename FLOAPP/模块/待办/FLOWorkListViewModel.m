@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {        
         self.tableViewStyle = UITableViewStylePlain;
-        self.dataArr = [NSMutableArray arrayWithObject:[NSMutableArray arrayWithCapacity:1]];        
+        self.dataArr = [NSMutableArray arrayWithObject:@[]];        
     }
     return self;
 }
