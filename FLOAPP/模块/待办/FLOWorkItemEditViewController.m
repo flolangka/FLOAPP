@@ -14,6 +14,7 @@
 #import <Masonry.h>
 
 @interface FLOWorkItemEditViewController ()
+<UITextFieldDelegate>
 
 {
     UIView *contentView;
@@ -24,14 +25,11 @@
 @property (nonatomic, strong) UITextField *titleTextField;
 @property (nonatomic, strong) YYTextView *descTextView;
 
-//公用textView
-@property (nonatomic, strong) YYTextView *targetTextView;
-
 @property (nonatomic, strong) UIView *targetView;
+@property (nonatomic, strong) NSMutableArray *targetTextFields;
+
 @property (nonatomic, strong) UIButton *addTargetBtn;
 @property (nonatomic, strong) UIButton *deleteItemBtn;
-
-@property (nonatomic, strong) NSMutableArray *targetLabels;
 
 @end
 
@@ -102,19 +100,18 @@
     _titleTextField.placeholder = @"项目标题";
     _titleTextField.font = [UIFont systemFontOfSize:18];
     _titleTextField.backgroundColor = [UIColor whiteColor];
+    _titleTextField.borderStyle = UITextBorderStyleRoundedRect;
     [_editScrollView addSubview:_titleTextField];
     
     self.descTextView = [[YYTextView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_titleTextField.frame) + 15, MYAPPConfig.screenWidth-30, 80)];
     _descTextView.placeholderText = @"项目描述";
     _descTextView.font = [UIFont systemFontOfSize:16];
+    _descTextView.placeholderFont = [UIFont systemFontOfSize:16];
     _descTextView.backgroundColor = [UIColor whiteColor];
+    [_descTextView flo_setCornerRadius:5];
     [_editScrollView addSubview:_descTextView];
     
-    //公用textView
-    self.targetTextView = [[YYTextView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth-30, 40)];
-    _targetTextView.backgroundColor = [UIColor whiteColor];
-    _targetTextView.font = [UIFont systemFontOfSize:16];
-    
+    self.targetTextFields = [NSMutableArray arrayWithCapacity:1];
     self.targetView = [[UIView alloc] init];
     [_editScrollView addSubview:_targetView];
     [_targetView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -126,7 +123,8 @@
     
     self.addTargetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_addTargetBtn setTitle:@"添加目标" forState:UIControlStateNormal];
-    _addTargetBtn.backgroundColor = [UIColor lightGrayColor];
+    _addTargetBtn.bounds = CGRectMake(0, 0, MYAPPConfig.screenWidth-30, 44);
+    [_addTargetBtn flo_dottedBorderWithColor:COLOR_HEX(0xffffff)];
     [_editScrollView addSubview:_addTargetBtn];
     [_addTargetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_targetView.mas_bottom).offset(10);
@@ -134,6 +132,7 @@
         make.right.equalTo(_targetView);
         make.height.mas_equalTo(44);
     }];
+    [_addTargetBtn addTarget:self action:@selector(addTargetBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
     if (_editItem) {
         self.deleteItemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -149,6 +148,13 @@
     }
 }
 
+- (void)configTargetViewFrame {
+    float height = _targetTextFields.count > 0 ? _targetTextFields.count * (35+8) - 8 : 0;
+    [_targetView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(height);
+    }];
+}
+
 #pragma mark - action
 - (void)closeButtonAction:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -160,5 +166,51 @@
     [self closeButtonAction:nil];
 }
 
+- (void)addTargetBtnAction:(UIButton *)sneder {
+    float y = _targetTextFields.count * (35+8);
+    
+    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(0, y, MYAPPConfig.screenWidth-30, 35)];
+    tf.font = [UIFont systemFontOfSize:16];
+    tf.backgroundColor = COLOR_HEX(0xffffff);
+    tf.borderStyle = UITextBorderStyleRoundedRect;
+    [_targetView addSubview:tf];
+    
+    //删除按钮
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 25, 20);
+    btn.imageEdgeInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 10);
+    btn.backgroundColor = [UIColor redColor];
+    [btn addTarget:self action:@selector(targetDeleteButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    tf.rightView = btn;
+    tf.rightViewMode = UITextFieldViewModeAlways;
+    
+    [_targetTextFields addObject:tf];
+    [self configTargetViewFrame];
+    
+    [tf becomeFirstResponder];
+}
+
+- (void)targetDeleteButtonAction:(UIButton *)sender {
+    UITextField *textField = (UITextField *)sender.superview;
+    
+    [textField resignFirstResponder];
+    [textField removeFromSuperview];
+    
+    //下面的往上挪
+    NSInteger index = [_targetTextFields indexOfObject:textField];
+    if (index >= 0) {
+        [_targetTextFields removeObject:textField];
+        
+        while (index < _targetTextFields.count) {
+            UIView *l = [_targetTextFields objectAtIndex:index];
+            l.top -= l.height + 8;
+            
+            index ++;
+        }
+    }
+    
+    //更新父级view高度
+    [self configTargetViewFrame];
+}
 
 @end

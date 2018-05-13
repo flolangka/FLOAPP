@@ -10,6 +10,11 @@
 
 @interface UIView (FLOUtil)
 
+/**
+ 设置圆角
+
+ @param radius 半径
+ */
 - (void)flo_setCornerRadius:(CGFloat)radius;
 
 /**
@@ -19,6 +24,13 @@
  *  @param corners 哪几个角 UIRectCornerBottomLeft | UIRectCornerBottomRight | UIRectCornerTopLeft | UIRectCornerTopRight | UIRectCornerAllCorners
  */
 - (void)flo_setCornerRadius:(CGFloat)radius roundingCorners:(UIRectCorner)corners;
+
+/**
+ 设置虚线边框
+
+ @param color 虚线颜色
+ */
+- (void)flo_dottedBorderWithColor:(UIColor *)color;
 
 #pragma mark - 设置分割线
 - (void)flo_topLineHide:(BOOL)hide;

@@ -35,6 +35,36 @@
     self.layer.mask = maskLayer;
 }
 
+/**
+ 设置虚线边框
+ 
+ @param color 虚线颜色
+ */
+- (void)flo_dottedBorderWithColor:(UIColor *)color {
+    /* 初始化一个layer */
+    CAShapeLayer *border = [CAShapeLayer layer];
+    border.bounds = self.bounds;//虚线框的大小
+    border.position = CGPointMake(CGRectGetMidX(self.bounds),CGRectGetMidY(self.bounds));//虚线框锚点
+    
+    /* 虚线的颜色 */
+    border.strokeColor = color.CGColor;
+    /* 填充虚线内的颜色 */
+    border.fillColor = nil;
+    /* 贝塞尔曲线路径 */
+    border.path = [UIBezierPath bezierPathWithRect:border.bounds].CGPath;
+    /* 虚线宽度 */
+    border.lineWidth = 1;
+    //border.frame = view.bounds; /* 这个因为给了路径, 而且用的约束给的控件尺寸, 所以没什么效果 */
+    /* 官方API注释:The cap style used when stroking the path. Options are `butt', `round'
+     * and `square'. Defaults to `butt'. */
+    /* 意思是沿路径画帽时的样式 有三种 屁股 ; 圆; 广场 ,我没感觉有啥区别 可以自己试一下*/
+    border.lineCap = @"square";
+    /* 虚线的每个点长  和 两个点之间的空隙 */
+    border.lineDashPattern = @[@3, @5];
+    /* 添加到你的控件上 */
+    [self.layer addSublayer:border];
+}
+
 #pragma mark - 设置分割线
 - (void)flo_topLineHide:(BOOL)hide {
     [[self viewWithTag:TAG_TOPLINE] setHidden:hide];
