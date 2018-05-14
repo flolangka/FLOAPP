@@ -107,6 +107,7 @@
 
 - (void)createTitleView {
     [contentView addSubview:self.segmentedControl];
+    _segmentedControl.selectedSegmentIndex = 0;
     
     //新建按钮
     UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -142,7 +143,6 @@
                 });
             });
         }];
-        _segmentedControl.selectedSegmentIndex = 0;
     }
     return _segmentedControl;
 }
@@ -187,6 +187,7 @@
         }
     };
     
+    //下一页面没有导航栏，但需要支持右滑返回
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;    
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     [self.navigationController pushViewController:editVC animated:YES];
@@ -194,11 +195,16 @@
 
 - (void)showNewWorkItem:(WorkList *)item {
     if (_segmentedControl.selectedSegmentIndex == 0) {
-        NSMutableArray *muarr = [NSMutableArray arrayWithArray:self.viewModel.dataArr.firstObject];
-        [muarr insertObject:item atIndex:0];
-        
-        self.viewModel.dataArr = [NSMutableArray arrayWithArray:@[muarr]];
-        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+        //转换为ViewModel
+        FLOWorkItemViewModel *vm = [self.viewModel viewModelWithItem:item];
+        if (vm) {
+            NSMutableArray *muarr = [NSMutableArray arrayWithArray:self.viewModel.dataArr.firstObject];
+            [muarr addObject:vm];
+            
+            //显示数据
+            self.viewModel.dataArr = [NSMutableArray arrayWithArray:@[muarr]];
+            [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:muarr.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        }
     }
 }
 

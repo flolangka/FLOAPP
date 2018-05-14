@@ -8,6 +8,7 @@
 
 #import "FLOWorkListCell.h"
 #import "FLOWorkItemViewModel.h"
+#import "WorkList+CoreDataClass.h"
 
 @interface FLOWorkListCell ()
 
@@ -17,21 +18,11 @@
 
 @implementation FLOWorkListCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 //显示内容
 - (void)bindViewModel:(FLOWorkItemViewModel *)viewModel {
     self.viewModel = viewModel;
     
+    self.textLabel.text = viewModel.item.title;
 }
 
 //计算cell高度

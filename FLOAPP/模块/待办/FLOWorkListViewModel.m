@@ -31,14 +31,22 @@
     
     NSMutableArray <FLOWorkItemViewModel *>*muarr = [NSMutableArray arrayWithCapacity:worlList.count];
     for (WorkList *item in worlList) {
-        FLOWorkItemViewModel *vm = [[FLOWorkItemViewModel alloc] initWithItem:item];
-        
+        FLOWorkItemViewModel *vm = [self viewModelWithItem:item];
         if (vm) {
-            vm.cellHeight = [FLOWorkListCell heightWithViewModel:vm];
             [muarr addObject:vm];
         }
     }
     return muarr;
+}
+
+- (FLOWorkItemViewModel *)viewModelWithItem:(WorkList *)item {
+    FLOWorkItemViewModel *vm = [[FLOWorkItemViewModel alloc] initWithItem:item];
+    
+    if (vm) {
+        vm.cellHeight = [FLOWorkListCell heightWithViewModel:vm];
+        return vm;
+    }
+    return nil;
 }
 
 @end

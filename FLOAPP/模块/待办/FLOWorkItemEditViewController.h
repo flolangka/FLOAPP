@@ -16,5 +16,6 @@
 
 //编辑完成回调
 @property (nonatomic, copy  ) void(^editCompletion)(WorkList *item);
+@property (nonatomic, copy  ) void(^deleteItem)(WorkList *item);
 
 @end

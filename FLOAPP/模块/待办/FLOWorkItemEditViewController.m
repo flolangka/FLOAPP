@@ -21,6 +21,7 @@
 }
 
 @property (nonatomic, strong) UIScrollView *editScrollView;
+@property (nonatomic, assign) float baseHeight;
 
 @property (nonatomic, strong) UITextField *titleTextField;
 @property (nonatomic, strong) YYTextView *descTextView;
@@ -45,6 +46,9 @@
     [self createContentView];
     [self createTitleView];
     [self createEditView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(KeyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(KeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)createContentView {
@@ -86,13 +90,13 @@
 
 - (void)createEditView {
     _editScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 49, MYAPPConfig.screenWidth, CGRectGetHeight(contentView.frame)-49)];
+    _editScrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
     if (@available(iOS 11.0, *)) {
         _editScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
         [self setAutomaticallyAdjustsScrollViewInsets:NO];
     }
-    _editScrollView.contentInset = UIEdgeInsetsMake(0, 0, 20, 0);
     _editScrollView.showsVerticalScrollIndicator = NO;
     [contentView addSubview:_editScrollView];
     
@@ -133,11 +137,16 @@
         make.height.mas_equalTo(44);
     }];
     [_addTargetBtn addTarget:self action:@selector(addTargetBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    _baseHeight = CGRectGetMaxY(_descTextView.frame) + 25 + 10 + 44;
     
     if (_editItem) {
         self.deleteItemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_deleteItemBtn setTitle:@"删除项目" forState:UIControlStateNormal];
-        _deleteItemBtn.backgroundColor = [UIColor redColor];
+        _deleteItemBtn.bounds = CGRectMake(0, 0, MYAPPConfig.screenWidth-30, 44);
+        [_deleteItemBtn flo_setCornerRadius:5];
+        _deleteItemBtn.backgroundColor = COLOR_HEX(0xffffff);
+        [_deleteItemBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [_deleteItemBtn addTarget:self action:@selector(deleteItemBtnAction:) forControlEvents:UIControlEventTouchUpInside];
         [_editScrollView addSubview:_deleteItemBtn];
         [_deleteItemBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_addTargetBtn.mas_bottom).offset(30);
@@ -145,25 +154,86 @@
             make.right.equalTo(_addTargetBtn);
             make.height.mas_equalTo(44);
         }];
+        
+        _baseHeight += 30 + 44;
     }
+    _baseHeight += 30;
+    
+    _editScrollView.contentSize = CGSizeMake(MYAPPConfig.screenWidth, _baseHeight);
 }
 
+//添加、删除目标时更新
 - (void)configTargetViewFrame {
     float height = _targetTextFields.count > 0 ? _targetTextFields.count * (35+8) - 8 : 0;
     [_targetView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(height);
     }];
+    
+    _editScrollView.contentSize = CGSizeMake(MYAPPConfig.screenWidth, _baseHeight + height);
+}
+
+//删除操作
+- (void)delete {
+    if (_deleteItem) {
+        _deleteItem(_editItem);
+    }
+    [WorkList deleteEntity:_editItem];
+    
+    dispatch_after(0.5, dispatch_get_main_queue(), ^{
+        [self closeButtonAction:nil];
+    });
 }
 
 #pragma mark - action
 - (void)closeButtonAction:(UIButton *)sender {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)saveButtonAction:(UIButton *)sender {
+    if (!Def_CheckStringClassAndLength(_titleTextField.text)) {
+        [_titleTextField becomeFirstResponder];
+        return;
+    }
     
+    NSMutableArray *targets = [NSMutableArray arrayWithCapacity:1];
+    for (UITextField *tf in _targetTextFields) {
+        if (Def_CheckStringClassAndLength(tf.text)) {
+            [targets addObject:tf.text];
+        }
+    }
     
-    [self closeButtonAction:nil];
+    if (targets.count == 0) {
+        Def_MBProgressString(@"请添加目标");
+        return;
+    }
+    
+    //保存，通知上一页显示
+    WorkList *item = [WorkList insertEntityTitle:_titleTextField.text desc:_descTextView.text items:targets];
+    if (_editCompletion) {
+        _editCompletion(item);
+    }
+    
+    //关闭页面
+    dispatch_after(0.5, dispatch_get_main_queue(), ^{
+        [self closeButtonAction:nil];
+    });
+}
+
+- (void)deleteItemBtnAction:(UIButton *)sender {
+    if (_editItem) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定删除项目？" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        FLOWeakObj(self);
+        [alert addAction:[UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+            [weakself delete];
+        }]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }]];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (void)addTargetBtnAction:(UIButton *)sneder {
@@ -177,9 +247,9 @@
     
     //删除按钮
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, 25, 20);
-    btn.imageEdgeInsets = UIEdgeInsetsMake(2.5, 0, 2.5, 10);
-    btn.backgroundColor = [UIColor redColor];
+    btn.frame = CGRectMake(0, 0, 30, 25);
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5);
+    [btn setImage:[UIImage imageNamed:@"delete_icon"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(targetDeleteButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     tf.rightView = btn;
     tf.rightViewMode = UITextFieldViewModeAlways;
@@ -211,6 +281,15 @@
     
     //更新父级view高度
     [self configTargetViewFrame];
+}
+
+#pragma mark - NSNotification
+- (void)KeyboardWillShow:(NSNotification *)noti {
+    CGRect keyboardEnd = [[noti.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    _editScrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardEnd.size.height, 0);
+}
+- (void)KeyboardWillHide:(NSNotification *)noti {
+    _editScrollView.contentInset = UIEdgeInsetsZero;
 }
 
 @end

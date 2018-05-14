@@ -20,4 +20,6 @@
  */
 - (NSArray <FLOWorkItemViewModel *>*)workItemViewModelsAtStatus:(NSInteger)status;
 
+- (FLOWorkItemViewModel *)viewModelWithItem:(WorkList *)item;
+
 @end

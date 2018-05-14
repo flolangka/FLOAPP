@@ -43,6 +43,7 @@
     int i = 0;
     while (i < items.count) {
         [muArrItemStatus addObject:@(NO)];
+        i++;
     }
     entity.itemsStatus = [muArrItemStatus flo_JSONData];
     
