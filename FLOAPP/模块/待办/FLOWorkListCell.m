@@ -83,42 +83,40 @@
     [_baseView addSubview:_descLabel];
     [_descLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_timeLabel.mas_bottom).offset(0);
-        make.left.equalTo(_baseView).offset(10);
-        make.right.equalTo(_baseView).offset(-10);
+        make.left.equalTo(_baseView).offset(15);
+        make.right.equalTo(_baseView).offset(-15);
         make.height.mas_equalTo(0);
     }];
     
     //目标区域
     _targetsContentView = [[UIView alloc] init];
+    _targetsContentView.backgroundColor = COLOR_HEX(0xffffff);
     [_baseView addSubview:_targetsContentView];
     [_targetsContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_descLabel.mas_bottom).offset(5);
-        make.left.equalTo(_baseView);
-        make.right.equalTo(_baseView);
-        make.bottom.equalTo(_baseView);
+        make.top.equalTo(_descLabel.mas_bottom).offset(15);
+        make.left.equalTo(_baseView).offset(15);
+        make.right.equalTo(_baseView).offset(-15);
+        make.bottom.equalTo(_baseView).offset(-20);
     }];
     
     //分割线
     [_baseView flo_addLineMarginTop:50 left:0 right:0];
-    [_targetsContentView flo_topLineLeft:0 right:0];
 }
 
 //显示内容
 - (void)bindViewModel:(FLOWorkItemViewModel *)viewModel {
     self.viewModel = viewModel;
     
-//    _baseView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.frame) - 2*_HSpace, CGRectGetHeight(self.frame) - 30);
     [_baseView flo_setCornerRadius:20];
-    _baseView.backgroundColor = [UIColor orangeColor];
     
     _titleLabel.text = _viewModel.title;
     _timeLabel.text = _viewModel.timeStr;
     _descLabel.text = _viewModel.desc;
     
     if (Def_CheckStringClassAndLength(_viewModel.desc)) {
-        float height = [viewModel.desc heightWithLimitWidth:MYAPPConfig.screenWidth - 15*2 - 10*2 fontSize:14];
+        float height = [_viewModel.desc heightWithLimitWidth:MYAPPConfig.screenWidth - 15*2 - 15*2 fontSize:14];
         [_descLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(_timeLabel.mas_bottom).offset(5);
+            make.top.equalTo(_timeLabel.mas_bottom).offset(15);
             make.height.mas_equalTo(height);
         }];
     } else {
@@ -128,6 +126,38 @@
         }];
     }
     
+    [_targetsContentView removeAllSubviews];
+    [_targetsContentView flo_setCornerRadius:10];
+    
+    //目标区域,上留白 15，下留白 20
+    float x = 44;
+    float y = 0;
+    float w = MYAPPConfig.screenWidth - 15*2 - 15*2 - x - 15;
+    
+    float fontSize = 15;
+    UIFont *font = [UIFont systemFontOfSize:fontSize];
+    
+    for (NSString *target in _viewModel.targets) {
+        float h = [target heightWithLimitWidth:w fontSize:fontSize] + 15;
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x, y, w, h)];
+        label.font = font;
+        //label.textColor = COLOR_HEX(0xffffff);
+        label.numberOfLines = 0;
+        label.text = target;
+        [_targetsContentView addSubview:label];
+        
+        if (y > 0) {
+            [label flo_topLineLeft:-30 right:0];
+        }
+        y += h;
+    }
+}
+
+//设置主背景色
+- (void)setMainColor:(UIColor *)mainColor {
+    _mainColor = mainColor;
+    
+    _baseView.backgroundColor = _mainColor;
 }
 
 //计算cell高度
@@ -136,11 +166,17 @@
     
     //描述
     if (Def_CheckStringClassAndLength(viewModel.desc)) {
-        height += 5 + [viewModel.desc heightWithLimitWidth:MYAPPConfig.screenWidth - 15*2 - 10*2 fontSize:14];
+        height += 15 + [viewModel.desc heightWithLimitWidth:MYAPPConfig.screenWidth - 15*2 - 15*2 fontSize:14];
     }
     
     //目标
-    height += 35 * viewModel.targets.count;
+    height += 15;
+    float x = 44;
+    float w = MYAPPConfig.screenWidth - 15*2 - 15*2 - x - 15;
+    for (NSString *target in viewModel.targets) {
+        height += [target heightWithLimitWidth:w fontSize:15] + 15;
+    }
+    height += 20;
     
     return height;
 }

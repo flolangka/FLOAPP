@@ -28,6 +28,8 @@
 
 @property (nonatomic, strong, readwrite) FLOWorkListViewModel *viewModel;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
+@property (nonatomic, copy  ) NSArray *mainColors;
+@property (nonatomic, strong) NSMutableArray *sortColor;
 
 @end
 
@@ -47,13 +49,14 @@
     [self createContentView];
     [self createTitleView];
     
+    self.mainColors = @[COLOR_HEX(0x222222), COLOR_HEX(0x444444), COLOR_HEX(0x660066), COLOR_HEX(0x888888), COLOR_HEX(0x0dad51), COLOR_HEX(0xefeff4), COLOR_HEX(0xcdcdcd)];
+    self.sortColor = [NSMutableArray arrayWithCapacity:1];
+    
     self.tableView.frame = CGRectMake(0, 49, MYAPPConfig.screenWidth, contentViewHeight-49);
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
     [contentView addSubview:self.tableView];
-    
-    [self changeSelectedSegmentIndex:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -130,6 +133,7 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             self.viewModel.dataArr = [NSMutableArray arrayWithArray:@[arr]];
+            [self.sortColor removeAllObjects];
             [self.tableView reloadData];
         });
     });
@@ -141,7 +145,6 @@
         _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Todo", @"Undo", @"Done"]];
         _segmentedControl.frame = CGRectMake((MYAPPConfig.screenWidth - 180)/2, 10, 180, 29);
         _segmentedControl.tintColor = COLOR_HEX(0xffffff);
-        _segmentedControl.selectedSegmentIndex = 0;
         
         //切换数据源，刷新页面
         @weakify(self);
@@ -149,6 +152,7 @@
             @strongify(self);
             [self changeSelectedSegmentIndex:index.integerValue];
         }];
+        _segmentedControl.selectedSegmentIndex = 0;
     }
     return _segmentedControl;
 }
@@ -227,6 +231,31 @@
 
 - (void)configCell:(FLOWorkListCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(FLOWorkItemViewModel *)object {
     [cell bindViewModel:object];
+    
+    //设置cell主颜色，且不能与上一个cell同一颜色
+    UIColor *mainColor = nil;
+    if (indexPath.row < _sortColor.count) {
+        mainColor = _sortColor[indexPath.row];
+    } else {
+        while (!mainColor) {
+            NSInteger index = arc4random_uniform(_mainColors.count);
+            UIColor *color = _mainColors[index];
+            
+            if (indexPath.row == 0) {
+                mainColor = color;
+            } else {
+                UIColor *pColor = self.sortColor.lastObject;
+                if (!CGColorEqualToColor(color.CGColor, pColor.CGColor)) {
+                    mainColor = color;
+                } else {
+                    DLog(@" -- 颜色重复，再选一次");
+                }
+            }
+        }
+    }
+    
+    cell.mainColor = mainColor;
+    self.sortColor[indexPath.row] = mainColor;
 }
 
 - (float)heightForRowAtIndexPath:(NSIndexPath *)indexPath withObject:(FLOWorkItemViewModel *)object {

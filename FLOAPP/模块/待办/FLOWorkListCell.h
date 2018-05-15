@@ -12,6 +12,7 @@
 @interface FLOWorkListCell : UITableViewCell
 
 @property (nonatomic, strong, readonly) FLOWorkItemViewModel *viewModel;
+@property (nonatomic, strong) UIColor *mainColor;
 
 //显示内容
 - (void)bindViewModel:(FLOWorkItemViewModel *)viewModel;
