@@ -17,7 +17,8 @@
 
 @dynamic title;
 @dynamic desc;
-@dynamic time;
+@dynamic startTime;
+@dynamic endTime;
 @dynamic status;
 @dynamic items;
 @dynamic itemsStatus;

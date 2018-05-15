@@ -17,7 +17,10 @@
     NSFetchRequest *request = [WorkList fetchRequest];
     
     //设置排序
-    NSSortDescriptor *time = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:status == 0];
+    NSSortDescriptor *time = [NSSortDescriptor sortDescriptorWithKey:@"startTime" ascending:status == 0];
+    if (status == 2) {
+        time = [NSSortDescriptor sortDescriptorWithKey:@"endTime" ascending:NO];
+    }
     request.sortDescriptors = @[time];
     
     //设置过滤条件
@@ -35,7 +38,8 @@
     
     entity.title = title;
     entity.desc = desc;
-    entity.time = [NSDate date];
+    entity.startTime = [NSDate date];
+    entity.endTime = nil;
     entity.status = 0;
     entity.items = [items flo_JSONData];
     

@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, copy) NSString *title;
 @property (nullable, nonatomic, copy) NSString *desc;
-@property (nullable, nonatomic, copy) NSDate *time;
+@property (nullable, nonatomic, copy) NSDate *startTime;
+@property (nullable, nonatomic, copy) NSDate *endTime;
 @property (nonatomic) int64_t status;
 @property (nullable, nonatomic, retain) NSData *items;
 @property (nullable, nonatomic, retain) NSData *itemsStatus;

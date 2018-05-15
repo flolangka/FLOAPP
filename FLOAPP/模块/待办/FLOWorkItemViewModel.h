@@ -12,8 +12,14 @@
 @interface FLOWorkItemViewModel : NSObject
 
 @property (nonatomic, strong, readonly) WorkList *item;
-
 @property (nonatomic, assign) float cellHeight;
+
+@property (nonatomic, copy  ) NSString *title;
+@property (nonatomic, copy  ) NSString *timeStr;
+@property (nonatomic, copy  ) NSString *desc;
+
+@property (nonatomic, copy  ) NSArray <NSString *>*targets;
+@property (nonatomic, copy  ) NSArray <NSNumber *>*targetsStatus;
 
 - (instancetype)initWithItem:(WorkList *)item;
 

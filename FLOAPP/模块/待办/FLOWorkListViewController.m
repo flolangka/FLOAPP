@@ -52,6 +52,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
     [contentView addSubview:self.tableView];
+    
+    [self changeSelectedSegmentIndex:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -107,7 +109,6 @@
 
 - (void)createTitleView {
     [contentView addSubview:self.segmentedControl];
-    _segmentedControl.selectedSegmentIndex = 0;
     
     //新建按钮
     UIButton *addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -122,26 +123,31 @@
     [contentView flo_addLineMarginTop:48.5 left:0 right:0];
 }
 
+//切换数据源
+- (void)changeSelectedSegmentIndex:(NSInteger)index {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSArray *arr = [self.viewModel workItemViewModelsAtStatus:index];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.viewModel.dataArr = [NSMutableArray arrayWithArray:@[arr]];
+            [self.tableView reloadData];
+        });
+    });
+}
+
 #pragma mark - get/set
 - (UISegmentedControl *)segmentedControl {
     if (_segmentedControl == nil) {
         _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Todo", @"Undo", @"Done"]];
         _segmentedControl.frame = CGRectMake((MYAPPConfig.screenWidth - 180)/2, 10, 180, 29);
         _segmentedControl.tintColor = COLOR_HEX(0xffffff);
+        _segmentedControl.selectedSegmentIndex = 0;
         
         //切换数据源，刷新页面
         @weakify(self);
         [RACObserve(_segmentedControl, selectedSegmentIndex) subscribeNext:^(NSNumber *index) {
             @strongify(self);
-            
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                NSArray *arr = [self.viewModel workItemViewModelsAtStatus:index.integerValue];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.viewModel.dataArr = [NSMutableArray arrayWithArray:@[arr]];
-                    [self.tableView reloadData];
-                });
-            });
+            [self changeSelectedSegmentIndex:index.integerValue];
         }];
     }
     return _segmentedControl;
