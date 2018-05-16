@@ -66,6 +66,18 @@
     [[APLCoreDataStackManager sharedManager].managedObjectContext save:nil];
 }
 
+- (void)updateWorkStatus:(NSInteger)status {
+    if (status >= 0 && status <= 2) {
+        self.status = status;
+        
+        if (status != 0) {
+            self.endTime = [NSDate date];
+        }
+        
+        [self saveModify];
+    }
+}
+
 - (void)updateItemStatus:(BOOL)status atIndex:(NSInteger)index {
     NSMutableArray *muArrItemStatus = [NSMutableArray arrayWithArray:[self.itemsStatus flo_objectFromJSONData]];
     if (index < muArrItemStatus.count) {

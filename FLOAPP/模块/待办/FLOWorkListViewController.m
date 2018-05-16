@@ -48,6 +48,7 @@
     [self createTitleView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellRefreshNotification:) name:KeyFLOWorkListCellRefreshNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellFinishNotification:) name:KeyFLOWorkListCellFinishNotificationName object:nil];
     
     self.tableView.frame = CGRectMake(0, 49, MYAPPConfig.screenWidth, contentViewHeight-49);
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -143,7 +144,22 @@
         if (itemViewMode) {
             NSIndexPath *indexPath = [self.viewModel indexPathForItemViewModel:itemViewMode];
             if (indexPath) {
-                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            }
+        }
+    }
+}
+
+- (void)cellFinishNotification:(NSNotification *)noti {
+    if (noti && noti.userInfo) {
+        FLOWorkItemViewModel *itemViewMode = [noti.userInfo objectForKey:@"itemViewModel"];
+        
+        if (itemViewMode) {
+            [itemViewMode.item updateWorkStatus:2];
+            
+            NSIndexPath *indexPath = [self.viewModel indexPathForRemoveItemViewModel:itemViewMode];
+            if (indexPath) {
+                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             }
         }
     }
@@ -193,6 +209,7 @@
 
 #pragma mark - action
 - (void)close {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self dismissViewControllerAnimated:NO completion:^{
         
     }];

@@ -10,6 +10,7 @@
 @class FLOWorkItemViewModel;
 
 extern NSString * const KeyFLOWorkListCellRefreshNotificationName;
+extern NSString * const KeyFLOWorkListCellFinishNotificationName;
 
 @interface FLOWorkListCell : UITableViewCell
 

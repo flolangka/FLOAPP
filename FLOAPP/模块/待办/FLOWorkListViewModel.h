@@ -22,7 +22,6 @@
  @return 数据源
  */
 - (NSArray <FLOWorkItemViewModel *>*)workItemViewModelsAtStatus:(NSInteger)status;
-- (FLOWorkItemViewModel *)itemViewModelWithItem:(WorkList *)item;
 
 /**
  更新dataArr
@@ -40,12 +39,20 @@
 - (void)addWorkList:(WorkList *)work completion:(void(^)(NSIndexPath *indexPath))completion;
 
 /**
- 根据itemViewModel获取位置
+ 获取数据位置
 
  @param vm 数据
  @return 位置
  */
 - (NSIndexPath *)indexPathForItemViewModel:(FLOWorkItemViewModel *)vm;
+
+/**
+ 删除数据并返回位置
+ 
+ @param vm 数据
+ @return 位置
+ */
+- (NSIndexPath *)indexPathForRemoveItemViewModel:(FLOWorkItemViewModel *)vm;
 
 //配置渐变色，不能与上一个cell同一种配色
 - (NSArray *)gradientColorsAtIndexPath:(NSIndexPath *)indexPath;

@@ -20,6 +20,7 @@
 #import "NSDate+FLOUtil.h"
 #import "APPConfig.h"
 #import "FLOAPPConfig.h"
+#import <MaterialActivityIndicator.h>
 
 #define MYAPPConfig [FLOAPPConfig shareInstance]
 
@@ -28,6 +29,8 @@
 
 #define Def_MBProgressShow [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
 #define Def_MBProgressHide [MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
+
+
 
 //数值转字符串
 #define Def_NSStringFromInteger(Integer) [NSString stringWithFormat:@"%ld", (long)Integer]

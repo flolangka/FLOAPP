@@ -43,22 +43,12 @@
     
     NSMutableArray <FLOWorkItemViewModel *>*muarr = [NSMutableArray arrayWithCapacity:worlList.count];
     for (WorkList *item in worlList) {
-        FLOWorkItemViewModel *vm = [self itemViewModelWithItem:item];
+        FLOWorkItemViewModel *vm = [[FLOWorkItemViewModel alloc] initWithItem:item];
         if (vm) {
             [muarr addObject:vm];
         }
     }
     return muarr;
-}
-
-- (FLOWorkItemViewModel *)itemViewModelWithItem:(WorkList *)item {
-    FLOWorkItemViewModel *vm = [[FLOWorkItemViewModel alloc] initWithItem:item];
-    
-    if (vm) {
-        vm.cellHeight = [FLOWorkListCell heightWithViewModel:vm];
-        return vm;
-    }
-    return nil;
 }
 
 /**
@@ -79,7 +69,7 @@
  @param completion 数据源更新回调
  */
 - (void)addWorkList:(WorkList *)work completion:(void(^)(NSIndexPath *indexPath))completion {
-    FLOWorkItemViewModel *vm = [self itemViewModelWithItem:work];
+    FLOWorkItemViewModel *vm = [[FLOWorkItemViewModel alloc] initWithItem:work];
     if (vm) {
         NSMutableArray *muarr = [NSMutableArray arrayWithArray:self.dataArr.firstObject];
         [muarr addObject:vm];
@@ -99,7 +89,7 @@
 }
 
 /**
- 根据itemViewModel获取位置
+ 获取数据位置
  
  @param vm 数据
  @return 位置
@@ -111,6 +101,29 @@
     if (index >= 0) {
         indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     }
+    return indexPath;
+}
+
+/**
+ 删除数据并返回位置
+ 
+ @param vm 数据
+ @return 位置
+ */
+- (NSIndexPath *)indexPathForRemoveItemViewModel:(FLOWorkItemViewModel *)vm {
+    NSIndexPath *indexPath = [self indexPathForItemViewModel:vm];
+    
+    //从数据源移除
+    if (indexPath) {
+        NSMutableArray *muarr = [NSMutableArray arrayWithArray:self.dataArr.firstObject];
+        [muarr removeObject:vm];
+        
+        [self.dataArr removeAllObjects];
+        [self.dataArr addObject:muarr];
+        
+        [self.configedGradientColors removeObjectAtIndex:indexPath.row];
+    }
+    
     return indexPath;
 }
 

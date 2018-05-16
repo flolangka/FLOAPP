@@ -26,7 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)deleteEntity:(WorkList *)entity;
 
 //改
-- (void)saveModify;
+//- (void)saveModify;
+- (void)updateWorkStatus:(NSInteger)status;
 - (void)updateItemStatus:(BOOL)status atIndex:(NSInteger)index;
 
 @end
