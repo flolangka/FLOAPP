@@ -28,8 +28,6 @@
 
 @property (nonatomic, strong, readwrite) FLOWorkListViewModel *viewModel;
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
-@property (nonatomic, copy  ) NSArray *mainColors;
-@property (nonatomic, strong) NSMutableArray *sortColor;
 
 @end
 
@@ -49,13 +47,12 @@
     [self createContentView];
     [self createTitleView];
     
-    self.mainColors = @[COLOR_HEX(0x222222), COLOR_HEX(0x444444), COLOR_HEX(0x660066), COLOR_HEX(0x888888), COLOR_HEX(0x0dad51), COLOR_HEX(0xefeff4), COLOR_HEX(0xcdcdcd)];
-    self.sortColor = [NSMutableArray arrayWithCapacity:1];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellRefreshNotification:) name:KeyFLOWorkListCellRefreshNotificationName object:nil];
     
     self.tableView.frame = CGRectMake(0, 49, MYAPPConfig.screenWidth, contentViewHeight-49);
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 30, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 25, 0);
     [contentView addSubview:self.tableView];
 }
 
@@ -132,11 +129,24 @@
         NSArray *arr = [self.viewModel workItemViewModelsAtStatus:index];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.viewModel.dataArr = [NSMutableArray arrayWithArray:@[arr]];
-            [self.sortColor removeAllObjects];
+            [self.viewModel updateDataArr:arr];
             [self.tableView reloadData];
         });
     });
+}
+
+#pragma mark - NSNotification
+- (void)cellRefreshNotification:(NSNotification *)noti {
+    if (noti && noti.userInfo) {
+        FLOWorkItemViewModel *itemViewMode = [noti.userInfo objectForKey:@"itemViewModel"];
+        
+        if (itemViewMode) {
+            NSIndexPath *indexPath = [self.viewModel indexPathForItemViewModel:itemViewMode];
+            if (indexPath) {
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }
+        }
+    }
 }
 
 #pragma mark - get/set
@@ -205,16 +215,13 @@
 
 - (void)showNewWorkItem:(WorkList *)item {
     if (_segmentedControl.selectedSegmentIndex == 0) {
-        //转换为ViewModel
-        FLOWorkItemViewModel *vm = [self.viewModel viewModelWithItem:item];
-        if (vm) {
-            NSMutableArray *muarr = [NSMutableArray arrayWithArray:self.viewModel.dataArr.firstObject];
-            [muarr addObject:vm];
-            
-            //显示数据
-            self.viewModel.dataArr = [NSMutableArray arrayWithArray:@[muarr]];
-            [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:muarr.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
-        }
+        
+        FLOWeakObj(self);
+        [self.viewModel addWorkList:item completion:^(NSIndexPath *indexPath) {
+            if (indexPath) {
+                [weakself.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }
+        }];
     }
 }
 
@@ -233,29 +240,8 @@
     [cell bindViewModel:object];
     
     //设置cell主颜色，且不能与上一个cell同一颜色
-    UIColor *mainColor = nil;
-    if (indexPath.row < _sortColor.count) {
-        mainColor = _sortColor[indexPath.row];
-    } else {
-        while (!mainColor) {
-            NSInteger index = arc4random_uniform(_mainColors.count);
-            UIColor *color = _mainColors[index];
-            
-            if (indexPath.row == 0) {
-                mainColor = color;
-            } else {
-                UIColor *pColor = self.sortColor.lastObject;
-                if (!CGColorEqualToColor(color.CGColor, pColor.CGColor)) {
-                    mainColor = color;
-                } else {
-                    DLog(@" -- 颜色重复，再选一次");
-                }
-            }
-        }
-    }
-    
-    cell.mainColor = mainColor;
-    self.sortColor[indexPath.row] = mainColor;
+    NSArray *gradientColors = [self.viewModel gradientColorsAtIndexPath:indexPath];
+    [cell gradientStartColor:gradientColors.firstObject endColor:gradientColors.lastObject];
 }
 
 - (float)heightForRowAtIndexPath:(NSIndexPath *)indexPath withObject:(FLOWorkItemViewModel *)object {

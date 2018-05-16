@@ -44,6 +44,16 @@
     
     _targets = [_item.items flo_objectFromJSONData];
     _targetsStatus = [_item.itemsStatus flo_objectFromJSONData];
+    
+    BOOL b = YES;
+    for (NSNumber *number in _targetsStatus) {
+        if (b) {
+            b = number.boolValue;
+        } else {
+            break;
+        }
+    }
+    _finished = b;
 }
 
 @end

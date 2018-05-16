@@ -9,13 +9,16 @@
 #import <UIKit/UIKit.h>
 @class FLOWorkItemViewModel;
 
+extern NSString * const KeyFLOWorkListCellRefreshNotificationName;
+
 @interface FLOWorkListCell : UITableViewCell
 
 @property (nonatomic, strong, readonly) FLOWorkItemViewModel *viewModel;
-@property (nonatomic, strong) UIColor *mainColor;
 
 //显示内容
 - (void)bindViewModel:(FLOWorkItemViewModel *)viewModel;
+//渐变颜色
+- (void)gradientStartColor:(UIColor *)startColor endColor:(UIColor *)endColor;
 
 //计算cell高度
 + (float)heightWithViewModel:(FLOWorkItemViewModel *)viewModel;

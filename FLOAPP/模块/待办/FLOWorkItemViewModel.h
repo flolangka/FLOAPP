@@ -21,6 +21,8 @@
 @property (nonatomic, copy  ) NSArray <NSString *>*targets;
 @property (nonatomic, copy  ) NSArray <NSNumber *>*targetsStatus;
 
+@property (nonatomic, assign) BOOL finished;
+
 - (instancetype)initWithItem:(WorkList *)item;
 
 /**

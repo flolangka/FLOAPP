@@ -2695,6 +2695,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				WARNING_CFLAGS = "-Wno-shorten-64-to-32";
 			};
 			name = Debug;
 		};
@@ -2794,6 +2795,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				WARNING_CFLAGS = "-Wno-shorten-64-to-32";
 			};
 			name = Release;
 		};
