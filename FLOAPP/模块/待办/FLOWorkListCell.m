@@ -12,10 +12,6 @@
 #import "UIView+FLOUtil.h"
 #import "NSString+FLOUtil.h"
 
-NSString * const KeyFLOWorkListCellRefreshNotificationName = @"KeyFLOWorkListCellRefreshNotificationName";
-NSString * const KeyFLOWorkListCellFinishNotificationName = @"KeyFLOWorkListCellFinishNotificationName";
-
-
 @interface FLOWorkListCell ()
 
 @property (nonatomic, strong, readwrite) FLOWorkItemViewModel *viewModel;
@@ -26,6 +22,9 @@ NSString * const KeyFLOWorkListCellFinishNotificationName = @"KeyFLOWorkListCell
 @property (nonatomic, strong) UILabel *descLabel;
 @property (nonatomic, strong) UIView *targetsContentView;
 @property (nonatomic, strong) UIButton *finishBtn;
+
+@property (nonatomic, strong) UIButton *leftButton;
+@property (nonatomic, strong) UIButton *rightButton;
 
 @end
 
@@ -83,6 +82,23 @@ NSString * const KeyFLOWorkListCellFinishNotificationName = @"KeyFLOWorkListCell
     _finishBtn.layer.borderWidth = 1;
     _finishBtn.layer.borderColor = COLOR_HEX(0xffffff).CGColor;
     
+    //修改按钮
+    _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _leftButton.frame = CGRectMake(8, 7.5, 35, 35);
+    [_leftButton setTintColor:COLOR_HEX(0xffffff)];
+    [_leftButton setImage:[[UIImage imageNamed:@"icon_write"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [_leftButton addTarget:self action:@selector(leftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_baseView addSubview:_leftButton];
+    
+    //redo/undo按钮
+    _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _rightButton.frame = CGRectMake(CGRectGetWidth(_baseView.frame) - 35 - 8, 7.5, 35, 35);
+    [_rightButton setTitleColor:COLOR_HEX(0xffffff) forState:UIControlStateNormal];
+    [_rightButton setTitle:@"undo" forState:UIControlStateNormal];
+    _rightButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [_rightButton addTarget:self action:@selector(rightButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_baseView addSubview:_rightButton];
+    
     //分割线
     [_baseView flo_addLineMarginTop:50 left:0 right:0];
 }
@@ -126,6 +142,7 @@ NSString * const KeyFLOWorkListCellFinishNotificationName = @"KeyFLOWorkListCell
         //选中按钮
         UIButton *doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         doneBtn.frame = CGRectMake(8, y+(h-28)/2., 28, 28);
+        doneBtn.adjustsImageWhenHighlighted = NO;
         [doneBtn setImage:[UIImage imageNamed:@"icon_multiselect_normal"] forState:UIControlStateNormal];
         [doneBtn setImage:[UIImage imageNamed:@"icon_multiselect_selected"] forState:UIControlStateSelected];
         [doneBtn addTarget:self action:@selector(doneButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -206,26 +223,29 @@ NSString * const KeyFLOWorkListCellFinishNotificationName = @"KeyFLOWorkListCell
 - (void)doneButtonAction:(UIButton *)sender {
     if (_viewModel.item.status != 0) {
         return;
-    }
-    
-    BOOL finished = _viewModel.showFinishBtn;
+    }    
     sender.selected = !sender.selected;    
     
-    //修改存库
-    [_viewModel.item updateItemStatus:sender.selected atIndex:sender.tag-2000];
-    
-    //更新viewmodel
-    [_viewModel update];
-    
-    //完成状态有改变,通知刷新cell
-    if (finished != _viewModel.showFinishBtn) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:KeyFLOWorkListCellRefreshNotificationName object:nil userInfo:@{@"itemViewModel": _viewModel}];
+    if (_delegate && [_delegate respondsToSelector:@selector(workListCell:targetSelected:atIndex:)]) {
+        [_delegate workListCell:self targetSelected:sender.selected atIndex:sender.tag - 2000];
     }
 }
 
 - (void)finishButtonAction:(UIButton *)sender {
-    if (_viewModel.showFinishBtn) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:KeyFLOWorkListCellFinishNotificationName object:nil userInfo:@{@"itemViewModel": _viewModel}];
+    if (_delegate && [_delegate respondsToSelector:@selector(workListCellClickFinishButton:)]) {
+        [_delegate workListCellClickFinishButton:self];
+    }
+}
+
+- (void)leftButtonAction:(UIButton *)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(workListCellClickTitleLeftButton:)]) {
+        [_delegate workListCellClickTitleLeftButton:self];
+    }
+}
+
+- (void)rightButtonAction:(UIButton *)sender {
+    if (_delegate && [_delegate respondsToSelector:@selector(workListCellClickTitleRightButton:)]) {
+        [_delegate workListCellClickTitleRightButton:self];
     }
 }
 

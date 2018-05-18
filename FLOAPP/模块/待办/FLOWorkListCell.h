@@ -8,13 +8,22 @@
 
 #import <UIKit/UIKit.h>
 @class FLOWorkItemViewModel;
+@class FLOWorkListCell;
 
-extern NSString * const KeyFLOWorkListCellRefreshNotificationName;
-extern NSString * const KeyFLOWorkListCellFinishNotificationName;
+@protocol FLOWorkListCellDelegate<NSObject>
+
+- (void)workListCell:(FLOWorkListCell *)cell targetSelected:(BOOL)selected atIndex:(NSInteger)index;
+- (void)workListCellClickFinishButton:(FLOWorkListCell *)cell;
+- (void)workListCellClickTitleLeftButton:(FLOWorkListCell *)cell;
+- (void)workListCellClickTitleRightButton:(FLOWorkListCell *)cell;
+
+@end
 
 @interface FLOWorkListCell : UITableViewCell
 
 @property (nonatomic, strong, readonly) FLOWorkItemViewModel *viewModel;
+
+@property (nonatomic, weak  ) id <FLOWorkListCellDelegate> delegate;
 
 //显示内容
 - (void)bindViewModel:(FLOWorkItemViewModel *)viewModel;

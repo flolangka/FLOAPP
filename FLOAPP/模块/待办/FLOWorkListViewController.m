@@ -15,7 +15,7 @@
 
 #import <UIView+YYAdd.h>
 
-@interface FLOWorkListViewController ()
+@interface FLOWorkListViewController () <FLOWorkListCellDelegate>
 
 {
     UIImageView *backgroundImageView;
@@ -46,9 +46,6 @@
     [self createBackgroundScrollView];
     [self createContentView];
     [self createTitleView];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellRefreshNotification:) name:KeyFLOWorkListCellRefreshNotificationName object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellFinishNotification:) name:KeyFLOWorkListCellFinishNotificationName object:nil];
     
     self.tableView.frame = CGRectMake(0, 49, MYAPPConfig.screenWidth, contentViewHeight-49);
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -136,35 +133,6 @@
     });
 }
 
-#pragma mark - NSNotification
-- (void)cellRefreshNotification:(NSNotification *)noti {
-    if (noti && noti.userInfo) {
-        FLOWorkItemViewModel *itemViewMode = [noti.userInfo objectForKey:@"itemViewModel"];
-        
-        if (itemViewMode) {
-            NSIndexPath *indexPath = [self.viewModel indexPathForItemViewModel:itemViewMode];
-            if (indexPath) {
-                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            }
-        }
-    }
-}
-
-- (void)cellFinishNotification:(NSNotification *)noti {
-    if (noti && noti.userInfo) {
-        FLOWorkItemViewModel *itemViewMode = [noti.userInfo objectForKey:@"itemViewModel"];
-        
-        if (itemViewMode) {
-            [itemViewMode.item updateWorkStatus:2];
-            
-            NSIndexPath *indexPath = [self.viewModel indexPathForRemoveItemViewModel:itemViewMode];
-            if (indexPath) {
-                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            }
-        }
-    }
-}
-
 #pragma mark - get/set
 - (UISegmentedControl *)segmentedControl {
     if (_segmentedControl == nil) {
@@ -216,16 +184,31 @@
 }
 
 - (void)addButtonAction:(UIButton *)sender {
+    [self gotoEditViewControllerWithEditItemViewModel:nil];
+}
+
+- (void)gotoEditViewControllerWithEditItemViewModel:(FLOWorkItemViewModel *)itemVM {
     FLOWorkItemEditViewController *editVC = [[FLOWorkItemEditViewController alloc] init];
+    
     FLOWeakObj(self);
-    editVC.editCompletion = ^(WorkList *item) {
-        if (item) {
-            [weakself showNewWorkItem:item];
-        }
-    };
+    if (itemVM) {
+        editVC.editItem = itemVM.item;
+        editVC.editCompletion = ^(WorkList *item) {
+            
+        };
+        editVC.deleteItem = ^(WorkList *item) {
+            
+        };
+    } else {
+        editVC.editCompletion = ^(WorkList *item) {
+            if (item) {
+                [weakself showNewWorkItem:item];
+            }
+        };
+    }    
     
     //下一页面没有导航栏，但需要支持右滑返回
-    self.navigationController.interactivePopGestureRecognizer.enabled = YES;    
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
     [self.navigationController pushViewController:editVC animated:YES];
 }
@@ -249,6 +232,7 @@
     FLOWorkListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (!cell) {
         cell = [[FLOWorkListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
+        cell.delegate = self;
     }
     return cell;
 }
@@ -263,6 +247,50 @@
 
 - (float)heightForRowAtIndexPath:(NSIndexPath *)indexPath withObject:(FLOWorkItemViewModel *)object {
     return object.cellHeight;
+}
+
+#pragma mark - FLOWorkListCellDelegate
+- (void)workListCell:(FLOWorkListCell *)cell targetSelected:(BOOL)selected atIndex:(NSInteger)index {
+    if (cell.viewModel.item.status != 0) {
+        return;
+    }
+    
+    BOOL finished = cell.viewModel.showFinishBtn;
+    
+    //修改存库
+    [cell.viewModel.item updateItemStatus:selected atIndex:index];
+    
+    //更新viewmodel
+    [cell.viewModel update];
+    
+    //完成状态有改变,刷新cell
+    if (finished != cell.viewModel.showFinishBtn) {
+        NSIndexPath *indexPath = [self.viewModel indexPathForItemViewModel:cell.viewModel];
+        if (indexPath) {
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
+}
+
+- (void)workListCellClickFinishButton:(FLOWorkListCell *)cell {
+    if (cell.viewModel.showFinishBtn) {
+        [cell.viewModel.item updateWorkStatus:2];
+        
+        NSIndexPath *indexPath = [self.viewModel indexPathForRemoveItemViewModel:cell.viewModel];
+        if (indexPath) {
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
+}
+
+- (void)workListCellClickTitleLeftButton:(FLOWorkListCell *)cell {
+    if (cell.viewModel.item.status == 0) {
+        [self gotoEditViewControllerWithEditItemViewModel:cell.viewModel];
+    }
+}
+
+- (void)workListCellClickTitleRightButton:(FLOWorkListCell *)cell {
+    
 }
 
 @end

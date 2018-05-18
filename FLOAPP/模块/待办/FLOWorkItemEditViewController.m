@@ -209,10 +209,14 @@
         return;
     }
     
-    //保存，通知上一页显示
-    WorkList *item = [WorkList insertEntityTitle:_titleTextField.text desc:_descTextView.text items:targets];
-    if (_editCompletion) {
-        _editCompletion(item);
+    if (_editItem) {
+        <#statements#>
+    } else {
+        //保存，通知上一页显示
+        WorkList *item = [WorkList insertEntityTitle:_titleTextField.text desc:_descTextView.text items:targets];
+        if (_editCompletion) {
+            _editCompletion(item);
+        }
     }
     
     //关闭页面
