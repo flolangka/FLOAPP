@@ -62,7 +62,7 @@
 + (void)DropFilePath:(NSString *)Path;
 
 /**
- 创建文件夹
+ 在Caches下创建文件夹
 
  @param path 文件夹路径
  */

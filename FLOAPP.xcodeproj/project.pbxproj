@@ -15,6 +15,7 @@
 		122C5BA720A1E0E30014A0E9 /* FLOMusicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 122C5BA620A1E0E30014A0E9 /* FLOMusicViewModel.m */; };
 		1252F4491E1D447A00A8C244 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1252F4481E1D447A00A8C244 /* AVKit.framework */; };
 		1290B35E1CFB3F8400D967EE /* CollectionPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1290B35D1CFB3F8400D967EE /* CollectionPList.plist */; };
+		12B7E93620B1BDFB00CF7E88 /* FLOMusicPlayControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B7E93520B1BDFB00CF7E88 /* FLOMusicPlayControlView.m */; };
 		12F956281E06C32E008699B2 /* ActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F956271E06C32E008699B2 /* ActionViewController.m */; };
 		12F9562B1E06C32E008699B2 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12F956291E06C32E008699B2 /* MainInterface.storyboard */; };
 		12F9562F1E06C32E008699B2 /* FLOAction.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 12F956241E06C32E008699B2 /* FLOAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -376,6 +377,9 @@
 		122C5BA620A1E0E30014A0E9 /* FLOMusicViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOMusicViewModel.m; sourceTree = "<group>"; };
 		1252F4481E1D447A00A8C244 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		1290B35D1CFB3F8400D967EE /* CollectionPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CollectionPList.plist; sourceTree = "<group>"; };
+		12B7E92D20B1BBC200CF7E88 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		12B7E93420B1BDFB00CF7E88 /* FLOMusicPlayControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOMusicPlayControlView.h; sourceTree = "<group>"; };
+		12B7E93520B1BDFB00CF7E88 /* FLOMusicPlayControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOMusicPlayControlView.m; sourceTree = "<group>"; };
 		12F956241E06C32E008699B2 /* FLOAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FLOAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		12F956261E06C32E008699B2 /* ActionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionViewController.h; sourceTree = "<group>"; };
 		12F956271E06C32E008699B2 /* ActionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionViewController.m; sourceTree = "<group>"; };
@@ -1484,6 +1488,8 @@
 				122C5BA620A1E0E30014A0E9 /* FLOMusicViewModel.m */,
 				122C5BA220A1E0C70014A0E9 /* FLOMusicViewController.h */,
 				122C5BA320A1E0C70014A0E9 /* FLOMusicViewController.m */,
+				12B7E93420B1BDFB00CF7E88 /* FLOMusicPlayControlView.h */,
+				12B7E93520B1BDFB00CF7E88 /* FLOMusicPlayControlView.m */,
 			);
 			path = "音乐";
 			sourceTree = "<group>";
@@ -1657,6 +1663,7 @@
 		84291A001C05867A0015F5F1 = {
 			isa = PBXGroup;
 			children = (
+				12B7E92D20B1BBC200CF7E88 /* README.md */,
 				84291A0B1C05867A0015F5F1 /* FLOAPP */,
 				12F956251E06C32E008699B2 /* FLOAction */,
 				73F3A18D1E4C63F400314D70 /* FLONotiContentExtension */,
@@ -2182,6 +2189,7 @@
 				73CAAD49201F087B001B1AE2 /* FLOFontSizeViewController.m in Sources */,
 				73CAADC7201F087B001B1AE2 /* Sort.swift in Sources */,
 				73A15381202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m in Sources */,
+				12B7E93620B1BDFB00CF7E88 /* FLOMusicPlayControlView.m in Sources */,
 				73CAADBE201F087B001B1AE2 /* FLOWeiboUserModel.m in Sources */,
 				73CAAD44201F087B001B1AE2 /* NSString+FLOUtil.m in Sources */,
 				73CAAD46201F087B001B1AE2 /* UILabel+FLOUtil.m in Sources */,
