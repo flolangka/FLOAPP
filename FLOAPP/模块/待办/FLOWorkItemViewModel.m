@@ -34,8 +34,10 @@
 }
 
 - (void)configAttribute {
+    //标题
     _title = _item.title;
     
+    //时间
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy.MM.dd"];
     
@@ -45,11 +47,21 @@
     }
     _timeStr = timeStr;
     
+    //编辑按钮
+    _editBtnHide = _item.status != 0;
+    
+    //undo、redo
+    _titleRightBtnTitle = _item.status == 0 ? @"undo" : @"redo";
+    
+    //描述
     _desc = _item.desc;
     
+    //目标
     _targets = [_item.items flo_objectFromJSONData];
     _targetsStatus = [_item.itemsStatus flo_objectFromJSONData];
+    _targetBtnEnable = _item.status == 0;
     
+    //在todo时才显示完成按钮
     if (_item.status == 0) {
         BOOL b = YES;
         for (NSNumber *number in _targetsStatus) {
@@ -62,7 +74,7 @@
         _showFinishBtn = b;
     } else {
         _showFinishBtn = NO;
-    }    
+    }
     
     _cellHeight = [FLOWorkListCell heightWithViewModel:self];
 }

@@ -21,19 +21,8 @@ PODS:
     - FMDB/standard (= 2.7.2)
   - FMDB/standard (2.7.2)
   - Masonry (1.1.0)
-  - MaterialComponents/ActivityIndicator (51.0.0):
-    - MaterialComponents/Palettes
-    - MaterialComponents/private/Application
-    - MDFInternationalization
-    - MotionAnimator (~> 2.0)
-  - MaterialComponents/Palettes (51.0.0)
-  - MaterialComponents/private/Application (51.0.0)
   - MBProgressHUD (0.9.2)
-  - MDFInternationalization (1.0.4)
   - MJRefresh (3.1.15.3)
-  - MotionAnimator (2.8.1):
-    - MotionInterchange (~> 1.6)
-  - MotionInterchange (1.6.0)
   - MQTTClient (0.13.0):
     - MQTTClient/Core (= 0.13.0)
   - MQTTClient/Core (0.13.0):
@@ -61,7 +50,6 @@ DEPENDENCIES:
   - FLEX (~> 2.0)
   - FMDB
   - Masonry
-  - MaterialComponents/ActivityIndicator
   - MBProgressHUD
   - MJRefresh
   - MQTTClient
@@ -79,12 +67,8 @@ SPEC REPOS:
     - FLEX
     - FMDB
     - Masonry
-    - MaterialComponents
     - MBProgressHUD
-    - MDFInternationalization
     - MJRefresh
-    - MotionAnimator
-    - MotionInterchange
     - MQTTClient
     - MWPhotoBrowser
     - RESideMenu
@@ -99,12 +83,8 @@ SPEC CHECKSUMS:
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MaterialComponents: 2ae3d8119bd27091df231cbf69376636b008cbd1
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MDFInternationalization: e355b0cebecf53d60233bd267084e49366c82513
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
-  MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
-  MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   MQTTClient: aced164e080fb139daa98fc745d01da279e55945
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
@@ -112,6 +92,6 @@ SPEC CHECKSUMS:
   WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: b15ad6f446f55666bae78180500e06a6c6508fab
+PODFILE CHECKSUM: 882b419dc8a604bdacc18fedf358613fc0f32dbd
 
 COCOAPODS: 1.5.2

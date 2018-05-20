@@ -18,8 +18,12 @@
 @property (nonatomic, copy  ) NSString *timeStr;
 @property (nonatomic, copy  ) NSString *desc;
 
+@property (nonatomic, assign) BOOL editBtnHide;
+@property (nonatomic, copy  ) NSString *titleRightBtnTitle;
+
 @property (nonatomic, copy  ) NSArray <NSString *>*targets;
 @property (nonatomic, copy  ) NSArray <NSNumber *>*targetsStatus;
+@property (nonatomic, assign) BOOL targetBtnEnable;
 
 @property (nonatomic, assign) BOOL showFinishBtn;
 

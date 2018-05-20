@@ -192,12 +192,14 @@
     
     FLOWeakObj(self);
     if (itemVM) {
+        FLOWeakObj(itemVM);
+        
         editVC.editItem = itemVM.item;
         editVC.editCompletion = ^(WorkList *item) {
-            
+            [weakself refreshWorkItemViewModel:weakitemVM];
         };
         editVC.deleteItem = ^(WorkList *item) {
-            
+            [weakself removeWorkItemCellWithViewModel:weakitemVM];
         };
     } else {
         editVC.editCompletion = ^(WorkList *item) {
@@ -213,6 +215,29 @@
     [self.navigationController pushViewController:editVC animated:YES];
 }
 
+//修改后刷新cell
+- (void)refreshWorkItemViewModel:(FLOWorkItemViewModel *)itemVM {
+    if (itemVM) {
+        [itemVM update];
+        
+        NSIndexPath *indexPath = [self.viewModel indexPathForItemViewModel:itemVM];
+        if (indexPath) {
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
+}
+
+//移除cell
+- (void)removeWorkItemCellWithViewModel:(FLOWorkItemViewModel *)itemVM {
+    if (itemVM) {
+        NSIndexPath *indexPath = [self.viewModel indexPathForRemoveItemViewModel:itemVM];
+        if (indexPath) {
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }
+}
+
+//添加
 - (void)showNewWorkItem:(WorkList *)item {
     if (_segmentedControl.selectedSegmentIndex == 0) {
         
@@ -276,21 +301,27 @@
     if (cell.viewModel.showFinishBtn) {
         [cell.viewModel.item updateWorkStatus:2];
         
-        NSIndexPath *indexPath = [self.viewModel indexPathForRemoveItemViewModel:cell.viewModel];
-        if (indexPath) {
-            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        }
+        [self removeWorkItemCellWithViewModel:cell.viewModel];
     }
 }
 
 - (void)workListCellClickTitleLeftButton:(FLOWorkListCell *)cell {
     if (cell.viewModel.item.status == 0) {
+        //修改
         [self gotoEditViewControllerWithEditItemViewModel:cell.viewModel];
     }
 }
 
 - (void)workListCellClickTitleRightButton:(FLOWorkListCell *)cell {
+    if (cell.viewModel.item.status == 0) {
+        //点击undo
+        [cell.viewModel.item updateWorkStatus:1];
+    } else {
+        //点击redo
+        [cell.viewModel.item updateWorkStatus:0];
+    }
     
+    [self removeWorkItemCellWithViewModel:cell.viewModel];
 }
 
 @end

@@ -86,6 +86,7 @@
     _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _leftButton.frame = CGRectMake(8, 7.5, 35, 35);
     [_leftButton setTintColor:COLOR_HEX(0xffffff)];
+    [_leftButton setImageEdgeInsets:UIEdgeInsetsMake(9, 9, 9, 9)];
     [_leftButton setImage:[[UIImage imageNamed:@"icon_write"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     [_leftButton addTarget:self action:@selector(leftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_baseView addSubview:_leftButton];
@@ -110,6 +111,9 @@
     _titleLabel.text = _viewModel.title;
     _timeLabel.text = _viewModel.timeStr;
     _descLabel.text = _viewModel.desc;
+    
+    _leftButton.hidden = _viewModel.editBtnHide;
+    [_rightButton setTitle:_viewModel.titleRightBtnTitle forState:UIControlStateNormal];
     
     if (Def_CheckStringClassAndLength(_viewModel.desc)) {
         float height = [_viewModel.desc heightWithLimitWidth:MYAPPConfig.screenWidth - 15*2 - 15*2 fontSize:14];
@@ -142,15 +146,23 @@
         //选中按钮
         UIButton *doneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         doneBtn.frame = CGRectMake(8, y+(h-28)/2., 28, 28);
-        doneBtn.adjustsImageWhenHighlighted = NO;
         [doneBtn setImage:[UIImage imageNamed:@"icon_multiselect_normal"] forState:UIControlStateNormal];
         [doneBtn setImage:[UIImage imageNamed:@"icon_multiselect_selected"] forState:UIControlStateSelected];
-        [doneBtn addTarget:self action:@selector(doneButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        doneBtn.tag = 2000 + i;
         [_targetsContentView addSubview:doneBtn];
         
         if (i < _viewModel.targetsStatus.count) {
             doneBtn.selected = [_viewModel.targetsStatus[i] boolValue];
+        }
+        
+        if (_viewModel.targetBtnEnable) {
+            label.tag = 1000 + i;
+            [label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(targetLabelTapAction:)]];
+            label.userInteractionEnabled = YES;
+            
+            doneBtn.tag = 2000 + i;
+            [doneBtn addTarget:self action:@selector(doneButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        } else {
+            doneBtn.userInteractionEnabled = NO;
         }
         
         if (y > 0) {
@@ -221,13 +233,20 @@
 
 #pragma mark - action
 - (void)doneButtonAction:(UIButton *)sender {
-    if (_viewModel.item.status != 0) {
-        return;
-    }    
-    sender.selected = !sender.selected;    
+    if (_viewModel.targetBtnEnable) {
+        sender.selected = !sender.selected;
+        
+        if (_delegate && [_delegate respondsToSelector:@selector(workListCell:targetSelected:atIndex:)]) {
+            [_delegate workListCell:self targetSelected:sender.selected atIndex:sender.tag - 2000];
+        }
+    }
+}
+- (void)targetLabelTapAction:(UIGestureRecognizer *)ges {
+    NSInteger tag = ges.view.tag + 1000;
     
-    if (_delegate && [_delegate respondsToSelector:@selector(workListCell:targetSelected:atIndex:)]) {
-        [_delegate workListCell:self targetSelected:sender.selected atIndex:sender.tag - 2000];
+    UIButton *doneBtn = [ges.view.superview viewWithTag:tag];
+    if (doneBtn) {
+        [self doneButtonAction:doneBtn];
     }
 }
 

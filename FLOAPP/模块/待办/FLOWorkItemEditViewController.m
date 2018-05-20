@@ -32,6 +32,8 @@
 @property (nonatomic, strong) UIButton *addTargetBtn;
 @property (nonatomic, strong) UIButton *deleteItemBtn;
 
+@property (nonatomic, copy  ) NSDictionary *editItemTargetsStatus;
+
 @end
 
 @implementation FLOWorkItemEditViewController
@@ -46,6 +48,25 @@
     [self createContentView];
     [self createTitleView];
     [self createEditView];
+    
+    if (_editItem) {
+        //保存目标完成状态
+        NSArray *targets = [_editItem.items  flo_objectFromJSONData];
+        NSArray *targetsStatus = [_editItem.itemsStatus flo_objectFromJSONData];
+        
+        NSMutableDictionary *muDic = [NSMutableDictionary dictionaryWithCapacity:targets.count];
+        for (int i = 0; i < targets.count; i++) {
+            BOOL done = NO;
+            if (i < targetsStatus.count) {
+                done = [targetsStatus[i] boolValue];
+            }
+            
+            NSString *str = [targets objectAtIndex:i];
+            [muDic setObject:@(done) forKey:str];
+        }
+        
+        _editItemTargetsStatus = [NSDictionary dictionaryWithDictionary:muDic];
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(KeyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(KeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -90,7 +111,7 @@
 
 - (void)createEditView {
     _editScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 49, MYAPPConfig.screenWidth, CGRectGetHeight(contentView.frame)-49)];
-    _editScrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    _editScrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     
     if (@available(iOS 11.0, *)) {
         _editScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -138,8 +159,15 @@
     }];
     [_addTargetBtn addTarget:self action:@selector(addTargetBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     _baseHeight = CGRectGetMaxY(_descTextView.frame) + 25 + 10 + 44;
+    _baseHeight += 30;
+    
+    _editScrollView.contentSize = CGSizeMake(MYAPPConfig.screenWidth, _baseHeight);
     
     if (_editItem) {
+        //显示内容
+        _titleTextField.text = _editItem.title;
+        _descTextView.text = _editItem.desc;
+        
         self.deleteItemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_deleteItemBtn setTitle:@"删除项目" forState:UIControlStateNormal];
         _deleteItemBtn.bounds = CGRectMake(0, 0, MYAPPConfig.screenWidth-30, 44);
@@ -156,10 +184,42 @@
         }];
         
         _baseHeight += 30 + 44;
+        
+        [self createEditItemTargets];
     }
-    _baseHeight += 30;
+}
+
+- (void)createEditItemTargets {
+    NSArray *targets = [_editItem.items  flo_objectFromJSONData];
+    for (NSString *target in targets) {
+        UITextField *tf = [self createTargetEditView];
+        tf.text = target;
+    }
     
-    _editScrollView.contentSize = CGSizeMake(MYAPPConfig.screenWidth, _baseHeight);
+    [self configTargetViewFrame];
+}
+
+//目标编辑框
+- (UITextField *)createTargetEditView {
+    float y = _targetTextFields.count * (35+8);
+    
+    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(0, y, MYAPPConfig.screenWidth-30, 35)];
+    tf.font = [UIFont systemFontOfSize:16];
+    tf.backgroundColor = COLOR_HEX(0xffffff);
+    tf.borderStyle = UITextBorderStyleRoundedRect;
+    [_targetView addSubview:tf];
+    
+    //删除按钮
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 30, 25);
+    btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5);
+    [btn setImage:[UIImage imageNamed:@"delete_icon"] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(targetDeleteButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    tf.rightView = btn;
+    tf.rightViewMode = UITextFieldViewModeAlways;
+    
+    [_targetTextFields addObject:tf];
+    return tf;
 }
 
 //添加、删除目标时更新
@@ -210,7 +270,28 @@
     }
     
     if (_editItem) {
-        <#statements#>
+        _editItem.title = _titleTextField.text;
+        _editItem.desc = _descTextView.text;
+        _editItem.items = [targets flo_JSONData];
+        
+        NSMutableArray *muArrItemStatus = [NSMutableArray arrayWithCapacity:targets.count];
+        for (int i = 0; i < targets.count; i++) {
+            NSString *target = [targets objectAtIndex:i];
+            BOOL done = NO;
+            if (_editItemTargetsStatus[target]) {
+                done = [_editItemTargetsStatus[target] boolValue];
+            }
+            [muArrItemStatus addObject:@(done)];
+        }
+        _editItem.itemsStatus = [muArrItemStatus flo_JSONData];
+        
+        //存库
+        [_editItem saveModify];
+        
+        //通知刷新
+        if (_editCompletion) {
+            _editCompletion(_editItem);
+        }
     } else {
         //保存，通知上一页显示
         WorkList *item = [WorkList insertEntityTitle:_titleTextField.text desc:_descTextView.text items:targets];
@@ -241,24 +322,7 @@
 }
 
 - (void)addTargetBtnAction:(UIButton *)sneder {
-    float y = _targetTextFields.count * (35+8);
-    
-    UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(0, y, MYAPPConfig.screenWidth-30, 35)];
-    tf.font = [UIFont systemFontOfSize:16];
-    tf.backgroundColor = COLOR_HEX(0xffffff);
-    tf.borderStyle = UITextBorderStyleRoundedRect;
-    [_targetView addSubview:tf];
-    
-    //删除按钮
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0, 0, 30, 25);
-    btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 5);
-    [btn setImage:[UIImage imageNamed:@"delete_icon"] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(targetDeleteButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    tf.rightView = btn;
-    tf.rightViewMode = UITextFieldViewModeAlways;
-    
-    [_targetTextFields addObject:tf];
+    UITextField *tf = [self createTargetEditView];
     [self configTargetViewFrame];
     
     [tf becomeFirstResponder];

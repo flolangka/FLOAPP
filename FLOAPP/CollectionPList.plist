@@ -188,19 +188,19 @@
 	</dict>
 	<dict>
 		<key>ItemName</key>
-		<string>糗事百科</string>
-		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/102_d7a4ae86f7a8ac41f7005f6d43e2bb3e_con.png</string>
-		<key>ItemAddress</key>
-		<string>FLOQSBKTableViewController</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
 		<string>微信表情</string>
 		<key>ItemIconURL</key>
 		<string>http://oe63fs3d3.bkt.clouddn.com/1-1509141506030-L.png</string>
 		<key>ItemAddress</key>
 		<string>FLOShareEmotionViewController</string>
+	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>糗事百科</string>
+		<key>ItemIconURL</key>
+		<string>http://oe63fs3d3.bkt.clouddn.com/102_d7a4ae86f7a8ac41f7005f6d43e2bb3e_con.png</string>
+		<key>ItemAddress</key>
+		<string>FLOQSBKTableViewController</string>
 	</dict>
 	<dict>
 		<key>ItemName</key>

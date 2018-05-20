@@ -16,6 +16,5 @@ target 'FLOAPP' do
     pod 'MQTTClient'
     pod 'MWPhotoBrowser'
     pod 'WechatOpenSDK'
-    pod 'MaterialComponents/ActivityIndicator'
 
 end
