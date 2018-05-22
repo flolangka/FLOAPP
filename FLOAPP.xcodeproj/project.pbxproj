@@ -229,6 +229,7 @@
 		73CAAE0B201F0B2A001B1AE2 /* FLOQSBKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAE0A201F0B2A001B1AE2 /* FLOQSBKTableViewController.m */; };
 		73CAAE0E201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAE0D201F0B98001B1AE2 /* FLOQSBKTopicTableViewCell.m */; };
 		73CAAE11201F1167001B1AE2 /* FLOQSBKTopicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAAE10201F1167001B1AE2 /* FLOQSBKTopicItem.m */; };
+		73EADC6320B3FE4900405F26 /* FLOMainCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EADC6220B3FE4900405F26 /* FLOMainCollectionViewLayout.m */; };
 		73F3A18B1E4C63F400314D70 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7323C45A1E4ACBAD00543251 /* UserNotifications.framework */; };
 		73F3A18C1E4C63F400314D70 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7323C45C1E4ACBAD00543251 /* UserNotificationsUI.framework */; };
 		73F3A1901E4C63F400314D70 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F3A18F1E4C63F400314D70 /* NotificationViewController.m */; };
@@ -712,6 +713,8 @@
 		73CAAE10201F1167001B1AE2 /* FLOQSBKTopicItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOQSBKTopicItem.m; sourceTree = "<group>"; };
 		73D3F72C1E852120007C739F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		73E537E91D8150DF005FB419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		73EADC6120B3FE4900405F26 /* FLOMainCollectionViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOMainCollectionViewLayout.h; sourceTree = "<group>"; };
+		73EADC6220B3FE4900405F26 /* FLOMainCollectionViewLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOMainCollectionViewLayout.m; sourceTree = "<group>"; };
 		73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FLONotiExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F3A18E1E4C63F400314D70 /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		73F3A18F1E4C63F400314D70 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
@@ -1527,6 +1530,8 @@
 			children = (
 				73CAADE2201F09BF001B1AE2 /* FloCollectionViewController.h */,
 				73CAADE3201F09BF001B1AE2 /* FloCollectionViewController.m */,
+				73EADC6120B3FE4900405F26 /* FLOMainCollectionViewLayout.h */,
+				73EADC6220B3FE4900405F26 /* FLOMainCollectionViewLayout.m */,
 				73CAADE4201F09BF001B1AE2 /* Model */,
 			);
 			path = "首页";
@@ -2275,6 +2280,7 @@
 				73CAADBC201F087B001B1AE2 /* ZSSTextView.m in Sources */,
 				73CAAD5E201F087B001B1AE2 /* FLOCodeResultViewController.m in Sources */,
 				732A019E20746F1D00D4962B /* FLOCollectionViewModel.m in Sources */,
+				73EADC6320B3FE4900405F26 /* FLOMainCollectionViewLayout.m in Sources */,
 				122C5BA020A1D8710014A0E9 /* FLOWorkListViewController.m in Sources */,
 				73CAAE00201F09E4001B1AE2 /* FLONavigationController.m in Sources */,
 				73CAADBD201F087B001B1AE2 /* FLOWeiboAuthorization.m in Sources */,

@@ -10,8 +10,8 @@
 #import "FLOAccountManager.h"
 #import "FLOSideMenu.h"
 #import "FLOCollectionItem.h"
+#import "FLOMainCollectionViewLayout.h"
 #import "FLOWebViewController.h"
-#import "FLOCollectionViewLayout.h"
 #import "UIView+FLOUtil.h"
 #import "YYFPSLabel.h"
 #import "MVVMRouter.h"
@@ -37,6 +37,7 @@ UIViewControllerPreviewingDelegate>
 }
 
 @property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, strong) UIPageControl *pageControl;
 
 @end
 
@@ -59,6 +60,11 @@ UIViewControllerPreviewingDelegate>
     [super viewDidLoad];
     
     [self initCollectionView];
+    [self initPageControl];
+    
+    //背景图片
+    UIImage *image = [UIImage imageNamed:@"homeback.jpg"];
+    self.view.layer.contents = (id)image.CGImage;
     
     /*/ FPS指示器
     YYFPSLabel *fps = [YYFPSLabel new];
@@ -88,33 +94,44 @@ UIViewControllerPreviewingDelegate>
     // CollectionView布局样式
     CGFloat maxWidth = 70;
     CGFloat space = 27;
+    
     int num = 3;
     do {
-        width = (DEVICE_SCREEN_WIDTH - (num+1)*space)/(float)num;
+        width = floorf((MYAPPConfig.screenWidth - (num+1)*space)/(float)num);
         num += 1;
     } while (width > maxWidth);
+    num -= 1;
     
-    FLOCollectionViewLayout *layout = [[FLOCollectionViewLayout alloc] init];
-    layout.numberOfColum = num - 1;
-    layout.horizontalSpace = space;
-    layout.verticalSpace = 12;
-    CGFloat weakWidth = width;
-    layout.itemHeight = ^CGFloat(NSIndexPath *indexPath){
-        return weakWidth+17;
-    };
+    FLOMainCollectionViewLayout *layout = [[FLOMainCollectionViewLayout alloc] init];
+    layout.itemSize = CGSizeMake(width, width+17);
+    layout.contentInsets = UIEdgeInsetsMake(30, 0, 44, 0);
+    layout.numberOfColumnsPerPage = num;
+    layout.fixedLineSpacing = 12;
     
     collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT) collectionViewLayout:layout];
     collectionV.backgroundColor = [UIColor clearColor];
-    collectionV.contentInset = UIEdgeInsetsMake(0, 0, 20, 0);
     collectionV.dataSource = self;
     collectionV.delegate = self;
+    collectionV.pagingEnabled = YES;
+    collectionV.showsHorizontalScrollIndicator = NO;
+    collectionV.showsVerticalScrollIndicator = NO;
+    collectionV.directionalLockEnabled = YES;
     [collectionV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CollectionViewCellID"];
     [collectionV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CollectionViewForce_TouchCellID"];
     [self.view addSubview:collectionV];
     
-    //背景图片
-    UIImage *image = [UIImage imageNamed:@"homeback.jpg"];
-    self.view.layer.contents = (id)image.CGImage;
+    if (@available(iOS 11.0, *)) {
+        collectionV.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        [self setAutomaticallyAdjustsScrollViewInsets:NO];
+    }
+}
+
+- (void)initPageControl {
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, MYAPPConfig.screenHeight - 30, MYAPPConfig.screenWidth, 30)];
+    _pageControl.numberOfPages = [(FLOMainCollectionViewLayout *)[collectionV collectionViewLayout] numberOfPages];
+    _pageControl.currentPage = 0;
+    [self.view addSubview:_pageControl];
 }
 
 - (void)checkIsLogin
@@ -252,6 +269,11 @@ UIViewControllerPreviewingDelegate>
     } else {
         return;
     }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger index = scrollView.contentOffset.x / MYAPPConfig.screenWidth;
+    _pageControl.currentPage = index;
 }
 
 #pragma mark - Force Touch
