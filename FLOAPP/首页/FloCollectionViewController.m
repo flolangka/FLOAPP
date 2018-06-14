@@ -104,11 +104,11 @@ UIViewControllerPreviewingDelegate>
     
     FLOMainCollectionViewLayout *layout = [[FLOMainCollectionViewLayout alloc] init];
     layout.itemSize = CGSizeMake(width, width+17);
-    layout.contentInsets = UIEdgeInsetsMake(30, 0, 44, 0);
+    layout.contentInsets = UIEdgeInsetsMake(30, 0, 0, 0);
     layout.numberOfColumnsPerPage = num;
     layout.fixedLineSpacing = 12;
     
-    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT) collectionViewLayout:layout];
+    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT - 64) collectionViewLayout:layout];
     collectionV.backgroundColor = [UIColor clearColor];
     collectionV.dataSource = self;
     collectionV.delegate = self;
@@ -131,6 +131,7 @@ UIViewControllerPreviewingDelegate>
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, MYAPPConfig.screenHeight - 30, MYAPPConfig.screenWidth, 30)];
     _pageControl.numberOfPages = [(FLOMainCollectionViewLayout *)[collectionV collectionViewLayout] numberOfPages];
     _pageControl.currentPage = 0;
+    _pageControl.enabled = NO;
     [self.view addSubview:_pageControl];
 }
 

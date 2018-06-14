@@ -52,7 +52,6 @@
 		734E3FCB207A097F00909EA5 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 734E3FBC207A08AB00909EA5 /* ReactiveObjC.framework */; };
 		734E3FCC207A097F00909EA5 /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 734E3FBC207A08AB00909EA5 /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		734E3FE5207A1AB400909EA5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 734E3FE0207A1AB400909EA5 /* MainInterface.storyboard */; };
-		734E3FE6207A1AB400909EA5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 734E3FE2207A1AB400909EA5 /* Info.plist */; };
 		734E3FE7207A1AB400909EA5 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 734E3FE4207A1AB400909EA5 /* TodayViewController.m */; };
 		73563A82208DAF99001A7036 /* FLOCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73563A81208DAF99001A7036 /* FLOCameraViewController.m */; };
 		735907B2207F407B00CAE54B /* FLONETEASEVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 735907B0207F407B00CAE54B /* FLONETEASEVideoTableViewCell.m */; };
@@ -713,6 +712,7 @@
 		73CAAE10201F1167001B1AE2 /* FLOQSBKTopicItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOQSBKTopicItem.m; sourceTree = "<group>"; };
 		73D3F72C1E852120007C739F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		73E537E91D8150DF005FB419 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		73E93F5C20D246C100A69EB6 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		73EADC6120B3FE4900405F26 /* FLOMainCollectionViewLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOMainCollectionViewLayout.h; sourceTree = "<group>"; };
 		73EADC6220B3FE4900405F26 /* FLOMainCollectionViewLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLOMainCollectionViewLayout.m; sourceTree = "<group>"; };
 		73F3A18A1E4C63F400314D70 /* FLONotiExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FLONotiExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1725,6 +1725,7 @@
 		BA1A1955340CBA90421877C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				73E93F5C20D246C100A69EB6 /* libc++.tbd */,
 				734E3FAD207A08AA00909EA5 /* ReactiveObjC.xcodeproj */,
 				737433431EA4A70D00BE39B3 /* QuickLook.framework */,
 				73D3F72C1E852120007C739F /* XCTest.framework */,
@@ -1978,7 +1979,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				734E3FE6207A1AB400909EA5 /* Info.plist in Resources */,
 				734E3FE5207A1AB400909EA5 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
