@@ -234,13 +234,5 @@
 		<key>ItemAddress</key>
 		<string>PresentNavigationControllerFLOWorkListViewModel</string>
 	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>我的音乐</string>
-		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/itunes-logo-png-transparent.png</string>
-		<key>ItemAddress</key>
-		<string>FLOMusicViewModel</string>
-	</dict>
 </array>
 </plist>
