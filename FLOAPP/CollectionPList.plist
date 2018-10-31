@@ -234,5 +234,13 @@
 		<key>ItemAddress</key>
 		<string>PresentNavigationControllerFLOWorkListViewModel</string>
 	</dict>
+	<dict>
+		<key>ItemName</key>
+		<string>这就是命</string>
+		<key>ItemIconURL</key>
+		<string>http://oe63fs3d3.bkt.clouddn.com/icon_work_list.png</string>
+		<key>ItemAddress</key>
+		<string>FLORandomListViewModel</string>
+	</dict>
 </array>
 </plist>

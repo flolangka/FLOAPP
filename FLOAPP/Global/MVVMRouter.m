@@ -30,7 +30,7 @@
              @"FLOAlgorithmViewModel": @"FLOAlgorithmViewController",
              @"FLOSortViewModel": @"FLOSortViewController",
              @"FLOWorkListViewModel": @"FLOWorkListViewController",
-             @"FLOMusicViewModel": @"FLOMusicViewController"
+             @"FLORandomListViewModel": @"FLORandomListViewController"
              };
 }
 

@@ -54,6 +54,9 @@
 		735907B2207F407B00CAE54B /* FLONETEASEVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 735907B0207F407B00CAE54B /* FLONETEASEVideoTableViewCell.m */; };
 		735907B3207F407B00CAE54B /* FLONETEASEVideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 735907B1207F407B00CAE54B /* FLONETEASEVideoTableViewCell.xib */; };
 		737433441EA4A70D00BE39B3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 737433431EA4A70D00BE39B3 /* QuickLook.framework */; };
+		737C54DE2189A9B3007003AC /* FLORandomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737C54DD2189A9B3007003AC /* FLORandomListViewController.m */; };
+		737C54E12189AB23007003AC /* FLORandomListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 737C54E02189AB23007003AC /* FLORandomListViewModel.m */; };
+		737C54E42189ACF4007003AC /* FLORandomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737C54E32189ACF4007003AC /* FLORandomViewController.m */; };
 		73839A5820205E68004D0B73 /* FLONetworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 73839A5720205E68004D0B73 /* FLONetworkUtil.m */; };
 		73A15381202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A15380202BEFC800BE07E3 /* FLOFileBrowserTableViewController.m */; };
 		73C9EF01202013260000A21B /* FLOQSBKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C9EF00202013260000A21B /* FLOQSBKItem.m */; };
@@ -446,6 +449,12 @@
 		735907B0207F407B00CAE54B /* FLONETEASEVideoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONETEASEVideoTableViewCell.m; sourceTree = "<group>"; };
 		735907B1207F407B00CAE54B /* FLONETEASEVideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FLONETEASEVideoTableViewCell.xib; sourceTree = "<group>"; };
 		737433431EA4A70D00BE39B3 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		737C54DC2189A9B3007003AC /* FLORandomListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLORandomListViewController.h; sourceTree = "<group>"; };
+		737C54DD2189A9B3007003AC /* FLORandomListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLORandomListViewController.m; sourceTree = "<group>"; };
+		737C54DF2189AB23007003AC /* FLORandomListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLORandomListViewModel.h; sourceTree = "<group>"; };
+		737C54E02189AB23007003AC /* FLORandomListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLORandomListViewModel.m; sourceTree = "<group>"; };
+		737C54E22189ACF4007003AC /* FLORandomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLORandomViewController.h; sourceTree = "<group>"; };
+		737C54E32189ACF4007003AC /* FLORandomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLORandomViewController.m; sourceTree = "<group>"; };
 		73839A5620205E68004D0B73 /* FLONetworkUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLONetworkUtil.h; sourceTree = "<group>"; };
 		73839A5720205E68004D0B73 /* FLONetworkUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLONetworkUtil.m; sourceTree = "<group>"; };
 		73A1537F202BEFC800BE07E3 /* FLOFileBrowserTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLOFileBrowserTableViewController.h; sourceTree = "<group>"; };
@@ -1000,9 +1009,23 @@
 			path = "相机";
 			sourceTree = "<group>";
 		};
+		737C54D52189A634007003AC /* 随机 */ = {
+			isa = PBXGroup;
+			children = (
+				737C54DF2189AB23007003AC /* FLORandomListViewModel.h */,
+				737C54E02189AB23007003AC /* FLORandomListViewModel.m */,
+				737C54DC2189A9B3007003AC /* FLORandomListViewController.h */,
+				737C54DD2189A9B3007003AC /* FLORandomListViewController.m */,
+				737C54E22189ACF4007003AC /* FLORandomViewController.h */,
+				737C54E32189ACF4007003AC /* FLORandomViewController.m */,
+			);
+			path = "随机";
+			sourceTree = "<group>";
+		};
 		73CAAC32201F087A001B1AE2 /* 模块 */ = {
 			isa = PBXGroup;
 			children = (
+				737C54D52189A634007003AC /* 随机 */,
 				122C5B9420A1D7D20014A0E9 /* 待办 */,
 				73178E6A2092BA3B00C22FA0 /* 算法 */,
 				73563A79208DAF58001A7036 /* 相机 */,
@@ -2165,6 +2188,7 @@
 				73CAAD58201F087B001B1AE2 /* FLODownloadManager.m in Sources */,
 				73CAADBF201F087B001B1AE2 /* FLOWeiboReportComViewController.m in Sources */,
 				73CAADBB201F087B001B1AE2 /* ZSSBarButtonItem.m in Sources */,
+				737C54DE2189A9B3007003AC /* FLORandomListViewController.m in Sources */,
 				73CAAD60201F087B001B1AE2 /* FLOShareDirectoryTableViewController.m in Sources */,
 				73CAAD55201F087B001B1AE2 /* FLOColorViewController.m in Sources */,
 				73CAAD37201F087B001B1AE2 /* DownloadFile+CoreDataClass.m in Sources */,
@@ -2198,6 +2222,7 @@
 				73CAAD3B201F087B001B1AE2 /* MediaAddress+CoreDataProperties.m in Sources */,
 				73CAADCD201F087B001B1AE2 /* FLOWaterFallViewController.m in Sources */,
 				73CAAD59201F087B001B1AE2 /* FLODownloadTableViewController.m in Sources */,
+				737C54E42189ACF4007003AC /* FLORandomViewController.m in Sources */,
 				730CD56520A43704006434D2 /* FLOWorkListCell.m in Sources */,
 				73CAADDD201F09B6001B1AE2 /* FLOSettingTableViewController.m in Sources */,
 				73563A82208DAF99001A7036 /* FLOCameraViewController.m in Sources */,
@@ -2238,6 +2263,7 @@
 				73CAAD3F201F087B001B1AE2 /* NotificationTime+CoreDataProperties.m in Sources */,
 				73CAADC8201F087B001B1AE2 /* SortClass.swift in Sources */,
 				7329ED2020294C400090A584 /* BookMarkEntity+CoreDataClass.m in Sources */,
+				737C54E12189AB23007003AC /* FLORandomListViewModel.m in Sources */,
 				73178E7B2092FA2C00C22FA0 /* FLOSortViewController.m in Sources */,
 				731549A1207EFC580025C713 /* FLONETEASEVideoViewController.m in Sources */,
 				73CAAD3E201F087B001B1AE2 /* NotificationTime+CoreDataClass.m in Sources */,
