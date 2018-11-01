@@ -85,8 +85,11 @@
             NSMutableArray *muArr = [NSMutableArray arrayWithCapacity:len];
             for (PHAsset *asset in getArray) {
                 [[PHImageManager defaultManager] requestImageDataForAsset:asset options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+                    
                     UIImage *image = [UIImage imageWithData:imageData];
-                    [muArr addObject:[image flo_scaleToSize:CGSizeMake(width, image.size.height * width / image.size.width)]];
+                    if (image) {
+                        [muArr addObject:[image flo_scaleToSize:CGSizeMake(width, image.size.height * width / image.size.width)]];
+                    }
                     
                     if ([getArray indexOfObject:asset] == getArray.count-1) {
                         dispatch_async(dispatch_get_main_queue(), ^{

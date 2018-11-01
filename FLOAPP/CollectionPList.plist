@@ -6,26 +6,26 @@
 		<key>ItemName</key>
 		<string>XMPP</string>
 		<key>ItemIconURL</key>
-		<string>http://7xkohz.com1.z0.glb.clouddn.com/chat%403x.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac3d48f126.png</string>
 		<key>ItemAddress</key>
 		<string>URLScheme_floxmpp</string>
 	</dict>
-	<dict>
+<!--	<dict>
 		<key>ItemName</key>
 		<string>MQTT</string>
 		<key>ItemIconURL</key>
 		<string>http://oe63fs3d3.bkt.clouddn.com/mqtt_log.png</string>
 		<key>ItemAddress</key>
 		<string>FLOMQTTViewController</string>
-	</dict>
-	<dict>
+	</dict>-->
+<!--	<dict>
 		<key>ItemName</key>
 		<string>ReactNative</string>
 		<key>ItemIconURL</key>
 		<string>http://oe63fs3d3.bkt.clouddn.com/react.png</string>
 		<key>ItemAddress</key>
 		<string>ReactNative</string>
-	</dict>
+	</dict>-->
 	<dict>
 		<key>ItemName</key>
 		<string>Weibo</string>
@@ -38,7 +38,7 @@
 		<key>ItemName</key>
 		<string>书签</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/bookmark-icon.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac32adc64e.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDBookMarkTableViewController</string>
 	</dict>
@@ -46,7 +46,7 @@
 		<key>ItemName</key>
 		<string>UIColor</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/246x0w.jpg</string>
+		<string>https://i.loli.net/2018/11/01/5bdac32af0434.png</string>
 		<key>ItemAddress</key>
 		<string>FLOColorViewController</string>
 	</dict>
@@ -54,7 +54,7 @@
 		<key>ItemName</key>
 		<string>系统声音</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/Volume-icon.gif</string>
+		<string>https://i.loli.net/2018/11/01/5bdac3d47a328.png</string>
 		<key>ItemAddress</key>
 		<string>FLOSystemSoundTableViewController</string>
 	</dict>
@@ -62,7 +62,7 @@
 		<key>ItemName</key>
 		<string>系统字体</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/icon.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac38594ee4.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDFontTableViewController</string>
 	</dict>
@@ -70,7 +70,7 @@
 		<key>ItemName</key>
 		<string>字体大小</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/icon_fontsize.jpg</string>
+		<string>https://i.loli.net/2018/11/01/5bdac3859ff3d.png</string>
 		<key>ItemAddress</key>
 		<string>FLOFontSizeViewController</string>
 	</dict>
@@ -78,7 +78,7 @@
 		<key>ItemName</key>
 		<string>调整字号</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/aaa.png</string>
+		<string>https://i.loli.net/2018/11/01/5bda74b02c0ee.png</string>
 		<key>ItemAddress</key>
 		<string>FLOAdjustFontSizeViewController</string>
 	</dict>
@@ -86,7 +86,7 @@
 		<key>ItemName</key>
 		<string>扫一扫</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/20162395134.png</string>
+		<string>https://i.loli.net/2018/11/01/5bda9c02d4c58.png</string>
 		<key>ItemAddress</key>
 		<string>FLOCodeViewController</string>
 	</dict>
@@ -94,31 +94,31 @@
 		<key>ItemName</key>
 		<string>Touch ID</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/touchid.jpg</string>
+		<string>https://i.loli.net/2018/11/01/5bda9a8131b17.png</string>
 		<key>ItemAddress</key>
 		<string>FLOTouchIDViewController</string>
 	</dict>
+    <dict>
+        <key>ItemName</key>
+        <string>Force Touch</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bdac385c9db2.png</string>
+        <key>ItemAddress</key>
+        <string>Force_Touch</string>
+    </dict>
 	<dict>
 		<key>ItemName</key>
 		<string>百度地图</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/0c10323e-bc83-4c1f-b3a5-6a8420d8621e.png</string>
+		<string>https://i.loli.net/2018/11/01/5bda71dd5e676.png</string>
 		<key>ItemAddress</key>
 		<string>PresentFLOBDMapViewController</string>
 	</dict>
 	<dict>
 		<key>ItemName</key>
-		<string>Force Touch</string>
-		<key>ItemIconURL</key>
-		<string>http://7xkohz.com1.z0.glb.clouddn.com/Force-Touch.jpg</string>
-		<key>ItemAddress</key>
-		<string>Force_Touch</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
 		<string>通知</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/APNS_Logo.png</string>
+		<string>https://i.loli.net/2018/11/01/5bda71de06272.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDNotificationViewController</string>
 	</dict>
@@ -126,7 +126,7 @@
 		<key>ItemName</key>
 		<string>瀑布流</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/5788ae31a8af5.png</string>
+		<string>https://i.loli.net/2018/11/01/5bda71de38d93.png</string>
 		<key>ItemAddress</key>
 		<string>FLOWaterFallViewController</string>
 	</dict>
@@ -134,7 +134,7 @@
 		<key>ItemName</key>
 		<string>Gif</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/images.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac385cbbd2.png</string>
 		<key>ItemAddress</key>
 		<string>FLOGifImageViewController</string>
 	</dict>
@@ -142,7 +142,7 @@
 		<key>ItemName</key>
 		<string>接口测试</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/api.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac385e062a.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDNetWorkTableViewController</string>
 	</dict>
@@ -150,7 +150,7 @@
 		<key>ItemName</key>
 		<string>下载</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/download2.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac32af004b.png</string>
 		<key>ItemAddress</key>
 		<string>FLODownloadTableViewController</string>
 	</dict>
@@ -158,7 +158,7 @@
 		<key>ItemName</key>
 		<string>流媒体</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/unnamed.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac385d66a6.png</string>
 		<key>ItemAddress</key>
 		<string>FLOMediaAddressTableViewController</string>
 	</dict>
@@ -166,15 +166,23 @@
 		<key>ItemName</key>
 		<string>排序</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/52910452-sort-alphabetically-list-icon-vector-image-can-also-be-used-for-text-editing-suitable-for-mobile-app.jpg</string>
+		<string>https://i.loli.net/2018/11/01/5bdac3d4710b3.png</string>
 		<key>ItemAddress</key>
 		<string>SBIDSortViewController</string>
 	</dict>
+    <dict>
+        <key>ItemName</key>
+        <string>算法</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bdacdb297896.png</string>
+        <key>ItemAddress</key>
+        <string>FLOAlgorithmViewModel</string>
+    </dict>
 	<dict>
 		<key>ItemName</key>
 		<string>编辑器</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/write-passion-editor-app-literature-512.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac32af001e.png</string>
 		<key>ItemAddress</key>
 		<string>FLORichTextEditorViewController</string>
 	</dict>
@@ -182,7 +190,7 @@
 		<key>ItemName</key>
 		<string>文件夹</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/img201408311227530-1.jpg</string>
+		<string>https://i.loli.net/2018/11/01/5bdac32af004d.png</string>
 		<key>ItemAddress</key>
 		<string>FLOShareDirectoryTableViewController</string>
 	</dict>
@@ -190,7 +198,7 @@
 		<key>ItemName</key>
 		<string>微信表情</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/1-1509141506030-L.png</string>
+		<string>https://i.loli.net/2018/11/01/5bda71ddc75f8.png</string>
 		<key>ItemAddress</key>
 		<string>FLOShareEmotionViewController</string>
 	</dict>
@@ -198,7 +206,7 @@
 		<key>ItemName</key>
 		<string>糗事百科</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/102_d7a4ae86f7a8ac41f7005f6d43e2bb3e_con.png</string>
+		<string>https://i.loli.net/2018/11/01/5bda71de243fd.png</string>
 		<key>ItemAddress</key>
 		<string>FLOQSBKTableViewController</string>
 	</dict>
@@ -206,7 +214,7 @@
 		<key>ItemName</key>
 		<string>网易视频</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/9691123276.png</string>
+		<string>https://i.loli.net/2018/11/01/5bda71dde4d63.png</string>
 		<key>ItemAddress</key>
 		<string>FLONETEASEVideoViewModel</string>
 	</dict>
@@ -214,23 +222,15 @@
 		<key>ItemName</key>
 		<string>相机</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/ios-9-camera-icon-9.jpg</string>
+		<string>https://i.loli.net/2018/11/01/5bda71dd7dd5c.png</string>
 		<key>ItemAddress</key>
 		<string>PresentFLOCameraViewController</string>
 	</dict>
 	<dict>
 		<key>ItemName</key>
-		<string>算法</string>
-		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/icon_algorithm.png</string>
-		<key>ItemAddress</key>
-		<string>FLOAlgorithmViewModel</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
 		<string>待办事项</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/icon_work_list.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac3d48586d.png</string>
 		<key>ItemAddress</key>
 		<string>PresentNavigationControllerFLOWorkListViewModel</string>
 	</dict>
@@ -238,7 +238,7 @@
 		<key>ItemName</key>
 		<string>这就是命</string>
 		<key>ItemIconURL</key>
-		<string>http://oe63fs3d3.bkt.clouddn.com/icon_work_list.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac3d45b864.png</string>
 		<key>ItemAddress</key>
 		<string>FLORandomListViewModel</string>
 	</dict>

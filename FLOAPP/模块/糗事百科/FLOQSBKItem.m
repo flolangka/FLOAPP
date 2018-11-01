@@ -72,8 +72,9 @@
 - (void)configProperty:(NSDictionary *)dic {
     [super configProperty:dic];
     
-    _smallImgPath = [@"http:" stringByAppendingString:dic[@"low_loc"]];
-    _mediumImgPath = [@"http:" stringByAppendingString:dic[@"high_loc"]];
+    NSString *imageName = dic[@"image"] ? : @"";
+    _smallImgPath = [self parseImagePath:dic[@"low_url"] name:imageName];
+    _mediumImgPath = [self parseImagePath:dic[@"high_url"] name:imageName];
     
     NSDictionary *image_size = dic[@"image_size"];
     NSArray *sizeArr = image_size[@"s"];
@@ -87,6 +88,14 @@
         //默认宽高比 3：2
         _size = CGSizeMake(320, 214);
     }
+}
+
+- (NSString *)parseImagePath:(NSString *)imagePath name:(NSString *)name {
+    NSString *path = imagePath;
+    path = [path stringByDeletingLastPathComponent];
+    
+    path = [path stringByAppendingPathComponent:name];
+    return path;
 }
 
 @end
