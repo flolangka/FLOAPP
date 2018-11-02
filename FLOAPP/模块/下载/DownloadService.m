@@ -47,7 +47,14 @@
  @param failed 失败事件
  @return dlService
  */
-+ (instancetype)downloadSessionWithIdentifier:(NSString *)iden URLPath:(NSString *)urlPath savePath:(NSString *)savePath resumeDataPath:(NSString *)resumeDataPath progress:(void (^)(NSString *, float))progress suspend:(void (^)(NSString *))suspend finished:(void (^)(NSString *, NSString *))finished failed:(void (^)(NSString *))failed {
++ (instancetype)downloadSessionWithIdentifier:(NSString *)iden
+                                      URLPath:(NSString *)urlPath
+                                     savePath:(NSString *)savePath
+                               resumeDataPath:(NSString *)resumeDataPath
+                                     progress:(void (^)(NSString *, float))progress
+                                      suspend:(void (^)(NSString *))suspend
+                                     finished:(void (^)(NSString *, NSString *))finished
+                                       failed:(void (^)(NSString *))failed {
     DownloadService *dlService = [DownloadService new];
     
     dlService -> taskID = iden;
@@ -74,40 +81,34 @@
 }
 
 /**
- 开始下载任务
+ 下载任务标识
  */
-- (void)startDownload {    
-    if (task) {
-        [task resume];
-    } else {
-        task = [dlSession downloadTaskWithURL:[NSURL URLWithString:urlPath]];
-        [task resume];
-    }
-    downloading = YES;
+- (NSString *)downloadTaskID {
+    return taskID;
 }
 
 /**
- 通过resumeData继续下载
+ 开始下载任务(如果有ResumeData会续传)
  */
-- (void)startWithResumeData {
+- (void)startDownload {
+    downloading = YES;
+    
     NSData *data = [NSData dataWithContentsOfFile:[FLOUtil FilePathInCachesWithName:resumeDataPath]];
     if (data && data.length) {
-        NSString *strVersion = [UIDevice currentDevice].systemVersion;
-        NSArray *arr = [strVersion componentsSeparatedByString:@"."];
-        NSString *first = [arr objectAtIndex:0];
-        NSString *second = [arr objectAtIndex:1];
-        
         // 10.0~10.1 续传有系统BUG
-        if ([first isEqualToString:@"10"] && ([second isEqualToString:@"0"] || [second isEqualToString:@"1"])) {
+        if ([self downloadBUGVersion]) {
             task = [dlSession correctedDownloadTaskWithResumeData:data];
         } else {
             task = [dlSession downloadTaskWithResumeData:data];
         }
-        [task resume];
         
-        downloading = YES;
+        [task resume];
     } else {
-        [self startDownload];
+        if (!task) {
+            task = [dlSession downloadTaskWithURL:[NSURL URLWithString:urlPath]];
+        }
+        
+        [task resume];
     }
 }
 
@@ -134,36 +135,70 @@
     downloading = NO;
 }
 
-- (NSString *)downloadTaskID {
-    return taskID;
+- (BOOL)downloadBUGVersion {
+    NSString *strVersion = [UIDevice currentDevice].systemVersion;
+    NSArray *arr = [strVersion componentsSeparatedByString:@"."];
+    NSString *first = [arr objectAtIndex:0];
+    NSString *second = [arr objectAtIndex:1];
+    
+    // 10.0~10.1 续传有系统BUG
+    return ([first isEqualToString:@"10"] && ([second isEqualToString:@"0"] || [second isEqualToString:@"1"]));
 }
 
 #pragma mark - NSURLSessionDownloadDelegate
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
-    downloading = NO;
     
+    BOOL success = YES;
+    if (downloadTask.response && [downloadTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)downloadTask.response;
+        
+        if (response.statusCode == 412) {
+            DLog(@"❎❎下载文件错误: %ld", response.statusCode);
+            success = NO;
+        }
+    }
+    
+    // 保存路径
     NSString *fileName = downloadTask.response.suggestedFilename;
     NSString *path = savePath;
     if (![savePath hasSuffix:fileName]) {
         path = [savePath stringByAppendingPathComponent:fileName];
     }
     NSString *filePath = [FLOUtil FilePathInCachesWithName:path];
-    [FLOUtil DropFilePath:filePath];
     
     // app重启后location路径可能不对，需要调整
     NSString *preStr = [filePath substringToIndex:[filePath rangeOfString:@"/Library/Caches/"].location];
     
+    // 下载的临时文件路径
     NSString *lPath = location.absoluteString;
     lPath = [lPath stringByReplacingCharactersInRange:NSMakeRange(0, [lPath rangeOfString:@"/Library/Caches/"].location) withString:preStr];
-    DLog(@"下载完成: %@\n保存路径: %@", lPath, filePath);
     
-    // 文件转换
-    NSError *error = nil;
-    BOOL moveSuccess = [[NSFileManager defaultManager] moveItemAtPath:lPath toPath:filePath error:&error];
-    if (moveSuccess && downloadFinished) {
-        downloadFinished(taskID, fileName);
+    if (success) {
+        [FLOUtil DropFilePath:filePath];
+        DLog(@"下载完成: %@\n保存路径: %@", urlPath, filePath);
+        
+        // 文件转换
+        NSError *error = nil;
+        BOOL moveSuccess = [[NSFileManager defaultManager] moveItemAtPath:lPath toPath:filePath error:&error];
+        downloading = NO;
+        
+        if (moveSuccess) {
+            if (downloadFinished) {
+                downloadFinished(taskID, fileName);
+            }
+        } else if (downloadFailed) {
+            downloadFailed(taskID);
+        }
+        DLog(@"文件转换%@ error:%@", moveSuccess?@"成功":@"失败", error.localizedDescription);
+    } else {
+        //删除下载的临时文件
+        [FLOUtil DropFilePath:lPath];
+        downloading = NO;
+        
+        if (downloadFailed) {
+            downloadFailed(taskID);
+        }
     }
-    DLog(@"文件转换%@ error:%@", moveSuccess?@"成功":@"失败", error.localizedDescription);
 }
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
@@ -190,14 +225,20 @@
         NSData *resumeData = [error.userInfo objectForKey:@"NSURLSessionDownloadTaskResumeData"];
         if (resumeData) {
             
-            // 用户主动暂停
+            // 用户取消下载
             NSString *localizedDescription = [error.userInfo objectForKey:@"NSLocalizedDescription"];
             if (localizedDescription && [localizedDescription isEqualToString:@"cancelled"]) {
                 return;
             }
             
             if ([FLOUtil networkStatus] == 1) {
-                self -> task = [session downloadTaskWithResumeData:resumeData];
+                // 10.0~10.1 续传有系统BUG
+                if ([self downloadBUGVersion]) {
+                    self -> task = [dlSession correctedDownloadTaskWithResumeData:resumeData];
+                } else {
+                    self -> task = [dlSession downloadTaskWithResumeData:resumeData];
+                }
+                
                 [self -> task resume];
                 downloading = YES;
             } else {
@@ -208,10 +249,14 @@
                 }
             }
         } else {
+            [FLOUtil DropFilePath:[FLOUtil FilePathInCachesWithName:resumeDataPath]];
+            
             if (downloadFailed) {
                 downloadFailed(taskID);
             }
         }
+    } else {
+        // didCompleteWithError，error为空，代表下载完成
     }
 }
 

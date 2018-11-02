@@ -37,8 +37,8 @@ static FLOAPPConfig *shareAppConfig;
     _screenWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
     _screenHeight = CGRectGetHeight([UIScreen mainScreen].bounds);
     
-    _iPhoneX = CGSizeEqualToSize(CGSizeMake(375, 812), [[UIScreen mainScreen] bounds].size);
-    _statusBarHeight = _iPhoneX ? 44 : 20;
+    _statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    _iPhoneX = _statusBarHeight > 20;
     _navigationBarHeight = _statusBarHeight + 44;
     _iPhoneXBottomHeight = _iPhoneX ? 34 : 0;
 }

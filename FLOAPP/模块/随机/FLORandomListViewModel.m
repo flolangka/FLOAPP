@@ -22,25 +22,21 @@
 }
 
 /**
- 项目名
+ 刷新数据
  */
-- (NSString *)cellTitleForIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dic = [self.dataArr.firstObject objectAtIndex:indexPath.row];
-    if (Def_CheckDictionaryClassAndCount(dic)) {
-        
-    }
-    return nil;
+- (void)reloadData {
+    NSArray *arr = [Random allItems];
+    
+    [self.dataArr.firstObject removeAllObjects];
+    [self.dataArr.firstObject addObjectsFromArray:arr];
 }
 
 /**
- 选项列表
+ 根据indexPath获取随机项目
  */
-- (NSArray <NSString *>*)randomListForIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dic = [self.dataArr.firstObject objectAtIndex:indexPath.row];
-    if (Def_CheckDictionaryClassAndCount(dic)) {
-        
-    }
-    return nil;
+- (Random *)randomForIndexPath:(NSIndexPath *)indexPath {
+    Random *model = [self.dataArr.firstObject objectAtIndex:indexPath.row];
+    return model;
 }
 
 @end

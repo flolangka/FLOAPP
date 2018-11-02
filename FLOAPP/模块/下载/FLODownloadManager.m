@@ -121,7 +121,7 @@ static FLODownloadManager *manager;
             [self startNextDownload];
         } else {
             if (!_currentDownload.downloading) {
-                [_currentDownload startWithResumeData];
+                [_currentDownload startDownload];
                 
                 // 更新状态
                 [self updateStatus:1 taskID:taskID];
@@ -151,13 +151,8 @@ static FLODownloadManager *manager;
                 
                 _currentDownload = [self dlServiceWithModel:model];
                 
-                if (model.downloadStatus == 2) {
-                    // 通过resumeData继续下载
-                    [_currentDownload startWithResumeData];
-                } else {
-                    // 开始、重新下载
-                    [_currentDownload startDownload];
-                }
+                // 开始、重新、继续下载
+                [_currentDownload startDownload];
                 
                 // 更新状态
                 [self updateStatus:1 taskID:taskID];

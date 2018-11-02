@@ -7,20 +7,21 @@
 //
 
 #import "FLOTableViewModel.h"
+#import "Random+CoreDataClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FLORandomListViewModel : FLOTableViewModel
 
 /**
- 项目名
+ 刷新数据
  */
-- (NSString *)cellTitleForIndexPath:(NSIndexPath *)indexPath;
+- (void)reloadData;
 
 /**
- 选项列表
+ 根据indexPath获取随机项目
  */
-- (NSArray <NSString *>*)randomListForIndexPath:(NSIndexPath *)indexPath;
+- (Random *)randomForIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

@@ -10,6 +10,7 @@
 #import "FLORandomListViewModel.h"
 
 #import "FLORandomViewController.h"
+#import "FLORandomEditViewController.h"
 
 @interface FLORandomListViewController ()
 
@@ -23,14 +24,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addAction:)];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.viewModel reloadData];
+    [self.tableView reloadData];   
+}
+
+#pragma mark - action
+/**
+ 点击添加事件
+ */
+- (void)addAction:(id)sender {
+    FLORandomEditViewController *editVC = [[FLORandomEditViewController alloc] init];    
+    [self.navigationController pushViewController:editVC animated:YES];
+}
+
+#pragma mark - tableView
 //子类提供cell
 - (UITableViewCell *)tableView:(UITableView *)tableView dequeueReusableCellForIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellid = @"FLORandomCellID";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellid];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     return cell;
@@ -38,19 +58,35 @@
 
 //子类配置cell内容
 - (void)configCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath withObject:(id)object {
-    cell.textLabel.text = [self.viewModel cellTitleForIndexPath:indexPath];
+    Random *model = [self.viewModel randomForIndexPath:indexPath];
+    
+    cell.textLabel.text = model.name;
+    cell.detailTextLabel.text = Def_CheckStringClassAndLength(model.lastResult) ? [NSString stringWithFormat:@"上次结果: %@", model.lastResult] : nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSArray <NSString *>*list = [self.viewModel randomListForIndexPath:indexPath];
-    if (Def_CheckArrayClassAndCount(list)) {
-        FLORandomViewController *randomViewController = [[FLORandomViewController alloc] init];
-        randomViewController.title = [self.viewModel cellTitleForIndexPath:indexPath];
-        randomViewController.randomList = list;
+    Random *model = [self.viewModel randomForIndexPath:indexPath];
+    FLORandomViewController *randomViewController = [[FLORandomViewController alloc] init];
+    randomViewController.randomModel = model;
+    
+    [self.navigationController pushViewController:randomViewController animated:YES];
+}
+
+#pragma mark - 删除数据
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [self.navigationController pushViewController:randomViewController animated:YES];
+        Random *model = [self.viewModel randomForIndexPath:indexPath];
+        [Random deleteEntity:model];
+        
+        [self.viewModel reloadData];
+        [self.tableView reloadData];
     }
 }
 

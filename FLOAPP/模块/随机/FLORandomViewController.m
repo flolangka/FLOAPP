@@ -7,6 +7,8 @@
 //
 
 #import "FLORandomViewController.h"
+#import "Random+CoreDataClass.h"
+#import "FLORandomEditViewController.h"
 
 @interface FLORandomViewController ()
 
@@ -17,6 +19,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = _randomModel.name;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editAction:)];
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
+#pragma mark - action
+/**
+ 点击修改事件
+ */
+- (void)editAction:(id)sender {
+    FLORandomEditViewController *editVC = [[FLORandomEditViewController alloc] init];
+    editVC.editRandom = _randomModel;
+    [self.navigationController pushViewController:editVC animated:YES];
 }
 
 /*

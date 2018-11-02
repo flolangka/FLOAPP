@@ -49,14 +49,14 @@
 - (BOOL)downloading;
 
 /**
- 开始下载任务
+ 下载任务标识
  */
-- (void)startDownload;
+- (NSString *)downloadTaskID;
 
 /**
- 通过resumeData继续下载
+ 开始下载任务(如果有ResumeData会续传)
  */
-- (void)startWithResumeData;
+- (void)startDownload;
 
 /**
  暂停下载并保存已下载数据信息
@@ -67,10 +67,5 @@
  取消下载，删除下载缓存
  */
 - (void)cancel;
-
-/**
- 下载任务标识
- */
-- (NSString *)downloadTaskID;
 
 @end

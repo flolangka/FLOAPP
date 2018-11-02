@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class Random;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FLORandomViewController : UIViewController
 
-//随机项目列表
-@property (nonatomic, copy  ) NSArray <NSString *>*randomList;
+//随机项目
+@property (nonatomic, strong) Random *randomModel;
 
 @end
 
