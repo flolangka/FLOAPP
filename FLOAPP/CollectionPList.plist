@@ -34,6 +34,14 @@
 		<key>ItemAddress</key>
 		<string>SBIDWeiboTableViewController</string>
 	</dict>
+    <dict>
+        <key>ItemName</key>
+        <string>百度地图</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bda71dd5e676.png</string>
+        <key>ItemAddress</key>
+        <string>PresentFLOBDMapViewController</string>
+    </dict>
 	<dict>
 		<key>ItemName</key>
 		<string>书签</string>
@@ -52,15 +60,7 @@
 	</dict>
 	<dict>
 		<key>ItemName</key>
-		<string>系统声音</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bdac3d47a328.png</string>
-		<key>ItemAddress</key>
-		<string>FLOSystemSoundTableViewController</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>系统字体</string>
+		<string>UIFont</string>
 		<key>ItemIconURL</key>
 		<string>https://i.loli.net/2018/11/01/5bdac38594ee4.png</string>
 		<key>ItemAddress</key>
@@ -82,22 +82,6 @@
 		<key>ItemAddress</key>
 		<string>FLOAdjustFontSizeViewController</string>
 	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>扫一扫</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bda9c02d4c58.png</string>
-		<key>ItemAddress</key>
-		<string>FLOCodeViewController</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>Touch ID</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bda9a8131b17.png</string>
-		<key>ItemAddress</key>
-		<string>FLOTouchIDViewController</string>
-	</dict>
     <dict>
         <key>ItemName</key>
         <string>Force Touch</string>
@@ -106,14 +90,30 @@
         <key>ItemAddress</key>
         <string>Force_Touch</string>
     </dict>
+    <dict>
+        <key>ItemName</key>
+        <string>Touch ID</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bda9a8131b17.png</string>
+        <key>ItemAddress</key>
+        <string>FLOTouchIDViewController</string>
+    </dict>
 	<dict>
 		<key>ItemName</key>
-		<string>百度地图</string>
+		<string>扫一扫</string>
 		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bda71dd5e676.png</string>
+		<string>https://i.loli.net/2018/11/01/5bda9c02d4c58.png</string>
 		<key>ItemAddress</key>
-		<string>PresentFLOBDMapViewController</string>
+		<string>FLOCodeViewController</string>
 	</dict>
+    <dict>
+        <key>ItemName</key>
+        <string>系统声音</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/02/5bdbc2348cfd8.png</string>
+        <key>ItemAddress</key>
+        <string>FLOSystemSoundTableViewController</string>
+    </dict>
 	<dict>
 		<key>ItemName</key>
 		<string>通知</string>
@@ -122,54 +122,62 @@
 		<key>ItemAddress</key>
 		<string>SBIDNotificationViewController</string>
 	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>瀑布流</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bda71de38d93.png</string>
-		<key>ItemAddress</key>
-		<string>FLOWaterFallViewController</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>Gif</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bdac385cbbd2.png</string>
-		<key>ItemAddress</key>
-		<string>FLOGifImageViewController</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>接口测试</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bdac385e062a.png</string>
-		<key>ItemAddress</key>
-		<string>SBIDNetWorkTableViewController</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>下载</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bdac32af004b.png</string>
-		<key>ItemAddress</key>
-		<string>FLODownloadTableViewController</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>流媒体</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bdac385d66a6.png</string>
-		<key>ItemAddress</key>
-		<string>FLOMediaAddressTableViewController</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>排序</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bdac3d4710b3.png</string>
-		<key>ItemAddress</key>
-		<string>SBIDSortViewController</string>
-	</dict>
+    <dict>
+        <key>ItemName</key>
+        <string>相机</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bda71dd7dd5c.png</string>
+        <key>ItemAddress</key>
+        <string>PresentFLOCameraViewController</string>
+    </dict>
+    <dict>
+        <key>ItemName</key>
+        <string>相册</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/02/5bdbc23497bf3.png</string>
+        <key>ItemAddress</key>
+        <string>FLOWaterFallViewController</string>
+    </dict>
+    <dict>
+        <key>ItemName</key>
+        <string>Gif</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bdac385cbbd2.png</string>
+        <key>ItemAddress</key>
+        <string>FLOGifImageViewController</string>
+    </dict>
+    <dict>
+        <key>ItemName</key>
+        <string>下载</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bdac32af004b.png</string>
+        <key>ItemAddress</key>
+        <string>FLODownloadTableViewController</string>
+    </dict>
+    <dict>
+        <key>ItemName</key>
+        <string>文件夹</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/02/5bdbab8477484.png</string>
+        <key>ItemAddress</key>
+        <string>FLOShareDirectoryTableViewController</string>
+    </dict>
+    <dict>
+        <key>ItemName</key>
+        <string>微信表情</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bda71ddc75f8.png</string>
+        <key>ItemAddress</key>
+        <string>FLOShareEmotionViewController</string>
+    </dict>
+    <dict>
+        <key>ItemName</key>
+        <string>编辑器</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bdac32af001e.png</string>
+        <key>ItemAddress</key>
+        <string>FLORichTextEditorViewController</string>
+    </dict>
     <dict>
         <key>ItemName</key>
         <string>算法</string>
@@ -178,30 +186,30 @@
         <key>ItemAddress</key>
         <string>FLOAlgorithmViewModel</string>
     </dict>
+    <dict>
+        <key>ItemName</key>
+        <string>接口测试</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bdac385e062a.png</string>
+        <key>ItemAddress</key>
+        <string>SBIDNetWorkTableViewController</string>
+    </dict>
 	<dict>
 		<key>ItemName</key>
-		<string>编辑器</string>
+		<string>流媒体</string>
 		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bdac32af001e.png</string>
+		<string>https://i.loli.net/2018/11/01/5bdac385d66a6.png</string>
 		<key>ItemAddress</key>
-		<string>FLORichTextEditorViewController</string>
+		<string>FLOMediaAddressTableViewController</string>
 	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>文件夹</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bdac32af004d.png</string>
-		<key>ItemAddress</key>
-		<string>FLOShareDirectoryTableViewController</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>微信表情</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bda71ddc75f8.png</string>
-		<key>ItemAddress</key>
-		<string>FLOShareEmotionViewController</string>
-	</dict>
+    <dict>
+        <key>ItemName</key>
+        <string>网易视频</string>
+        <key>ItemIconURL</key>
+        <string>https://i.loli.net/2018/11/01/5bda71dde4d63.png</string>
+        <key>ItemAddress</key>
+        <string>FLONETEASEVideoViewModel</string>
+    </dict>
 	<dict>
 		<key>ItemName</key>
 		<string>糗事百科</string>
@@ -209,22 +217,6 @@
 		<string>https://i.loli.net/2018/11/01/5bda71de243fd.png</string>
 		<key>ItemAddress</key>
 		<string>FLOQSBKTableViewController</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>网易视频</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bda71dde4d63.png</string>
-		<key>ItemAddress</key>
-		<string>FLONETEASEVideoViewModel</string>
-	</dict>
-	<dict>
-		<key>ItemName</key>
-		<string>相机</string>
-		<key>ItemIconURL</key>
-		<string>https://i.loli.net/2018/11/01/5bda71dd7dd5c.png</string>
-		<key>ItemAddress</key>
-		<string>PresentFLOCameraViewController</string>
 	</dict>
 	<dict>
 		<key>ItemName</key>
