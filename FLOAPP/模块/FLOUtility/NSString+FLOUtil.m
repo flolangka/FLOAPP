@@ -93,4 +93,77 @@
     return ceilf(width);
 }
 
+
+/**
+ 字符串添加属性
+ 
+ @param font 字体
+ @param lineSpacing 行间距
+ @param paragraphSpacing 段间距
+ @param lineBreakMode 文字过长时的显示方式；NSLineBreakByTruncatingTail:末尾显示...（在显示2行超出显示...时才设置，否则YYTextLayout布局会出现问题)
+ @param alignment 对齐方式，默认左对齐; NSTextAlignmentJustified:两端对齐
+ @return 属性字符串
+ */
+- (NSAttributedString *)attributedFont:(UIFont *)font
+                           lineSpacing:(float)lineSpacing
+                      paragraphSpacing:(float)paragraphSpacing
+                         lineBreakMode:(NSLineBreakMode)lineBreakMode
+                             alignment:(NSTextAlignment)alignment {
+    NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+    if (lineSpacing) {
+        paragraphStyle.lineSpacing = lineSpacing - (font.lineHeight - font.pointSize);
+    }
+    if (paragraphSpacing) {
+        paragraphStyle.paragraphSpacing = paragraphSpacing;
+    }
+    if (lineBreakMode) {
+        paragraphStyle.lineBreakMode = lineBreakMode;
+    }
+    if (alignment) {
+        paragraphStyle.alignment = alignment;
+    }
+    
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    [attributes setObject:paragraphStyle forKey:NSParagraphStyleAttributeName];
+    [attributes setObject:font forKey:NSFontAttributeName];
+    
+    return [[NSAttributedString alloc] initWithString:self attributes:attributes];
+}
+
+/**
+ 字符串添加属性
+ 
+ @param font 字体
+ @param lineSpacing 行间距
+ @param alignment 对齐方式，默认左对齐; NSTextAlignmentJustified:两端对齐
+ @return 属性字符串
+ */
+- (NSAttributedString *)attributedFont:(UIFont *)font
+                           lineSpacing:(float)lineSpacing
+                             alignment:(NSTextAlignment)alignment {
+    return [self attributedFont:font
+                    lineSpacing:lineSpacing
+               paragraphSpacing:0
+                  lineBreakMode:0
+                      alignment:alignment];
+}
+
+/**
+ 字符串添加属性
+ 
+ @param font 字体
+ @param paragraphSpacing 段间距
+ @param alignment 对齐方式，默认左对齐; NSTextAlignmentJustified:两端对齐
+ @return 属性字符串
+ */
+- (NSAttributedString *)attributedFont:(UIFont *)font
+                      paragraphSpacing:(float)paragraphSpacing
+                             alignment:(NSTextAlignment)alignment {
+    return [self attributedFont:font
+                    lineSpacing:0
+               paragraphSpacing:paragraphSpacing
+                  lineBreakMode:0
+                      alignment:alignment];
+}
+
 @end

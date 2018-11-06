@@ -32,6 +32,38 @@
  */
 - (void)flo_dottedBorderWithColor:(UIColor *)color;
 
+/**
+ 在两点间绘制虚线
+ 
+ @param bounds 自身区域大小
+ @param startPoint 起点
+ @param endPoint 终点
+ @param lineLength 虚线的宽度
+ @param lineSpacing 虚线的间距
+ @param lineColor 虚线的颜色
+ */
+- (void)drawDashLineInBounds:(CGRect)bounds
+                  startPoint:(CGPoint)startPoint
+                    endPoint:(CGPoint)endPoint
+                  lineLength:(int)lineLength
+                 lineSpacing:(int)lineSpacing
+                   lineColor:(UIColor *)lineColor;
+
+/**
+ 绘制虚线矩形
+ 
+ @param rect 虚线矩形位置、大小
+ @param lineLength 虚线的宽度
+ @param lineSpacing 虚线的间距
+ @param lineColor 虚线的颜色
+ @param cornerRadius 圆角
+ */
+- (void)drawDashLineBorderRect:(CGRect)rect
+                    lineLength:(int)lineLength
+                   lineSpacing:(int)lineSpacing
+                     lineColor:(UIColor *)lineColor
+                  cornerRadius:(float)cornerRadius;
+
 #pragma mark - 设置分割线
 - (void)flo_topLineHide:(BOOL)hide;
 - (void)flo_topLineLeft:(float)left right:(float)right;

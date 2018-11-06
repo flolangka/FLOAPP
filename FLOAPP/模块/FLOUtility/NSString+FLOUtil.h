@@ -38,4 +38,45 @@
  */
 - (float)widthWithLimitHeight:(float)limitH fontSize:(float)fontSize;
 
+
+/**
+ 字符串添加属性
+
+ @param font 字体
+ @param lineSpacing 行间距
+ @param paragraphSpacing 段间距
+ @param lineBreakMode 文字过长时的显示方式；NSLineBreakByTruncatingTail:末尾显示...（在显示2行超出显示...时才设置，否则YYTextLayout布局会出现问题)
+ @param alignment 对齐方式，默认左对齐; NSTextAlignmentJustified:两端对齐
+ @return 属性字符串
+ */
+- (NSAttributedString *)attributedFont:(UIFont *)font
+                           lineSpacing:(float)lineSpacing
+                      paragraphSpacing:(float)paragraphSpacing
+                         lineBreakMode:(NSLineBreakMode)lineBreakMode
+                             alignment:(NSTextAlignment)alignment;
+
+/**
+ 字符串添加属性
+
+ @param font 字体
+ @param lineSpacing 行间距
+ @param alignment 对齐方式，默认左对齐; NSTextAlignmentJustified:两端对齐
+ @return 属性字符串
+ */
+- (NSAttributedString *)attributedFont:(UIFont *)font
+                           lineSpacing:(float)lineSpacing
+                             alignment:(NSTextAlignment)alignment;
+
+/**
+ 字符串添加属性
+
+ @param font 字体
+ @param paragraphSpacing 段间距
+ @param alignment 对齐方式，默认左对齐; NSTextAlignmentJustified:两端对齐
+ @return 属性字符串
+ */
+- (NSAttributedString *)attributedFont:(UIFont *)font
+                      paragraphSpacing:(float)paragraphSpacing
+                             alignment:(NSTextAlignment)alignment;
+
 @end

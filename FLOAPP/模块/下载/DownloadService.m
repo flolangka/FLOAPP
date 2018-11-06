@@ -66,6 +66,7 @@
     dlService -> downloadFinished = [finished copy];
     dlService -> downloadFailed = [failed copy];
     dlService -> downloading = NO;
+    dlService -> task = nil;
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:iden];
     dlService -> dlSession = [NSURLSession sessionWithConfiguration:configuration delegate:dlService delegateQueue:nil];
@@ -222,37 +223,36 @@
         DLog(@"文档下载didCompleteWithError：%@\nTaskID：%@", error.userInfo, taskID);
         downloading = NO;
         
-        NSData *resumeData = [error.userInfo objectForKey:@"NSURLSessionDownloadTaskResumeData"];
-        if (resumeData) {
-            
-            // 用户取消下载
-            NSString *localizedDescription = [error.userInfo objectForKey:@"NSLocalizedDescription"];
-            if (localizedDescription && [localizedDescription isEqualToString:@"cancelled"]) {
-                return;
-            }
-            
-            if ([FLOUtil networkStatus] == 1) {
-                // 10.0~10.1 续传有系统BUG
-                if ([self downloadBUGVersion]) {
-                    self -> task = [dlSession correctedDownloadTaskWithResumeData:resumeData];
-                } else {
-                    self -> task = [dlSession downloadTaskWithResumeData:resumeData];
-                }
-                
-                [self -> task resume];
-                downloading = YES;
-            } else {
-                BOOL saveSuccess = [resumeData writeToFile:[FLOUtil FilePathInCachesWithName:resumeDataPath] atomically:YES];
-                
-                if (saveSuccess && downloadSuspend) {
-                    downloadSuspend(taskID);
-                }
-            }
+        NSString *localizedDescription = [error.userInfo objectForKey:@"NSLocalizedDescription"];
+        if (localizedDescription && [localizedDescription isEqualToString:@"cancelled"]) {
+            // 用户暂停/取消下载
         } else {
-            [FLOUtil DropFilePath:[FLOUtil FilePathInCachesWithName:resumeDataPath]];
-            
-            if (downloadFailed) {
-                downloadFailed(taskID);
+            NSData *resumeData = [error.userInfo objectForKey:@"NSURLSessionDownloadTaskResumeData"];
+            if (resumeData) {
+                // 上滑杀进程
+                if ([FLOUtil networkStatus] == 1) {
+                    // 10.0~10.1 续传有系统BUG
+                    if ([self downloadBUGVersion]) {
+                        self -> task = [dlSession correctedDownloadTaskWithResumeData:resumeData];
+                    } else {
+                        self -> task = [dlSession downloadTaskWithResumeData:resumeData];
+                    }
+                    
+                    [self -> task resume];
+                    downloading = YES;
+                } else {
+                    BOOL saveSuccess = [resumeData writeToFile:[FLOUtil FilePathInCachesWithName:resumeDataPath] atomically:YES];
+                    
+                    if (saveSuccess && downloadSuspend) {
+                        downloadSuspend(taskID);
+                    }
+                }
+            } else {
+                [FLOUtil DropFilePath:[FLOUtil FilePathInCachesWithName:resumeDataPath]];
+                
+                if (downloadFailed) {
+                    downloadFailed(taskID);
+                }
             }
         }
     } else {

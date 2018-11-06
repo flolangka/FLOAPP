@@ -65,6 +65,77 @@
     [self.layer addSublayer:border];
 }
 
+/**
+ 在两点间绘制虚线
+ 
+ @param bounds 自身区域大小
+ @param startPoint 起点
+ @param endPoint 终点
+ @param lineLength 虚线的宽度
+ @param lineSpacing 虚线的间距
+ @param lineColor 虚线的颜色
+ */
+- (void)drawDashLineInBounds:(CGRect)bounds
+                  startPoint:(CGPoint)startPoint
+                    endPoint:(CGPoint)endPoint
+                  lineLength:(int)lineLength
+                 lineSpacing:(int)lineSpacing
+                   lineColor:(UIColor *)lineColor {
+    
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    [shapeLayer setBounds:bounds];
+    [shapeLayer setPosition:CGPointMake(CGRectGetWidth(bounds) / 2, CGRectGetHeight(bounds)/2)];
+    
+    [shapeLayer setStrokeColor:lineColor.CGColor];
+    [shapeLayer setLineWidth:1.f];
+    //设置线宽，线间距
+    [shapeLayer setLineDashPattern:@[@(lineLength), @(lineSpacing)]];
+    
+    //设置路径
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, startPoint.x, startPoint.y);
+    CGPathAddLineToPoint(path, NULL, endPoint.x, endPoint.y);
+    
+    [shapeLayer setPath:path];
+    CGPathRelease(path);
+    
+    [self.layer addSublayer:shapeLayer];
+}
+
+/**
+ 绘制虚线矩形
+ 
+ @param rect 虚线矩形位置、大小
+ @param lineLength 虚线的宽度
+ @param lineSpacing 虚线的间距
+ @param lineColor 虚线的颜色
+ @param cornerRadius 圆角
+ */
+- (void)drawDashLineBorderRect:(CGRect)rect
+                    lineLength:(int)lineLength
+                   lineSpacing:(int)lineSpacing
+                     lineColor:(UIColor *)lineColor
+                  cornerRadius:(float)cornerRadius {
+    
+    CAShapeLayer *border = [CAShapeLayer layer];
+    [border setBounds:CGRectMake(0, 0, CGRectGetWidth(rect), CGRectGetHeight(rect))];
+    [border setPosition:CGPointMake(CGRectGetWidth(rect) / 2, CGRectGetHeight(rect)/2)];
+    
+    //虚线的颜色
+    border.strokeColor = lineColor.CGColor;
+    border.fillColor = [UIColor clearColor].CGColor;
+    //虚线的宽度
+    border.lineWidth = 1.f;
+    //虚线的间隔
+    border.lineDashPattern = @[@(lineLength), @(lineSpacing)];
+    
+    //设置路径
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:cornerRadius];
+    border.path = path.CGPath;
+    
+    [self.layer addSublayer:border];
+}
+
 #pragma mark - 设置分割线
 - (void)flo_topLineHide:(BOOL)hide {
     [[self viewWithTag:TAG_TOPLINE] setHidden:hide];
