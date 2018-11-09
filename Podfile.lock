@@ -35,10 +35,13 @@ PODS:
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
     - "SDWebImage (!= 3.7.2, ~> 3.7)"
+  - PNChart (0.8.9):
+    - UICountingLabel (~> 1.2.0)
   - RESideMenu (4.0.7)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - UICountingLabel (1.2.0)
   - WechatOpenSDK (1.8.2)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -54,6 +57,7 @@ DEPENDENCIES:
   - MJRefresh
   - MQTTClient
   - MWPhotoBrowser
+  - PNChart
   - RESideMenu
   - SDWebImage
   - WechatOpenSDK
@@ -71,8 +75,10 @@ SPEC REPOS:
     - MJRefresh
     - MQTTClient
     - MWPhotoBrowser
+    - PNChart
     - RESideMenu
     - SDWebImage
+    - UICountingLabel
     - WechatOpenSDK
     - YYKit
 
@@ -87,11 +93,13 @@ SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   MQTTClient: aced164e080fb139daa98fc745d01da279e55945
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  PNChart: 84774d225c2126ded6c93d4dbe6ae98c3a73c2d2
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
   WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 882b419dc8a604bdacc18fedf358613fc0f32dbd
+PODFILE CHECKSUM: af523a3d6104d5fd423bd5d1fed90fabc3caa375
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3
