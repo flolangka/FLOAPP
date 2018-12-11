@@ -2661,7 +2661,7 @@
 				GCC_PREFIX_HEADER = FLOAPP/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/FLOAPP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks $(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-l\"AFNetworking\"",
@@ -2759,7 +2759,7 @@
 				GCC_PREFIX_HEADER = FLOAPP/PrefixHeader.pch;
 				INFOPLIST_FILE = "$(SRCROOT)/FLOAPP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks $(inherited)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-l\"AFNetworking\"",
