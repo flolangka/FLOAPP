@@ -24,7 +24,7 @@
     self.title = @"MQTT";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    textV = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64)];
+    textV = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-64)];
     textV.editable = NO;
     [self.view addSubview:textV];
     

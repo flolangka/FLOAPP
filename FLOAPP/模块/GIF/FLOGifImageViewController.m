@@ -32,7 +32,7 @@
     dataArr_gifAsset = [NSMutableArray arrayWithCapacity:42];
     
     //初始化collectionV
-    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(5, 0, DEVICE_SCREEN_WIDTH-10, DEVICE_SCREEN_HEIGHT-64) collectionViewLayout:[UICollectionViewFlowLayout new]];
+    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(5, 0, MYAPPConfig.screenWidth-10, MYAPPConfig.screenHeight-64) collectionViewLayout:[UICollectionViewFlowLayout new]];
     collectionV.backgroundColor = [UIColor whiteColor];
     collectionV.dataSource = self;
     collectionV.delegate = self;
@@ -115,7 +115,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (!bgControl) {
-        bgControl = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT)];
+        bgControl = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight)];
         bgControl.backgroundColor = [UIColor blackColor];
         
         UITapGestureRecognizer *tapGes1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
@@ -124,7 +124,7 @@
         [bgControl addGestureRecognizer:tapGes1];
         [bgControl addGestureRecognizer:pinchGes1];
         
-        UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT)];
+        UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight)];
         imageV.tag = 1000;
         imageV.userInteractionEnabled = YES;
         [bgControl addSubview:imageV];
@@ -164,7 +164,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((DEVICE_SCREEN_WIDTH-20)/3., (DEVICE_SCREEN_WIDTH-20)/3.+5);
+    return CGSizeMake((MYAPPConfig.screenWidth-20)/3., (MYAPPConfig.screenWidth-20)/3.+5);
 }
 
 @end

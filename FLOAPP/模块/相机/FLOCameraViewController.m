@@ -109,7 +109,7 @@ NSInteger FLOCameraViewControllerMaskViewTag = 4444;
             [toolBar addSubview:space];
         }
     }
-    toolBar.frame = CGRectMake(MYAPPConfig.screenWidth-(1 + 43*arr.count)-10, 20, 1 + 43*arr.count, 32);
+    toolBar.frame = CGRectMake(MYAPPConfig.screenWidth-(1 + 43*arr.count)-10, MYAPPConfig.statusBarHeight, 1 + 43*arr.count, 32);
     toolBar.layer.cornerRadius = 32/2.;
     toolBar.layer.masksToBounds = YES;
     toolBar.layer.borderWidth = 1;

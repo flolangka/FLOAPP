@@ -27,7 +27,7 @@
     self.title = @"字符串加密、解密";
     [self configDataArr];
     
-    self.pickerV = [[UIPickerView alloc] initWithFrame:CGRectMake(0, DEVICE_SCREEN_HEIGHT-300-64, DEVICE_SCREEN_WIDTH, 300)];
+    self.pickerV = [[UIPickerView alloc] initWithFrame:CGRectMake(0, MYAPPConfig.screenHeight-300-64, MYAPPConfig.screenWidth, 300)];
     _pickerV.dataSource = self;
     _pickerV.delegate = self;
     [self.view addSubview:_pickerV];

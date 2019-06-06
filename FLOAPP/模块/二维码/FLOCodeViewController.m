@@ -49,7 +49,7 @@
     
     //灯光开关
     self.lightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _lightBtn.frame = CGRectMake(size.width/2-25, size.height-80-64, 50, 50./130*174);
+    _lightBtn.frame = CGRectMake(size.width/2-25, size.height-80-MYAPPConfig.navigationHeight-MYAPPConfig.bottomAddHeight, 50, 50./130*174);
     _lightBtn.backgroundColor = [UIColor clearColor];
     [_lightBtn setImage:[UIImage imageNamed:@"qrcode_scan_btn_flash_nor"] forState:UIControlStateNormal];
     [_lightBtn setImage:[UIImage imageNamed:@"qrcode_scan_btn_scan_off"] forState:UIControlStateSelected];

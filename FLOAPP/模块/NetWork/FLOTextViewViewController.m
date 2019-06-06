@@ -23,7 +23,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64)];
+        textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-MYAPPConfig.statusBarHeight)];
         textView.editable = NO;
         textView.font = [UIFont systemFontOfSize:16];
         textView.backgroundColor = [UIColor whiteColor];

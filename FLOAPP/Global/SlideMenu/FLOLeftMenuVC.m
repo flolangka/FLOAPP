@@ -60,7 +60,7 @@
     [self.view addSubview:self.tableView];
     
     _bottomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _bottomBtn.frame = CGRectMake(10, [UIScreen mainScreen].bounds.size.height-44, 80, 44);
+    _bottomBtn.frame = CGRectMake(10, MYAPPConfig.screenHeight - 44 - MYAPPConfig.bottomAddHeight, 80, 44);
     _bottomBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     _bottomBtn.tintColor = [UIColor whiteColor];
     [_bottomBtn addTarget:self action:@selector(bottomButtonAction:) forControlEvents:UIControlEventTouchUpInside];

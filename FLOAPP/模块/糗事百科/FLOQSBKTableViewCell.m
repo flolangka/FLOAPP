@@ -218,7 +218,7 @@ static float FLOQSBKContentFontSize = 16;
     
     float imgHeight = 0;
     if (Def_CheckStringClassAndLength(imgPath)) {
-        imgHeight = DEVICE_SCREEN_WIDTH/imgSize.width * imgSize.height;
+        imgHeight = MYAPPConfig.screenWidth/imgSize.width * imgSize.height;
         imgHeight = MIN(imgHeight, 600);
         
         [_imgView sd_setImageWithURL:[NSURL URLWithString:imgPath]];
@@ -228,7 +228,7 @@ static float FLOQSBKContentFontSize = 16;
     _videoIdentityView.hidden = !video;
     
     //更新正文高度
-    float height = [content heightWithLimitWidth:(DEVICE_SCREEN_WIDTH - 15 - 15) fontSize:FLOQSBKContentFontSize];
+    float height = [content heightWithLimitWidth:(MYAPPConfig.screenWidth - 15 - 15) fontSize:FLOQSBKContentFontSize];
     [_contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(height);
     }];
@@ -244,13 +244,13 @@ static float FLOQSBKContentFontSize = 16;
                   imgSize:(CGSize    )imgSize {
     float height = 8 + 15 + 35 + 10;
     
-    height += [content heightWithLimitWidth:(DEVICE_SCREEN_WIDTH - 15 - 15) fontSize:FLOQSBKContentFontSize];
+    height += [content heightWithLimitWidth:(MYAPPConfig.screenWidth - 15 - 15) fontSize:FLOQSBKContentFontSize];
     
     height += 12;
     
     float imgHeight = 0;
     if (imgSize.height > 0) {
-        imgHeight = DEVICE_SCREEN_WIDTH/imgSize.width * imgSize.height;
+        imgHeight = MYAPPConfig.screenWidth/imgSize.width * imgSize.height;
         imgHeight = MIN(imgHeight, 600);
     }
     

@@ -104,7 +104,7 @@
 //全屏蒙层
 - (UIControl *)soundPickerMaskV {
     if (!_soundPickerMaskV) {
-        _soundPickerMaskV = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight - MYAPPConfig.navigationBarHeight)];
+        _soundPickerMaskV = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight - MYAPPConfig.navigationHeight)];
         _soundPickerMaskV.backgroundColor = COLOR_RGB3SAMEAlpha(0, 0.2);
         [_soundPickerMaskV addTarget:self action:@selector(maskViewAction:) forControlEvents:UIControlEventTouchUpInside];
         

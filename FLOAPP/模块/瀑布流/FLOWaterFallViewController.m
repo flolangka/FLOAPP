@@ -31,7 +31,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"相册";
 
-    width = (DEVICE_SCREEN_WIDTH-30) / 2.;
+    width = (MYAPPConfig.screenWidth-30) / 2.;
     dataArray = [NSMutableArray arrayWithCapacity:42];
     
     [self initCollectionView];
@@ -49,7 +49,7 @@
         return [weakself itemHeight:indexPath];
     };
     
-    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64) collectionViewLayout:layout];
+    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-MYAPPConfig.statusBarHeight) collectionViewLayout:layout];
     collectionV.backgroundColor = [UIColor whiteColor];
     collectionV.dataSource = self;
     [collectionV registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];

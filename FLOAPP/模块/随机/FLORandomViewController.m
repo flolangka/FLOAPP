@@ -76,7 +76,7 @@
         make.top.equalTo(_randomView.mas_bottom);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-MYAPPConfig.iPhoneXBottomHeight-5);
+        make.bottom.equalTo(self.view).offset(-MYAPPConfig.bottomAddHeight-5);
     }];
     _optionsTextView.editable = NO;
     _optionsTextView.selectable = NO;
@@ -84,7 +84,7 @@
     _optionsTextView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 5);
     
     //选项的虚线边框
-    [self.view drawDashLineBorderRect:CGRectMake(5, randomViewHeight, MYAPPConfig.screenWidth-5*2, MYAPPConfig.screenHeight-MYAPPConfig.navigationBarHeight-randomViewHeight-MYAPPConfig.iPhoneXBottomHeight-5) lineLength:5 lineSpacing:3 lineColor:COLOR_HEX(0xD8D8D8) cornerRadius:5];
+    [self.view drawDashLineBorderRect:CGRectMake(5, randomViewHeight, MYAPPConfig.screenWidth-5*2, MYAPPConfig.screenHeight-MYAPPConfig.navigationHeight-randomViewHeight-MYAPPConfig.bottomAddHeight-5) lineLength:5 lineSpacing:3 lineColor:COLOR_HEX(0xD8D8D8) cornerRadius:5];
 }
 
 - (void)loadPieChart {

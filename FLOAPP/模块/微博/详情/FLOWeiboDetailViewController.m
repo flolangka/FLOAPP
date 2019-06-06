@@ -48,7 +48,7 @@ static NSString * const kShowCommentsURL = @"https://api.weibo.com/2/comments/sh
     CGFloat width = self.view.frame.size.width;
     CGFloat height = self.view.frame.size.height;
     
-    UIView *footerV = [[UIView alloc] initWithFrame:CGRectMake(0, height-104, width, 44)];
+    UIView *footerV = [[UIView alloc] initWithFrame:CGRectMake(0, height-MYAPPConfig.navigationHeight-44-MYAPPConfig.bottomAddHeight, width, 44)];
     footerV.backgroundColor = [UIColor groupTableViewBackgroundColor];
     UIButton *repostBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     repostBtn.frame = CGRectMake(0, 0, width/2-1, 43);

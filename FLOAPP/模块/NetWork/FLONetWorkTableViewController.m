@@ -75,7 +75,7 @@
 }
 
 - (void)configTableHeaderView {
-    UIView *headerV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, 184)];
+    UIView *headerV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, 184)];
     
     textView_url = [[YYTextView alloc] init];
     textView_para = [[YYTextView alloc] init];
@@ -117,7 +117,7 @@
     textView_para.placeholderTextColor = COLOR_HEX(0xc7c7cd);
     textView_url.placeholderTextColor = COLOR_HEX(0xc7c7cd);
     
-    UIView *bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(headerV.frame)-0.5, DEVICE_SCREEN_WIDTH, 0.5)];
+    UIView *bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(headerV.frame)-0.5, MYAPPConfig.screenWidth, 0.5)];
     bottomLine.backgroundColor = [UIColor lightGrayColor];
     [headerV addSubview:bottomLine];
     self.tableView.tableHeaderView = headerV;

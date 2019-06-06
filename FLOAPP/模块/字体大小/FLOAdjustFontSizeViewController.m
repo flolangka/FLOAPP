@@ -35,7 +35,7 @@
                  @"设置后，会改变聊天、菜单和朋友圈中的字体大小。如果在使用过程中存在问题或意见，可反馈给微信团队。"];
     fontSize = 22;
     
-    tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), DEVICE_SCREEN_HEIGHT-64-120) style:UITableViewStylePlain];
+    tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), MYAPPConfig.screenHeight-64-120) style:UITableViewStylePlain];
     tableview.delegate = self;
     tableview.dataSource = self;
     tableview.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -44,7 +44,6 @@
     
     __weak UITableView *weakTableview = tableview;
     adjustFontSizeView = [[FLOAdjustFontSizeView alloc] init];
-    adjustFontSizeView.frame = CGRectMake(0, DEVICE_SCREEN_HEIGHT-120-64, DEVICE_SCREEN_WIDTH, 120);
     adjustFontSizeView.fontSizeChanged = ^(CGFloat size){
         if (size > 0) {
             fontSize = size;
@@ -52,6 +51,10 @@
         }
     };
     [self.view addSubview:adjustFontSizeView];
+    [adjustFontSizeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.height.mas_equalTo(120 + MYAPPConfig.bottomAddHeight);
+    }];
 }
 
 

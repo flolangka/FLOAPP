@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.title = @"富文本编辑器";
     
-    self.editView = [[FLORichTextEditorView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64)];
+    self.editView = [[FLORichTextEditorView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-MYAPPConfig.navigationHeight)];
     self.editView.weakVC = self;
     [self.view addSubview:_editView];
     

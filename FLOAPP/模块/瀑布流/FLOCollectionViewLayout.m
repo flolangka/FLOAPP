@@ -44,14 +44,14 @@
 
 // 返回collectionView的ContentSize -> 滚动范围
 - (CGSize)collectionViewContentSize {
-    return CGSizeMake(DEVICE_SCREEN_WIDTH, [self max:maxYOfColums]);
+    return CGSizeMake(MYAPPConfig.screenWidth, [self max:maxYOfColums]);
 }
 
 // 计算所有的UICollectionViewLayoutAttributes
 - (NSArray <UICollectionViewLayoutAttributes *>*)layoutAttributes {
     NSInteger totalNums = [[self collectionView] numberOfItemsInSection:0];
     
-    CGFloat itemWidth = (DEVICE_SCREEN_WIDTH-(_numberOfColum+1)*_horizontalSpace)/(float)_numberOfColum;
+    CGFloat itemWidth = (MYAPPConfig.screenWidth-(_numberOfColum+1)*_horizontalSpace)/(float)_numberOfColum;
     CGFloat x = 0;
     CGFloat y = 0;
     CGFloat height = 0;

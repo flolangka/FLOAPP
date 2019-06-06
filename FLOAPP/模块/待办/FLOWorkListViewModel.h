@@ -12,9 +12,6 @@
 
 @interface FLOWorkListViewModel : FLOTableViewModel
 
-@property (nonatomic, copy  ) NSArray *gradientColors;
-@property (nonatomic, strong) NSMutableArray *configedGradientColors;
-
 /**
  获取数据
 

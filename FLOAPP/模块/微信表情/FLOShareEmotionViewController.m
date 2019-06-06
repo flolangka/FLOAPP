@@ -61,7 +61,7 @@ static NSString *FLOShareEmotionCollectionViewCellID = @"FLOShareEmotionCollecti
     CGFloat space = 5;
     int num = 3;
     do {
-        itemWidth = (DEVICE_SCREEN_WIDTH - (num+1)*space)/(float)num;
+        itemWidth = (MYAPPConfig.screenWidth - (num+1)*space)/(float)num;
         num += 1;
     } while (itemWidth > maxWidth);
     
@@ -75,7 +75,7 @@ static NSString *FLOShareEmotionCollectionViewCellID = @"FLOShareEmotionCollecti
         return itemHeight;
     };
     
-    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT-64) collectionViewLayout:layout];
+    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-64) collectionViewLayout:layout];
     collectionV.backgroundColor = [UIColor clearColor];
     collectionV.dataSource = self;
     collectionV.delegate = self;

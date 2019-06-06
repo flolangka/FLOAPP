@@ -9,6 +9,13 @@
 #import "FLOWorkListViewModel.h"
 #import "FLOWorkListCell.h"
 
+@interface FLOWorkListViewModel ()
+
+@property (nonatomic, copy  ) NSArray *gradientColors;
+@property (nonatomic, strong) NSMutableArray *configedGradientColors;
+
+@end
+
 @implementation FLOWorkListViewModel
 
 - (instancetype)init {

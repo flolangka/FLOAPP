@@ -69,7 +69,7 @@ UIViewControllerPreviewingDelegate>
     /*/ FPS指示器
     YYFPSLabel *fps = [YYFPSLabel new];
     fps.centerY = 24;
-    fps.centerX = DEVICE_SCREEN_WIDTH/2.;
+    fps.centerX = MYAPPConfig.screenWidth/2.;
     [[UIApplication sharedApplication].keyWindow addSubview:fps];
      */
 }
@@ -103,12 +103,12 @@ UIViewControllerPreviewingDelegate>
     num -= 1;
     
     FLOMainCollectionViewLayout *layout = [[FLOMainCollectionViewLayout alloc] init];
-    layout.itemSize = CGSizeMake(width, width+17);
-    layout.contentInsets = UIEdgeInsetsMake(30, 0, 0, 0);
+    layout.itemSize = CGSizeMake(width, width+5+17);
+    layout.contentInsets = UIEdgeInsetsMake(MYAPPConfig.statusBarHeight + 20, 0, 50 + 30 + MYAPPConfig.bottomAddHeight, 0);
     layout.numberOfColumnsPerPage = num;
-    layout.fixedLineSpacing = 12;
+    layout.fixedLineSpacing = 20;
     
-    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, DEVICE_SCREEN_HEIGHT - 64) collectionViewLayout:layout];
+    collectionV = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight) collectionViewLayout:layout];
     collectionV.backgroundColor = [UIColor clearColor];
     collectionV.dataSource = self;
     collectionV.delegate = self;
@@ -128,7 +128,7 @@ UIViewControllerPreviewingDelegate>
 }
 
 - (void)initPageControl {
-    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, MYAPPConfig.screenHeight - 30, MYAPPConfig.screenWidth, 30)];
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, MYAPPConfig.screenHeight - 30 - MYAPPConfig.bottomAddHeight, MYAPPConfig.screenWidth, 30)];
     _pageControl.numberOfPages = [(FLOMainCollectionViewLayout *)[collectionV collectionViewLayout] numberOfPages];
     _pageControl.currentPage = 0;
     _pageControl.enabled = NO;
@@ -180,7 +180,7 @@ UIViewControllerPreviewingDelegate>
         [imageV flo_setCornerRadius:10];
         imageV.tag = 4444;
         
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, width, width, 17)];
+        label = [[UILabel alloc] initWithFrame:CGRectMake(0, width+4, width, 17)];
         label.font = [UIFont systemFontOfSize:12];
         label.textColor = [UIColor whiteColor];
         label.textAlignment = NSTextAlignmentCenter;

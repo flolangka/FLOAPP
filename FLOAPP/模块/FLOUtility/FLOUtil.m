@@ -13,7 +13,7 @@
 @implementation FLOUtil
 
 + (void)flo_alertWithMessage:(NSString *)msg fromVC:(UIViewController *)VC {
-    if (DEVICE_IOS_VERSION >= 8 && DEVICE_IPHONE) {
+    if (MYAPPConfig.iOSVersion >= 8 && MYAPPConfig.isIphone) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
         [VC presentViewController:alertController animated:YES completion:nil];
@@ -21,7 +21,7 @@
 }
 
 + (void)flo_alertWithTitle:(NSString *)title message:(NSString *)msg fromVC:(UIViewController *)VC {
-    if (DEVICE_IOS_VERSION >= 8 && DEVICE_IPHONE) {
+    if (MYAPPConfig.iOSVersion >= 8 && MYAPPConfig.isIphone) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
         [VC presentViewController:alertController animated:YES completion:nil];

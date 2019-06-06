@@ -127,7 +127,7 @@ static float FLOQSBKTopicImageSpace = 8;
 }
 
 + (float)imgSize {
-    return floorf((DEVICE_SCREEN_WIDTH - 15 - 35 - 15 - 2 * FLOQSBKTopicImageSpace - 15)/3.);
+    return floorf((MYAPPConfig.screenWidth - 15 - 35 - 15 - 2 * FLOQSBKTopicImageSpace - 15)/3.);
 }
 
 - (void)configUserIcon:(NSString *)icon
@@ -152,7 +152,7 @@ static float FLOQSBKTopicImageSpace = 8;
     }    
     
     //更新正文高度
-    float height = [content heightWithLimitWidth:(DEVICE_SCREEN_WIDTH - 15 - 35 - 15 - 15) fontSize:FLOQSBKTopicContentFontSize];
+    float height = [content heightWithLimitWidth:(MYAPPConfig.screenWidth - 15 - 35 - 15 - 15) fontSize:FLOQSBKTopicContentFontSize];
     [_contentLabel mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(height);
     }];
@@ -170,7 +170,7 @@ static float FLOQSBKTopicImageSpace = 8;
               pictureCount:(NSInteger )count {
     float height = 8 + 15 + 20 + 10;
     
-    height += [content heightWithLimitWidth:(DEVICE_SCREEN_WIDTH - 15 - 35 - 15 - 15) fontSize:FLOQSBKTopicContentFontSize];
+    height += [content heightWithLimitWidth:(MYAPPConfig.screenWidth - 15 - 35 - 15 - 15) fontSize:FLOQSBKTopicContentFontSize];
     
     height += 12;
     

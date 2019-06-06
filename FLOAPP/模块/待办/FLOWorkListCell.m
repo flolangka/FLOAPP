@@ -82,21 +82,21 @@
     _finishBtn.layer.borderWidth = 1;
     _finishBtn.layer.borderColor = COLOR_HEX(0xffffff).CGColor;
     
-    //修改按钮
+    //redo/undo按钮
     _leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _leftButton.frame = CGRectMake(8, 7.5, 35, 35);
-    [_leftButton setTintColor:COLOR_HEX(0xffffff)];
-    [_leftButton setImageEdgeInsets:UIEdgeInsetsMake(9, 9, 9, 9)];
-    [_leftButton setImage:[[UIImage imageNamed:@"icon_write"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [_leftButton setTitleColor:COLOR_HEX(0xffffff) forState:UIControlStateNormal];
+    [_leftButton setTitle:@"undo" forState:UIControlStateNormal];
+    _leftButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [_leftButton addTarget:self action:@selector(leftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_baseView addSubview:_leftButton];
     
-    //redo/undo按钮
+    //修改按钮
     _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _rightButton.frame = CGRectMake(CGRectGetWidth(_baseView.frame) - 35 - 8, 7.5, 35, 35);
-    [_rightButton setTitleColor:COLOR_HEX(0xffffff) forState:UIControlStateNormal];
-    [_rightButton setTitle:@"undo" forState:UIControlStateNormal];
-    _rightButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [_rightButton setTintColor:COLOR_HEX(0xffffff)];
+    [_rightButton setImageEdgeInsets:UIEdgeInsetsMake(9, 9, 9, 9)];
+    [_rightButton setImage:[[UIImage imageNamed:@"icon_write"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     [_rightButton addTarget:self action:@selector(rightButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_baseView addSubview:_rightButton];
     
@@ -112,8 +112,8 @@
     _timeLabel.text = _viewModel.timeStr;
     _descLabel.text = _viewModel.desc;
     
-    _leftButton.hidden = _viewModel.editBtnHide;
-    [_rightButton setTitle:_viewModel.titleRightBtnTitle forState:UIControlStateNormal];
+    _rightButton.hidden = _viewModel.editBtnHide;
+    [_leftButton setTitle:_viewModel.titleRightBtnTitle forState:UIControlStateNormal];
     
     if (Def_CheckStringClassAndLength(_viewModel.desc)) {
         float height = [_viewModel.desc heightWithLimitWidth:MYAPPConfig.screenWidth - 15*2 - 15*2 fontSize:14];

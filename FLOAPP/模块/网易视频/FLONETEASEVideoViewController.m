@@ -168,7 +168,7 @@
                 
                 //正在播放第一个
                 if (_playIndex == 0) {
-                    if (scrollHeight > MYAPPConfig.navigationBarHeight) {
+                    if (scrollHeight > MYAPPConfig.navigationHeight) {
                         FLOAsyncMainQueueBlock(^{
                             self.playIndex += 1;
                         });

@@ -57,7 +57,7 @@
 - (void)configTableViewHeaderView {
 
     {   //RGBA
-        RGBContentV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, 80)];
+        RGBContentV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, 80)];
         
         textField_R = [[UITextField alloc] initWithFrame:CGRectMake(16, 10, 50, 30)];
         textField_R.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -85,7 +85,7 @@
         RGBAlphaLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 50, 100, 17)];
         RGBAlphaLabel.font = [UIFont systemFontOfSize:14];
         
-        RGBAlphaSlider = [[UISlider alloc] initWithFrame:CGRectMake(140, 40, DEVICE_SCREEN_WIDTH-150, 30)];
+        RGBAlphaSlider = [[UISlider alloc] initWithFrame:CGRectMake(140, 40, MYAPPConfig.screenWidth-150, 30)];
         RGBAlphaSlider.value = 1;
         [RGBAlphaSlider addTarget:self action:@selector(RGBAlphaSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         
@@ -98,7 +98,7 @@
         [self RGBAlphaSliderValueChanged:nil];
     }
     {   //0x000000A
-        hexContentV = [[UIView alloc] initWithFrame:CGRectMake(0, 80, DEVICE_SCREEN_WIDTH, 60)];
+        hexContentV = [[UIView alloc] initWithFrame:CGRectMake(0, 80, MYAPPConfig.screenWidth, 60)];
         
         textField_hex = [[UITextField alloc] initWithFrame:CGRectMake(16, 5, 100, 30)];
         textField_hex.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -110,7 +110,7 @@
         hexAlphaLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 40, 100, 17)];
         hexAlphaLabel.font = [UIFont systemFontOfSize:14];
         
-        hexAlphaSlider = [[UISlider alloc] initWithFrame:CGRectMake(140, 15, DEVICE_SCREEN_WIDTH-150, 30)];
+        hexAlphaSlider = [[UISlider alloc] initWithFrame:CGRectMake(140, 15, MYAPPConfig.screenWidth-150, 30)];
         hexAlphaSlider.value = 0.5;
         [hexAlphaSlider addTarget:self action:@selector(hexAlphaSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         
@@ -121,19 +121,19 @@
         [self hexAlphaSliderValueChanged:nil];
     }
     {   //grayscaleA
-        grayContentV = [[UIView alloc] initWithFrame:CGRectMake(0, 140, DEVICE_SCREEN_WIDTH, 60)];
+        grayContentV = [[UIView alloc] initWithFrame:CGRectMake(0, 140, MYAPPConfig.screenWidth, 60)];
         
         grayLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 6.5, 150-30, 17)];
         grayLabel.font = [UIFont systemFontOfSize:14];
         
-        graySlider = [[UISlider alloc] initWithFrame:CGRectMake(140, 0, DEVICE_SCREEN_WIDTH - 150, 30)];
+        graySlider = [[UISlider alloc] initWithFrame:CGRectMake(140, 0, MYAPPConfig.screenWidth - 150, 30)];
         graySlider.value = 0.5;
         [graySlider addTarget:self action:@selector(graySliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         
         grayAlphaLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 6.5+30, 150-30, 17)];
         grayAlphaLabel.font = [UIFont systemFontOfSize:14];
         
-        grayAlphaSlider = [[UISlider alloc] initWithFrame:CGRectMake(140, 30, DEVICE_SCREEN_WIDTH - 150, 30)];
+        grayAlphaSlider = [[UISlider alloc] initWithFrame:CGRectMake(140, 30, MYAPPConfig.screenWidth - 150, 30)];
         grayAlphaSlider.value = 0.8;
         [grayAlphaSlider addTarget:self action:@selector(graySliderValueChanged:) forControlEvents:UIControlEventValueChanged];
         
@@ -145,7 +145,7 @@
         [self graySliderValueChanged:nil];
     }
     
-    UIView *headerV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DEVICE_SCREEN_WIDTH, 200)];
+    UIView *headerV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, 200)];
     [headerV addSubview:RGBContentV];
     [headerV addSubview:hexContentV];
     [headerV addSubview:grayContentV];
@@ -241,11 +241,11 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
         
-        UIView *fillColorV = [[UIView alloc] initWithFrame:CGRectMake(DEVICE_SCREEN_WIDTH-80, 0, 80, 60)];
+        UIView *fillColorV = [[UIView alloc] initWithFrame:CGRectMake(MYAPPConfig.screenWidth-80, 0, 80, 60)];
         fillColorV.tag = 1000;
         [cell.contentView addSubview:fillColorV];
         
-        UILabel *colorNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, DEVICE_SCREEN_WIDTH-32-80, 60)];
+        UILabel *colorNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, MYAPPConfig.screenWidth-32-80, 60)];
         colorNameLabel.tag = 1001;
         [cell.contentView addSubview:colorNameLabel];
         

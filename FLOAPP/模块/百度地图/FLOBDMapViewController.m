@@ -129,7 +129,7 @@
 #pragma mark - 导航栏
 - (void)configNavigationBar
 {
-    UIView *navigationV = [[UIView alloc] initWithFrame:CGRectMake(0, 20, size.width, 44)];
+    UIView *navigationV = [[UIView alloc] initWithFrame:CGRectMake(0, MYAPPConfig.statusBarHeight, size.width, 44)];
     
     //按钮
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -172,7 +172,7 @@
     
     //设置指南针位置
     _mapView.overlooking = -30;
-    _mapView.compassPosition = CGPointMake(10, 65);
+    _mapView.compassPosition = CGPointMake(10, MYAPPConfig.navigationHeight + 10);
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -319,7 +319,7 @@
         btn.layer.borderColor = [UIColor lightGrayColor].CGColor;
         btn.layer.borderWidth = 1.;
         
-        btn.frame = CGRectMake(size.width-50, 80+37*i, 35, 27);
+        btn.frame = CGRectMake(size.width-50, MYAPPConfig.navigationHeight+20+37*i, 35, 27);
         [_mapView addSubview:btn];
     }
 }

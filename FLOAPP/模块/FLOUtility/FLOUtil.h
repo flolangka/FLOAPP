@@ -9,17 +9,6 @@
 #import <Foundation/Foundation.h>
 @class UIViewController;
 
-#define DEVICE_IPAD [[[UIDevice currentDevice] model] isEqualToString:@"iPad"]
-#define DEVICE_IPHONE [[[UIDevice currentDevice] model] isEqualToString:@"iPhone"]
-#define DEVICE_IPODTOUCH [[[UIDevice currentDevice] model] isEqualToString:@"iPod touch"]
-#define DEVICE_IOS_VERSION [[UIDevice currentDevice].systemVersion floatValue]
-
-#define DEVICE_SCREEN_WIDTH CGRectGetWidth([UIScreen mainScreen].bounds)
-#define DEVICE_SCREEN_HEIGHT CGRectGetHeight([UIScreen mainScreen].bounds)
-//2倍屏、3倍屏；乘以宽高即为分辨率
-#define DEVICE_SCREEN_SCALE [UIScreen mainScreen].scale
-
-
 //UIColor
 #define COLOR_RGB(R,G,B) [UIColor colorWithRed:(R)/255.0 green:(G)/255.0 blue:(B)/255.0 alpha:1.0]
 #define COLOR_RGB3SAME(S) [UIColor colorWithRed:(S)/255.0 green:(S)/255.0 blue:(S)/255.0 alpha:1.0]

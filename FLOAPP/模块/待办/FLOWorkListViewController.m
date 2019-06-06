@@ -123,6 +123,8 @@
 
 //切换数据源
 - (void)changeSelectedSegmentIndex:(NSInteger)index {
+    [self.tableView setContentOffset:CGPointZero animated:NO];
+    
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSArray *arr = [self.viewModel workItemViewModelsAtStatus:index];
         
@@ -307,13 +309,6 @@
 
 - (void)workListCellClickTitleLeftButton:(FLOWorkListCell *)cell {
     if (cell.viewModel.item.status == 0) {
-        //修改
-        [self gotoEditViewControllerWithEditItemViewModel:cell.viewModel];
-    }
-}
-
-- (void)workListCellClickTitleRightButton:(FLOWorkListCell *)cell {
-    if (cell.viewModel.item.status == 0) {
         //点击undo
         [cell.viewModel.item updateWorkStatus:1];
     } else {
@@ -322,6 +317,13 @@
     }
     
     [self removeWorkItemCellWithViewModel:cell.viewModel];
+}
+
+- (void)workListCellClickTitleRightButton:(FLOWorkListCell *)cell {
+    if (cell.viewModel.item.status == 0) {
+        //修改
+        [self gotoEditViewControllerWithEditItemViewModel:cell.viewModel];
+    }
 }
 
 @end

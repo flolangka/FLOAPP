@@ -53,7 +53,7 @@
 }
 
 - (void)createEditView {
-    _editScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-MYAPPConfig.navigationBarHeight)];
+    _editScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-MYAPPConfig.navigationHeight)];
     _editScrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     _editScrollView.backgroundColor = COLOR_RGB(56, 64, 79);
     

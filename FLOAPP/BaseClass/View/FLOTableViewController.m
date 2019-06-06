@@ -41,7 +41,7 @@
 #pragma mark -
 
 - (void)configTableView {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-MYAPPConfig.navigationBarHeight) style:self.viewModel.tableViewStyle];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, MYAPPConfig.screenWidth, MYAPPConfig.screenHeight-MYAPPConfig.navigationHeight) style:self.viewModel.tableViewStyle];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     
