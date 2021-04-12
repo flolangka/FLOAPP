@@ -44,6 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = COLOR_HEX(0x000000);
 
     [self createContentView];
     [self createTitleView];

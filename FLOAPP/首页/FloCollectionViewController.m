@@ -250,8 +250,10 @@ UIViewControllerPreviewingDelegate>
         
         if (nav) {
             UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:vc];
+            navC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             [self presentViewController:navC animated:NO completion:nil];
         } else {
+            vc.modalPresentationStyle = UIModalPresentationOverCurrentContext;
             [self presentViewController:vc animated:NO completion:nil];
         }
     } else if ([itemAddress hasSuffix:@"ViewModel"]) {

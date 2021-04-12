@@ -68,6 +68,8 @@
 
 - (void)dealloc
 {
+    [_mapView removeObserver:self forKeyPath:@"userTrackingMode" context:nil];
+    
     searchTF.delegate = nil;
     locationService.delegate = nil;
     
@@ -181,8 +183,6 @@
     [_mapView viewWillDisappear];
     _mapView.delegate = nil; // 不用时，置nil
     poiSearch.delegate = nil;
-    
-    [_mapView removeObserver:self forKeyPath:@"userTrackingMode" context:nil];
 }
 
 - (void)goBackAction
