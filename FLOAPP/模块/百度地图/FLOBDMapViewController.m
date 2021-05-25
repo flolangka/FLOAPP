@@ -40,7 +40,7 @@
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             BMKMapManager *bdManager = [[BMKMapManager alloc]init];
-            [bdManager start:@"ZbXFn3fQqGNxn3TYmtqRhUUB" generalDelegate:nil];
+            [bdManager start:BAIDUMapKey generalDelegate:nil];
         });
     }
     return self;

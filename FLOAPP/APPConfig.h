@@ -16,5 +16,8 @@ static NSString *WXAppSecret = @"....";
 //高德
 static NSString *GAODEWebServiceKey = @"228d2810df59cb83d930fee8532d0a20";
 
+//百度地图
+static NSString *BAIDUMapKey = @"ZbXFn3fQqGNxn3TYmtqRhUUB";
+
 
 #endif /* APPConfig_h */

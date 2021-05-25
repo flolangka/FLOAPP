@@ -41,23 +41,6 @@
 
 
 
-### Noti:
-[ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveObjC) 是作为 [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) 添加到项目中的，so有2种clone方法：
-###### 1
-```
-git clone --recurse-submodules https://github.com/flolangka/FLOAPP.git
-```
-###### 2
-```
-git clone https://github.com/flolangka/FLOAPP.git
-cd FLOAPP
-git submodule update --init --recursive
-```
-###### End
-```
-pod install
-```
-
 
 
 
