@@ -97,6 +97,7 @@
         Class ob = NSClassFromString(@"FLOBDMapViewController");
         UIViewController *viewController = [[ob alloc] init];
         viewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        viewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         
         [NavController.topViewController presentViewController:viewController animated:NO completion:nil];
     } else if ([touchType isEqualToString:@"notifyValue"]) {
