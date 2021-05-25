@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Flolangka" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1X-h1-18Q">
-                                <rect key="frame" x="62.5" y="382" width="250" height="44"/>
+                                <rect key="frame" x="62.5" y="542" width="250" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="6Sf-ak-mYp"/>
                                     <constraint firstAttribute="width" constant="250" id="C9g-GV-Aal"/>
@@ -32,14 +30,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLO" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Sd-cdh">
-                                <rect key="frame" x="60" y="70" width="255" height="255"/>
+                                <rect key="frame" x="60" y="50" width="255" height="255"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="255" id="OQe-ny-Lgn"/>
                                     <constraint firstAttribute="width" constant="255" id="oVi-OM-f2k"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://flolangka.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtk-RM-6Ob">
-                                <rect key="frame" x="88.5" y="434" width="198" height="26"/>
+                                <rect key="frame" x="88.5" y="601" width="198" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="198" id="cuN-cX-Ygo"/>
                                     <constraint firstAttribute="height" constant="26" id="nal-if-INB"/>
@@ -54,9 +52,9 @@
                             <constraint firstItem="AXb-Sd-cdh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="90r-i3-g4X"/>
                             <constraint firstItem="F1X-h1-18Q" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="O66-3u-7RR"/>
                             <constraint firstItem="dtk-RM-6Ob" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UMG-BD-8Wb"/>
-                            <constraint firstItem="dtk-RM-6Ob" firstAttribute="top" secondItem="F1X-h1-18Q" secondAttribute="bottom" constant="8" id="X6w-3X-Gdp"/>
                             <constraint firstItem="AXb-Sd-cdh" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="50" id="m2d-12-eF9"/>
-                            <constraint firstItem="F1X-h1-18Q" firstAttribute="top" secondItem="AXb-Sd-cdh" secondAttribute="bottom" constant="57" id="pe6-iv-odv"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="dtk-RM-6Ob" secondAttribute="bottom" constant="40" id="uVo-1a-voY"/>
+                            <constraint firstItem="dtk-RM-6Ob" firstAttribute="top" secondItem="F1X-h1-18Q" secondAttribute="bottom" constant="15" id="zdV-EL-Zcy"/>
                         </constraints>
                     </view>
                 </viewController>
