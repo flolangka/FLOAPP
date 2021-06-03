@@ -85,6 +85,8 @@
 	<string>请点击"允许"启动定位服务</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>是否允许此App访问你的媒体资料库？</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>是否允许此App访问你的FaceID？</string>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
