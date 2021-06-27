@@ -172,12 +172,72 @@
 
 //归并
 - (void)MergeSort:(NSMutableArray *)muArr {
+    NSArray *result = [self MergeSortArr:muArr];
+    for (NSInteger i = 0; i < result.count; i++) {
+        [self updateValue:[result[i] floatValue] atIndex:i];
+    }
+}
+- (NSMutableArray *)MergeSortArr:(NSMutableArray *)muArr {
+    if (muArr.count < 2) {
+        return muArr;
+    }
     
+    NSInteger mid = ceilf(muArr.count / 2.);
+    return [self MergeSortLeft:[self MergeSortArr:[[muArr subarrayWithRange:NSMakeRange(0, mid)] mutableCopy]]
+                         right:[self MergeSortArr:[[muArr subarrayWithRange:NSMakeRange(mid, muArr.count-mid)] mutableCopy]]];
+}
+- (NSMutableArray *)MergeSortLeft:(NSMutableArray *)arrLeft right:(NSMutableArray *)arrRight {
+    NSMutableArray *result = [NSMutableArray array];
+    
+    while (arrLeft.count && arrRight.count) {
+        if ([arrLeft.firstObject floatValue] <= [arrRight.firstObject floatValue]) {
+            [result addObject:arrLeft.firstObject];
+            
+            [arrLeft removeObjectAtIndex:0];
+        } else {
+            [result addObject:arrRight.firstObject];
+            
+            [arrRight removeObjectAtIndex:0];
+        }
+    }
+    
+    [result addObjectsFromArray:arrLeft];
+    [result addObjectsFromArray:arrRight];
+    
+    return result;
 }
 
 //快速
 - (void)QuickSort:(NSMutableArray *)muArr {
-    
+    [self QuickSort:muArr startIndex:0 endIndex:muArr.count-1];
+}
+- (void)QuickSort:(NSMutableArray *)muArr startIndex:(NSInteger)start endIndex:(NSInteger)end {
+    if (start < end) {
+        //以start元素为基准
+        NSInteger mid = start;
+        
+        for (NSInteger i = start+1; i <= end; i++) {
+            if ([muArr[i] floatValue] < [muArr[mid] floatValue]) {
+                NSNumber *value = muArr[i];
+                
+                //基数后一位换到i的位置
+                //基数往后挪一位
+                //将i元素插入到基数原位置
+                muArr[i]     = muArr[mid+1];
+                muArr[mid+1] = muArr[mid];
+                muArr[mid]   = value;
+                
+                [self updateValue:[muArr[mid] floatValue] atIndex:mid];
+                [self updateValue:[muArr[mid+1] floatValue] atIndex:mid+1];
+                [self updateValue:[muArr[i] floatValue] atIndex:i];
+                
+                mid++;
+            }
+        }
+        
+        [self QuickSort:muArr startIndex:start endIndex:mid-1];
+        [self QuickSort:muArr startIndex:mid+1 endIndex:end];
+    }
 }
 
 //基数
